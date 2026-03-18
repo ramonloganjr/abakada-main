@@ -1,0 +1,601 @@
+{
+    "meta": {
+        "code": "ilo",
+        "name": "Ilokano",
+        "nativeName": "Iloko",
+        "direction": "ltr"
+    },
+    "languages": {
+        "en": "Ingles",
+        "tl": "Tagalog",
+        "ilo": "Ilokano",
+        "bis": "Bisaya"
+    },
+    "nav": {
+        "home": "Pagtaengan",
+        "tools": "Dagiti Ramit",
+        "about": "Maipapan",
+        "contact": "Makiuman",
+        "privacy": "Pribado",
+        "search": "Agsapul iti ramit...",
+        "menu": "Menu",
+        "close": "Ikeddeng",
+        "bookmarks": "Dagiti Bookmark",
+        "compare": "Ipagpada Dagiti Ramit",
+        "learningPaths": "Dagiti Dalan ti Panagadal"
+    },
+    "hero": {
+        "title": "Dagiti Open Source a",
+        "titleHighlight": "Ramit ti Produktibidad",
+        "subtitle": "Diskubrien dagiti nabileg, libre, ken open-source a ramit ti produktibidad a naurnos segun iti kategoria. Manipud iti panagproseso ti dokumento agingga iti panagtaripatu ti proyekto, biroken dagiti umiso a ramit para iti trabahom.",
+        "statsTools": "Dagiti Ramit",
+        "statsCategories": "Dagiti Kategoria",
+        "statsOpenSource": "Open Source"
+    },
+    "groups": {
+        "productivity": "Produktibidad",
+        "creative": "Panagaramid",
+        "data": "Datos ken Panagsukisok",
+        "security": "Seguridad",
+        "media": "Media",
+        "utilities": "Dagiti Utility",
+        "development": "Development",
+        "business": "Negosio"
+    },
+    "categories": {
+        "all": "Amin a Ramit",
+        "doc-processing": "Panagproseso ti Dokumento",
+        "data-processing": "Panagproseso ti Datos",
+        "design": "Disenio ken Ladawan",
+        "desktop-publishing": "Panag-imprenta iti Desktop",
+        "ebook": "Panagtaripatu ti E-book",
+        "encryption": "Panag-encrypt ken Seguridad",
+        "file": "Dagiti Ramit ti File",
+        "geographic": "Heograpia ken Mapa",
+        "health": "Salun-at ken Kinagimong",
+        "media": "Dagiti Media Player ken Editor",
+        "math": "Matematika ken Siensia",
+        "notes": "Panagsurat iti Nota",
+        "password": "Panagtaripatu ti Password",
+        "finance": "Personal a Pinansias",
+        "privacy": "Pribado ken Seguridad",
+        "project": "Panagtaripatu ti Proyekto",
+        "reference": "Panagtaripatu ti Reperensia",
+        "visualization": "Bisualisasion ken Dayagram",
+        "education": "Edukasion ken Panagisuro",
+        "development": "Dagiti Ramit ti Development",
+        "devops": "DevOps ken Imprastraktura",
+        "database": "Dagiti Ramit ti Database",
+        "networking": "Networking",
+        "communication": "Komunikasion",
+        "automation": "Automation",
+        "ai-ml": "AI ken Machine Learning",
+        "gaming": "Gaming",
+        "backup": "Backup ken Panagsubli",
+        "monitoring": "Panagmonitor ken Obserbasion",
+        "cms": "Panagtaripatu ti Linaon",
+        "ecommerce": "E-commerce",
+        "crm": "CRM ken Panaglaklako",
+        "science": "Sientipiko a Komputasion",
+        "audio": "Produksion ti Audio",
+        "video": "Produksion ti Video",
+        "3d": "3D ken CAD",
+        "photography": "Potograpiya",
+        "writing": "Panagsurat ken Panagipablaak",
+        "testing": "Panagsubok ken QA",
+        "api": "API Development",
+        "mobile": "Mobile Development",
+        "web": "Web Development",
+        "virtualization": "Virtualization",
+        "homelab": "Home Lab ken Self-Hosting",
+        "security-tools": "Dagiti Ramit ti Seguridad"
+    },
+    "categoryDescriptions": {
+        "doc-processing": "Dagiti office suite, collaborative wiki, ken ramit ti dokumento",
+        "data-processing": "Panag-analisa ti estadistika, panagmina ti datos, ken ramit ti panagsukisok",
+        "design": "Panag-edit ti ladawan, vector graphics, ken ramit ti disenio",
+        "desktop-publishing": "Propesional a layout ken software ti typesetting",
+        "ebook": "Dagiti E-book reader, converter, ken tagataripatu ti library",
+        "encryption": "Panag-encrypt ti disk ken ramit ti seguridad ti file",
+        "file": "Panagiyakar ti file, panag-sync, compression, ken panagbingay",
+        "geographic": "GIS, panagmapa, ken software ti nabigasion",
+        "health": "Panagsurot ti salun-at ken dagiti aplikasion ti kinagimong",
+        "media": "Dagiti ramit ti audio, video, ken animasion",
+        "math": "Computer algebra ken sientipiko a komputasion",
+        "notes": "Dagiti note app, knowledge base, ken wiki",
+        "password": "Dagiti secure a tagataripatu ti password ken vault",
+        "finance": "Panagbadyet, accounting, ken ramit ti pinansias",
+        "privacy": "Email aliasing, VPN, ken ramit ti pribado",
+        "project": "Panagplano ti proyekto ken agile a panagtaripatu",
+        "reference": "Dagiti tagataripatu ti citation ken bibliography",
+        "visualization": "Mind mapping, panag-drawing ti dayagram, ken flowchart",
+        "education": "Dagiti learning management system, ramit ti silid-eskuelaan, ken software ti edukasion",
+        "development": "Dagiti IDE, code editor, version control, ken utility para kadagiti developer",
+        "devops": "CI/CD, container, orkestrasion, ken ramit ti imprastraktura",
+        "database": "Panagtaripatu ti database, dagiti client, ken panag-modelo ti datos",
+        "networking": "Panagmonitor ti network, panag-analisa, ken ramit ti panagtaripatu",
+        "communication": "Chat, email, video conferencing, ken kolaborasion",
+        "automation": "Panag-automate ti trabaho, panagsurat ti script, ken ramit ti workflow",
+        "ai-ml": "Dagiti framework ti machine learning, ramit ti AI, ken data science",
+        "gaming": "Dagiti game engine, emulator, ken utility ti gaming",
+        "backup": "Dagiti solusyon ti backup, disaster recovery, ken proteksion ti datos",
+        "monitoring": "Panagmonitor ti sistema, panag-log, ken panag-analisa ti performance",
+        "cms": "Dagiti CMS platform, static site generator, ken web publishing",
+        "ecommerce": "Dagiti platform ti online store ken solusyon ti panagbayad",
+        "crm": "Panagtaripatu ti relasyon ti customer ken ramit ti panaglaklako",
+        "science": "Sientipiko a simulasion, panag-modelo, ken ramit ti panagsukisok",
+        "audio": "Dagiti digital audio workstation, panag-edit ti audio, ken produksion ti musika",
+        "video": "Panag-edit ti video, streaming, ken ramit ti produksion",
+        "3d": "3D modeling, CAD, ken software ti rendering",
+        "photography": "Panag-edit ti ladawan, RAW processing, ken panagtaripatu ti ladawan",
+        "writing": "Dagiti ramit ti panagsurat, markdown editor, ken publishing platform",
+        "testing": "Dagiti testing framework, ramit ti QA, ken test automation",
+        "api": "Panagdisenio ti API, panagsubok, ken dokumentasion",
+        "mobile": "Dagiti framework ken ramit ti mobile app development",
+        "web": "Dagiti web framework, frontend tool, ken web server",
+        "virtualization": "Dagiti virtual machine, hypervisor, ken emulasion",
+        "homelab": "Dagiti self-hosted a serbisyo ken solusyon ti home server",
+        "security-tools": "Panag-scan ti seguridad, penetration testing, ken panag-assess ti kakapuyan"
+    },
+    "tools": {
+        "header": "Kitaen Dagiti Ramit",
+        "allTools": "Amin a Ramit",
+        "showing": "Maipakita",
+        "of": "iti",
+        "toolsLabel": "ramit",
+        "viewDetails": "Kitaen ti Detalye",
+        "visitWebsite": "Bisitaen ti Website ken I-download",
+        "viewSource": "Kitaen ti Source Code",
+        "viewRepo": "Kitaen ti Repository",
+        "license": "Lisensia",
+        "platforms": "Dagiti Platform",
+        "tags": "Dagiti Tag",
+        "close": "Ikeddeng",
+        "description": "Deskripsion",
+        "features": "Dagiti Tampok",
+        "download": "I-download",
+        "documentation": "Dokumentasion",
+        "alternativeTo": "Alternatibo iti"
+    },
+    "featured": {
+        "label": "Naisangsangayan",
+        "title": "Dagiti Pinili ti Editor",
+        "subtitle": "Dagiti ramit a napili gapu iti kalidad, tampok, ken suporta ti komunidad.",
+        "viewTool": "Kitaen"
+    },
+    "platforms": {
+        "windows": "Windows",
+        "macos": "macOS",
+        "linux": "Linux",
+        "ios": "iOS",
+        "android": "Android",
+        "web": "Web",
+        "self-hosted": "Bukod a Host"
+    },
+    "search": {
+        "placeholder": "Agsapul iti ramit...",
+        "noResults": "Awan ti nasarakan a ramit",
+        "noResultsFor": "Awan ti nasarakan a resulta",
+        "noResultsQuery": "Saanmi a nasarakan dagiti ramit a maipada iti",
+        "noResultsDesc": "Padasem a sukatan ti panagbirokmo wenno pamantayan ti filter",
+        "noFilterResults": "Awan ti maipada a ramit",
+        "noFilterDesc": "Awan ti ramit a maipada kadagiti napili a filter. Padasem a sukatan dagiti filter-mo.",
+        "noCategoryTools": "Awan ti ramit iti daytoy a kategoria",
+        "noCategoryDesc": "Awan pay dagiti ramit iti daytoy a kategoria.",
+        "noTools": "Awan ti magun-od a ramit",
+        "noToolsDesc": "Agparang ditoy dagiti ramit no mainayon.",
+        "clear": "Buraen ti panagbirok",
+        "clearFilters": "Buraen dagiti filter",
+        "trySearch": "Agsapul iti ramit",
+        "suggestions": "Padasem agsapul iti",
+        "results": "dagiti resulta",
+        "searching": "Agsapsapul..."
+    },
+    "filters": {
+        "title": "Dagiti Filter",
+        "platforms": "Dagiti Platform",
+        "tags": "Dagiti Tag",
+        "clear": "Buraen amin",
+        "active": "aktibo"
+    },
+    "pagination": {
+        "prev": "Napalabas",
+        "next": "Sumaruno",
+        "page": "Panid",
+        "of": "iti"
+    },
+    "theme": {
+        "light": "Nalawag",
+        "dark": "Nasipnget",
+        "system": "Sistema",
+        "toggle": "Sukatan ti tema"
+    },
+    "footer": {
+        "description": "Maysa a koleksion dagiti libre ken open-source a software tools para kadagiti Pilipino nga estudiante, iskolar, mannursuro, ken propesional.",
+        "quickLinks": "Dagiti Napardas a Link",
+        "allTools": "Amin a Ramit",
+        "categories": "Dagiti Kategoria",
+        "about": "Maipapan Kadakami",
+        "resources": "Dagiti Rekurso",
+        "bookmarks": "Dagiti Bookmark",
+        "compare": "Dagiti Ramit ti Panagipagpada",
+        "learningPaths": "Dagiti Dalan ti Panagadal",
+        "faq": "Frequently Asked Questions",
+        "contribute": "Makipaset iti GitHub",
+        "openSourceInitiative": "Open Source Initiative",
+        "opensourceCom": "Opensource.com",
+        "abakada": "Abakada",
+        "contact": "Makiuman",
+        "privacyPolicy": "Pagannurotan ti Pribado",
+        "sitemap": "Mapa ti Site",
+        "copyright": "Brown and Proud. Show your support by sharing this website.",
+        "copyright_line1": "Brown and Proud.",
+        "copyright_line2": "Show your support by sharing this website.",
+        "openSource": "100% Open Source",
+        "license": "MIT | CC BY 4.0",
+        "badge": "100% Open Source"
+    },
+    "accessibility": {
+        "skipToContent": "Lumaktaw iti kangrunaan a linaon",
+        "menuOpen": "Lukatan ti menu",
+        "menuClose": "Ikeddeng ti menu",
+        "themeToggle": "Sukatan ti tema",
+        "languageSelect": "Agpili iti pagsasao",
+        "searchClear": "Buraen ti panagbirok",
+        "modalClose": "Ikeddeng ti modal",
+        "categoryFilter": "I-filter segun iti kategoria",
+        "loading": "Agkarkarga...",
+        "error": "Adda napasamak a biddut"
+    },
+    "common": {
+        "loading": "Agkarkarga...",
+        "error": "Biddut",
+        "success": "Naballigi",
+        "cancel": "Kanselaen",
+        "save": "I-save",
+        "delete": "Ikkaten",
+        "edit": "I-edit",
+        "view": "Kitaen",
+        "back": "Agsubli",
+        "next": "Sumaruno",
+        "previous": "Napalabas",
+        "yes": "Wen",
+        "no": "Saan",
+        "or": "wenno",
+        "and": "ken",
+        "free": "Libre",
+        "open": "Lukat",
+        "close": "Ikeddeng",
+        "more": "Ad-adu pay",
+        "less": "Basbassit",
+        "all": "Amin",
+        "none": "Awan"
+    },
+    "health": {
+        "active": "Aktibo",
+        "stable": "Natibker",
+        "stale": "Daan",
+        "activeTooltip": "Aktibo a mapadpadaan",
+        "stableTooltip": "Adda iti maintenance mode",
+        "staleTooltip": "Mabalin a saan a mapadpadaan",
+        "lastUpdated": "Naudi a na-update"
+    },
+    "license": {
+        "openSource": "Open Source",
+        "freeware": "Freeware",
+        "proprietary": "Proprietary"
+    },
+    "time": {
+        "now": "Ita",
+        "today": "Ita nga Aldaw",
+        "yesterday": "Idi Kalman",
+        "tomorrow": "Inton Bigat",
+        "days": "aldaw",
+        "hours": "oras",
+        "minutes": "minuto",
+        "ago": "idi"
+    },
+    "pages": {
+        "about": {
+            "title": "Maipapan Kadakami",
+            "pageTitle": "Maipapan Kadakami - Abakada | Libre a Ramit para kadagiti Estudiante ken Mannursuro",
+            "heroTitle": "Para iti Tunggal Pilipino",
+            "heroSubtitle": "Mangted ti pannakabalin iti tunggal Pilipino babaen ti libre ken nalaka a ma-access a ramit ti produktibidad—manipud kadagiti estudiante kadagiti adayo a barangay agingga kadagiti mannursuro a mangporma iti sumaruno a henerasion.",
+            "missionTitle": "Ti Misiontayo",
+            "missionText1": "Ti Abakada ket naituon iti panagserbisio iti amin a tattao ti Pilipinas babaen ti panangted ti libre nga access kadagiti nabileg a ramit ti produktibidad. Patientayo a ti kalidad a software ket saan a rumbeng nga agbalin a lapped iti edukasion wenno balligi.",
+            "missionText2": "Ti espesial a pokustayo ket ti panangsuporta kadagiti underprivileged nga iskolar a maikari iti isu met laeng a digital a rekurso kas kadagiti kakaduana. Babaen ti panag-curate kadagiti kasayaatan a libre ken open-source a ramit, tulongantayo a mangpatas ti tay-ak para iti tunggal Pilipino nga agad-adal.",
+            "educatorsTitle": "Para kadagiti Mannursuro",
+            "educatorsText1": "Mangitedkami kadagiti espesializado a glossary tool a naidisinio tapno tulongan dagiti mannursuro iti panagisuro. Dagitoy a rekurso tumulong kadagiti edukador a mangilawlawag kadagiti komplikado a konsepto, mangpartuat kadagiti materiales ti panagadal, ken mangpasayaat ti pannakipaset iti silid-eskuelaan.",
+            "educatorsText2": "Manipud iti panagplano ti leksion agingga iti panag-assess ti estudiante, suportaran ti curated a koleksiontayo dagiti mannursuro iti amin a subject ken grade level iti intero a Pilipinas.",
+            "visionLabel": "Ti Bisiontayo",
+            "visionTitle": "Digital a Kinnapatas para iti Amin",
+            "visionText1": "Iladawantayo ti Pilipinas a ti tunggal estudiante—aniaman ti kasasaad ti ekonomia wenno lokasion—ket addaan access iti isu met laeng a nabileg a digital a ramit kas kadagiti kakaduana iti intero a lubong.",
+            "visionText2": "Babaen ti panag-curate ken panangipromote kadagiti libre, open-source nga alternatibo kadagiti nangina a software, tulongantayo a mangrangtay ti digital divide maysa a ramit iti tunggal gundaway.",
+            "valuesTitle": "Dagiti Patakarantayo",
+            "valuesSubtitle": "Dagiti prinsipyo a mangiturong iti amin nga aramidentayo iti Abakada.",
+            "valueAccessibility": "Accessibility",
+            "valueAccessibilityText": "Libre a ramit para iti amin, sadinoman iti Pilipinas.",
+            "valueQuality": "Kalidad",
+            "valueQualityText": "Dagiti kasayaatan laeng nga open-source a ramit ti makastrek iti koleksiontayo.",
+            "valueCommunity": "Komunidad",
+            "valueCommunityText": "Inaramid dagiti Pilipino, para kadagiti Pilipino, nga addaan ayat.",
+            "valueOpenSource": "Open Source",
+            "valueOpenSourceText": "Transparency ken kolaborasion iti core-tayo.",
+            "storyTitle": "Ti Estoriatayo",
+            "storyText1": "Ti Abakada ket naipasngay manipud iti simple nga obserbasion: adu a Pilipino nga estudiante ti agrigrigat a mang-access kadagiti isu met laeng a digital a ramit a maaw-awat dagiti kakaduana kadagiti nabaknang a pagilian. Dagiti nangina a software license ket mangpartuat kadagiti lapped a saan a rumbeng nga adda iti edukasion.",
+            "storyText2": "Nangrugitayo iti panag-compile ti listaan dagiti libre nga alternatibo kadagiti popular a bayadan a software. Ti nangrugi a kas personal a rekurso ket napardas a dimmakkel iti dakdakkel a banag—maysa a komprehensibo a direktoryo a naidisinio a partikular para iti konteksto ti Pilipino, nga addaan kadagiti ramit nga agtrabaho offline, kadagiti daan a hardware, ken kadagiti lugar nga addaan limitado a koneksion iti internet.",
+            "storyText3": "Ita, ti Abakada ket agserserbisio kadagiti estudiante, mannursuro, ken propesional iti intero a Pilipinas, tumultulong kadakuada a mangdiskubre kadagiti nabileg a ramit nga awan bayadna ngem mangited ti amin."
+        },
+        "contact": {
+            "title": "Makiuman Kadakami",
+            "pageTitle": "Makiuman Kadakami - Abakada Open Source Productivity Tools",
+            "heroTitle": "Makiuman Kadakami",
+            "heroSubtitle": "Kayattayo a mangngeg manipud kenka. No addaanka saludsod, singasing, wenno kayatmo ti makipaset—makiumanka iti aniaman nga oras.",
+            "getInTouchTitle": "Makiuman",
+            "getInTouchText": "Addaan saludsod, singasing, wenno kayatmo ti makipaset? Kanayon a naragsakkami a mangngeg manipud iti komunidad. Makiumanka kadakami ket agsublitayo kenka iti kabiitan.",
+            "emailTitle": "Email",
+            "emailNote": "Kadawyan a sumungbatkami iti uneg ti 24-48 nga oras",
+            "githubTitle": "GitHub",
+            "githubNote": "Manglukat kadagiti issue, mangisumite ti PR, wenno i-star ti proyekto",
+            "howCanWeHelpTitle": "Kasano a Makatulongkami?",
+            "suggestToolTitle": "Mangsingasing ti Ramit",
+            "suggestToolText": "Ammom kadi ti nasayaat nga open-source a ramit nga awan kadakami? Ipakaammom kadakami ket repasuentayo tapno mairaman.",
+            "reportIssueTitle": "Mangreport ti Isyu",
+            "reportIssueText": "Nakakitaka ti di umiso nga impormasion wenno nadadael a link? Tulongannakam a mangtaginayon ti kinaeksakto ti direktoryo.",
+            "partnershipTitle": "Pannakikadua",
+            "partnershipText": "Interesadoka iti pannakikadua wenno pannaki-partner iti Abakada? Silulukatkami kadagiti oportunidad.",
+            "generalInquiryTitle": "Sapasap a Saludsod",
+            "generalInquiryText": "Addaan saludsod wenno kayatmo laeng ti mangkablaaw? Kayattayo a mangngeg manipud kenka."
+        },
+        "privacy": {
+            "title": "Pagannurotan ti Pribado",
+            "pageTitle": "Pagannurotan ti Pribado - Abakada Open Source Productivity Tools",
+            "heroTitle": "Pagannurotan ti Pribado",
+            "lastUpdated": "Naudi a na-update"
+        },
+        "faq": {
+            "title": "Masansan a Saludsod",
+            "pageTitle": "Masansan a Saludsod - Abakada",
+            "heroTitle": "Masansan a Saludsod",
+            "heroSubtitle": "Amin a masapul a maammuam maipapan iti Abakada ken no kasano a mapagsayaat ti panagusar iti direktoryo dagiti open-source a ramit."
+        },
+        "sitemap": {
+            "title": "Mapa ti Site",
+            "pageTitle": "Mapa ti Site - Abakada | Ag-navigate iti 1000+ a Libre nga Open Source a Ramit",
+            "heroTitle": "Mapa ti Site",
+            "heroSubtitle": "Ag-navigate iti kompleto a koleksiontayo dagiti panid ken kategoria ti ramit. Biroken ti eksakto a sapsapulem.",
+            "mainPagesTitle": "Kangrunaan a Panid",
+            "mainPagesSubtitle": "Dagiti kangrunaan a panid ti plataporma ti Abakada",
+            "categoriesTitle": "Dagiti Kategoria ti Ramit",
+            "categoriesSubtitle": "Ag-browse kadagiti ramit a naurnos segun iti grupo ti kategoria",
+            "externalTitle": "Dagiti Akinruar a Rekurso",
+            "externalSubtitle": "Dagiti mainaig a link ken rekurso ti komunidad",
+            "home": "Pagtaengan",
+            "homeDesc": "Ag-browse iti amin a 1000+ nga open-source a ramit",
+            "about": "Maipapan Kadakami",
+            "aboutDesc": "Ti misiontayo ken dagiti patakarantayo",
+            "contact": "Makiuman",
+            "contactDesc": "Makiuman kadakami",
+            "faq": "Masansan a Saludsod",
+            "faqDesc": "Dagiti masansan a maisaludsod",
+            "privacy": "Pagannurotan ti Pribado",
+            "privacyDesc": "No kasano a salaknibantayo ti datosmo",
+            "github": "GitHub Repository",
+            "githubDesc": "Makipaset iti proyekto",
+            "osi": "Open Source Initiative",
+            "osiDesc": "Agadal maipapan iti open source",
+            "productivityGroup": "Produktibidad",
+            "creativeGroup": "Panagaramid",
+            "dataGroup": "Datos ken Panagsukisok",
+            "securityGroup": "Seguridad",
+            "mediaGroup": "Media",
+            "utilitiesGroup": "Dagiti Utility",
+            "developmentGroup": "Development",
+            "businessGroup": "Negosio"
+        },
+        "partnerships": {
+            "title": "Panagkakadua",
+            "pageTitle": "Panagkakadua - Makikadua sa Abakada para Pabigbigen ti Edukasyon dagiti Pilipino",
+            "heroTitle": "Makikadua Kadakami",
+            "heroSubtitle": "Kaduakami a mangpabigbig kadagiti estudyante ken mannursuro a Pilipino babaen kadagiti libre ken napigsa a digital tools. Agtitinnulongtayo a mangituang ti digital divide.",
+            "stats": {
+                "tools": "Libre a Ramramit",
+                "categories": "Kategoria a Sakup",
+                "languages": "Lengguahe a Suporta",
+                "students": "Estudyante a Natulungan"
+            },
+            "collaboration": {
+                "title": "Dagiti Modelo ti Panagtitinnulong",
+                "subtitle": "Mangitukonkami kadagiti naipasadya a wagas ti panagkakadua a maitunos kadagiti rekurso ken gandat ti organisasionyo.",
+                "techTitle": "Kadua sa Teknolohiya",
+                "techText": "Mangited ti imprastraktura, hosting, software credits, wenno teknikal a tulong tapno masuportaran ti operasion ken panagdur-as ti platform-mi.",
+                "eduTitle": "Kadua sa Edukasyon",
+                "eduText": "Dagiti eskuelaan, unibersidad, ken sentro ti panagsanay a makikadua tapno direkta a maiyeg dagiti libre a tool kadagiti estudyante ken mangisursuro.",
+                "commTitle": "Kadua sa Komunidad",
+                "commText": "Suportaran dagiti outreach program, hackathon, ken pasamak a mangital-o ti digital literacy ken open-source.",
+                "contentTitle": "Kadua sa Nilalaman",
+                "contentText": "Tumulong a mangaramid kadagiti educational guides, tutorials, ken lokal a rekurso tapno maaramat a nasayaat ti komunidad dagiti tools."
+            },
+            "why": {
+                "title": "Apay a Makikadua sa Abakada?",
+                "subtitle": "Itunos ti brandyo iti makabuluhan a panggep ken pabigbigen ti sumaruno a henerasion dagiti Pilipino a manangbangon.",
+                "accessTitle": "Access iti Komunidad",
+                "accessText": "Direkta a maabot dagiti rinibu nga estudyante, mannursuro, ken developer nga aktibo a mangsapsapul kadagiti digital tools.",
+                "equityTitle": "Brand Equity",
+                "equityText": "Ipakita ti Corporate Social Responsibility (CSR) babaen ti panagsuporta iti libre nga access iti edukasyon ken teknolohiya.",
+                "leadershipTitle": "Liderato iti Panagpanunot",
+                "leadershipText": "Iposision ti organisasionyo kas kangrunaan a nangitag-ay ti digital ecosystem ken inobasyon iti Pilipinas."
+            },
+            "cta": {
+                "title": "Nakasagana Kadi a Mangaramid ti Panagbalbaliw?",
+                "text": "I-download ti partnership deck-mi para iti detalyado nga impormasyon, wenno makiuman tapno mapag-usapan ti naipasadya a pakete a maitunos iti gandat ti organisasionyo.",
+                "contact": "Makiuman",
+                "deck": "Kitaen ti Partnership Deck"
+            }
+        }
+    },
+    "pwa": {
+        "install": "I-install ti App",
+        "installAriaLabel": "I-install ti Abakada App"
+    },
+    "bookmark": {
+        "add": "I-bookmark",
+        "remove": "Ikkaten ti bookmark",
+        "storageUnavailable": "Saan a masalbar dagiti bookmark — saan a magun-od ti storage iti daytoy a sesyon",
+        "pageTitle": "Dagiti Bookmark",
+        "emptyTitle": "Awan pay dagiti bookmark",
+        "emptyDesc": "I-save dagiti ramit a kayatmo a subalen babaen ti panagklik iti bookmark icon iti aniaman a tool card.",
+        "browseTools": "Ag-browse kadagiti Ramit"
+    },
+    "compare": {
+        "title": "Ipagpada Dagiti Ramit",
+        "add": "Ipagpada",
+        "remove": "Ikkaten iti panagipagpada",
+        "clear": "Buraen ti panagipagpada",
+        "emptyTitle": "Awan ti napili a ramit",
+        "emptyDesc": "Agpili ti dua wenno ad-adu a ramit manipud iti home page tapno maipagpada dagitoy.",
+        "browseTools": "Ag-browse kadagiti Ramit",
+        "tableLabel": "Talaon ti panagipagpada ti ramit",
+        "stackLabel": "Dagiti card ti panagipagpada ti ramit",
+        "dimension": "Dimensyon",
+        "removeTool": "Ikkaten ti {{name}}",
+        "maxReached": "Maximum a uppat a ramit ti maipagpada",
+        "dimensions": {
+            "name": "Nagan",
+            "category": "Kategoria",
+            "platforms": "Dagiti Platform",
+            "offlineCapable": "Agtrabaho Offline",
+            "easeOfUse": "Nalaka a Pagusar",
+            "features": "Dagiti Tampok",
+            "license": "Lisensia",
+            "useCases": "Dagiti Pagusar"
+        }
+    },
+    "learningPaths": {
+        "title": "Dagiti Dalan ti Panagadal",
+        "intro": "Dagiti curated a toolkit tapno giyaan ka iti panagadal — addang iti addang.",
+        "changePath": "Sukatan ti dalanko",
+        "stageCount": "{{count}} a yugto",
+        "startPath": "Rugrugianen ti dalan",
+        "backToAll": "Agsubli kadagiti Dalan ti Panagadal",
+        "progressLabel": "Panagdur-as",
+        "progressText": "{{explored}} / {{total}} a na-explore",
+        "explored": "Na-explore",
+        "markExplored": "Markaan a na-explore",
+        "notFound": "Saan a Nasarakan",
+        "toolkitNotFound": "Saan a nasarakan ti toolkit.",
+        "role": {
+            "student": "Estudiante",
+            "teacher": "Mannursuro",
+            "researcher": "Mannagsukisok",
+            "developer": "Developer",
+            "designer": "Tagadisenio",
+            "accountant": "Accountant"
+        }
+    },
+    "onboarding": {
+        "title": "Ania ti kasayaatan a manglarawan kenka?",
+        "subtitle": "Mangirekomendatayo ti dalan ti panagadal a maitunos iti rolmo."
+    },
+    "cta": {
+        "title": "Nakasaganaka nga Ag-explore?",
+        "text": "Diskubrien dagiti ginasut a libre ken open-source a ramit ti produktibidad a na-curate para kadagiti Pilipino nga estudiante, mannursuro, ken propesional.",
+        "browseTools": "Kitaen Amin a Ramit",
+        "getInTouch": "Makiuman Kadakami"
+    },
+    "breadcrumb": {
+        "home": "Pagtaengan",
+        "about": "Maipapan Kadakami",
+        "contact": "Makiuman",
+        "privacy": "Pagannurotan ti Pribado",
+        "faq": "Masansan a Saludsod",
+        "sitemap": "Mapa ti Site"
+    },
+    "errors": {
+        "404": {
+            "label": "Error 404",
+            "title": "Saan a Nasarakan ti Panid",
+            "message": "Ti panid a sapsapulem ket awan wenno naiyalis. Tulongandaka a makasubli iti umiso a dalan.",
+            "pageTitle": "Saan a Nasarakan ti Panid - Abakada"
+        },
+        "500": {
+            "label": "Error 500",
+            "title": "Error ti Server",
+            "message": "Adda nagbiddut iti bennegmi. Ar-aramidanmi a mangaywan. Pangngaasi a padasem manen.",
+            "pageTitle": "Error ti Server - Abakada"
+        },
+        "goHome": "Agsubli iti Pagtaengan",
+        "viewSitemap": "Kitaen ti Mapa ti Site",
+        "tryAgain": "Padasem Manen",
+        "suggestions": "Dagiti Sikat a Kategoria",
+        "helpTitle": "Ania ti mabalinmo nga aramiden",
+        "help": {
+            "refresh": "I-refresh ti panid",
+            "refreshDesc": "No dadduma ti simple a pag-refresh ket makasolbar kadagiti temporario a parikut.",
+            "wait": "Aguray bassit",
+            "waitDesc": "Mabalin nga ar-aramiden ti grupomi ti parikut.",
+            "contact": "Makiuman kadakami",
+            "contactDesc": "No agtultuloy ti parikut, ipakaammom kadakami."
+        }
+    },
+    "deck": {
+        "hero": {
+            "tagline": "Partnership Deck 2026",
+            "title": "Panangpabileg iti Sumaruno a Henerasion dagiti Pilipino a Mangibangbangon",
+            "subtitle": "Makikadua kadakami iti panangpalawa ti access iti teknolohiya ken edukasion para kadagiti ribo-ribo nga estudiante ken propesional iti intero a Pilipinas.",
+            "cta": "Ammuen ti Bisyonmi"
+        },
+        "impact": {
+            "tagline": "Ti Epektomi",
+            "title": "Panangrangtay iti Digital Divide",
+            "subtitle": "Ang Abakada ket mangidatdaton kadagiti libre, napatalgedan, ken nalaka a ma-access nga open-source a ramit. Ad-adu pay kami ngem sa direktoryo; kami ket maysa a plataporma para iti oportunidad.",
+            "stats": {
+                "tools": "Dagiti Napili a Ramit",
+                "categories": "Dagiti Kategoria",
+                "free": "Libre ken Open Source"
+            }
+        },
+        "why": {
+            "tagline": "Apay a Makikadua?",
+            "title": "I-align ti Brand-mo iti Epekto",
+            "community": {
+                "title": "Access iti Komunidad",
+                "text": "Direkta a maabot dagiti estudiante, mannursuro, ken developer nga aktibo a mangsapsapul kadagiti digital a ramit."
+            },
+            "brand": {
+                "title": "Bileg ti Brand",
+                "text": "Ipakita ti Corporate Social Responsibility (CSR) babaen ti panangsuporta iti nawaya nga access iti edukasion."
+            },
+            "thought": {
+                "title": "Liderato iti Industriya",
+                "text": "Iposision ti organisasionyo kas maysa a kangrunaan a tignay ti digital ecosystem ti Pilipinas."
+            }
+        },
+        "models": {
+            "tagline": "Dagiti Modelo ti Kolaborasion",
+            "title": "Dagiti Wagas ti Panagkammayet",
+            "tech": {
+                "title": "Kadua iti Teknolohiya",
+                "text": "Mangipaay ti imprastraktura, hosting, wenno software credits tapno masuportaran dagiti operasion ti plataporma."
+            },
+            "edu": {
+                "title": "Kadua iti Edukasion",
+                "text": "Dagiti eskuelaan ken unibersidad a makikadua tapno maipaay dagiti ramit direkta kadagiti estudiante ken mannursuro."
+            },
+            "content": {
+                "title": "Kadua iti Linaon",
+                "text": "Agkaduatayo a mangpartuat kadagiti gabay, tutorial, ken rekurso para iti komunidad."
+            },
+            "community": {
+                "title": "Kadua iti Komunidad",
+                "text": "Suportaran dagiti programa ti outreach, hackathon, ken lokal a pasamak iti intero a tawen."
+            }
+        },
+        "cta": {
+            "title": "Agkaduatayo a Mangibangon iti Masanguanan",
+            "subtitle": "Nakasagana kadian a mangaramid ti epekto? Makiuman iti partnerships team-mi tapno diskubrien dagiti oportunidad.",
+            "visit": "Bisitaen ti Website",
+            "copyright": "© 2026 Organisasyon ti Abakada"
+        }
+    }
+}

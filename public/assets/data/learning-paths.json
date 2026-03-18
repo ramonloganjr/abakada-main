@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "toolkits": [
+    {
+      "id": "research-starter",
+      "title": "Research Starter Kit",
+      "description": "Essential tools for students and academics beginning their research journey — from note-taking to citation management.",
+      "role": "researcher",
+      "stages": [
+        {
+          "id": "capture",
+          "title": "Capture & Organize Notes",
+          "description": "Start by building a personal knowledge base. These tools help you capture ideas, web clips, and research notes.",
+          "toolIds": ["joplin", "logseq", "obsidian", "appflowy"]
+        },
+        {
+          "id": "references",
+          "title": "Manage References & Citations",
+          "description": "Keep your bibliography organized. These tools handle citations, PDFs, and reference lists for academic writing.",
+          "toolIds": ["zotero", "jabref", "mendeley"]
+        },
+        {
+          "id": "writing",
+          "title": "Write & Publish",
+          "description": "Draft papers and reports with tools built for academic and long-form writing.",
+          "toolIds": ["libreoffice", "lyx", "focuswriter", "pandoc"]
+        }
+      ]
+    },
+    {
+      "id": "student-productivity",
+      "title": "Student Productivity Pack",
+      "description": "A curated set of tools to help students stay organized, collaborate on projects, and get more done every day.",
+      "role": "student",
+      "stages": [
+        {
+          "id": "notes-tasks",
+          "title": "Notes & Task Management",
+          "description": "Build good study habits with note-taking apps and task managers that keep your workload under control.",
+          "toolIds": ["joplin", "appflowy", "focalboard", "anki"]
+        },
+        {
+          "id": "documents",
+          "title": "Documents & Collaboration",
+          "description": "Create, edit, and share documents with classmates using these office and collaboration tools.",
+          "toolIds": ["libreoffice", "cryptpad", "hedgedoc", "onlyoffice"]
+        },
+        {
+          "id": "diagrams",
+          "title": "Diagrams & Visual Thinking",
+          "description": "Visualize concepts, plan projects, and brainstorm ideas with diagramming and mind-mapping tools.",
+          "toolIds": ["drawio", "mermaid", "freeplane", "xmind"]
+        }
+      ]
+    },
+    {
+      "id": "teacher-digital-classroom",
+      "title": "Teacher's Digital Classroom",
+      "description": "Tools to help educators create engaging lessons, manage content, and support students in digital and hybrid classrooms.",
+      "role": "teacher",
+      "stages": [
+        {
+          "id": "content-creation",
+          "title": "Create Learning Content",
+          "description": "Build interactive lessons, presentations, and educational materials your students will actually enjoy.",
+          "toolIds": ["libreoffice", "kolibri", "h5p", "scribus"]
+        },
+        {
+          "id": "classroom-tools",
+          "title": "Classroom & Communication Tools",
+          "description": "Manage your classroom, communicate with students, and share resources efficiently.",
+          "toolIds": ["canvas-lms", "bookstack", "etherpad", "cryptpad", "element"]
+        },
+        {
+          "id": "assessment",
+          "title": "Assessment & Feedback",
+          "description": "Create quizzes, track student progress, and provide structured feedback with these tools.",
+          "toolIds": ["anki", "gcompris", "dokuwiki"]
+        }
+      ]
+    },
+    {
+      "id": "beginner-coding",
+      "title": "Beginner Coding Path",
+      "description": "Start your programming journey with the right tools — from writing your first lines of code to version control basics.",
+      "role": "developer",
+      "stages": [
+        {
+          "id": "editor",
+          "title": "Pick Your Editor",
+          "description": "Choose a code editor that fits your style. These are beginner-friendly options to get you writing code fast.",
+          "toolIds": ["vscode", "kate", "helix", "emacs"]
+        },
+        {
+          "id": "version-control",
+          "title": "Version Control Basics",
+          "description": "Learn to track your code changes and collaborate with others using Git-based tools.",
+          "toolIds": ["github-desktop", "gitea", "forgejo"]
+        },
+        {
+          "id": "interactive-learning",
+          "title": "Interactive Learning & Notebooks",
+          "description": "Experiment with code in interactive environments — great for learning Python, data science, and scripting.",
+          "toolIds": ["jupyter", "jupyterlab", "ollama", "jan"]
+        }
+      ]
+    },
+    {
+      "id": "designer-toolkit",
+      "title": "Designer's Toolkit",
+      "description": "A complete open-source design workflow — from raster and vector editing to UI prototyping, typography, and print-ready layouts.",
+      "role": "designer",
+      "stages": [
+        {
+          "id": "raster-vector",
+          "title": "Raster & Vector Editing",
+          "description": "Master the foundational tools for editing photos and creating scalable vector graphics.",
+          "toolIds": ["gimp", "inkscape", "krita", "pixlr"]
+        },
+        {
+          "id": "ui-prototyping",
+          "title": "UI Design & Prototyping",
+          "description": "Design interfaces and interactive prototypes with tools built for modern product design workflows.",
+          "toolIds": ["penpot", "vectr", "gravit", "drawio"]
+        },
+        {
+          "id": "typography-print",
+          "title": "Typography & Print",
+          "description": "Create custom typefaces and produce professional print-ready layouts for publications and marketing materials.",
+          "toolIds": ["scribus", "fontforge", "birdfont", "libreoffice"]
+        },
+        {
+          "id": "animation-motion",
+          "title": "Animation & Motion",
+          "description": "Bring your designs to life with 2D animation and motion graphics tools used by professionals worldwide.",
+          "toolIds": ["pencil2d", "synfig", "opentoonz", "blender"]
+        }
+      ]
+    },
+    {
+      "id": "accountant-essentials",
+      "title": "Accountant's Essentials",
+      "description": "Open-source tools for bookkeeping, financial reporting, budgeting, and data analysis — built for accounting professionals.",
+      "role": "accountant",
+      "stages": [
+        {
+          "id": "bookkeeping",
+          "title": "Bookkeeping & Accounting",
+          "description": "Record transactions, manage accounts, and produce financial statements with these double-entry accounting tools.",
+          "toolIds": ["gnucash", "homebank", "ledger", "hledger", "beancount"]
+        },
+        {
+          "id": "budgeting",
+          "title": "Budgeting & Personal Finance",
+          "description": "Track budgets, forecast cash flow, and manage personal or small-business finances with clarity.",
+          "toolIds": ["firefly-iii", "actual"]
+        },
+        {
+          "id": "reporting-analysis",
+          "title": "Reporting & Data Analysis",
+          "description": "Turn raw financial data into actionable insights with BI dashboards, SQL tools, and spreadsheet analysis.",
+          "toolIds": ["metabase", "redash", "apache-superset", "libreoffice", "openrefine"]
+        },
+        {
+          "id": "data-tools",
+          "title": "Data & Spreadsheet Tools",
+          "description": "Work with structured data, clean datasets, and run statistical analysis to support financial decision-making.",
+          "toolIds": ["csvkit", "datasette", "dbeaver", "r-project"]
+        }
+      ]
+    }
+  ]
+}

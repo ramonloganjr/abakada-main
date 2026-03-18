@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Content Security Policy (frame-ancestors and upgrade-insecure-requests must be HTTP headers, not meta) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; worker-src 'self'; base-uri 'self'; form-action 'self'" />
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TGSJ6EKYB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4TGSJ6EKYB', { anonymize_ip: true });
+  </script>
+
+  <!-- Primary SEO -->
+  <title>Abakada — 1,000+ Free Open-Source Tools for Filipino Students, Educators &amp; Professionals</title>
+  <meta name="description" content="Abakada is the Philippines' largest curated directory of free and open-source productivity tools. Discover 1,000+ verified tools across 45+ categories — AI, development, design, education, and more. 100% free." />
+  <meta name="keywords" content="free open source tools Philippines, Abakada, Filipino students tools, open source software, productivity tools, document processing, project management, note-taking, design tools, development tools, AI tools, machine learning, DevOps, database tools, education software, free software Philippines, libreng software, mga libreng tools" />
+  <meta name="author" content="Abakada Organization" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="3 days" />
+  <meta name="language" content="English" />
+  <meta name="geo.region" content="PH" />
+  <meta name="geo.country" content="Philippines" />
+  <link rel="canonical" href="https://abakada.org/" />
+
+  <!-- Hreflang — multilingual targeting -->
+  <link rel="alternate" hreflang="en" href="https://abakada.org/" />
+  <link rel="alternate" hreflang="tl" href="https://abakada.org/?lang=tl" />
+  <link rel="alternate" hreflang="ilo" href="https://abakada.org/?lang=ilo" />
+  <link rel="alternate" hreflang="ceb" href="https://abakada.org/?lang=bis" />
+  <link rel="alternate" hreflang="x-default" href="https://abakada.org/" />
+
+  <!-- Open Graph — Facebook, LinkedIn, Messenger, Viber -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Abakada" />
+  <meta property="og:title" content="Abakada — 1,000+ Free Open-Source Tools for Filipino Students &amp; Educators" />
+  <meta property="og:description" content="The Philippines' largest curated directory of free and open-source tools. 1,000+ verified tools across 45+ categories — AI, development, design, education, and more." />
+  <meta property="og:url" content="https://abakada.org/" />
+  <meta property="og:locale" content="en_PH" />
+  <meta property="og:locale:alternate" content="tl_PH" />
+  <meta property="og:locale:alternate" content="ilo_PH" />
+  <meta property="og:locale:alternate" content="ceb_PH" />
+  <meta property="og:image" content="https://abakada.org/assets/logo/og.png" />
+  <meta property="og:image:secure_url" content="https://abakada.org/assets/logo/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Abakada — Free Open-Source Tools for Filipinos" />
+  <meta property="og:image:type" content="image/png" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@AbakadaOrg" />
+  <meta name="twitter:creator" content="@AbakadaOrg" />
+  <meta name="twitter:title" content="Abakada — 1,000+ Free Open-Source Tools for Filipinos" />
+  <meta name="twitter:description" content="The Philippines' largest curated directory of free and open-source productivity tools. 45+ categories, 100% free." />
+  <meta name="twitter:image" content="https://abakada.org/assets/logo/og.png" />
+  <meta name="twitter:image:alt" content="Abakada — Free Open-Source Tools for Filipinos" />
+
+  <!-- Theme & PWA -->
+  <meta name="theme-color" content="#107f87" />
+  <meta name="msapplication-TileColor" content="#107f87" />
+  <meta name="msapplication-TileImage" content="/assets/logo/favicon-180px.png" />
+  <meta name="msapplication-config" content="none" />
+  <meta name="application-name" content="Abakada" />
+  <meta name="apple-mobile-web-app-title" content="Abakada" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Favicons — full cross-browser coverage -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32px.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16px.png" />
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon-180px.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/assets/logo/favicon.svg" color="#107f87" />
+  <link rel="shortcut icon" href="/assets/logo/favicon.png" />
+
+  <!-- DNS Prefetch & Preconnect for performance (Core Web Vitals) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+  <!-- Font Preloads -->
+  <link rel="preload" href="/assets/fonts/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-v13-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-v13-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Structured Data: WebSite + Sitelinks Searchbox -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Abakada",
+    "alternateName": ["Abakada Open Source Tools", "Abakada PH"],
+    "url": "https://abakada.org/",
+    "description": "The Philippines' largest curated directory of 1,000+ free and open-source productivity tools for students, educators, and professionals.",
+    "inLanguage": ["en", "tl", "ilo", "ceb"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Abakada Organization",
+      "url": "https://abakada.org/"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://abakada.org/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Abakada Organization",
+    "alternateName": "Abakada",
+    "url": "https://abakada.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://abakada.org/assets/logo/og.png",
+      "width": 1200,
+      "height": 630
+    },
+    "image": "https://abakada.org/assets/logo/og.png",
+    "description": "Empowering Filipino students, educators, and professionals with free and open-source productivity tools.",
+    "foundingLocation": {
+      "@type": "Country",
+      "name": "Philippines"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Philippines"
+    },
+    "sameAs": [
+      "https://github.com/Abakada-org",
+      "https://www.facebook.com/AbakadaOrg",
+      "https://www.linkedin.com/company/abakada-org"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "url": "https://abakada.org/contact",
+      "availableLanguage": ["English", "Filipino"]
+    }
+  }
+  </script>
+
+  <!-- Structured Data: WebPage (Home) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Abakada — Free Open-Source Tools for Filipino Students & Educators",
+    "url": "https://abakada.org/",
+    "description": "Browse 1,000+ free and open-source productivity tools curated for Filipino students, scholars, educators, and professionals across 45+ categories.",
+    "isPartOf": { "@type": "WebSite", "url": "https://abakada.org/" },
+    "about": {
+      "@type": "Thing",
+      "name": "Free Open-Source Software",
+      "description": "Curated collection of free and open-source productivity tools"
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Filipino students, educators, scholars, and professionals"
+    },
+    "inLanguage": ["en", "tl", "ilo", "ceb"],
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://abakada.org/" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Structured Data: ItemList (top categories for rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Free Open-Source Tool Categories",
+    "description": "Browse free open-source tools by category on Abakada",
+    "url": "https://abakada.org/",
+    "numberOfItems": 45,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Document Processing", "url": "https://abakada.org/#doc-processing" },
+      { "@type": "ListItem", "position": 2, "name": "AI & Machine Learning", "url": "https://abakada.org/#ai-ml" },
+      { "@type": "ListItem", "position": 3, "name": "Development Tools", "url": "https://abakada.org/#development" },
+      { "@type": "ListItem", "position": 4, "name": "Design & Images", "url": "https://abakada.org/#design" },
+      { "@type": "ListItem", "position": 5, "name": "Project Management", "url": "https://abakada.org/#project" },
+      { "@type": "ListItem", "position": 6, "name": "Note-taking", "url": "https://abakada.org/#notes" },
+      { "@type": "ListItem", "position": 7, "name": "Security Tools", "url": "https://abakada.org/#security-tools" },
+      { "@type": "ListItem", "position": 8, "name": "Learning Paths", "url": "https://abakada.org/learning-paths" }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage (boosts FAQ rich result) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Abakada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Abakada is a free, curated directory of 1,000+ open-source productivity tools designed for Filipino students, educators, scholars, and professionals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are all tools on Abakada free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every tool listed on Abakada is free and open-source. We do not list paid or freemium-only software."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What categories of tools does Abakada offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Abakada covers 45+ categories including document processing, AI & machine learning, development tools, design, project management, note-taking, security, media, education, and more."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

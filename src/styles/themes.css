@@ -1,0 +1,423 @@
+/* ==========================================================================
+   Abakada - Premium Design Token System
+   Antigravity-inspired: sharp geometry, layered depth, refined motion
+   Brand: Teal #107f87 / Cyan #1bcace
+   ========================================================================== */
+
+:root {
+  --color-primary: #107f87;
+  --color-primary-hover: #0d6a71;
+  --color-primary-active: #0a555b;
+  --color-primary-light: #e8f4f5;
+  --color-primary-muted: rgba(16, 127, 135, 0.12);
+  --color-secondary: #1bcace;
+  --color-secondary-hover: #17b5b9;
+  --color-secondary-active: #13a0a4;
+  --color-secondary-light: #e6f9fa;
+  --color-neutral-dark: #232323;
+  --color-neutral: #c4c4c4;
+  --color-neutral-light: #e0e0e0;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+/* ==========================================================================
+   Light Theme
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  --brand-primary: var(--color-primary);
+  --brand-primary-hover: var(--color-primary-hover);
+  --brand-primary-active: var(--color-primary-active);
+  --brand-primary-light: var(--color-primary-light);
+  --brand-secondary: var(--color-secondary);
+  --brand-neutral: var(--color-neutral);
+
+  /* Surfaces — layered depth */
+  --bg-primary: #f6f8fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #eaeef2;
+  --bg-elevated: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+
+  /* Text */
+  --text-primary: #0d1117;
+  --text-secondary: #3d4451;
+  --text-tertiary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+
+  /* Borders */
+  --border-primary: #d0d7de;
+  --border-secondary: #e8ecf0;
+  --border-focus: #6b7280;
+  --border-accent: rgba(16, 127, 135, 0.35);
+
+  /* Accent */
+  --accent-primary: var(--color-primary);
+  --accent-hover: var(--color-primary-hover);
+  --accent-active: var(--color-primary-active);
+  --accent-subtle: rgba(16, 127, 135, 0.07);
+  --accent-subtle-hover: rgba(16, 127, 135, 0.13);
+
+  /* Category Colors */
+  --category-doc: var(--color-primary);
+  --category-notes: #e67e22;
+  --category-project: #2980b9;
+  --category-communication: #8e44ad;
+  --category-writing: #c0392b;
+  --category-design: #d35400;
+  --category-desktop: #9b59b6;
+  --category-visual: var(--color-secondary);
+  --category-cms: #e91e63;
+  --category-3d: #7b1fa2;
+  --category-photography: #e64a19;
+  --category-data: #27ae60;
+  --category-math: var(--color-secondary);
+  --category-reference: #f39c12;
+  --category-ai-ml: #5e35b1;
+  --category-science: #00838f;
+  --category-encryption: #0097a7;
+  --category-password: var(--color-primary);
+  --category-privacy: #7b1fa2;
+  --category-security-tools: #c62828;
+  --category-media: #f9a825;
+  --category-ebook: var(--color-primary);
+  --category-audio: #ad1457;
+  --category-video: #d84315;
+  --category-gaming: #558b2f;
+  --category-file: #757575;
+  --category-geo: #1565c0;
+  --category-health: #c2185b;
+  --category-finance: #2e7d32;
+  --category-education: #0288d1;
+  --category-networking: #303f9f;
+  --category-automation: #5d4037;
+  --category-backup: #546e7a;
+  --category-homelab: #388e3c;
+  --category-development: #1976d2;
+  --category-devops: #ef6c00;
+  --category-database: #00796b;
+  --category-monitoring: #9e9d24;
+  --category-testing: #0097a7;
+  --category-api: #7b1fa2;
+  --category-mobile: #c2185b;
+  --category-web: #303f9f;
+  --category-virtualization: #512da8;
+  --category-ecommerce: #388e3c;
+  --category-crm: #ef6c00;
+
+  /* Status */
+  --success: #16a34a;
+  --success-subtle: rgba(22, 163, 74, 0.1);
+  --warning: #d97706;
+  --warning-subtle: rgba(217, 119, 6, 0.1);
+  --error: #dc2626;
+  --error-subtle: rgba(220, 38, 38, 0.1);
+  --info: var(--color-primary);
+  --info-subtle: rgba(16, 127, 135, 0.1);
+
+  /* Cards */
+  --card-bg: #ffffff;
+  --card-bg-hover: #fafbfc;
+  --card-border: #d0d7de;
+  --card-border-hover: rgba(16, 127, 135, 0.45);
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 8px 28px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+  --card-glass-edge: rgba(16, 127, 135, 0.22);
+  --card-tag-hover-color: #ffffff;
+
+  /* On-accent text — color for labels/icons sitting on accent-colored surfaces */
+  --color-on-accent: #ffffff;
+
+  /* Nav */
+  --nav-bg: rgba(246, 248, 250, 0.96);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-blur: 20px;
+
+  /* Modal */
+  --modal-backdrop: rgba(0, 0, 0, 0.35);
+  --modal-bg: #ffffff;
+  --modal-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.18);
+
+  /* Input */
+  --input-bg: #ffffff;
+  --input-border: #d0d7de;
+  --input-border-hover: #9ca3af;
+  --input-focus-ring: rgba(16, 127, 135, 0.2);
+
+  /* Scrollbar */
+  --scrollbar-track: #f1f3f5;
+  --scrollbar-thumb: #d0d7de;
+  --scrollbar-thumb-hover: #9ca3af;
+
+  --featured-bg: #f6f8fa;
+
+  --chart-1: var(--color-primary);
+  --chart-2: var(--color-secondary);
+  --chart-3: #16a34a;
+  --chart-4: #d97706;
+  --chart-5: #7c3aed;
+  --chart-6: #2563eb;
+}
+
+/* ==========================================================================
+   Dark Theme — GitHub-inspired deep surfaces
+   ========================================================================== */
+
+[data-theme="dark"] {
+  --brand-primary: var(--color-secondary);
+  --brand-primary-hover: #3dd5d9;
+  --brand-primary-active: var(--color-primary);
+  --brand-primary-light: rgba(27, 202, 206, 0.15);
+  --brand-secondary: #5ce1e5;
+  --brand-neutral: #6b7280;
+
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --bg-elevated: #1c2128;
+  --bg-glass: rgba(22, 27, 34, 0.92);
+
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --text-muted: #484f58;
+  --text-inverse: #0d1117;
+
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --border-secondary: rgba(255, 255, 255, 0.06);
+  --border-focus: rgba(255, 255, 255, 0.2);
+  --border-accent: rgba(27, 202, 206, 0.4);
+
+  --accent-primary: var(--color-secondary);
+  --accent-hover: #3dd5d9;
+  --accent-active: var(--color-primary);
+  --accent-subtle: rgba(27, 202, 206, 0.1);
+  --accent-subtle-hover: rgba(27, 202, 206, 0.18);
+
+  --category-doc: var(--color-secondary);
+  --category-notes: #ffa726;
+  --category-project: #42a5f5;
+  --category-communication: #ab47bc;
+  --category-writing: #ef5350;
+  --category-design: #ffb74d;
+  --category-desktop: #ba68c8;
+  --category-visual: #4dd0e1;
+  --category-cms: #f06292;
+  --category-3d: #ce93d8;
+  --category-photography: #ff8a65;
+  --category-data: #66bb6a;
+  --category-math: #4dd0e1;
+  --category-reference: #ffca28;
+  --category-ai-ml: #b39ddb;
+  --category-science: #26c6da;
+  --category-encryption: #4dd0e1;
+  --category-password: var(--color-secondary);
+  --category-privacy: #ba68c8;
+  --category-security-tools: #ef5350;
+  --category-media: #ffee58;
+  --category-ebook: var(--color-secondary);
+  --category-audio: #f06292;
+  --category-video: #ff8a65;
+  --category-gaming: #9ccc65;
+  --category-file: #90a4ae;
+  --category-geo: #42a5f5;
+  --category-health: #f06292;
+  --category-finance: #66bb6a;
+  --category-education: #29b6f6;
+  --category-networking: #7986cb;
+  --category-automation: #a1887f;
+  --category-backup: #90a4ae;
+  --category-homelab: #81c784;
+  --category-development: #64b5f6;
+  --category-devops: #ffb74d;
+  --category-database: #4db6ac;
+  --category-monitoring: #dce775;
+  --category-testing: #4dd0e1;
+  --category-api: #ce93d8;
+  --category-mobile: #f06292;
+  --category-web: #7986cb;
+  --category-virtualization: #b39ddb;
+  --category-ecommerce: #81c784;
+  --category-crm: #ffb74d;
+
+  --success: #3fb950;
+  --success-subtle: rgba(63, 185, 80, 0.12);
+  --warning: #d29922;
+  --warning-subtle: rgba(210, 153, 34, 0.12);
+  --error: #f85149;
+  --error-subtle: rgba(248, 81, 73, 0.12);
+  --info: var(--color-secondary);
+  --info-subtle: rgba(27, 202, 206, 0.12);
+
+  --card-bg: #161b22;
+  --card-bg-hover: #1c2128;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(27, 202, 206, 0.35);
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --card-shadow-hover: 0 8px 32px rgba(0,0,0,0.5);
+  --card-glass-edge: rgba(27, 202, 206, 0.28);
+  --card-tag-hover-color: #062E31;
+
+  /* On-accent text — dark teal for labels/icons on cyan accent surfaces */
+  --color-on-accent: #062E31;
+
+  --nav-bg: rgba(13, 17, 23, 0.96);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-blur: 20px;
+
+  --modal-backdrop: rgba(0, 0, 0, 0.65);
+  --modal-bg: #161b22;
+  --modal-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);
+
+  --input-bg: #0d1117;
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-border-hover: rgba(255, 255, 255, 0.2);
+  --input-focus-ring: rgba(27, 202, 206, 0.25);
+
+  --scrollbar-track: #161b22;
+  --scrollbar-thumb: #30363d;
+  --scrollbar-thumb-hover: #484f58;
+
+  --featured-bg: #161b22;
+
+  --chart-1: var(--color-secondary);
+  --chart-2: #5ce1e5;
+  --chart-3: #3fb950;
+  --chart-4: #d29922;
+  --chart-5: #a371f7;
+  --chart-6: #58a6ff;
+}
+
+/* ==========================================================================
+   System Preference
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand-primary: var(--color-secondary);
+    --brand-primary-hover: #3dd5d9;
+    --brand-primary-active: var(--color-primary);
+    --brand-primary-light: rgba(27, 202, 206, 0.15);
+    --brand-secondary: #5ce1e5;
+    --brand-neutral: #6b7280;
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --bg-elevated: #1c2128;
+    --bg-glass: rgba(22, 27, 34, 0.92);
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-tertiary: #6e7681;
+    --text-muted: #484f58;
+    --text-inverse: #0d1117;
+    --border-primary: rgba(255, 255, 255, 0.1);
+    --border-secondary: rgba(255, 255, 255, 0.06);
+    --border-focus: rgba(255, 255, 255, 0.2);
+    --border-accent: rgba(27, 202, 206, 0.4);
+    --accent-primary: var(--color-secondary);
+    --accent-hover: #3dd5d9;
+    --accent-active: var(--color-primary);
+    --accent-subtle: rgba(27, 202, 206, 0.1);
+    --accent-subtle-hover: rgba(27, 202, 206, 0.18);
+    --card-bg: #161b22;
+    --card-bg-hover: #1c2128;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-border-hover: rgba(27, 202, 206, 0.35);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --card-shadow-hover: 0 8px 32px rgba(0,0,0,0.5);
+    --card-glass-edge: rgba(27, 202, 206, 0.28);
+    --card-tag-hover-color: #062E31;
+    --color-on-accent: #062E31;
+    --nav-bg: rgba(13, 17, 23, 0.96);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --modal-backdrop: rgba(0, 0, 0, 0.65);
+    --modal-bg: #161b22;
+    --input-bg: #0d1117;
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-border-hover: rgba(255, 255, 255, 0.2);
+    --input-focus-ring: rgba(27, 202, 206, 0.25);
+    --scrollbar-track: #161b22;
+    --scrollbar-thumb: #30363d;
+    --scrollbar-thumb-hover: #484f58;
+    --featured-bg: #161b22;
+    --success: #3fb950;
+    --success-subtle: rgba(63, 185, 80, 0.12);
+    --warning: #d29922;
+    --warning-subtle: rgba(210, 153, 34, 0.12);
+    --error: #f85149;
+    --error-subtle: rgba(248, 81, 73, 0.12);
+    --info: var(--color-secondary);
+    --info-subtle: rgba(27, 202, 206, 0.12);
+  }
+}
+
+/* ==========================================================================
+   Theme Transition
+   ========================================================================== */
+
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ==========================================================================
+   Scrollbar
+   ========================================================================== */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* ==========================================================================
+   Focus
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   High Contrast
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root, [data-theme="light"] {
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --border-primary: #000000;
+    --card-border: #000000;
+  }
+  [data-theme="dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --border-primary: #ffffff;
+    --card-border: #ffffff;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-theme="light"] {
+    --bg-glass: #ffffff;
+    --nav-bg: #f6f8fa;
+  }
+  [data-theme="dark"] {
+    --bg-glass: #161b22;
+    --nav-bg: #0d1117;
+  }
+}

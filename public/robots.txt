@@ -1,0 +1,53 @@
+User-agent: *
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+# Major search engine crawlers
+User-agent: Googlebot
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+User-agent: Bingbot
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+User-agent: Slurp
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+User-agent: YandexBot
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+# Block AI training scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+Sitemap: https://abakada.org/sitemap.xml

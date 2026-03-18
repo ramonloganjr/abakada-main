@@ -1,0 +1,601 @@
+{
+    "meta": {
+        "code": "bis",
+        "name": "Bisaya",
+        "nativeName": "Cebuano",
+        "direction": "ltr"
+    },
+    "languages": {
+        "en": "Iningles",
+        "tl": "Tagalog",
+        "ilo": "Ilokano",
+        "bis": "Bisaya"
+    },
+    "nav": {
+        "home": "Panimalay",
+        "tools": "Mga Gamit",
+        "about": "Mahitungod",
+        "contact": "Kontaka",
+        "privacy": "Pribado",
+        "search": "Pangita og gamit...",
+        "menu": "Menu",
+        "close": "Isira",
+        "bookmarks": "Mga Bookmark",
+        "compare": "Itandi ang Mga Gamit",
+        "learningPaths": "Mga Dalan sa Pagkat-on"
+    },
+    "hero": {
+        "title": "Mga Open Source nga",
+        "titleHighlight": "Gamit sa Produktibidad",
+        "subtitle": "Diskubriha ang mga gamhanan, libre, ug open-source nga mga gamit sa produktibidad nga gihan-ay pinaagi sa kategorya. Gikan sa pag-proseso sa dokumento hangtod sa pagdumala sa proyekto, pangitaa ang sakto nga mga gamit para sa imong trabaho.",
+        "statsTools": "Mga Gamit",
+        "statsCategories": "Mga Kategorya",
+        "statsOpenSource": "Open Source"
+    },
+    "groups": {
+        "productivity": "Produktibidad",
+        "creative": "Mamugnaon",
+        "data": "Datos ug Pagpanukiduki",
+        "security": "Seguridad",
+        "media": "Media",
+        "utilities": "Mga Utility",
+        "development": "Development",
+        "business": "Negosyo"
+    },
+    "categories": {
+        "all": "Tanang Gamit",
+        "doc-processing": "Pag-proseso sa Dokumento",
+        "data-processing": "Pag-proseso sa Datos",
+        "design": "Disenyo ug Mga Hulagway",
+        "desktop-publishing": "Pag-imprinta sa Desktop",
+        "ebook": "Pagdumala sa E-book",
+        "encryption": "Pag-encrypt ug Seguridad",
+        "file": "Mga Gamit sa File",
+        "geographic": "Heograpiya ug Mapa",
+        "health": "Panglawas ug Kaayohan",
+        "media": "Mga Media Player ug Editor",
+        "math": "Matematika ug Siyensya",
+        "notes": "Pagsulat og Nota",
+        "password": "Pagdumala sa Password",
+        "finance": "Personal nga Pinansya",
+        "privacy": "Pribado ug Seguridad",
+        "project": "Pagdumala sa Proyekto",
+        "reference": "Pagdumala sa Reperensya",
+        "visualization": "Bisualisasyon ug Dayagram",
+        "education": "Edukasyon ug Pagtudlo",
+        "development": "Mga Gamit sa Development",
+        "devops": "DevOps ug Imprastraktura",
+        "database": "Mga Gamit sa Database",
+        "networking": "Networking",
+        "communication": "Komunikasyon",
+        "automation": "Automation",
+        "ai-ml": "AI ug Machine Learning",
+        "gaming": "Gaming",
+        "backup": "Backup ug Pagbawi",
+        "monitoring": "Pag-monitor ug Obserbasyon",
+        "cms": "Pagdumala sa Sulod",
+        "ecommerce": "E-commerce",
+        "crm": "CRM ug Pagbaligya",
+        "science": "Siyentipikong Komputasyon",
+        "audio": "Produksyon sa Audio",
+        "video": "Produksyon sa Video",
+        "3d": "3D ug CAD",
+        "photography": "Potograpiya",
+        "writing": "Pagsulat ug Pagmantala",
+        "testing": "Pagsulay ug QA",
+        "api": "API Development",
+        "mobile": "Mobile Development",
+        "web": "Web Development",
+        "virtualization": "Virtualization",
+        "homelab": "Home Lab ug Self-Hosting",
+        "security-tools": "Mga Gamit sa Seguridad"
+    },
+    "categoryDescriptions": {
+        "doc-processing": "Mga office suite, collaborative wiki, ug mga gamit sa dokumento",
+        "data-processing": "Pag-analisa sa estadistika, pagmina sa datos, ug mga gamit sa pagpanukiduki",
+        "design": "Pag-edit sa hulagway, vector graphics, ug mga gamit sa disenyo",
+        "desktop-publishing": "Propesyonal nga layout ug software sa typesetting",
+        "ebook": "Mga E-book reader, converter, ug tagdumala sa library",
+        "encryption": "Pag-encrypt sa disk ug mga gamit sa seguridad sa file",
+        "file": "Pagbalhin sa file, pag-sync, compression, ug pagpaambit",
+        "geographic": "GIS, pagmapa, ug software sa nabigasyon",
+        "health": "Pag-track sa panglawas ug mga aplikasyon sa kaayohan",
+        "media": "Mga gamit sa audio, video, ug animasyon",
+        "math": "Computer algebra ug siyentipikong komputasyon",
+        "notes": "Mga note app, knowledge base, ug wiki",
+        "password": "Mga secure nga tagdumala sa password ug vault",
+        "finance": "Pag-budget, accounting, ug mga gamit sa pinansya",
+        "privacy": "Email aliasing, VPN, ug mga gamit sa pribado",
+        "project": "Pagplano sa proyekto ug agile nga pagdumala",
+        "reference": "Mga tagdumala sa citation ug bibliography",
+        "visualization": "Mind mapping, pagdrowing sa dayagram, ug flowchart",
+        "education": "Mga learning management system, mga gamit sa klasrom, ug software sa edukasyon",
+        "development": "Mga IDE, code editor, version control, ug mga utility para sa developer",
+        "devops": "CI/CD, container, orkestrasyon, ug mga gamit sa imprastraktura",
+        "database": "Pagdumala sa database, mga client, ug pagmodelo sa datos",
+        "networking": "Pag-monitor sa network, pag-analisa, ug mga gamit sa pagdumala",
+        "communication": "Chat, email, video conferencing, ug kolaborasyon",
+        "automation": "Pag-automate sa buluhaton, pagsulat og script, ug mga gamit sa workflow",
+        "ai-ml": "Mga framework sa machine learning, gamit sa AI, ug data science",
+        "gaming": "Mga game engine, emulator, ug mga utility sa gaming",
+        "backup": "Mga solusyon sa backup, disaster recovery, ug proteksyon sa datos",
+        "monitoring": "Pag-monitor sa sistema, pag-log, ug pag-analisa sa performance",
+        "cms": "Mga CMS platform, static site generator, ug web publishing",
+        "ecommerce": "Mga platform sa online store ug solusyon sa pagbayad",
+        "crm": "Pagdumala sa relasyon sa customer ug mga gamit sa pagbaligya",
+        "science": "Siyentipikong simulasyon, pagmodelo, ug mga gamit sa pagpanukiduki",
+        "audio": "Mga digital audio workstation, pag-edit sa audio, ug produksyon sa musika",
+        "video": "Pag-edit sa video, streaming, ug mga gamit sa produksyon",
+        "3d": "3D modeling, CAD, ug software sa rendering",
+        "photography": "Pag-edit sa hulagway, RAW processing, ug pagdumala sa hulagway",
+        "writing": "Mga gamit sa pagsulat, markdown editor, ug publishing platform",
+        "testing": "Mga testing framework, gamit sa QA, ug test automation",
+        "api": "Pagdisenyo sa API, pagsulay, ug dokumentasyon",
+        "mobile": "Mga framework ug gamit sa mobile app development",
+        "web": "Mga web framework, frontend tool, ug web server",
+        "virtualization": "Mga virtual machine, hypervisor, ug emulasyon",
+        "homelab": "Mga self-hosted nga serbisyo ug solusyon sa home server",
+        "security-tools": "Pag-scan sa seguridad, penetration testing, ug pag-assess sa kahuyang"
+    },
+    "tools": {
+        "header": "Tan-awa ang Mga Gamit",
+        "allTools": "Tanang Gamit",
+        "showing": "Gipakita",
+        "of": "sa",
+        "toolsLabel": "gamit",
+        "viewDetails": "Tan-awa ang Detalye",
+        "visitWebsite": "Bisitaha ang Website ug I-download",
+        "viewSource": "Tan-awa ang Source Code",
+        "viewRepo": "Tan-awa ang Repository",
+        "license": "Lisensya",
+        "platforms": "Mga Plataporma",
+        "tags": "Mga Tag",
+        "close": "Isira",
+        "description": "Deskripsyon",
+        "features": "Mga Tampok",
+        "download": "I-download",
+        "documentation": "Dokumentasyon",
+        "alternativeTo": "Alternatibo sa"
+    },
+    "featured": {
+        "label": "Gipili",
+        "title": "Mga Pinili sa Editor",
+        "subtitle": "Mga gamit nga gipili tungod sa kalidad, mga tampok, ug suporta sa komunidad.",
+        "viewTool": "Tan-awa"
+    },
+    "platforms": {
+        "windows": "Windows",
+        "macos": "macOS",
+        "linux": "Linux",
+        "ios": "iOS",
+        "android": "Android",
+        "web": "Web",
+        "self-hosted": "Kaugalingon nga Host"
+    },
+    "search": {
+        "placeholder": "Pangita og gamit...",
+        "noResults": "Walay nakit-an nga gamit",
+        "noResultsFor": "Walay nakit-an nga resulta",
+        "noResultsQuery": "Wala namo makit-i ang mga gamit nga motakdo sa",
+        "noResultsDesc": "Sulaye pagbag-o sa imong pagpangita o pagsala",
+        "noFilterResults": "Walay motakdo nga gamit",
+        "noFilterDesc": "Walay gamit nga motakdo sa mga gipili nga filter. Sulaye pagbag-o sa imong mga filter.",
+        "noCategoryTools": "Walay gamit sa kini nga kategorya",
+        "noCategoryDesc": "Wala pay mga gamit sa kini nga kategorya.",
+        "noTools": "Walay available nga gamit",
+        "noToolsDesc": "Mogawas dinhi ang mga gamit kung madugangan na.",
+        "clear": "Papasa ang pagpangita",
+        "clearFilters": "Papasa ang mga filter",
+        "trySearch": "Pangita og gamit",
+        "suggestions": "Sulaye pagpangita sa",
+        "results": "mga resulta",
+        "searching": "Nangita..."
+    },
+    "filters": {
+        "title": "Mga Filter",
+        "platforms": "Mga Plataporma",
+        "tags": "Mga Tag",
+        "clear": "Papasa tanan",
+        "active": "aktibo"
+    },
+    "pagination": {
+        "prev": "Kaniadto",
+        "next": "Sunod",
+        "page": "Panid",
+        "of": "sa"
+    },
+    "theme": {
+        "light": "Kahayag",
+        "dark": "Ngitngit",
+        "system": "Sistema",
+        "toggle": "Usba ang tema"
+    },
+    "footer": {
+        "description": "Usa ka koleksyon sa mga libre ug open-source nga software tools para sa mga Pilipino nga estudyante, iskolar, magtutudlo, ug propesyonal.",
+        "quickLinks": "Mga Paspas nga Link",
+        "allTools": "Tanang Gamit",
+        "categories": "Mga Kategorya",
+        "about": "Mahitungod Kanamo",
+        "resources": "Mga Kapanguhaan",
+        "bookmarks": "Mga Bookmark",
+        "compare": "Mga Gamit sa Pagtandi",
+        "learningPaths": "Mga Dalan sa Pagkat-on",
+        "faq": "Frequently Asked Questions",
+        "contribute": "Pag-amot sa GitHub",
+        "openSourceInitiative": "Open Source Initiative",
+        "opensourceCom": "Opensource.com",
+        "abakada": "Abakada",
+        "contact": "Kontaka",
+        "privacyPolicy": "Palisiya sa Pribado",
+        "sitemap": "Mapa sa Site",
+        "copyright": "Brown and Proud. Show your support by sharing this website.",
+        "copyright_line1": "Brown and Proud.",
+        "copyright_line2": "Show your support by sharing this website.",
+        "openSource": "100% Open Source",
+        "license": "MIT | CC BY 4.0",
+        "badge": "100% Open Source"
+    },
+    "accessibility": {
+        "skipToContent": "Laktaw ngadto sa nag-unang sulod",
+        "menuOpen": "Ablihi ang menu",
+        "menuClose": "Isira ang menu",
+        "themeToggle": "Usba ang tema",
+        "languageSelect": "Pagpili og pinulongan",
+        "searchClear": "Papasa ang pagpangita",
+        "modalClose": "Isira ang modal",
+        "categoryFilter": "I-filter pinaagi sa kategorya",
+        "loading": "Nagkarga...",
+        "error": "Adunay nahitabo nga sayop"
+    },
+    "common": {
+        "loading": "Nagkarga...",
+        "error": "Sayop",
+        "success": "Malampuson",
+        "cancel": "Kanselahon",
+        "save": "I-save",
+        "delete": "Papasa",
+        "edit": "I-edit",
+        "view": "Tan-awa",
+        "back": "Balik",
+        "next": "Sunod",
+        "previous": "Kaniadto",
+        "yes": "Oo",
+        "no": "Dili",
+        "or": "o",
+        "and": "ug",
+        "free": "Libre",
+        "open": "Ablihi",
+        "close": "Isira",
+        "more": "Dugang pa",
+        "less": "Mas gamay",
+        "all": "Tanan",
+        "none": "Wala"
+    },
+    "health": {
+        "active": "Aktibo",
+        "stable": "Lig-on",
+        "stale": "Daan",
+        "activeTooltip": "Aktibo nga gipadayon",
+        "stableTooltip": "Naa sa maintenance mode",
+        "staleTooltip": "Mahimong wala na gipadayon",
+        "lastUpdated": "Kataposang gi-update"
+    },
+    "license": {
+        "openSource": "Open Source",
+        "freeware": "Freeware",
+        "proprietary": "Proprietary"
+    },
+    "time": {
+        "now": "Karon",
+        "today": "Karong Adlawa",
+        "yesterday": "Kagahapon",
+        "tomorrow": "Ugma",
+        "days": "adlaw",
+        "hours": "oras",
+        "minutes": "minuto",
+        "ago": "ang milabay"
+    },
+    "pages": {
+        "about": {
+            "title": "Mahitungod Kanamo",
+            "pageTitle": "Mahitungod Kanamo - Abakada | Libre nga Gamit para sa mga Estudyante ug Magtutudlo",
+            "heroTitle": "Para sa Matag Pilipino",
+            "heroSubtitle": "Naghatag og gahum sa matag Pilipino pinaagi sa libre ug dali ma-access nga mga gamit sa produktibidad—gikan sa mga estudyante sa layo nga mga barangay hangtod sa mga magtutudlo nga nag-umol sa sunod nga henerasyon.",
+            "missionTitle": "Ang Among Misyon",
+            "missionText1": "Ang Abakada nakatuon sa pag-alagad sa tanang katawhan sa Pilipinas pinaagi sa paghatag og libre nga access sa gamhanan nga mga gamit sa produktibidad. Nagtuo kami nga ang kalidad nga software dili angay mahimong babag sa edukasyon o kalampusan.",
+            "missionText2": "Ang among espesyal nga pokus mao ang pagsuporta sa mga underprivileged nga iskolar nga angay sa parehas nga digital nga kapanguhaan sama sa ilang mga kauban. Pinaagi sa pag-curate sa labing maayo nga libre ug open-source nga mga gamit, gitabangan namo nga pantayon ang nataran para sa matag Pilipino nga estudyante.",
+            "educatorsTitle": "Para sa mga Magtutudlo",
+            "educatorsText1": "Naghatag kami og mga espesyalisado nga glossary tool nga gidisenyo aron tabangan ang mga magtutudlo sa pagtudlo. Kini nga mga kapanguhaan nagtabang sa mga edukador nga ipasabot ang mga komplikado nga konsepto, maghimo og mga materyal sa pagkat-on, ug mapauswag ang pakig-uban sa klasrom.",
+            "educatorsText2": "Gikan sa pagplano sa leksyon hangtod sa pag-assess sa estudyante, gisuportahan sa among curated nga koleksyon ang mga magtutudlo sa tanang subject ug grade level sa tibuok Pilipinas.",
+            "visionLabel": "Ang Among Bisyon",
+            "visionTitle": "Digital nga Pagkaparehas para sa Tanan",
+            "visionText1": "Naghanduraw kami og Pilipinas diin ang matag estudyante—bisan unsa pa ang kahimtang sa ekonomiya o lokasyon—adunay access sa parehas nga gamhanan nga digital nga mga gamit sama sa ilang mga kauban sa tibuok kalibutan.",
+            "visionText2": "Pinaagi sa pag-curate ug pagpasiugda sa libre, open-source nga mga alternatibo sa mahal nga software, gitabangan namo nga taytayan ang digital divide usa ka gamit matag higayon.",
+            "valuesTitle": "Ang Among mga Bili",
+            "valuesSubtitle": "Ang mga prinsipyo nga naggiya sa tanan namong gibuhat sa Abakada.",
+            "valueAccessibility": "Accessibility",
+            "valueAccessibilityText": "Libre nga mga gamit para sa tanan, bisan asa sa Pilipinas.",
+            "valueQuality": "Kalidad",
+            "valueQualityText": "Ang labing maayo lamang nga open-source nga mga gamit ang makasulod sa among koleksyon.",
+            "valueCommunity": "Komunidad",
+            "valueCommunityText": "Gihimo sa mga Pilipino, para sa mga Pilipino, uban sa gugma.",
+            "valueOpenSource": "Open Source",
+            "valueOpenSourceText": "Transparency ug kolaborasyon sa among core.",
+            "storyTitle": "Ang Among Istorya",
+            "storyText1": "Ang Abakada natawo gikan sa usa ka yano nga obserbasyon: daghang Pilipino nga estudyante ang naglisod sa pag-access sa parehas nga digital nga mga gamit nga gidawat sa ilang mga kauban sa mas dato nga mga nasud. Ang mahal nga software license nagmugna og mga babag nga dili angay maglungtad sa edukasyon.",
+            "storyText2": "Nagsugod kami sa pag-compile og listahan sa mga libre nga alternatibo sa popular nga bayad nga software. Ang nagsugod isip personal nga kapanguhaan dali nga mitubo ngadto sa mas dako nga butang—usa ka komprehensibo nga direktoryo nga gidisenyo espesipiko para sa konteksto sa Pilipino, uban sa mga gamit nga molihok offline, sa mas daan nga hardware, ug sa mga lugar nga limitado ang koneksyon sa internet.",
+            "storyText3": "Karon, ang Abakada nag-alagad sa mga estudyante, magtutudlo, ug propesyonal sa tibuok Pilipinas, nagtabang kanila nga madiskubre ang mga gamhanan nga gamit nga walay bayad apan naghatag sa tanan."
+        },
+        "contact": {
+            "title": "Kontaka Kami",
+            "pageTitle": "Kontaka Kami - Abakada Open Source Productivity Tools",
+            "heroTitle": "Kontaka Kami",
+            "heroSubtitle": "Gusto namo nga makadungog gikan kanimo. Kung adunay ka pangutana, sugyot, o gusto mag-amot—kontaka kami bisan kanus-a.",
+            "getInTouchTitle": "Makig-uban",
+            "getInTouchText": "Adunay pangutana, sugyot, o gusto mag-amot? Kanunay kaming malipayon nga makadungog gikan sa komunidad. Kontaka kami ug mobalik kami kanimo sa labing madali.",
+            "emailTitle": "Email",
+            "emailNote": "Kasagaran motubag kami sulod sa 24-48 ka oras",
+            "githubTitle": "GitHub",
+            "githubNote": "Pag-abli og mga issue, pagsumite og PR, o i-star ang proyekto",
+            "howCanWeHelpTitle": "Unsaon Namo Pagtabang?",
+            "suggestToolTitle": "Magsugyot og Gamit",
+            "suggestToolText": "Nahibalo ka ba og maayo nga open-source nga gamit nga wala namo? Ipahibalo kanamo ug among susihon para maisama.",
+            "reportIssueTitle": "Mag-report og Isyu",
+            "reportIssueText": "Nakakita og sayop nga impormasyon o guba nga link? Tabangi kami nga mapadayon ang katukma sa direktoryo.",
+            "partnershipTitle": "Pakigtambayayong",
+            "partnershipText": "Interesado sa pakigtambayayong o pakig-partner sa Abakada? Bukas kami sa mga oportunidad.",
+            "generalInquiryTitle": "Kinatibuk-ang Pangutana",
+            "generalInquiryText": "Adunay pangutana o gusto lang mangumusta? Gusto namo makadungog gikan kanimo."
+        },
+        "privacy": {
+            "title": "Palisiya sa Pribado",
+            "pageTitle": "Palisiya sa Pribado - Abakada Open Source Productivity Tools",
+            "heroTitle": "Palisiya sa Pribado",
+            "lastUpdated": "Kataposang gi-update"
+        },
+        "faq": {
+            "title": "Kanunay Pangutan-on",
+            "pageTitle": "Kanunay Pangutan-on - Abakada",
+            "heroTitle": "Kanunay Pangutan-on",
+            "heroSubtitle": "Tanan nga kinahanglan nimong mahibal-an mahitungod sa Abakada ug kung unsaon pagpahimulos sa among direktoryo sa open-source nga mga gamit."
+        },
+        "sitemap": {
+            "title": "Mapa sa Site",
+            "pageTitle": "Mapa sa Site - Abakada | Pag-navigate sa 1000+ nga Libre nga Open Source nga Gamit",
+            "heroTitle": "Mapa sa Site",
+            "heroSubtitle": "Pag-navigate sa among kompleto nga koleksyon sa mga panid ug kategorya sa gamit. Pangitaa ang eksakto nga imong gipangita.",
+            "mainPagesTitle": "Mga Nag-unang Panid",
+            "mainPagesSubtitle": "Mga nag-unang panid sa plataporma sa Abakada",
+            "categoriesTitle": "Mga Kategorya sa Gamit",
+            "categoriesSubtitle": "Pag-browse sa mga gamit nga gi-organisar pinaagi sa grupo sa kategorya",
+            "externalTitle": "Mga Gawas nga Kapanguhaan",
+            "externalSubtitle": "Mga may kalabutan nga link ug kapanguhaan sa komunidad",
+            "home": "Panimalay",
+            "homeDesc": "Pag-browse sa tanang 1000+ nga open-source nga gamit",
+            "about": "Mahitungod Kanamo",
+            "aboutDesc": "Ang among misyon ug mga bili",
+            "contact": "Kontaka",
+            "contactDesc": "Makig-uban kanamo",
+            "faq": "Kanunay Pangutan-on",
+            "faqDesc": "Mga kanunay pangutan-on",
+            "privacy": "Palisiya sa Pribado",
+            "privacyDesc": "Kung unsaon namo pagpanalipod sa imong datos",
+            "github": "GitHub Repository",
+            "githubDesc": "Pag-amot sa proyekto",
+            "osi": "Open Source Initiative",
+            "osiDesc": "Pagkat-on mahitungod sa open source",
+            "productivityGroup": "Produktibidad",
+            "creativeGroup": "Mamugnaon",
+            "dataGroup": "Datos ug Panukiduki",
+            "securityGroup": "Seguridad",
+            "mediaGroup": "Media",
+            "utilitiesGroup": "Mga Utility",
+            "developmentGroup": "Development",
+            "businessGroup": "Negosyo"
+        },
+        "partnerships": {
+            "title": "Pakigtambayayong",
+            "pageTitle": "Pakigtambayayong - Pakig-partner sa Abakada aron pagpalig-on sa Edukasyong Pilipino",
+            "heroTitle": "Pakig-partner Kanamo",
+            "heroSubtitle": "Uban kanamo sa paghatag og gahum sa mga estudyante ug magtutudlo nga Pilipino gamit ang libre ug gamhanan nga mga digital tools. Mag-uban kita sa pagsumpay sa digital divide.",
+            "stats": {
+                "tools": "Libre nga mga Himan",
+                "categories": "Mga Kategorya",
+                "languages": "Mga Pinulongan",
+                "students": "Estudyanteng Natabangan"
+            },
+            "collaboration": {
+                "title": "Mga Modelo sa Pagtinabangay",
+                "subtitle": "Nagtanyag kami og gipahaom nga mga pamaagi sa pakigtambayayong aron motakdo sa mga kahinguhaan ug tumong sa inyong organisasyon.",
+                "techTitle": "Partner sa Teknolohiya",
+                "techText": "Paghatag og imprastraktura, hosting, software credits, o teknikal nga tabang aron mosuporta sa operasyon ug pagtubo sa among platform.",
+                "eduTitle": "Partner sa Edukasyon",
+                "eduText": "Mga eskwelahan, unibersidad, ug training centers nga makig-partner aron direktang madala ang mga libreng himan ngadto sa mga estudyante ug magtutudlo.",
+                "commTitle": "Partner sa Komunidad",
+                "commText": "Suportahi ang mga outreach program, hackathon, ug mga kalihokan nga nagpasiugda sa digital literacy ug open-source.",
+                "contentTitle": "Partner sa Kontento",
+                "contentText": "Tabang sa paghimo og educational guides, tutorials, ug lokal nga mga kapanguhaan aron mapahimuslan sa komunidad ang mga himan."
+            },
+            "why": {
+                "title": "Nganong Makig-partner sa Abakada?",
+                "subtitle": "I-align ang inyong brand sa makahuloganong tumong ug hatagi'g gahum ang sunod nga henerasyon sa mga Pilipinong magtutukod.",
+                "accessTitle": "Access sa Komunidad",
+                "accessText": "Direktang maabot ang liboan ka mga estudyante, magtutudlo, ug developers nga aktibong nangita og digital tools.",
+                "equityTitle": "Brand Equity",
+                "equityText": "Ipakita ang Corporate Social Responsibility (CSR) pinaagi sa pagsuporta sa libreng access sa edukasyon ug teknolohiya.",
+                "leadershipTitle": "Pagpangulo sa Hunahuna",
+                "leadershipText": "Iposisyon ang inyong organisasyon isip usa ka nag-unang tigpaluyo sa digital ecosystem ug inobasyon sa Pilipinas."
+            },
+            "cta": {
+                "title": "Andam na ba Kahimog Kausaban?",
+                "text": "I-download ang among partnership deck alang sa detalyadong impormasyon, o kontaka kami aron hisgutan ang gipahaom nga package nga motakdo sa tumong sa inyong organisasyon.",
+                "contact": "Kontaka Kami",
+                "deck": "Tan-awa ang Partnership Deck"
+            }
+        }
+    },
+    "pwa": {
+        "install": "I-install ang App",
+        "installAriaLabel": "I-install ang Abakada App"
+    },
+    "bookmark": {
+        "add": "I-bookmark",
+        "remove": "Kuhaa ang bookmark",
+        "storageUnavailable": "Dili ma-save ang mga bookmark — dili available ang storage niini nga sesyon",
+        "pageTitle": "Mga Bookmark",
+        "emptyTitle": "Wala pay mga bookmark",
+        "emptyDesc": "I-save ang mga gamit nga gusto nimong balikan pinaagi sa pag-klik sa bookmark icon sa bisan unsang tool card.",
+        "browseTools": "Tan-awa ang Mga Gamit"
+    },
+    "compare": {
+        "title": "Itandi ang Mga Gamit",
+        "add": "Itandi",
+        "remove": "Kuhaa sa pagtandi",
+        "clear": "Papasa ang pagtandi",
+        "emptyTitle": "Walay napiling gamit",
+        "emptyDesc": "Pagpili og labing menos 2 ka gamit gikan sa home page aron itandi kini sa kilid sa kilid.",
+        "browseTools": "Tan-awa ang Mga Gamit",
+        "tableLabel": "Lamesa sa pagtandi sa gamit",
+        "stackLabel": "Mga card sa pagtandi sa gamit",
+        "dimension": "Dimensyon",
+        "removeTool": "Kuhaa ang {{name}}",
+        "maxReached": "Maximum nga 4 ka gamit ang maitandi",
+        "dimensions": {
+            "name": "Ngalan",
+            "category": "Kategorya",
+            "platforms": "Mga Plataporma",
+            "offlineCapable": "Molihok Offline",
+            "easeOfUse": "Kadali sa Paggamit",
+            "features": "Mga Tampok",
+            "license": "Lisensya",
+            "useCases": "Mga Gamit"
+        }
+    },
+    "learningPaths": {
+        "title": "Mga Dalan sa Pagkat-on",
+        "intro": "Mga curated nga toolkit aron giyahan ka sa imong paglalakbay sa pagkat-on — lakang sa lakang.",
+        "changePath": "Usba ang akong dalan",
+        "stageCount": "{{count}} yugto",
+        "startPath": "Sugdi ang dalan",
+        "backToAll": "Balik sa Mga Dalan sa Pagkat-on",
+        "progressLabel": "Pag-uswag",
+        "progressText": "{{explored}} / {{total}} na-explore",
+        "explored": "Na-explore",
+        "markExplored": "Markahi nga na-explore",
+        "notFound": "Wala Nakit-an",
+        "toolkitNotFound": "Wala nakit-an ang toolkit.",
+        "role": {
+            "student": "Estudyante",
+            "teacher": "Magtutudlo",
+            "researcher": "Tigpanukiduki",
+            "developer": "Developer",
+            "designer": "Tigdisenyo",
+            "accountant": "Accountant"
+        }
+    },
+    "onboarding": {
+        "title": "Unsa ang labing naghulagway kanimo?",
+        "subtitle": "Magrekomendar kami og dalan sa pagkat-on nga angay sa imong papel."
+    },
+    "cta": {
+        "title": "Andam na Mag-explore?",
+        "text": "Diskubriha ang gatusan ka libre ug open-source nga mga gamit sa produktibidad nga gi-curate para sa mga Pilipino nga estudyante, magtutudlo, ug propesyonal.",
+        "browseTools": "Tan-awa ang Tanang Gamit",
+        "getInTouch": "Kontaka Kami"
+    },
+    "breadcrumb": {
+        "home": "Panimalay",
+        "about": "Mahitungod Kanamo",
+        "contact": "Kontaka",
+        "privacy": "Palisiya sa Pribado",
+        "faq": "Kanunay Pangutan-on",
+        "sitemap": "Mapa sa Site"
+    },
+    "errors": {
+        "404": {
+            "label": "Error 404",
+            "title": "Wala Nakit-an ang Panid",
+            "message": "Ang panid nga imong gipangita wala nag-exist o nabalhin na. Tabangan ka namo nga makabalik sa husto nga dalan.",
+            "pageTitle": "Wala Nakit-an ang Panid - Abakada"
+        },
+        "500": {
+            "label": "Error 500",
+            "title": "Error sa Server",
+            "message": "Adunay sayop nga nahitabo sa among bahin. Giaayo na namo kini. Palihug sulayi pag-usab.",
+            "pageTitle": "Error sa Server - Abakada"
+        },
+        "goHome": "Balik sa Panimalay",
+        "viewSitemap": "Tan-awa ang Mapa sa Site",
+        "tryAgain": "Sulayi Pag-usab",
+        "suggestions": "Mga Sikat nga Kategorya",
+        "helpTitle": "Unsa ang imong mahimo",
+        "help": {
+            "refresh": "I-refresh ang panid",
+            "refreshDesc": "Usahay ang yano nga pag-refresh makasolbar sa temporaryo nga mga problema.",
+            "wait": "Paghulat kadiyot",
+            "waitDesc": "Lagmit nga giaayo na sa among team ang problema.",
+            "contact": "Kontaka kami",
+            "contactDesc": "Kung magpadayon ang problema, ipahibalo kanamo."
+        }
+    },
+    "deck": {
+        "hero": {
+            "tagline": "Partnership Deck 2026",
+            "title": "Paghatag og Gahum sa Sunod nga Henerasyon sa mga Pilipinong Magtutukod",
+            "subtitle": "Uban kanamo sa pagpaabot sa teknolohiya ug edukasyon ngadto sa liboan ka mga estudyante ug propesyonal sa tibuok Pilipinas.",
+            "cta": "Susiha ang Among Bisyon"
+        },
+        "impact": {
+            "tagline": "Ang Among Epekto",
+            "title": "Pagtulay sa Digital Divide",
+            "subtitle": "Ang Abakada naghatag og libre, beripikado, ug dali ma-access nga open-source nga mga gamit ngadto sa mga nanginahanglan niini. Kami labaw pa sa usa ka direktoryo; kami usa ka plataporma alang sa oportunidad.",
+            "stats": {
+                "tools": "Mga Piniling Gamit",
+                "categories": "Mga Kategorya",
+                "free": "Libre ug Open Source"
+            }
+        },
+        "why": {
+            "tagline": "Nganong Makig-uban?",
+            "title": "I-align ang Imong Brand sa Epekto",
+            "community": {
+                "title": "Access sa Komunidad",
+                "text": "Direktang maabot ang mga estudyante, magtutudlo, ug developer nga aktibong nangita og digital nga mga gamit."
+            },
+            "brand": {
+                "title": "Bili sa Brand",
+                "text": "Ipakita ang Corporate Social Responsibility (CSR) pinaagi sa pagsuporta sa bukas nga access sa edukasyon."
+            },
+            "thought": {
+                "title": "Pagpanguna sa Industriya",
+                "text": "Iposisyon ang imong organisasyon isip usa ka yawe nga tigpasiugda sa digital ecosystem sa Pilipinas."
+            }
+        },
+        "models": {
+            "tagline": "Mga Modelo sa Kolaborasyon",
+            "title": "Mga Paagi sa Pagtinabangay",
+            "tech": {
+                "title": "Kasosyo sa Teknolohiya",
+                "text": "Paghatag og imprastraktura, hosting, o software credits aron suportahan ang operasyon sa among plataporma."
+            },
+            "edu": {
+                "title": "Kasosyo sa Edukasyon",
+                "text": "Mga eskwelahan ug unibersidad nga nakig-uban aron direktang madala ang mga piniling gamit sa mga estudyante ug magtutudlo."
+            },
+            "content": {
+                "title": "Kasosyo sa Kontent",
+                "text": "Magtinabangay sa paghimo og mga giya sa edukasyon, tutorial, ug kapanguhaan alang sa komunidad."
+            },
+            "community": {
+                "title": "Kasosyo sa Komunidad",
+                "text": "Suportahan ang mga outreach program, hackathon, ug lokal nga mga kalihokan sa tibuok tuig."
+            }
+        },
+        "cta": {
+            "title": "Mag-uban tang Tukuron ang Kaugmaon",
+            "subtitle": "Andam na ba nga maghimo og epekto? Kontaka ang among partnerships team aron diskubrihon ang mga oportunidad sa kolaborasyon.",
+            "visit": "Bisitaha ang Website",
+            "copyright": "© 2026 Organisasyon sa Abakada"
+        }
+    }
+}

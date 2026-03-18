@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Offline — Abakada</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #107f87;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #f1f5f9;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #94a3b8;
+      max-width: 360px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .retry-btn {
+      display: inline-block;
+      padding: 0.625rem 1.5rem;
+      background-color: #107f87;
+      color: #fff;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: #0d6b72;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">Abakada</div>
+  <div class="icon">📡</div>
+  <h1>You're offline</h1>
+  <p>It looks like you've lost your internet connection. Check your connection and try again.</p>
+  <button type="button" class="retry-btn" onclick="window.location.reload()">Try again</button>
+</body>
+</html>

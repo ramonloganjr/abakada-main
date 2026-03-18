@@ -1,0 +1,601 @@
+{
+    "meta": {
+        "code": "tl",
+        "name": "Tagalog",
+        "nativeName": "Filipino",
+        "direction": "ltr"
+    },
+    "languages": {
+        "en": "Ingles",
+        "tl": "Tagalog",
+        "ilo": "Ilokano",
+        "bis": "Bisaya"
+    },
+    "nav": {
+        "home": "Tahanan",
+        "tools": "Mga Kagamitan",
+        "about": "Tungkol Sa",
+        "contact": "Makipag-ugnayan",
+        "privacy": "Pagkapribado",
+        "search": "Maghanap ng kagamitan...",
+        "menu": "Menu",
+        "close": "Isara",
+        "bookmarks": "Mga Bookmark",
+        "compare": "Ikumpara ang Mga Kagamitan",
+        "learningPaths": "Mga Landas ng Pag-aaral"
+    },
+    "hero": {
+        "title": "Mga Open Source na",
+        "titleHighlight": "Kagamitang Pamproduktibitad",
+        "subtitle": "Tuklasin ang makapangyarihan, libre, at open-source na mga kagamitang pamproduktibitad na nakaayos ayon sa kategorya. Mula sa pagproproseso ng dokumento hanggang sa pamamahala ng proyekto, mahanap ang perpektong mga kagamitan para sa iyong daloy ng trabaho.",
+        "statsTools": "Mga Kagamitan",
+        "statsCategories": "Mga Kategorya",
+        "statsOpenSource": "Open Source"
+    },
+    "groups": {
+        "productivity": "Produktibidad",
+        "creative": "Malikhaing Gawain",
+        "data": "Datos at Pananaliksik",
+        "security": "Seguridad",
+        "media": "Media",
+        "utilities": "Mga Utility",
+        "development": "Development",
+        "business": "Negosyo"
+    },
+    "categories": {
+        "all": "Lahat ng Kagamitan",
+        "doc-processing": "Pagpoproseso ng Dokumento",
+        "data-processing": "Pagpoproseso ng Datos",
+        "design": "Disenyo at Mga Larawan",
+        "desktop-publishing": "Paglilimbag sa Desktop",
+        "ebook": "Pamamahala ng E-book",
+        "encryption": "Pag-encrypt at Seguridad",
+        "file": "Mga Kagamitan sa File",
+        "geographic": "Heograpiya at Mapa",
+        "health": "Kalusugan at Kagalingan",
+        "media": "Mga Media Player at Editor",
+        "math": "Matematika at Agham",
+        "notes": "Pagsusulat ng Tala",
+        "password": "Pamamahala ng Password",
+        "finance": "Personal na Pananalapi",
+        "privacy": "Pagkapribado at Seguridad",
+        "project": "Pamamahala ng Proyekto",
+        "reference": "Pamamahala ng Sanggunian",
+        "visualization": "Bisuwalisasyon at Dayagram",
+        "education": "Edukasyon at Pagtuturo",
+        "development": "Mga Kagamitang Pang-develop",
+        "devops": "DevOps at Imprastraktura",
+        "database": "Mga Kagamitan sa Database",
+        "networking": "Networking",
+        "communication": "Komunikasyon",
+        "automation": "Automation",
+        "ai-ml": "AI at Machine Learning",
+        "gaming": "Gaming",
+        "backup": "Backup at Pagbawi",
+        "monitoring": "Pagsubaybay at Obserbasyon",
+        "cms": "Pamamahala ng Nilalaman",
+        "ecommerce": "E-commerce",
+        "crm": "CRM at Benta",
+        "science": "Siyentipikong Komputasyon",
+        "audio": "Produksyon ng Audio",
+        "video": "Produksyon ng Video",
+        "3d": "3D at CAD",
+        "photography": "Potograpiya",
+        "writing": "Pagsusulat at Paglalathala",
+        "testing": "Pagsubok at QA",
+        "api": "API Development",
+        "mobile": "Mobile Development",
+        "web": "Web Development",
+        "virtualization": "Virtualization",
+        "homelab": "Home Lab at Self-Hosting",
+        "security-tools": "Mga Kagamitan sa Seguridad"
+    },
+    "categoryDescriptions": {
+        "doc-processing": "Mga office suite, collaborative wiki, at mga kagamitan sa dokumento",
+        "data-processing": "Pag-aaral ng estadistika, pagmimina ng datos, at mga kagamitan sa pagsasaliksik",
+        "design": "Pag-edit ng larawan, vector graphics, at mga kagamitan sa disenyo",
+        "desktop-publishing": "Propesyonal na layout at software sa typesetting",
+        "ebook": "Mga E-book reader, converter, at tagapamahala ng library",
+        "encryption": "Pag-encrypt ng disk at mga kagamitan sa seguridad ng file",
+        "file": "Paglipat ng file, pag-sync, compression, at pagbabahagi",
+        "geographic": "GIS, pagmamapa, at software sa nabigasyon",
+        "health": "Pagsubaybay sa kalusugan at mga aplikasyon sa kagalingan",
+        "media": "Mga kagamitan sa audio, video, at animasyon",
+        "math": "Computer algebra at siyentipikong komputasyon",
+        "notes": "Mga note app, knowledge base, at wiki",
+        "password": "Mga secure na tagapamahala ng password at vault",
+        "finance": "Pagbabadyet, accounting, at mga kagamitan sa pananalapi",
+        "privacy": "Email aliasing, VPN, at mga kagamitan sa pagkapribado",
+        "project": "Pagpaplano ng proyekto at agile na pamamahala",
+        "reference": "Mga tagapamahala ng citation at bibliography",
+        "visualization": "Mind mapping, pagguhit ng dayagram, at flowchart",
+        "education": "Mga learning management system, kagamitan sa silid-aralan, at software para sa edukasyon",
+        "development": "Mga IDE, code editor, version control, at mga utility para sa developer",
+        "devops": "CI/CD, container, orkestrasyon, at mga kagamitan sa imprastraktura",
+        "database": "Pamamahala ng database, mga client, at pagmomodelo ng datos",
+        "networking": "Pagsubaybay sa network, pagsusuri, at mga kagamitan sa pamamahala",
+        "communication": "Chat, email, video conferencing, at kolaborasyon",
+        "automation": "Automation ng gawain, pag-script, at mga kagamitan sa workflow",
+        "ai-ml": "Mga framework ng machine learning, kagamitan sa AI, at data science",
+        "gaming": "Mga game engine, emulator, at mga utility sa gaming",
+        "backup": "Mga solusyon sa backup, disaster recovery, at proteksyon ng datos",
+        "monitoring": "Pagsubaybay sa sistema, pag-log, at pagsusuri ng performance",
+        "cms": "Mga CMS platform, static site generator, at web publishing",
+        "ecommerce": "Mga platform ng online store at solusyon sa pagbabayad",
+        "crm": "Pamamahala ng relasyon sa customer at mga kagamitan sa benta",
+        "science": "Siyentipikong simulasyon, pagmomodelo, at mga kagamitan sa pananaliksik",
+        "audio": "Mga digital audio workstation, pag-edit ng audio, at produksyon ng musika",
+        "video": "Pag-edit ng video, streaming, at mga kagamitan sa produksyon",
+        "3d": "3D modeling, CAD, at software sa rendering",
+        "photography": "Pag-edit ng larawan, RAW processing, at pamamahala ng larawan",
+        "writing": "Mga kagamitan sa pagsusulat, markdown editor, at publishing platform",
+        "testing": "Mga testing framework, kagamitan sa QA, at test automation",
+        "api": "Disenyo ng API, pagsubok, at dokumentasyon",
+        "mobile": "Mga framework at kagamitan sa mobile app development",
+        "web": "Mga web framework, frontend tool, at web server",
+        "virtualization": "Mga virtual machine, hypervisor, at emulasyon",
+        "homelab": "Mga self-hosted na serbisyo at solusyon sa home server",
+        "security-tools": "Pag-scan ng seguridad, penetration testing, at pagsusuri ng kahinaan"
+    },
+    "tools": {
+        "header": "Tingnan ang Mga Kagamitan",
+        "allTools": "Lahat ng Kagamitan",
+        "showing": "Ipinapakita",
+        "of": "sa",
+        "toolsLabel": "kagamitan",
+        "viewDetails": "Tingnan ang Detalye",
+        "visitWebsite": "Bisitahin ang Website at I-download",
+        "viewSource": "Tingnan ang Source Code",
+        "viewRepo": "Tingnan ang Repository",
+        "license": "Lisensya",
+        "platforms": "Mga Platform",
+        "tags": "Mga Tag",
+        "close": "Isara",
+        "description": "Paglalarawan",
+        "features": "Mga Tampok",
+        "download": "I-download",
+        "documentation": "Dokumentasyon",
+        "alternativeTo": "Alternatibo sa"
+    },
+    "featured": {
+        "label": "Tampok",
+        "title": "Mga Piling Kagamitan",
+        "subtitle": "Mga kagamitang pinili para sa kalidad, tampok, at suporta ng komunidad.",
+        "viewTool": "Tingnan"
+    },
+    "platforms": {
+        "windows": "Windows",
+        "macos": "macOS",
+        "linux": "Linux",
+        "ios": "iOS",
+        "android": "Android",
+        "web": "Web",
+        "self-hosted": "Sariling Host"
+    },
+    "search": {
+        "placeholder": "Maghanap ng kagamitan...",
+        "noResults": "Walang nahanap na kagamitan",
+        "noResultsFor": "Walang nahanap na resulta",
+        "noResultsQuery": "Hindi namin mahanap ang mga kagamitang tumutugma sa",
+        "noResultsDesc": "Subukang baguhin ang iyong paghahanap o pamantayan sa filter",
+        "noFilterResults": "Walang tumutugmang kagamitan",
+        "noFilterDesc": "Walang kagamitang tumutugma sa mga napiling filter. Subukang baguhin ang iyong mga filter.",
+        "noCategoryTools": "Walang kagamitan sa kategoryang ito",
+        "noCategoryDesc": "Wala pang mga kagamitan sa kategoryang ito.",
+        "noTools": "Walang available na kagamitan",
+        "noToolsDesc": "Lalabas dito ang mga kagamitan kapag naidagdag na.",
+        "clear": "Burahin ang paghahanap",
+        "clearFilters": "Burahin ang mga filter",
+        "trySearch": "Maghanap ng kagamitan",
+        "suggestions": "Subukang hanapin ang",
+        "results": "mga resulta",
+        "searching": "Naghahanap..."
+    },
+    "filters": {
+        "title": "Mga Filter",
+        "platforms": "Mga Platform",
+        "tags": "Mga Tag",
+        "clear": "Burahin lahat",
+        "active": "aktibo"
+    },
+    "pagination": {
+        "prev": "Nakaraan",
+        "next": "Susunod",
+        "page": "Pahina",
+        "of": "sa"
+    },
+    "theme": {
+        "light": "Maliwanag",
+        "dark": "Madilim",
+        "system": "Sistema",
+        "toggle": "Palitan ang tema"
+    },
+    "footer": {
+        "description": "Isang koleksyon ng mga libre at open-source na software tools para sa mga estudyante, iskolar, guro, at propesyonal na Pilipino.",
+        "quickLinks": "Mga Mabilisang Link",
+        "allTools": "Lahat ng Kagamitan",
+        "categories": "Mga Kategorya",
+        "about": "Tungkol Sa Amin",
+        "resources": "Mga Mapagkukunan",
+        "bookmarks": "Mga Bookmark",
+        "compare": "Mga Kagamitang Ikukumpara",
+        "learningPaths": "Mga Landas ng Pag-aaral",
+        "faq": "Frequently Asked Questions",
+        "contribute": "Mag-ambag sa GitHub",
+        "openSourceInitiative": "Open Source Initiative",
+        "opensourceCom": "Opensource.com",
+        "abakada": "Abakada",
+        "contact": "Makipag-ugnayan",
+        "privacyPolicy": "Patakaran sa Pagkapribado",
+        "sitemap": "Mapa ng Site",
+        "copyright": "Brown and Proud. Show your support by sharing this website.",
+        "copyright_line1": "Brown and Proud.",
+        "copyright_line2": "Show your support by sharing this website.",
+        "openSource": "100% Open Source",
+        "license": "MIT | CC BY 4.0",
+        "badge": "100% Open Source"
+    },
+    "accessibility": {
+        "skipToContent": "Lumaktaw sa pangunahing nilalaman",
+        "menuOpen": "Buksan ang menu",
+        "menuClose": "Isara ang menu",
+        "themeToggle": "Palitan ang tema",
+        "languageSelect": "Pumili ng wika",
+        "searchClear": "Burahin ang paghahanap",
+        "modalClose": "Isara ang modal",
+        "categoryFilter": "I-filter ayon sa kategorya",
+        "loading": "Naglo-load...",
+        "error": "May naganap na error"
+    },
+    "common": {
+        "loading": "Naglo-load...",
+        "error": "Error",
+        "success": "Tagumpay",
+        "cancel": "Kanselahin",
+        "save": "I-save",
+        "delete": "Tanggalin",
+        "edit": "I-edit",
+        "view": "Tingnan",
+        "back": "Bumalik",
+        "next": "Susunod",
+        "previous": "Nakaraan",
+        "yes": "Oo",
+        "no": "Hindi",
+        "or": "o",
+        "and": "at",
+        "free": "Libre",
+        "open": "Bukas",
+        "close": "Isara",
+        "more": "Higit pa",
+        "less": "Mas kaunti",
+        "all": "Lahat",
+        "none": "Wala"
+    },
+    "health": {
+        "active": "Aktibo",
+        "stable": "Matatag",
+        "stale": "Luma",
+        "activeTooltip": "Aktibong pinapanatili",
+        "stableTooltip": "Nasa maintenance mode",
+        "staleTooltip": "Maaaring hindi na pinapanatili",
+        "lastUpdated": "Huling na-update"
+    },
+    "license": {
+        "openSource": "Open Source",
+        "freeware": "Freeware",
+        "proprietary": "Proprietary"
+    },
+    "time": {
+        "now": "Ngayon",
+        "today": "Ngayong Araw",
+        "yesterday": "Kahapon",
+        "tomorrow": "Bukas",
+        "days": "araw",
+        "hours": "oras",
+        "minutes": "minuto",
+        "ago": "nakalipas"
+    },
+    "pages": {
+        "about": {
+            "title": "Tungkol Sa Amin",
+            "pageTitle": "Tungkol Sa Amin - Abakada | Libreng Kagamitan para sa mga Estudyante at Guro",
+            "heroTitle": "Para sa Bawat Pilipino",
+            "heroSubtitle": "Nagbibigay-kapangyarihan sa bawat Pilipino ng libre at madaling ma-access na mga kagamitang pamproduktibitad—mula sa mga estudyante sa malalayong barangay hanggang sa mga gurong humuhubog sa susunod na henerasyon.",
+            "missionTitle": "Ang Aming Misyon",
+            "missionText1": "Ang Abakada ay nakatuon sa paglilingkod sa lahat ng mamamayan ng Pilipinas sa pamamagitan ng pagbibigay ng libreng access sa makapangyarihang mga kagamitang pamproduktibitad. Naniniwala kami na ang kalidad na software ay hindi dapat maging hadlang sa edukasyon o tagumpay.",
+            "missionText2": "Ang aming espesyal na pokus ay sa pagsuporta sa mga underprivileged na iskolar na karapat-dapat sa parehong digital na mapagkukunan tulad ng kanilang mga kapwa. Sa pamamagitan ng pag-curate ng pinakamahusay na libre at open-source na mga kagamitan, tinutulungan naming pantayin ang larangan para sa bawat Pilipinong mag-aaral.",
+            "educatorsTitle": "Para sa mga Guro",
+            "educatorsText1": "Nagbibigay kami ng mga espesyalisadong glossary tool na idinisenyo upang tulungan ang mga guro sa pagtuturo. Ang mga mapagkukunang ito ay tumutulong sa mga edukador na ipaliwanag ang mga kumplikadong konsepto, lumikha ng mga materyal sa pag-aaral, at mapahusay ang pakikipag-ugnayan sa silid-aralan.",
+            "educatorsText2": "Mula sa pagpaplano ng aralin hanggang sa pagtatasa ng estudyante, sinusuportahan ng aming curated na koleksyon ang mga guro sa lahat ng asignatura at antas ng grado sa buong Pilipinas.",
+            "visionLabel": "Ang Aming Bisyon",
+            "visionTitle": "Digital na Pagkakapantay-pantay para sa Lahat",
+            "visionText1": "Iniisip namin ang isang Pilipinas kung saan ang bawat estudyante—anuman ang kalagayang pang-ekonomiya o lokasyon—ay may access sa parehong makapangyarihang digital na mga kagamitan tulad ng kanilang mga kapwa sa buong mundo.",
+            "visionText2": "Sa pamamagitan ng pag-curate at pagpo-promote ng libre, open-source na mga alternatibo sa mamahaling software, tinutulungan naming tulay ang digital divide nang isa-isang kagamitan.",
+            "valuesTitle": "Ang Aming mga Halaga",
+            "valuesSubtitle": "Ang mga prinsipyong gumagabay sa lahat ng ginagawa namin sa Abakada.",
+            "valueAccessibility": "Accessibility",
+            "valueAccessibilityText": "Libreng mga kagamitan para sa lahat, saanman sa Pilipinas.",
+            "valueQuality": "Kalidad",
+            "valueQualityText": "Tanging ang pinakamahusay na open-source na mga kagamitan ang napapasama sa aming koleksyon.",
+            "valueCommunity": "Komunidad",
+            "valueCommunityText": "Ginawa ng mga Pilipino, para sa mga Pilipino, nang may pagmamahal.",
+            "valueOpenSource": "Open Source",
+            "valueOpenSourceText": "Transparency at kolaborasyon sa aming core.",
+            "storyTitle": "Ang Aming Kuwento",
+            "storyText1": "Ang Abakada ay ipinanganak mula sa isang simpleng obserbasyon: maraming estudyanteng Pilipino ang nahihirapang ma-access ang parehong digital na mga kagamitan na tinatanggap ng kanilang mga kapwa sa mas mayayamang bansa. Ang mamahaling software license ay lumilikha ng mga hadlang na hindi dapat umiiral sa edukasyon.",
+            "storyText2": "Nagsimula kami sa pag-compile ng listahan ng mga libreng alternatibo sa popular na bayad na software. Ang nagsimula bilang personal na mapagkukunan ay mabilis na lumago sa mas malaking bagay—isang komprehensibong direktoryo na idinisenyo partikular para sa kontekstong Pilipino, na may mga kagamitang gumagana offline, sa mas lumang hardware, at sa mga lugar na may limitadong koneksyon sa internet.",
+            "storyText3": "Ngayon, ang Abakada ay naglilingkod sa mga estudyante, guro, at propesyonal sa buong Pilipinas, na tumutulong sa kanila na matuklasan ang mga makapangyarihang kagamitan na walang bayad ngunit nagbibigay ng lahat."
+        },
+        "contact": {
+            "title": "Makipag-ugnayan",
+            "pageTitle": "Makipag-ugnayan - Abakada Open Source Productivity Tools",
+            "heroTitle": "Makipag-ugnayan Sa Amin",
+            "heroSubtitle": "Gusto naming marinig mula sa iyo. Kung mayroon kang tanong, mungkahi, o gustong mag-ambag—makipag-ugnayan anumang oras.",
+            "getInTouchTitle": "Makipag-ugnayan",
+            "getInTouchText": "May tanong, mungkahi, o gustong mag-ambag? Laging masaya kaming marinig mula sa komunidad. Makipag-ugnayan sa amin at babalikan ka namin sa lalong madaling panahon.",
+            "emailTitle": "Email",
+            "emailNote": "Karaniwang tumutugon kami sa loob ng 24-48 oras",
+            "githubTitle": "GitHub",
+            "githubNote": "Mag-bukas ng mga issue, magsumite ng PR, o i-star ang proyekto",
+            "howCanWeHelpTitle": "Paano Kami Makakatulong?",
+            "suggestToolTitle": "Magmungkahi ng Kagamitan",
+            "suggestToolText": "May alam kang magandang open-source na kagamitan na wala sa amin? Ipaalam sa amin at susuriin namin ito para maisama.",
+            "reportIssueTitle": "Mag-ulat ng Isyu",
+            "reportIssueText": "Nakakita ng maling impormasyon o sirang link? Tulungan kaming panatilihing tumpak ang direktoryo.",
+            "partnershipTitle": "Pakikipagtulungan",
+            "partnershipText": "Interesado sa pakikipagtulungan o pakikipagsosyo sa Abakada? Bukas kami sa mga oportunidad.",
+            "generalInquiryTitle": "Pangkalahatang Katanungan",
+            "generalInquiryText": "May tanong o gusto lang bumati? Gusto naming marinig mula sa iyo."
+        },
+        "privacy": {
+            "title": "Patakaran sa Pagkapribado",
+            "pageTitle": "Patakaran sa Pagkapribado - Abakada Open Source Productivity Tools",
+            "heroTitle": "Patakaran sa Pagkapribado",
+            "lastUpdated": "Huling na-update"
+        },
+        "faq": {
+            "title": "Mga Madalas Itanong",
+            "pageTitle": "Mga Madalas Itanong - Abakada",
+            "heroTitle": "Mga Madalas Itanong",
+            "heroSubtitle": "Lahat ng kailangan mong malaman tungkol sa Abakada at kung paano masulit ang aming direktoryo ng open-source na mga kagamitan."
+        },
+        "sitemap": {
+            "title": "Mapa ng Site",
+            "pageTitle": "Mapa ng Site - Abakada | Mag-navigate sa 1000+ Libreng Open Source na Kagamitan",
+            "heroTitle": "Mapa ng Site",
+            "heroSubtitle": "Mag-navigate sa aming kumpletong koleksyon ng mga pahina at kategorya ng kagamitan. Hanapin ang eksaktong hinahanap mo.",
+            "mainPagesTitle": "Mga Pangunahing Pahina",
+            "mainPagesSubtitle": "Mga pangunahing pahina ng platform ng Abakada",
+            "categoriesTitle": "Mga Kategorya ng Kagamitan",
+            "categoriesSubtitle": "Mag-browse ng mga kagamitan na nakaayos ayon sa grupo ng kategorya",
+            "externalTitle": "Mga Panlabas na Mapagkukunan",
+            "externalSubtitle": "Mga kaugnay na link at mapagkukunan ng komunidad",
+            "home": "Tahanan",
+            "homeDesc": "Mag-browse ng lahat ng 1000+ open-source na kagamitan",
+            "about": "Tungkol Sa Amin",
+            "aboutDesc": "Ang aming misyon at mga halaga",
+            "contact": "Makipag-ugnayan",
+            "contactDesc": "Makipag-ugnayan sa amin",
+            "faq": "Mga Madalas Itanong",
+            "faqDesc": "Mga madalas itanong",
+            "privacy": "Patakaran sa Pagkapribado",
+            "privacyDesc": "Kung paano namin pinoprotektahan ang iyong datos",
+            "github": "GitHub Repository",
+            "githubDesc": "Mag-ambag sa proyekto",
+            "osi": "Open Source Initiative",
+            "osiDesc": "Matuto tungkol sa open source",
+            "productivityGroup": "Produktibidad",
+            "creativeGroup": "Malikhaing Gawain",
+            "dataGroup": "Datos at Pananaliksik",
+            "securityGroup": "Seguridad",
+            "mediaGroup": "Media",
+            "utilitiesGroup": "Mga Utility",
+            "developmentGroup": "Development",
+            "businessGroup": "Negosyo"
+        },
+        "partnerships": {
+            "title": "Samahan",
+            "pageTitle": "Samahan - Makipagtulungan sa Abakada para Palakasin ang Edukasyon ng Pilipino",
+            "heroTitle": "Makipagtulungan sa Amin",
+            "heroSubtitle": "Samahan kami na bigyang kapangyarihan ang mga mag-aaral at guro ng Pilipino gamit ang libre at makapangyarihang mga digital na kagamitan. Sama-sama nating tulay ang digital divide.",
+            "stats": {
+                "tools": "Libreng Kagamitan",
+                "categories": "Kategoryang Saklaw",
+                "languages": "Probisyong Wika",
+                "students": "Estudyanteng Natulungan"
+            },
+            "collaboration": {
+                "title": "Mga Modelo ng Pakikipagtulungan",
+                "subtitle": "Nag-aalok kami ng pasadyang pakikipagtulungan na akma sa kakayahan at layunin ng inyong organisasyon.",
+                "techTitle": "Kasosyo sa Teknolohiya",
+                "techText": "Magbigay ng imprastraktura, hosting, software credits, o teknikal na tulong para suportahan ang operasyon at paglago ng aming platform.",
+                "eduTitle": "Kasosyo sa Edukasyon",
+                "eduText": "Mga paaralan, unibersidad, at sentro ng pagsasanay na nakikipagtulungan para direktang dalhin ang libreng software sa mga estudyante at guro.",
+                "commTitle": "Kasosyo sa Komunidad",
+                "commText": "Suportahan ang mga outreach program, hackathon, at kaganapan na nagsusulong ng digital literacy at open-source.",
+                "contentTitle": "Kasosyo sa Nilalaman",
+                "contentText": "Tumulong sa paggawa ng educational guides, tutorials, at lokal na nilalaman para masulit ng komunidad ang mga kagamitan."
+            },
+            "why": {
+                "title": "Bakit Makipagtulungan sa Abakada?",
+                "subtitle": "Ihanay ang inyong brand sa makabuluhang layunin at bigyang lakas ang susunod na henerasyon ng mga Pilipinong tagabuo.",
+                "accessTitle": "Access sa Komunidad",
+                "accessText": "Direktang abutin ang libu-libong estudyante, guro, at developer na aktibong naghahanap ng digital tools.",
+                "equityTitle": "Brand Equity",
+                "equityText": "Ipakita ang Corporate Social Responsibility (CSR) sa pamamagitan ng pagsuporta sa libreng access sa edukasyon at teknolohiya.",
+                "leadershipTitle": "Pamumuno sa Kaisipan",
+                "leadershipText": "Iposisyon ang inyong organisasyon bilang pangunahing tagapagsulong ng digital ecosystem at inobasyon sa Pilipinas."
+            },
+            "cta": {
+                "title": "Handa na bang Gumawa ng Pagbabago?",
+                "text": "I-download ang aming partnership deck para sa detalyadong impormasyon, o makipag-ugnayan para pag-usapan ang pasadyang pakete na akma sa layunin ng inyong organisasyon.",
+                "contact": "Makipag-ugnayan",
+                "deck": "Tingnan ang Partnership Deck"
+            }
+        }
+    },
+    "pwa": {
+        "install": "I-install ang App",
+        "installAriaLabel": "I-install ang Abakada App"
+    },
+    "bookmark": {
+        "add": "I-bookmark",
+        "remove": "Alisin ang bookmark",
+        "storageUnavailable": "Hindi mase-save ang mga bookmark — hindi available ang storage sa session na ito",
+        "pageTitle": "Mga Bookmark",
+        "emptyTitle": "Wala pang mga bookmark",
+        "emptyDesc": "I-save ang mga kagamitang gusto mong balikan sa pamamagitan ng pag-click sa bookmark icon sa anumang tool card.",
+        "browseTools": "Mag-browse ng Mga Kagamitan"
+    },
+    "compare": {
+        "title": "Ikumpara ang Mga Kagamitan",
+        "add": "Ikumpara",
+        "remove": "Alisin sa pagkukumpara",
+        "clear": "Burahin ang pagkukumpara",
+        "emptyTitle": "Walang napiling kagamitan",
+        "emptyDesc": "Pumili ng hindi bababa sa 2 kagamitan mula sa home page para ikumpara ang mga ito nang magkatabi.",
+        "browseTools": "Mag-browse ng Mga Kagamitan",
+        "tableLabel": "Talahanayan ng pagkukumpara ng kagamitan",
+        "stackLabel": "Mga card ng pagkukumpara ng kagamitan",
+        "dimension": "Dimensyon",
+        "removeTool": "Alisin ang {{name}}",
+        "maxReached": "Maximum na 4 na kagamitan ang maaaring ikumpara",
+        "dimensions": {
+            "name": "Pangalan",
+            "category": "Kategorya",
+            "platforms": "Mga Platform",
+            "offlineCapable": "Gumagana Offline",
+            "easeOfUse": "Kadalian ng Paggamit",
+            "features": "Mga Tampok",
+            "license": "Lisensya",
+            "useCases": "Mga Gamit"
+        }
+    },
+    "learningPaths": {
+        "title": "Mga Landas ng Pag-aaral",
+        "intro": "Mga curated na toolkit para gabayan ka sa iyong paglalakbay sa pag-aaral — hakbang-hakbang.",
+        "changePath": "Baguhin ang aking landas",
+        "stageCount": "{{count}} yugto",
+        "startPath": "Simulan ang landas",
+        "backToAll": "Bumalik sa Mga Landas ng Pag-aaral",
+        "progressLabel": "Progreso",
+        "progressText": "{{explored}} / {{total}} na-explore",
+        "explored": "Na-explore",
+        "markExplored": "Markahan bilang na-explore",
+        "notFound": "Hindi Nahanap",
+        "toolkitNotFound": "Hindi nahanap ang toolkit.",
+        "role": {
+            "student": "Estudyante",
+            "teacher": "Guro",
+            "researcher": "Mananaliksik",
+            "developer": "Developer",
+            "designer": "Taga-disenyo",
+            "accountant": "Accountant"
+        }
+    },
+    "onboarding": {
+        "title": "Ano ang pinakamailarawan sa iyo?",
+        "subtitle": "Magrerekomenda kami ng landas ng pag-aaral na angkop sa iyong papel."
+    },
+    "cta": {
+        "title": "Handa nang Mag-explore?",
+        "text": "Tuklasin ang daan-daang libre at open-source na mga kagamitang pamproduktibitad na curated para sa mga estudyante, guro, at propesyonal na Pilipino.",
+        "browseTools": "Tingnan ang Lahat ng Kagamitan",
+        "getInTouch": "Makipag-ugnayan"
+    },
+    "breadcrumb": {
+        "home": "Tahanan",
+        "about": "Tungkol Sa Amin",
+        "contact": "Makipag-ugnayan",
+        "privacy": "Patakaran sa Pagkapribado",
+        "faq": "Mga Madalas Itanong",
+        "sitemap": "Mapa ng Site"
+    },
+    "errors": {
+        "404": {
+            "label": "Error 404",
+            "title": "Hindi Nahanap ang Pahina",
+            "message": "Ang pahinang hinahanap mo ay hindi umiiral o nailipat na. Tulungan ka naming makabalik sa tamang landas.",
+            "pageTitle": "Hindi Nahanap ang Pahina - Abakada"
+        },
+        "500": {
+            "label": "Error 500",
+            "title": "Error sa Server",
+            "message": "May nangyaring mali sa aming panig. Inaayos na namin ito. Subukan muli mamaya.",
+            "pageTitle": "Error sa Server - Abakada"
+        },
+        "goHome": "Bumalik sa Tahanan",
+        "viewSitemap": "Tingnan ang Mapa ng Site",
+        "tryAgain": "Subukan Muli",
+        "suggestions": "Mga Sikat na Kategorya",
+        "helpTitle": "Ano ang maaari mong gawin",
+        "help": {
+            "refresh": "I-refresh ang pahina",
+            "refreshDesc": "Minsan ang simpleng pag-refresh ay makakalutas ng pansamantalang mga isyu.",
+            "wait": "Maghintay sandali",
+            "waitDesc": "Malamang na inaayos na ng aming koponan ang isyu.",
+            "contact": "Makipag-ugnayan sa amin",
+            "contactDesc": "Kung magpatuloy ang problema, ipaalam sa amin."
+        }
+    },
+    "deck": {
+        "hero": {
+            "tagline": "Partnership Deck 2026",
+            "title": "Pagpapalakas sa Susunod na Henerasyon ng mga Pilipinong Builder",
+            "subtitle": "Samahan kami sa pagpapalawak ng access sa teknolohiya at edukasyon para sa libu-libong estudyante at propesyonal sa buong Pilipinas.",
+            "cta": "Tuklasin ang Aming Bisyon"
+        },
+        "impact": {
+            "tagline": "Ang Aming Epekto",
+            "title": "Pagtulay sa Digital Divide",
+            "subtitle": "Nagbibigay ang Abakada ng libre, beripikado, at abot-kayang open-source na mga kagamitan sa mga nangangailangan nito. Kami ay higit pa sa isang direktoryo; kami ay isang plataporma para sa oportunidad.",
+            "stats": {
+                "tools": "Mga Piling Kagamitan",
+                "categories": "Mga Kategorya",
+                "free": "Libre at Open Source"
+            }
+        },
+        "why": {
+            "tagline": "Bakit Makipagtulungan?",
+            "title": "Ihanay ang Iyong Brand sa Epekto",
+            "community": {
+                "title": "Access sa Komunidad",
+                "text": "Direktang abutin ang mga estudyante, guro, at developer na aktibong naghahanap ng mga digital na kagamitan."
+            },
+            "brand": {
+                "title": "Brand Equity",
+                "text": "Ipakita ang Corporate Social Responsibility (CSR) sa pamamagitan ng pagsuporta sa bukas na access sa edukasyon."
+            },
+            "thought": {
+                "title": "Thought Leadership",
+                "text": "Iposisyon ang iyong organisasyon bilang pangunahing tagapagtaguyod ng digital ecosystem ng Pilipinas."
+            }
+        },
+        "models": {
+            "tagline": "Mga Modelo ng Kolaborasyon",
+            "title": "Mga Paraan ng Pagtutulungan",
+            "tech": {
+                "title": "Kasosyo sa Teknolohiya",
+                "text": "Magbigay ng imprastraktura, hosting, o software credits upang suportahan ang operasyon ng aming plataporma."
+            },
+            "edu": {
+                "title": "Kasosyo sa Edukasyon",
+                "text": "Mga paaralan at unibersidad na nakikipagtulungan upang direktang dalhin ang mga piling kagamitan sa mga estudyante at guro."
+            },
+            "content": {
+                "title": "Kasosyo sa Nilalaman",
+                "text": "Makipaglikha ng mga gabay sa edukasyon, tutorial, at mapagkukunan para sa komunidad."
+            },
+            "community": {
+                "title": "Kasosyo sa Komunidad",
+                "text": "Suportahan ang mga programang outreach, hackathon, at lokal na kaganapan sa buong taon."
+            }
+        },
+        "cta": {
+            "title": "Sama-sama Nating Buuin ang Kinabukasan",
+            "subtitle": "Handa na bang gumawa ng epekto? Makipag-ugnayan sa aming partnerships team upang tuklasin ang mga oportunidad sa kolaborasyon.",
+            "visit": "Bisitahin ang Website",
+            "copyright": "© 2026 Organisasyon ng Abakada"
+        }
+    }
+}

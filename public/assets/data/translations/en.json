@@ -1,0 +1,597 @@
+{
+    "meta": {
+        "code": "en",
+        "name": "English",
+        "direction": "ltr"
+    },
+    "languages": {
+        "en": "English",
+        "tl": "Tagalog",
+        "ilo": "Ilokano",
+        "bis": "Bisaya"
+    },
+    "nav": {
+        "home": "Home",
+        "tools": "Tools",
+        "about": "About",
+        "contact": "Contact",
+        "privacy": "Privacy",
+        "search": "Search tools...",
+        "menu": "Menu",
+        "close": "Close",
+        "bookmarks": "Bookmarks",
+        "compare": "Compare Tools",
+        "learningPaths": "Learning Paths"
+    },
+    "hero": {
+        "title": "Open Source",
+        "titleHighlight": "Productivity Tools",
+        "subtitle": "Discover powerful, free, and open-source productivity tools organized by category. From document processing to project management, find the perfect tools for your workflow.",
+        "statsTools": "Tools",
+        "statsCategories": "Categories",
+        "statsOpenSource": "Open Source"
+    },
+    "groups": {
+        "productivity": "Productivity",
+        "creative": "Creative",
+        "data": "Data & Research",
+        "security": "Security",
+        "media": "Media",
+        "utilities": "Utilities",
+        "development": "Development",
+        "business": "Business"
+    },
+    "categories": {
+        "all": "All Tools",
+        "doc-processing": "Document Processing",
+        "data-processing": "Data Processing",
+        "design": "Design & Images",
+        "desktop-publishing": "Desktop Publishing",
+        "ebook": "E-book Management",
+        "encryption": "Encryption",
+        "file": "File Tools",
+        "geographic": "Geographic",
+        "health": "Health & Wellness",
+        "media": "Media Players & Editors",
+        "math": "Mathematics",
+        "notes": "Note-taking",
+        "password": "Password Management",
+        "finance": "Personal Finance",
+        "privacy": "Privacy",
+        "project": "Project Management",
+        "reference": "Reference Management",
+        "visualization": "Visualization",
+        "education": "Education & Teaching",
+        "development": "Development Tools",
+        "devops": "DevOps & Infrastructure",
+        "database": "Database Tools",
+        "networking": "Networking",
+        "communication": "Communication",
+        "automation": "Automation",
+        "ai-ml": "AI & Machine Learning",
+        "gaming": "Gaming",
+        "backup": "Backup & Recovery",
+        "monitoring": "Monitoring & Observability",
+        "cms": "Content Management",
+        "ecommerce": "E-commerce",
+        "crm": "CRM & Sales",
+        "science": "Scientific Computing",
+        "audio": "Audio Production",
+        "video": "Video Production",
+        "3d": "3D & CAD",
+        "photography": "Photography",
+        "writing": "Writing & Publishing",
+        "testing": "Testing & QA",
+        "api": "API Development",
+        "mobile": "Mobile Development",
+        "web": "Web Development",
+        "virtualization": "Virtualization",
+        "homelab": "Home Lab & Self-Hosting",
+        "security-tools": "Security Tools"
+    },
+    "categoryDescriptions": {
+        "doc-processing": "Office suites, collaborative wikis, and document tools",
+        "data-processing": "Statistical analysis, data mining, and research tools",
+        "design": "Image editing, vector graphics, and design tools",
+        "desktop-publishing": "Professional layout and typesetting software",
+        "ebook": "E-book readers, converters, and library managers",
+        "encryption": "Disk encryption and file security tools",
+        "file": "File transfer, sync, compression, and sharing",
+        "geographic": "GIS, mapping, and navigation software",
+        "health": "Health tracking and wellness applications",
+        "media": "Audio, video, and animation tools",
+        "math": "Computer algebra and scientific computing",
+        "notes": "Note apps, knowledge bases, and wikis",
+        "password": "Secure password managers and vaults",
+        "finance": "Budgeting, accounting, and finance tools",
+        "privacy": "Email aliasing, VPNs, and privacy tools",
+        "project": "Project planning and agile management",
+        "reference": "Citation and bibliography managers",
+        "visualization": "Mind mapping, diagramming, and flowcharts",
+        "education": "Learning management systems, classroom tools, and educational software",
+        "development": "IDEs, code editors, version control, and developer utilities",
+        "devops": "CI/CD, containers, orchestration, and infrastructure tools",
+        "database": "Database management, clients, and data modeling",
+        "networking": "Network monitoring, analysis, and management tools",
+        "communication": "Chat, email, video conferencing, and collaboration",
+        "automation": "Task automation, scripting, and workflow tools",
+        "ai-ml": "Machine learning frameworks, AI tools, and data science",
+        "gaming": "Game engines, emulators, and gaming utilities",
+        "backup": "Backup solutions, disaster recovery, and data protection",
+        "monitoring": "System monitoring, logging, and performance analysis",
+        "cms": "CMS platforms, static site generators, and web publishing",
+        "ecommerce": "Online store platforms and payment solutions",
+        "crm": "Customer relationship management and sales tools",
+        "science": "Scientific simulation, modeling, and research tools",
+        "audio": "Digital audio workstations, audio editing, and music production",
+        "video": "Video editing, streaming, and production tools",
+        "3d": "3D modeling, CAD, and rendering software",
+        "photography": "Photo editing, RAW processing, and photo management",
+        "writing": "Writing tools, markdown editors, and publishing platforms",
+        "testing": "Testing frameworks, QA tools, and test automation",
+        "api": "API design, testing, and documentation tools",
+        "mobile": "Mobile app development frameworks and tools",
+        "web": "Web frameworks, frontend tools, and web servers",
+        "virtualization": "Virtual machines, hypervisors, and emulation",
+        "homelab": "Self-hosted services and home server solutions",
+        "security-tools": "Security scanning, penetration testing, and vulnerability assessment"
+    },
+    "tools": {
+        "header": "Browse Tools",
+        "allTools": "All Tools",
+        "showing": "Showing",
+        "of": "of",
+        "toolsLabel": "tools",
+        "viewDetails": "View Details",
+        "visitWebsite": "Visit Website & Download",
+        "viewSource": "View Source",
+        "viewRepo": "View Repository",
+        "license": "License",
+        "platforms": "Platforms",
+        "tags": "Tags",
+        "close": "Close",
+        "description": "Description",
+        "features": "Features",
+        "download": "Download",
+        "documentation": "Documentation",
+        "alternativeTo": "Alternative to"
+    },
+    "featured": {
+        "label": "Featured",
+        "title": "Editor's Picks",
+        "subtitle": "Hand-picked tools that stand out for quality, features, and community support.",
+        "viewTool": "View"
+    },
+    "platforms": {
+        "windows": "Windows",
+        "macos": "macOS",
+        "linux": "Linux",
+        "ios": "iOS",
+        "android": "Android",
+        "web": "Web",
+        "self-hosted": "Self-hosted"
+    },
+    "search": {
+        "placeholder": "Search tools...",
+        "noResults": "No tools found",
+        "noResultsFor": "No results found",
+        "noResultsQuery": "We couldn't find any tools matching",
+        "noResultsDesc": "Try adjusting your search or filter criteria",
+        "noFilterResults": "No matching tools",
+        "noFilterDesc": "No tools match the selected filters. Try adjusting your filters.",
+        "noCategoryTools": "No tools in this category",
+        "noCategoryDesc": "There are no tools available in this category yet.",
+        "noTools": "No tools available",
+        "noToolsDesc": "Tools will appear here once they are added.",
+        "clear": "Clear search",
+        "clearFilters": "Clear filters",
+        "trySearch": "Search tools",
+        "suggestions": "Try searching for",
+        "results": "results",
+        "searching": "Searching..."
+    },
+    "filters": {
+        "title": "Filters",
+        "platforms": "Platforms",
+        "tags": "Tags",
+        "clear": "Clear all",
+        "active": "active"
+    },
+    "pagination": {
+        "prev": "Previous",
+        "next": "Next",
+        "page": "Page",
+        "of": "of"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System",
+        "toggle": "Toggle theme"
+    },
+    "footer": {
+        "description": "A collection of free and open‑source software tools for Filipino students, scholars, educators, and professionals.",
+        "quickLinks": "Quick Links",
+        "allTools": "All Tools",
+        "categories": "Categories",
+        "about": "About Us",
+        "resources": "Resources",
+        "faq": "Frequently Asked Questions",
+        "contribute": "Contribute on GitHub",
+        "openSourceInitiative": "Open Source Initiative",
+        "opensourceCom": "Opensource.com",
+        "abakada": "Abakada",
+        "contact": "Contact",
+        "privacyPolicy": "Privacy Policy",
+        "sitemap": "Sitemap",
+        "copyright": "Brown and Proud. Show your support by sharing this website.",
+        "copyright_line1": "Brown and Proud.",
+        "copyright_line2": "Show your support by sharing this website.",
+        "openSource": "100% Open Source",
+        "license": "MIT | CC BY 4.0",
+        "badge": "100% Open Source"
+    },
+    "accessibility": {
+        "skipToContent": "Skip to main content",
+        "menuOpen": "Open menu",
+        "menuClose": "Close menu",
+        "themeToggle": "Toggle theme",
+        "languageSelect": "Select language",
+        "searchClear": "Clear search",
+        "modalClose": "Close modal",
+        "categoryFilter": "Filter by category",
+        "loading": "Loading...",
+        "error": "An error occurred"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "view": "View",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "yes": "Yes",
+        "no": "No",
+        "or": "or",
+        "and": "and",
+        "free": "Free",
+        "open": "Open",
+        "close": "Close",
+        "more": "More",
+        "less": "Less",
+        "all": "All",
+        "none": "None"
+    },
+    "health": {
+        "active": "Active",
+        "stable": "Stable",
+        "stale": "Stale",
+        "activeTooltip": "Actively maintained",
+        "stableTooltip": "In maintenance mode",
+        "staleTooltip": "May be unmaintained",
+        "lastUpdated": "Last updated"
+    },
+    "license": {
+        "openSource": "Open Source",
+        "freeware": "Freeware",
+        "proprietary": "Proprietary"
+    },
+    "time": {
+        "now": "Now",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "tomorrow": "Tomorrow",
+        "days": "days",
+        "hours": "hours",
+        "minutes": "minutes",
+        "ago": "ago"
+    },
+    "pages": {
+        "about": {
+            "title": "About Us",
+            "pageTitle": "About Us - Abakada | Free Tools for Filipino Students & Educators",
+            "heroTitle": "Para sa Bawat Pilipino",
+            "heroSubtitle": "Empowering every Filipino with free, accessible productivity tools—from students in remote barangays to educators shaping the next generation.",
+            "missionTitle": "Our Mission",
+            "missionText1": "Abakada is dedicated to serving all people of the Philippines by providing free access to powerful productivity tools. We believe that quality software should never be a barrier to education or success.",
+            "missionText2": "Our special focus is on supporting underprivileged scholars who deserve the same digital resources as their peers. By curating the best free and open-source tools, we help level the playing field for every Filipino learner.",
+            "educatorsTitle": "For Educators",
+            "educatorsText1": "We provide specialized glossary tools designed to assist teachers in educational instruction. These resources help educators explain complex concepts, create learning materials, and enhance classroom engagement.",
+            "educatorsText2": "From lesson planning to student assessment, our curated collection supports teachers across all subjects and grade levels throughout the Philippines.",
+            "visionLabel": "Our Vision",
+            "visionTitle": "Digital Equity for All",
+            "visionText1": "We envision a Philippines where every student—regardless of economic background or geographic location—has access to the same powerful digital tools as their peers worldwide.",
+            "visionText2": "By curating and promoting free, open-source alternatives to expensive software, we're helping bridge the digital divide one tool at a time.",
+            "valuesTitle": "Our Values",
+            "valuesSubtitle": "The principles that guide everything we do at Abakada.",
+            "valueAccessibility": "Accessibility",
+            "valueAccessibilityText": "Free tools for everyone, everywhere in the Philippines.",
+            "valueQuality": "Quality",
+            "valueQualityText": "Only the best open-source tools make it to our collection.",
+            "valueCommunity": "Community",
+            "valueCommunityText": "Built by Filipinos, for Filipinos, with love.",
+            "valueOpenSource": "Open Source",
+            "valueOpenSourceText": "Transparency and collaboration at our core.",
+            "storyTitle": "Our Story",
+            "storyText1": "Abakada was born from a simple observation: many Filipino students struggle to access the same digital tools that their peers in wealthier countries take for granted. Expensive software licenses create barriers that shouldn't exist in education.",
+            "storyText2": "We started by compiling a list of free alternatives to popular paid software. What began as a personal resource quickly grew into something bigger—a comprehensive directory designed specifically for the Filipino context, with tools that work offline, on older hardware, and in areas with limited internet connectivity.",
+            "storyText3": "Today, Abakada serves students, educators, and professionals across the Philippines, helping them discover powerful tools that cost nothing but deliver everything."
+        },
+        "contact": {
+            "title": "Contact Us",
+            "pageTitle": "Contact Us - Abakada Open Source Productivity Tools",
+            "heroTitle": "Contact Us",
+            "heroSubtitle": "We'd love to hear from you. Whether you have a question, suggestion, or want to contribute—reach out anytime.",
+            "getInTouchTitle": "Get in Touch",
+            "getInTouchText": "Have a question, suggestion, or want to contribute? We're always happy to hear from the community. Reach out to us and we'll get back to you as soon as possible.",
+            "emailTitle": "Email",
+            "emailNote": "We typically respond within 24-48 hours",
+            "githubTitle": "GitHub",
+            "githubNote": "Open issues, submit PRs, or star the project",
+            "howCanWeHelpTitle": "How Can We Help?",
+            "suggestToolTitle": "Suggest a Tool",
+            "suggestToolText": "Know a great open-source tool we're missing? Let us know and we'll review it for inclusion.",
+            "reportIssueTitle": "Report an Issue",
+            "reportIssueText": "Found incorrect information or a broken link? Help us keep the directory accurate.",
+            "partnershipTitle": "Partnership",
+            "partnershipText": "Interested in collaborating or partnering with Abakada? We're open to opportunities.",
+            "generalInquiryTitle": "General Inquiry",
+            "generalInquiryText": "Have a question or just want to say hello? We'd love to hear from you."
+        },
+        "privacy": {
+            "title": "Privacy Policy",
+            "pageTitle": "Privacy Policy - Abakada Open Source Productivity Tools",
+            "heroTitle": "Privacy Policy",
+            "lastUpdated": "Last updated"
+        },
+        "faq": {
+            "title": "FAQ",
+            "pageTitle": "FAQ - Abakada | Frequently Asked Questions",
+            "heroTitle": "Frequently Asked Questions",
+            "heroSubtitle": "Everything you need to know about Abakada and how to make the most of our open-source tools directory."
+        },
+        "sitemap": {
+            "title": "Sitemap",
+            "pageTitle": "Sitemap - Abakada | Navigate 1000+ Free Open Source Tools",
+            "heroTitle": "Sitemap",
+            "heroSubtitle": "Navigate through our complete collection of pages and tool categories. Find exactly what you're looking for.",
+            "mainPagesTitle": "Main Pages",
+            "mainPagesSubtitle": "Core pages of the Abakada platform",
+            "categoriesTitle": "Tool Categories",
+            "categoriesSubtitle": "Browse tools organized by category groups",
+            "externalTitle": "External Resources",
+            "externalSubtitle": "Related links and community resources",
+            "home": "Home",
+            "homeDesc": "Browse all 1000+ open-source tools",
+            "about": "About Us",
+            "aboutDesc": "Our mission and values",
+            "contact": "Contact",
+            "contactDesc": "Get in touch with us",
+            "faq": "FAQ",
+            "faqDesc": "Frequently asked questions",
+            "privacy": "Privacy Policy",
+            "privacyDesc": "How we protect your data",
+            "github": "GitHub Repository",
+            "githubDesc": "Contribute to the project",
+            "osi": "Open Source Initiative",
+            "osiDesc": "Learn about open source",
+            "productivityGroup": "Productivity",
+            "creativeGroup": "Creative",
+            "dataGroup": "Data & Research",
+            "securityGroup": "Security",
+            "mediaGroup": "Media",
+            "utilitiesGroup": "Utilities",
+            "developmentGroup": "Development",
+            "businessGroup": "Business"
+        },
+        "partnerships": {
+            "title": "Partnerships",
+            "pageTitle": "Partnerships - Partner with Abakada to Empower Filipino Education",
+            "heroTitle": "Partner With Us",
+            "heroSubtitle": "Join us in empowering Filipino students and educators with free, powerful digital tools. Together, we can bridge the digital divide.",
+            "stats": {
+                "tools": "Free Tools Curated",
+                "categories": "Categories Covered",
+                "languages": "Languages Supported",
+                "students": "Students Empowered"
+            },
+            "collaboration": {
+                "title": "Collaboration Models",
+                "subtitle": "We offer customized partnership avenues to match your organization's resources and goals.",
+                "techTitle": "Technology Partner",
+                "techText": "Provide infrastructure, hosting services, software credits, or technical resources to support our platform operations and growth.",
+                "eduTitle": "Educational Partner",
+                "eduText": "Schools, universities, and training centers partnering to bring curated, open-source tools directly to students and faculty.",
+                "commTitle": "Community Partner",
+                "commText": "Support outreach programs, local hackathons, and events that promote digital literacy and open-source adoption.",
+                "contentTitle": "Content Partner",
+                "contentText": "Co-create educational guides, tutorials, and localized resources to help the community maximize the tools we curate."
+            },
+            "why": {
+                "title": "Why Partner With Abakada?",
+                "subtitle": "Align your brand with impact and empower the next generation of Filipino builders.",
+                "accessTitle": "Community Access",
+                "accessText": "Directly reach thousands of students, educators, and developers who are actively seeking digital tools.",
+                "equityTitle": "Brand Equity",
+                "equityText": "Demonstrate Corporate Social Responsibility (CSR) by supporting open access to education and technology.",
+                "leadershipTitle": "Thought Leadership",
+                "leadershipText": "Position your organization as a key enabler of the Philippine digital ecosystem and innovation landscape."
+            },
+            "cta": {
+                "title": "Ready to Make an Impact?",
+                "text": "Download our partnership deck for detailed information, or get in touch to discuss a custom partnership package tailored to your organization's goals.",
+                "contact": "Contact Us",
+                "deck": "View Partnership Deck"
+            }
+        }
+    },
+    "pwa": {
+        "install": "Install App",
+        "installAriaLabel": "Install Abakada App"
+    },
+    "bookmark": {
+        "add": "Bookmark",
+        "remove": "Remove bookmark",
+        "storageUnavailable": "Bookmarks won't be saved — storage is unavailable in this session",
+        "pageTitle": "Bookmarks",
+        "emptyTitle": "No bookmarks yet",
+        "emptyDesc": "Save tools you want to revisit by clicking the bookmark icon on any tool card.",
+        "browseTools": "Browse Tools"
+    },
+    "compare": {
+        "title": "Compare Tools",
+        "add": "Compare",
+        "remove": "Remove from comparison",
+        "clear": "Clear comparison",
+        "emptyTitle": "No tools selected",
+        "emptyDesc": "Select at least 2 tools from the home page to compare them side by side.",
+        "browseTools": "Browse Tools",
+        "tableLabel": "Tool comparison table",
+        "stackLabel": "Tool comparison cards",
+        "dimension": "Dimension",
+        "removeTool": "Remove {{name}}",
+        "maxReached": "Maximum 4 tools can be compared",
+        "dimensions": {
+            "name": "Name",
+            "category": "Category",
+            "platforms": "Platforms",
+            "offlineCapable": "Offline Capable",
+            "easeOfUse": "Ease of Use",
+            "features": "Features",
+            "license": "License",
+            "useCases": "Use Cases"
+        }
+    },
+    "learningPaths": {
+        "title": "Learning Paths",
+        "intro": "Curated toolkits to guide you through your learning journey — step by step.",
+        "changePath": "Change my path",
+        "stageCount": "{{count}} stages",
+        "startPath": "Start path",
+        "backToAll": "Back to Learning Paths",
+        "progressLabel": "Progress",
+        "progressText": "{{explored}} / {{total}} explored",
+        "explored": "Explored",
+        "markExplored": "Mark as explored",
+        "notFound": "Not Found",
+        "toolkitNotFound": "Toolkit not found.",
+        "role": {
+            "student": "Student",
+            "teacher": "Teacher",
+            "researcher": "Researcher",
+            "developer": "Developer",
+            "designer": "Designer",
+            "accountant": "Accountant"
+        }
+    },
+    "onboarding": {
+        "title": "What best describes you?",
+        "subtitle": "We'll recommend a learning path tailored to your role."
+    },
+    "cta": {
+        "title": "Ready to Explore?",
+        "text": "Discover hundreds of free and open-source productivity tools curated for Filipino students, educators, and professionals.",
+        "browseTools": "Browse All Tools",
+        "getInTouch": "Get in Touch"
+    },
+    "breadcrumb": {
+        "home": "Home",
+        "about": "About Us",
+        "contact": "Contact",
+        "privacy": "Privacy Policy",
+        "faq": "FAQ",
+        "sitemap": "Sitemap"
+    },
+    "errors": {
+        "404": {
+            "label": "Error 404",
+            "title": "Page Not Found",
+            "message": "The page you're looking for doesn't exist or has been moved. Let's get you back on track.",
+            "pageTitle": "Page Not Found - Abakada"
+        },
+        "500": {
+            "label": "Error 500",
+            "title": "Server Error",
+            "message": "Something went wrong on our end. We're working to fix it. Please try again in a moment.",
+            "pageTitle": "Server Error - Abakada"
+        },
+        "goHome": "Go Back Home",
+        "viewSitemap": "View Sitemap",
+        "tryAgain": "Try Again",
+        "suggestions": "Popular Categories",
+        "helpTitle": "What you can do",
+        "help": {
+            "refresh": "Refresh the page",
+            "refreshDesc": "Sometimes a simple refresh can resolve temporary issues.",
+            "wait": "Wait a moment",
+            "waitDesc": "Our team is likely already working on the issue.",
+            "contact": "Contact us",
+            "contactDesc": "If the problem persists, let us know."
+        }
+    },
+    "deck": {
+        "hero": {
+            "tagline": "Partnership Deck 2026",
+            "title": "Empowering the Next Generation of Filipino Builders",
+            "subtitle": "Join us in democratizing access to technology and education for thousands of students and professionals across the Philippines.",
+            "cta": "Explore Our Vision"
+        },
+        "impact": {
+            "tagline": "Our Impact",
+            "title": "Bridging the Digital Divide",
+            "subtitle": "Abakada provides free, verified, and accessible open-source tools to those who need them most. We are more than a directory; we are a platform for opportunity.",
+            "stats": {
+                "tools": "Curated Tools",
+                "categories": "Categories",
+                "free": "Free & Open Source"
+            }
+        },
+        "why": {
+            "tagline": "Why Partner?",
+            "title": "Align Your Brand with Impact",
+            "community": {
+                "title": "Community Access",
+                "text": "Directly reach students, educators, and developers who are actively seeking digital tools."
+            },
+            "brand": {
+                "title": "Brand Equity",
+                "text": "Demonstrate Corporate Social Responsibility (CSR) by supporting open access to education."
+            },
+            "thought": {
+                "title": "Thought Leadership",
+                "text": "Position your organization as a key enabler of the Philippine digital ecosystem."
+            }
+        },
+        "models": {
+            "tagline": "Collaboration Models",
+            "title": "Ways We Can Work Together",
+            "tech": {
+                "title": "Technology Partner",
+                "text": "Provide infrastructure, hosting, or software credits to support our platform operations."
+            },
+            "edu": {
+                "title": "Educational Partner",
+                "text": "Schools and universities partnering to bring curated tools directly to students and faculty."
+            },
+            "content": {
+                "title": "Content Partner",
+                "text": "Co-create educational guides, tutorials, and resources for the community."
+            },
+            "community": {
+                "title": "Community Partner",
+                "text": "Support outreach programs, hackathons, and local events throughout the year."
+            }
+        },
+        "cta": {
+            "title": "Let's Build the Future Together",
+            "subtitle": "Ready to make an impact? Connect with our partnerships team to explore collaboration opportunities.",
+            "visit": "Visit Website",
+            "copyright": "© 2026 Abakada Organization"
+        }
+    }
+}

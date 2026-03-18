@@ -1,0 +1,80 @@
+{
+  "name": "Abakada — Free Open-Source Tools for Filipinos",
+  "short_name": "Abakada",
+  "description": "1,000+ free and open-source productivity tools curated for Filipino students, educators, scholars, and professionals.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#107f87",
+  "lang": "en-PH",
+  "dir": "ltr",
+  "categories": ["education", "productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/assets/logo/og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/assets/logo/favicon-16px.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo/favicon-32px.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo/favicon-180px.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/logo/og.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/logo/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse All Tools",
+      "short_name": "Tools",
+      "description": "Browse 1,000+ free open-source tools",
+      "url": "/",
+      "icons": [{ "src": "/assets/logo/favicon-32px.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "Learning Paths",
+      "short_name": "Learn",
+      "description": "Guided learning paths by role",
+      "url": "/learning-paths",
+      "icons": [{ "src": "/assets/logo/favicon-32px.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "Bookmarks",
+      "short_name": "Saved",
+      "description": "Your saved tools",
+      "url": "/bookmarks",
+      "icons": [{ "src": "/assets/logo/favicon-32px.png", "sizes": "32x32" }]
+    }
+  ]
+}

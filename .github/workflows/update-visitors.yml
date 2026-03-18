@@ -1,0 +1,62 @@
+name: Update Visitor Count
+
+on:
+  schedule:
+    # Runs every day at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger from GitHub Actions tab
+
+jobs:
+  update-visitors:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch visitor count from GA4
+        env:
+          GA4_PROPERTY_ID: '522500658'
+          GA4_SERVICE_ACCOUNT_KEY: ${{ secrets.GA4_SERVICE_ACCOUNT_KEY }}
+        run: |
+          node -e "
+          const https = require('https');
+          const crypto = require('crypto');
+
+          const key = JSON.parse(process.env.GA4_SERVICE_ACCOUNT_KEY);
+          const propertyId = process.env.GA4_PROPERTY_ID;
+
+          // Build JWT for Google OAuth2
+          function base64url(str) {
+            return Buffer.from(str).toString('base64')
+              .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+          }
+
+          const header = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
+          const now = Math.floor(Date.now() / 1000);
+          const claim = base64url(JSON.stringify({
+            iss: key.client_email,
+            scope: 'https://www.googleapis.com/auth/analytics.readonly',
+            aud: 'https://oauth2.googleapis.com/token',
+            exp: now + 3600,
+            iat: now
+          }));
+
+          const sign = crypto.createSign('RSA-SHA256');
+          sign.update(header + '.' + claim);
+          const sig = sign.sign(key.private_key, 'base64')
+            .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+
+          const jwt = header + '.' + claim + '.' + sig;
+
+          // Exchange JWT for access token
+          function post(url, data) {
+            return new Promise((resolve, reject) => {
+   
