@@ -155,7 +155,7 @@ jobs:
           protocol: ftps
           security: loose
           local-dir: ./public/assets/data/
-          server-dir: /assets/data/
+          server-dir: abakada.org/assets/data/
           exclude: |
             **
             !visitors.json
