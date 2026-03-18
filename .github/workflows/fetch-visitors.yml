@@ -151,10 +151,11 @@ jobs:
           server: ${{ secrets.CPANEL_FTP_HOST }}
           username: ${{ secrets.CPANEL_FTP_USER }}
           password: ${{ secrets.CPANEL_FTP_PASS }}
+          port: 21
+          protocol: ftps
+          security: loose
           local-dir: ./public/assets/data/
-          server-dir: ${{ secrets.CPANEL_FTP_PATH }}
-          include: visitors.json
-          # Only upload visitors.json — nothing else
+          server-dir: /abakada.org/assets/data/
           exclude: |
             **
             !visitors.json
