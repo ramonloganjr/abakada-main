@@ -37,7 +37,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             <Icon name="menu" collection="ui" size={20} />
           </button>
           <Link to="/" className="nav__logo">
-            <img id="header-logo" className="nav__logo-img" src={logoSrc} alt="Abakada" />
+            <img id="header-logo" className="nav__logo-img" src={logoSrc} alt="Abakada" width="140" height="32" fetchpriority="high" decoding="async" />
           </Link>
         </div>
         <div className="nav__actions">

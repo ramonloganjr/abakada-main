@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import StaticPageLayout from '../components/StaticPageLayout'
+import SEO from '../components/SEO'
+import { useI18n } from '../contexts/I18nContext'
+import { pageMeta } from '../lib/pageMeta'
 
 const PLACEHOLDER = '/assets/logo/abakada-partner-logo.png'
 
@@ -21,13 +24,18 @@ function PartnerCard({ partner }) {
         src={partner.logo || PLACEHOLDER}
         alt={partner.logo ? partner.name : 'Partner placeholder'}
         className="partner-card__img"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   )
 }
 
 export default function OfficialPartners() {
+  const { lang } = useI18n()
   return (
+    <>
+    <SEO {...pageMeta.officialPartners} lang={lang} />
     <StaticPageLayout
       breadcrumb="Official Partners"
       heroTitle="Official Partners"
@@ -86,5 +94,6 @@ export default function OfficialPartners() {
         </div>
       </section>
     </StaticPageLayout>
+    </>
   )
 }

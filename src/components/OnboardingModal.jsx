@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
+import Icon from './Icon'
 
 const ROLE_TO_TOOLKIT = {
   student: 'student-productivity',
@@ -9,15 +10,21 @@ const ROLE_TO_TOOLKIT = {
   developer: 'beginner-coding',
   designer: 'designer-toolkit',
   accountant: 'accountant-essentials',
+  professional: 'workplace-pro',
+  'self-directed': 'self-directed-learner',
+  'out-of-school-youth': 'digital-foundations',
 }
 
 const ROLES = [
-  { id: 'student', icon: '🎓' },
-  { id: 'teacher', icon: '📚' },
-  { id: 'researcher', icon: '🔬' },
-  { id: 'developer', icon: '💻' },
-  { id: 'designer', icon: '🎨' },
-  { id: 'accountant', icon: '📊' },
+  { id: 'student', icon: 'graduation-cap', label: 'Student' },
+  { id: 'teacher', icon: 'presentation', label: 'Educator' },
+  { id: 'professional', icon: 'briefcase', label: 'Professional' },
+  { id: 'self-directed', icon: 'route', label: 'Self-Directed' },
+  { id: 'out-of-school-youth', icon: 'sprout', label: 'New to Digital' },
+  { id: 'researcher', icon: 'flask-round', label: 'Researcher' },
+  { id: 'developer', icon: 'code', label: 'Developer' },
+  { id: 'designer', icon: 'palette', label: 'Designer' },
+  { id: 'accountant', icon: 'calculator', label: 'Accountant' },
 ]
 
 export default function OnboardingModal({ onClose }) {
@@ -25,7 +32,6 @@ export default function OnboardingModal({ onClose }) {
   const navigate = useNavigate()
   const dialogRef = useRef(null)
 
-  // Trap focus and handle Escape key
   useEffect(() => {
     const el = dialogRef.current
     if (!el) return
@@ -43,7 +49,8 @@ export default function OnboardingModal({ onClose }) {
     } catch {}
     const toolkitId = ROLE_TO_TOOLKIT[roleId]
     onClose()
-    navigate(`/learning-paths/${toolkitId}`)
+    if (toolkitId) navigate(`/learning-paths/${toolkitId}`)
+    else navigate('/learning-paths')
   }
 
   return (
@@ -66,7 +73,7 @@ export default function OnboardingModal({ onClose }) {
           aria-label={t('common.dismiss', 'Dismiss')}
           onClick={onClose}
         >
-          ×
+          <Icon name="close" collection="ui" size={18} />
         </button>
         <h2 id="onboarding-title" className="onboarding-modal__title">
           {t('onboarding.title', 'What best describes you?')}
@@ -82,9 +89,11 @@ export default function OnboardingModal({ onClose }) {
               className="onboarding-modal__role-btn"
               onClick={() => handleRoleSelect(role.id)}
             >
-              <span className="onboarding-modal__role-icon" aria-hidden="true">{role.icon}</span>
+              <span className="onboarding-modal__role-icon" aria-hidden="true">
+                <Icon name={role.icon} collection="ui" size={22} />
+              </span>
               <span className="onboarding-modal__role-label">
-                {t(`learningPaths.role.${role.id}`, role.id.charAt(0).toUpperCase() + role.id.slice(1))}
+                {t(`learningPaths.role.${role.id}`, role.label)}
               </span>
             </button>
           ))}

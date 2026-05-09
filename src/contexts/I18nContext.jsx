@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const I18nContext = createContext(null)
 
 const STORAGE_KEY = 'abakada-language'
 const DEFAULT_LANG = 'en'
 const SUPPORTED_LANGS = ['en', 'tl', 'ilo', 'bis']
+const LANG_RE = /^\/(en|tl|ilo|bis)(\/|$)/
 
 function detectBrowserLanguage() {
   const lang = navigator.language?.toLowerCase() || ''
@@ -14,8 +16,19 @@ function detectBrowserLanguage() {
   return DEFAULT_LANG
 }
 
+function langFromPath(pathname) {
+  const m = pathname.match(LANG_RE)
+  return m ? m[1] : null
+}
+
 export function I18nProvider({ children }) {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  // Initial lang preference: URL > localStorage > browser detection.
   const [lang, setLangState] = useState(() => {
+    const fromUrl = langFromPath(location?.pathname || '/')
+    if (fromUrl) return fromUrl
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
       return SUPPORTED_LANGS.includes(saved) ? saved : detectBrowserLanguage()
@@ -24,6 +37,12 @@ export function I18nProvider({ children }) {
 
   const [translations, setTranslations] = useState({})
   const [cache, setCache] = useState({})
+
+  // Sync lang with URL on every navigation.
+  useEffect(() => {
+    const fromUrl = langFromPath(location.pathname)
+    if (fromUrl && fromUrl !== lang) setLangState(fromUrl)
+  }, [location.pathname, lang])
 
   useEffect(() => {
     async function loadAll() {
@@ -44,8 +63,8 @@ export function I18nProvider({ children }) {
 
   useEffect(() => {
     if (cache[lang]) setTranslations(cache[lang])
-    // Keep html[lang] in sync for screen readers and SEO
-    document.documentElement.lang = lang
+    // Keep html[lang] in sync for screen readers and SEO; map `bis` to `ceb`.
+    document.documentElement.lang = lang === 'bis' ? 'ceb' : lang
   }, [lang, cache])
 
   const t = useCallback((key, fallback = '') => {
@@ -62,6 +81,14 @@ export function I18nProvider({ children }) {
     if (!SUPPORTED_LANGS.includes(l)) return
     setLangState(l)
     try { localStorage.setItem(STORAGE_KEY, l) } catch {}
+
+    // Navigate to the same canonical path under the new language prefix.
+    const current = location.pathname
+    const stripped = current.replace(LANG_RE, '/').replace(/\/{2,}/g, '/')
+    const nextPath = l === DEFAULT_LANG ? stripped : `/${l}${stripped === '/' ? '' : stripped}`
+    if (nextPath !== current) {
+      navigate(nextPath + (location.search || '') + (location.hash || ''))
+    }
   }
 
   return (

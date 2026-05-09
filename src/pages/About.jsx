@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import StaticPageLayout from '../components/StaticPageLayout'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 export default function About() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   return (
+    <>
+    <SEO {...pageMeta.about} lang={lang} />
     <StaticPageLayout
       breadcrumb={t('breadcrumb.about', 'About Us')}
       heroTitle={t('pages.about.heroTitle', 'Para sa Bawat Pilipino')}
@@ -96,5 +100,6 @@ export default function About() {
         </div>
       </section>
     </StaticPageLayout>
+    </>
   )
 }

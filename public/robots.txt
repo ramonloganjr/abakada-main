@@ -1,9 +1,29 @@
+# =============================================================================
+# Abakada — robots.txt
+# Policy
+# -----------------------------------------------------------------------------
+#  Search-time retrievers (Googlebot, Bingbot, DuckDuckBot, Slurp, YandexBot,
+#  Baiduspider, Applebot)  — ALLOWED. They power user-initiated search and
+#  AI overview citation pipelines (Google AI Overviews, Bing Copilot, Perplexity
+#  user-fetch, Apple Spotlight).
+#
+#  AI training crawlers (GPTBot, anthropic-ai, CCBot, Google-Extended,
+#  Applebot-Extended, PerplexityBot, Bytespider, Amazonbot, etc.) — BLOCKED.
+#  Abakada content is licensed for human readers and downstream integrations,
+#  not for opaque LLM training datasets.
+#
+#  Contact: hello@abakada.org for licensing inquiries.
+# =============================================================================
+
 User-agent: *
 Allow: /
 Disallow: /offline.html
 Disallow: /partnership-deck
+Disallow: /bookmarks
 
-# Major search engine crawlers
+# ─────────────────────────────────────────────────────────────────────────────
+# Search-time retrievers (allowed)
+# ─────────────────────────────────────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
 Disallow: /offline.html
@@ -34,11 +54,21 @@ Allow: /
 Disallow: /offline.html
 Disallow: /partnership-deck
 
-# Block AI training scrapers
+User-agent: Applebot
+Allow: /
+Disallow: /offline.html
+Disallow: /partnership-deck
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AI training crawlers (blocked)
+# ─────────────────────────────────────────────────────────────────────────────
 User-agent: GPTBot
 Disallow: /
 
 User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
 Disallow: /
 
 User-agent: CCBot
@@ -48,6 +78,84 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: img2dataset
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: AwarioRssBot
+Disallow: /
+
+User-agent: AwarioSmartBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
 Disallow: /
 
 Sitemap: https://abakada.org/sitemap.xml

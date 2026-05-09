@@ -3,6 +3,8 @@ import { useI18n } from '../contexts/I18nContext'
 import { useComparison } from '../hooks/useComparison'
 import { buildMatrix } from '../lib/comparison'
 import StaticPageLayout from '../components/StaticPageLayout'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 function formatValue(value) {
   if (Array.isArray(value)) return value.length > 0 ? value.join(', ') : '—'
@@ -11,13 +13,19 @@ function formatValue(value) {
 }
 
 export default function Compare({ toolsData = { tools: [], categories: [] } }) {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const { selectedIds, removeTool, clearComparison, addError } = useComparison()
 
   const hasEnough = selectedIds.length >= 2
   const matrix = hasEnough ? buildMatrix(selectedIds, toolsData.tools) : null
 
+  const dynamicMeta = matrix
+    ? { ...pageMeta.compare, title: `Compare ${matrix.tools.map((t) => t.name).join(' vs ')}`, rawTitle: false }
+    : pageMeta.compare
+
   return (
+    <>
+    <SEO {...dynamicMeta} lang={lang} />
     <StaticPageLayout
       breadcrumb={t('compare.title', 'Compare Tools')}
       heroTitle={t('compare.title', 'Compare Tools')}
@@ -59,6 +67,9 @@ export default function Compare({ toolsData = { tools: [], categories: [] } }) {
               {/* Desktop table */}
               <div className="compare-table-wrapper">
                 <table className="compare-table" aria-label={t('compare.tableLabel', 'Tool comparison table')}>
+                  <caption className="compare-table__caption">
+                    {t('compare.caption', 'Side-by-side comparison of selected open-source tools — features, platforms, license, and editorial notes.')}
+                  </caption>
                   <thead>
                     <tr>
                       <th scope="col">{t('compare.dimension', 'Dimension')}</th>
@@ -135,5 +146,6 @@ export default function Compare({ toolsData = { tools: [], categories: [] } }) {
         </div>
       </section>
     </StaticPageLayout>
+    </>
   )
 }

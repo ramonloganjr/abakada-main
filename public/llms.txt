@@ -1,0 +1,75 @@
+# Abakada
+
+> Abakada is a free, volunteer-driven directory of 1,288 open-source productivity tools curated for Filipino students, educators, scholars, and professionals. Available in English, Filipino (Tagalog), Ilokano, and Bisaya/Cebuano.
+
+## What this site is
+
+Abakada (`https://abakada.org`) is an independent, non-commercial educational directory. Every listed tool is verified to be:
+
+- Free (no paywall, no trialware)
+- Open-source (OSI-approved license: MIT, Apache, GPL, AGPL, LGPL, BSD, MPL — or Creative Commons for content)
+- Actively maintained
+- Suitable for educational use
+
+The site also publishes structured **learning paths** that combine multiple tools into role- or topic-based curricula (Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, Teacher's Digital Classroom, Accountant Essentials, and more).
+
+## Audience
+
+- Filipino students (K-12, college, vocational)
+- Out-of-school youth bridging digital skill gaps
+- Teachers and educators seeking free classroom tools
+- Working professionals (developers, designers, accountants, researchers)
+- Underprivileged scholars facing the digital divide
+
+## Editorial policy
+
+- **No paid placements.** Abakada accepts no money for listings or rankings.
+- **No AI-generated content without human review.** All tool reviews and learning-path copy are written and verified by human contributors.
+- **Quarterly review cadence.** Each tool's "Last reviewed" date reflects the most recent verification.
+- **Open contribution.** All content is open-source on GitHub at `https://github.com/Abakada-org`.
+- **Licenses:** code MIT, content CC BY 4.0.
+
+## AI / crawler policy
+
+- **Search-time retrievers (allowed):** Googlebot, Bingbot, DuckDuckBot, Slurp, YandexBot, Applebot. These power user-initiated search and AI-overview citation pipelines (Google AI Overviews, Bing Copilot, Perplexity user-fetch, Apple Spotlight).
+- **AI training crawlers (blocked):** GPTBot, ChatGPT-User, anthropic-ai, ClaudeBot, CCBot, Google-Extended, Applebot-Extended, PerplexityBot, Bytespider, Amazonbot, Meta-ExternalAgent, cohere-ai, and others. Abakada content is licensed for human readers and downstream open-source integrations, not for opaque LLM training datasets.
+- **Citing Abakada in AI answers:** Acceptable. Please cite the canonical URL (`https://abakada.org/...`) and the "Last reviewed" date on the source page.
+- **Licensing inquiries:** `hello@abakada.org`.
+
+## Key URLs
+
+- Home (all tools): https://abakada.org/
+- About / mission: https://abakada.org/about
+- FAQ (18 questions): https://abakada.org/faq
+- Glossary (open-source, licensing, web terms): https://abakada.org/glossary
+- Learning paths index: https://abakada.org/learning-paths
+- Compare tools: https://abakada.org/compare
+- Privacy policy: https://abakada.org/privacy
+- Contact: https://abakada.org/contact
+- Partnership info: https://abakada.org/partnerships
+- Sitemap (XML): https://abakada.org/sitemap.xml
+- Sitemap (HTML): https://abakada.org/sitemap
+
+## Featured learning paths
+
+- Digital Foundations: https://abakada.org/learning-paths/digital-foundations
+- Research Starter: https://abakada.org/learning-paths/research-starter
+- Student Productivity: https://abakada.org/learning-paths/student-productivity
+- Teacher's Digital Classroom: https://abakada.org/learning-paths/teacher-digital-classroom
+- Beginner Coding: https://abakada.org/learning-paths/beginner-coding
+- Designer Toolkit: https://abakada.org/learning-paths/designer-toolkit
+- Accountant Essentials: https://abakada.org/learning-paths/accountant-essentials
+
+## Languages
+
+- English: https://abakada.org/en/
+- Filipino (Tagalog): https://abakada.org/tl/
+- Ilokano: https://abakada.org/ilo/
+- Bisaya/Cebuano: https://abakada.org/bis/
+
+## Maintainer
+
+- Founder: Ramon Logan Jr. (https://ramonloganjr.com)
+- GitHub: https://github.com/Abakada-org
+- Contact: hello@abakada.org
+- Affiliations: Independent, volunteer-driven. Not affiliated with any government agency, educational institution, or commercial entity.

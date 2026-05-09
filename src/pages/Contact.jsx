@@ -2,10 +2,14 @@ import { Link } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import StaticPageLayout from '../components/StaticPageLayout'
 import Icon from '../components/Icon'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 export default function Contact() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   return (
+    <>
+    <SEO {...pageMeta.contact} lang={lang} />
     <StaticPageLayout
       breadcrumb={t('breadcrumb.contact', 'Contact')}
       heroTitle={t('pages.contact.heroTitle', 'Contact Us')}
@@ -72,5 +76,6 @@ export default function Contact() {
         </div>
       </section>
     </StaticPageLayout>
+    </>
   )
 }

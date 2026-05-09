@@ -1,0 +1,265 @@
+// Centralized page metadata for SEO/AEO/GEO. All page components import from here.
+// Keep titles ≤ 60 chars (after the " — Abakada" suffix), descriptions ≤ 160 chars.
+
+import { SITE_ORIGIN } from './canonical'
+
+const ORG = {
+  '@type': 'Organization',
+  name: 'Abakada',
+  url: `${SITE_ORIGIN}/`,
+  logo: `${SITE_ORIGIN}/assets/logo/og.png`,
+}
+
+const personFounder = {
+  '@type': 'Person',
+  name: 'Ramon Logan Jr.',
+  jobTitle: 'Founder',
+  url: 'https://ramonloganjr.com',
+  sameAs: ['https://github.com/ramonloganjr'],
+  worksFor: ORG,
+}
+
+const breadcrumb = (items) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.name,
+    item: `${SITE_ORIGIN}${it.path}`,
+  })),
+})
+
+export const pageMeta = {
+  home: {
+    title: '1,288 Free Open-Source Tools for Filipino Students & Educators',
+    description:
+      'Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals. Browse 45+ categories.',
+    pathname: '/',
+    jsonLd: breadcrumb([{ name: 'Home', path: '/' }]),
+  },
+
+  about: {
+    title: 'About Abakada — Mission, Team & Editorial Standards',
+    description:
+      'Learn about Abakada — a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.',
+    pathname: '/about',
+    jsonLd: [
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'About Abakada',
+        url: `${SITE_ORIGIN}/about`,
+        about: ORG,
+        author: personFounder,
+        inLanguage: ['en', 'tl', 'ilo', 'ceb'],
+      },
+      { '@context': 'https://schema.org', ...personFounder },
+    ],
+  },
+
+  faq: {
+    title: 'Frequently Asked Questions',
+    description:
+      'Answers to common questions about Abakada — how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.',
+    pathname: '/faq',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'FAQ', path: '/faq' },
+    ]),
+  },
+
+  privacy: {
+    title: 'Privacy Policy',
+    description:
+      'How Abakada collects, uses, and protects your data. We use minimal analytics, store no personal data on our servers, and never sell your information.',
+    pathname: '/privacy',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Privacy', path: '/privacy' },
+    ]),
+  },
+
+  terms: {
+    title: 'Terms of Use — Abakada.org',
+    description:
+      'Terms of Use governing access to Abakada.org — intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law.',
+    pathname: '/terms',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Terms of Use', path: '/terms' },
+    ]),
+  },
+
+  contact: {
+    title: 'Contact Abakada — Editorial, Partnerships, Support',
+    description:
+      'Reach the Abakada team for editorial corrections, partnership inquiries, or general support. Email hello@abakada.org or use our contact form.',
+    pathname: '/contact',
+    jsonLd: [
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'Contact', path: '/contact' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Contact Abakada',
+        url: `${SITE_ORIGIN}/contact`,
+      },
+    ],
+  },
+
+  partnerships: {
+    title: 'Partnership Opportunities — Schools, NGOs, FOSS Projects',
+    description:
+      'Partner with Abakada to bring free open-source tools to Filipino schools, communities, and organizations. Volunteer, donate, or co-publish content.',
+    pathname: '/partnerships',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Partnerships', path: '/partnerships' },
+    ]),
+  },
+
+  officialPartners: {
+    title: 'Official Partners of Abakada',
+    description:
+      'Schools, organizations, and FOSS projects officially partnered with Abakada to expand access to free open-source productivity tools in the Philippines.',
+    pathname: '/official-partners',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Official Partners', path: '/official-partners' },
+    ]),
+  },
+
+  learningPaths: {
+    title: 'Learning Paths — Curated FOSS Toolkits for Students',
+    description:
+      'Structured learning paths combining free open-source tools — Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, and more.',
+    pathname: '/learning-paths',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Learning Paths', path: '/learning-paths' },
+    ]),
+  },
+
+  bookmarks: {
+    title: 'My Bookmarks',
+    description: 'Your saved tools on Abakada — synced across the device, no account required.',
+    pathname: '/bookmarks',
+    noindex: true,
+  },
+
+  compare: {
+    title: 'Compare Open-Source Tools',
+    description:
+      'Side-by-side comparison of free open-source tools — features, platforms, licenses, and use cases. Pick the right tool for your workflow.',
+    pathname: '/compare',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Compare', path: '/compare' },
+    ]),
+  },
+
+  sitemap: {
+    title: 'HTML Sitemap',
+    description: 'Browse all Abakada pages — tools, learning paths, FAQ, about, partnerships, and more.',
+    pathname: '/sitemap',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Sitemap', path: '/sitemap' },
+    ]),
+  },
+
+  glossary: {
+    title: 'Glossary — Open-Source, Licensing & Productivity Terms',
+    description:
+      'Definitions of common terms used on Abakada — FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more.',
+    pathname: '/glossary',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Glossary', path: '/glossary' },
+    ]),
+  },
+
+  notFound: {
+    title: 'Page Not Found',
+    description: 'The page you requested does not exist on Abakada. Browse our tools, learning paths, or FAQ.',
+    pathname: '/404',
+    noindex: true,
+  },
+
+  partnershipDeck: {
+    title: 'Partnership Deck',
+    description: 'Abakada partnership pitch deck — overview, mission, traction, and partnership tiers.',
+    pathname: '/partnership-deck',
+    noindex: true,
+  },
+}
+
+export const buildLearningPathMeta = (toolkit) => ({
+  title: `${toolkit.title} — Learning Path`,
+  description:
+    toolkit.description ||
+    `${toolkit.title} learning path on Abakada — a structured set of free open-source tools and tasks.`,
+  pathname: `/learning-paths/${toolkit.id}`,
+  jsonLd: [
+    breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Learning Paths', path: '/learning-paths' },
+      { name: toolkit.title, path: `/learning-paths/${toolkit.id}` },
+    ]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: toolkit.title,
+      description: toolkit.description || '',
+      url: `${SITE_ORIGIN}/learning-paths/${toolkit.id}`,
+      provider: { ...ORG, '@type': 'EducationalOrganization' },
+      inLanguage: ['en', 'tl', 'ilo', 'ceb'],
+      isAccessibleForFree: true,
+      educationalLevel: toolkit.level || 'Beginner',
+    },
+  ],
+})
+
+export const buildToolMeta = (tool) => {
+  const name = tool.name
+  const tagline = tool.tagline || ''
+  const description =
+    tool.description?.slice(0, 158) ||
+    `${name}: ${tagline}. Free, open-source ${tool.category || 'productivity'} tool reviewed by Abakada.`
+  return {
+    title: `${name} — ${tagline || 'Free Open-Source Tool'}`,
+    description,
+    pathname: `/tools/${tool.id}`,
+    jsonLd: [
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'Tools', path: '/' },
+        { name, path: `/tools/${tool.id}` },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name,
+        description,
+        url: tool.url || `${SITE_ORIGIN}/tools/${tool.id}`,
+        applicationCategory: tool.category || 'Utilities',
+        operatingSystem: Array.isArray(tool.platforms) ? tool.platforms.join(', ') : tool.platforms || 'Cross-platform',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        license: tool.license || '',
+        review: {
+          '@type': 'Review',
+          author: personFounder,
+          datePublished: tool.lastReviewed || new Date().toISOString().slice(0, 10),
+        },
+        publisher: ORG,
+      },
+    ],
+  }
+}

@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import StaticPageLayout from '../components/StaticPageLayout'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 export default function Privacy() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   return (
+    <>
+    <SEO {...pageMeta.privacy} lang={lang} />
     <StaticPageLayout
       breadcrumb={t('breadcrumb.privacy', 'Privacy Policy')}
       heroTitle={t('pages.privacy.heroTitle', 'Privacy Policy')}
@@ -56,5 +60,6 @@ export default function Privacy() {
         </div>
       </section>
     </StaticPageLayout>
+    </>
   )
 }

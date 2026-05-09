@@ -54,7 +54,7 @@ export default function PWAInstallBanner() {
   return (
     <div className="pwa-banner" role="dialog" aria-label="Install app">
       <div className="pwa-banner__icon" aria-hidden="true">
-        <img src="/assets/logo/favicon-32px.png" alt="" width="32" height="32" />
+        <img src="/assets/logo/favicon-32px.png" alt="" width="32" height="32" loading="lazy" decoding="async" />
       </div>
       <div className="pwa-banner__text">
         <strong>Add to Home Screen</strong>

@@ -12,6 +12,12 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
 
+  <!-- Search Engine Verification — replace placeholders after registering -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
+  <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN" />
+  <meta name="yandex-verification" content="REPLACE_WITH_YANDEX_TOKEN" />
+  <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_TOKEN" />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TGSJ6EKYB"></script>
   <script>
@@ -102,6 +108,9 @@
   <link rel="preload" href="/assets/fonts/inter-v13-latin-500.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/inter-v13-latin-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/inter-v13-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Data preload — tools.json is fetched on every route, prefetch in parallel with the JS bundle -->
+  <link rel="preload" href="/assets/data/tools.json" as="fetch" type="application/json" crossorigin />
 
   <!-- Structured Data: WebSite + Sitelinks Searchbox -->
   <script type="application/ld+json">
@@ -217,6 +226,65 @@
   }
   </script>
 
+  <!-- Structured Data: EducationalOrganization (EEAT signal) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "@id": "https://abakada.org/#educational-organization",
+    "name": "Abakada",
+    "alternateName": "Abakada Organization",
+    "url": "https://abakada.org/",
+    "logo": "https://abakada.org/assets/logo/og.png",
+    "description": "Abakada is a volunteer-driven educational organization providing free, open-source productivity tools and structured learning paths to Filipino students, educators, and professionals.",
+    "areaServed": { "@type": "Country", "name": "Philippines" },
+    "knowsLanguage": ["en", "tl", "ilo", "ceb"],
+    "founder": {
+      "@type": "Person",
+      "name": "Ramon Logan Jr.",
+      "url": "https://ramonloganjr.com",
+      "jobTitle": "Founder",
+      "sameAs": ["https://github.com/ramonloganjr"]
+    },
+    "sameAs": [
+      "https://github.com/Abakada-org",
+      "https://www.facebook.com/AbakadaOrg",
+      "https://www.linkedin.com/company/abakada-org"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: Course list (Learning Paths) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Abakada Learning Paths",
+    "description": "Structured learning paths combining free open-source tools for Filipino students, educators, and professionals.",
+    "url": "https://abakada.org/learning-paths",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "Digital Foundations", "description": "First confident steps online — safe, private, and free.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/digital-foundations", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "Research Starter", "description": "Toolkit for academic research, citation, and writing.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/research-starter", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "Student Productivity", "description": "Open-source tools for note-taking, study, and time management.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/student-productivity", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "Teacher's Digital Classroom", "description": "Free, open tools for lesson design, delivery, and assessment.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/teacher-digital-classroom", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "Course", "name": "Beginner Coding", "description": "Start coding with open-source editors, runtimes, and version control.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/beginner-coding", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "Course", "name": "Designer Toolkit", "description": "FOSS design, illustration, and prototyping tools.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/designer-toolkit", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 7, "item": { "@type": "Course", "name": "Accountant Essentials", "description": "Open-source spreadsheets, books, and finance utilities.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/accountant-essentials", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList (site-level) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://abakada.org/" }
+    ]
+  }
+  </script>
+
   <!-- Structured Data: FAQPage (boosts FAQ rich result) -->
   <script type="application/ld+json">
   {
@@ -250,9 +318,62 @@
     ]
   }
   </script>
+  <!-- Inline boot loader — shown immediately while main JS bundle loads.
+       Replaced by React when it mounts into #root. Kept tiny and self-contained
+       so the brand mark renders with zero network round-trip. -->
+  <style>
+    .boot-loader {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: #ffffff;
+      z-index: 9999;
+    }
+    @media (prefers-color-scheme: dark) {
+      .boot-loader { background: #0b1419; }
+    }
+    .boot-loader__mark {
+      position: relative;
+      width: 64px; height: 64px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #107f87;
+      animation: bootGlow 1.6s ease-in-out infinite;
+    }
+    .boot-loader__mark::before {
+      content: ''; position: absolute; inset: -8px;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(16,127,135,0.25), transparent 70%);
+      animation: bootHalo 1.6s ease-in-out infinite;
+    }
+    .boot-loader__mark svg { position: relative; width: 44px; height: 44px; }
+    .boot-loader__sr {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+    @keyframes bootGlow {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(16,127,135,0)); opacity: 0.85; }
+      50%      { transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(16,127,135,0.55)); opacity: 1; }
+    }
+    @keyframes bootHalo {
+      0%, 100% { transform: scale(0.85); opacity: 0; }
+      50%      { transform: scale(1.25); opacity: 0.45; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .boot-loader__mark, .boot-loader__mark::before { animation: none; }
+    }
+  </style>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <div class="boot-loader" role="status" aria-live="polite" aria-busy="true">
+      <span class="boot-loader__mark" aria-hidden="true">
+        <svg viewBox="0 0 196.23 196.23" focusable="false">
+          <path d="M121.1,7.39l64.72,177.65h-42.38l-10.91-31.22-10.66,31.22H9.69L74.41,7.39h46.7ZM130.49,147.99l-32.74-93.9-32.99,93.9h65.73Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="boot-loader__sr">Loading Abakada</span>
+    </div>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

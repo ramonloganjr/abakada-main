@@ -167,3 +167,86 @@
 .will-animate {
   will-change: transform, opacity;
 }
+
+/* ==========================================================================
+   BrandLoader — glowing favicon used as the universal loading indicator
+   Synchronized with the inline boot loader in index.html (.boot-loader)
+   ========================================================================== */
+
+@keyframes brandLoaderGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(16,127,135,0));
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 14px rgba(16,127,135,0.55));
+    opacity: 1;
+  }
+}
+
+@keyframes brandLoaderHalo {
+  0%, 100% { transform: scale(0.85); opacity: 0.0; }
+  50%      { transform: scale(1.25); opacity: 0.45; }
+}
+
+.brand-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: var(--accent-primary, #107f87);
+}
+
+.brand-loader--block  { padding: 4rem 1rem; min-height: 50vh; }
+.brand-loader--inline { padding: 1.5rem 0.75rem; min-height: 0; }
+.brand-loader--page   { padding: 0; min-height: 100vh; min-height: 100dvh; }
+
+.brand-loader__mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  animation: brandLoaderGlow 1.6s ease-in-out infinite;
+}
+
+.brand-loader__mark::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(16,127,135,0.25), transparent 70%);
+  animation: brandLoaderHalo 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.brand-loader__mark svg {
+  position: relative;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  color: inherit;
+}
+
+.brand-loader__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-loader__mark,
+  .brand-loader__mark::before {
+    animation: none;
+  }
+  .brand-loader__mark { opacity: 1; }
+}

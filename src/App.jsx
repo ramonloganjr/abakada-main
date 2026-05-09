@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { I18nProvider } from './contexts/I18nContext'
 import { BookmarkProvider } from './contexts/BookmarkContext'
@@ -10,12 +10,15 @@ import Footer from './components/Footer'
 import OnboardingModal from './components/OnboardingModal'
 import ErrorBoundary from './components/ErrorBoundary'
 import PWAInstallBanner from './components/PWAInstallBanner'
+import BrandLoader from './components/BrandLoader'
+import { stripLangPrefix } from './lib/canonical'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 const Privacy = lazy(() => import('./pages/Privacy'))
+const Terms = lazy(() => import('./pages/Terms'))
 const Partnerships = lazy(() => import('./pages/Partnerships'))
 const Sitemap = lazy(() => import('./pages/Sitemap'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -25,12 +28,12 @@ const Compare = lazy(() => import('./pages/Compare'))
 const LearningPaths = lazy(() => import('./pages/LearningPaths'))
 const LearningPathDetail = lazy(() => import('./pages/LearningPathDetail'))
 const OfficialPartners = lazy(() => import('./pages/OfficialPartners'))
+const ToolDetail = lazy(() => import('./pages/ToolDetail'))
+const Glossary = lazy(() => import('./pages/Glossary'))
 
 const SUSPENSE_FALLBACK = (
   <main className="site-main" id="main-content">
-    <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
-      <p>Loading...</p>
-    </div>
+    <BrandLoader variant="block" />
   </main>
 )
 
@@ -57,13 +60,19 @@ function AppContent() {
   const [swUpdateReady, setSwUpdateReady] = useState(false)
   const location = useLocation()
 
+  // Normalize pathname so route checks ignore the optional /<lang> prefix
+  // (e.g. /tl, /ilo, /bis, /en). Without this, the home page under a language
+  // prefix is treated as a non-home static page and gets the global sidebar
+  // overlaid on top of Home.jsx's own filter sidebar.
+  const normalizedPath = stripLangPrefix(location.pathname)
+
   // Show onboarding on first visit to /learning-paths if role not set
   useEffect(() => {
-    if (location.pathname === '/learning-paths') {
+    if (normalizedPath === '/learning-paths') {
       const hasRole = Boolean(localStorage.getItem('abakada_onboarding_role'))
       if (!hasRole) setShowOnboarding(true)
     }
-  }, [location.pathname])
+  }, [normalizedPath])
 
   useEffect(() => {
     let retries = 0
@@ -121,12 +130,12 @@ function AppContent() {
     return () => window.removeEventListener('resize', setVh)
   }, [])
 
-  const isHome = location.pathname === '/'
-  const isDeck = location.pathname === '/partnership-deck'
+  const isHome = normalizedPath === '/'
+  const isDeck = normalizedPath === '/partnership-deck'
 
   // Static pages that show the collapsible sidebar
-  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths']
-  const isStaticSidebarPage = STATIC_SIDEBAR_PATHS.includes(location.pathname) || location.pathname.startsWith('/learning-paths/')
+  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths']
+  const isStaticSidebarPage = STATIC_SIDEBAR_PATHS.includes(normalizedPath) || normalizedPath.startsWith('/learning-paths/')
 
   // Sync body class for sidebar collapsed state (desktop only)
   useEffect(() => {
@@ -232,9 +241,7 @@ function AppContent() {
       )}
       {loading ? (
         <main className="site-main" id="main-content">
-          <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
-            <p>Loading...</p>
-          </div>
+          <BrandLoader variant="block" />
         </main>
       ) : fetchError ? (
         <main className="site-main" id="main-content" role="alert">
@@ -256,19 +263,26 @@ function AppContent() {
         <ErrorBoundary>
           <Suspense fallback={SUSPENSE_FALLBACK}>
             <Routes>
-              <Route path="/" element={<Home toolsData={toolsData} navOpen={navOpen} onCloseNav={closeNav} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/partnerships" element={<Partnerships />} />
-              <Route path="/partnership-deck" element={<PartnershipDeck />} />
-              <Route path="/sitemap" element={<Sitemap />} />
-              <Route path="/bookmarks" element={<Bookmarks toolsData={toolsData} />} />
-              <Route path="/compare" element={<Compare toolsData={toolsData} />} />
-              <Route path="/learning-paths" element={<LearningPaths />} />
-              <Route path="/learning-paths/:toolkitId" element={<LearningPathDetail toolsData={toolsData} />} />
-              <Route path="/official-partners" element={<OfficialPartners />} />
+              {[''].concat(['/en', '/tl', '/ilo', '/bis']).map((prefix) => (
+                <Route key={prefix || 'root'} path={prefix || '/'} element={<Outlet />}>
+                  <Route index element={<Home toolsData={toolsData} navOpen={navOpen} onCloseNav={closeNav} />} />
+                  <Route path="about" element={<About />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="faq" element={<FAQ />} />
+                  <Route path="privacy" element={<Privacy />} />
+                  <Route path="terms" element={<Terms />} />
+                  <Route path="partnerships" element={<Partnerships />} />
+                  <Route path="partnership-deck" element={<PartnershipDeck />} />
+                  <Route path="sitemap" element={<Sitemap />} />
+                  <Route path="bookmarks" element={<Bookmarks toolsData={toolsData} />} />
+                  <Route path="compare" element={<Compare toolsData={toolsData} />} />
+                  <Route path="learning-paths" element={<LearningPaths />} />
+                  <Route path="learning-paths/:toolkitId" element={<LearningPathDetail toolsData={toolsData} />} />
+                  <Route path="tools/:toolId" element={<ToolDetail toolsData={toolsData} />} />
+                  <Route path="glossary" element={<Glossary />} />
+                  <Route path="official-partners" element={<OfficialPartners />} />
+                </Route>
+              ))}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

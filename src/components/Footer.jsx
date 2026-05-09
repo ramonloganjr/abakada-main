@@ -47,7 +47,7 @@ export default function Footer({ isStatic = false }) {
           <div className="footer-content">
             <div className="footer-brand">
               <Link to="/" className="footer-logo-link">
-                <img id="footer-logo" className="nav__logo-img" src={logoSrc} alt="Abakada Logo" />
+                <img id="footer-logo" className="nav__logo-img" src={logoSrc} alt="Abakada Logo" width="140" height="32" loading="lazy" decoding="async" />
               </Link>
               <p className="footer-description">{t('footer.description', 'A collection of free and open‑source software tools for Filipino students, scholars, educators, and professionals.')}</p>
               {totalUsers && (
@@ -82,6 +82,9 @@ export default function Footer({ isStatic = false }) {
               <h4 className="footer-section__title">{t('footer.quickLinks', 'Quick Links')}</h4>
               <nav className="footer-links">
                 <a href="/" className="footer-link" onClick={e => handleCategoryNav(e, '/')}>{t('footer.allTools', 'All Tools')}</a>
+                <Link to="/bookmarks" className="footer-link">{t('footer.bookmarks', 'Bookmarks')}</Link>
+                <Link to="/compare" className="footer-link">{t('footer.compare', 'Comparison Tools')}</Link>
+                <Link to="/learning-paths" className="footer-link">{t('footer.learningPaths', 'Learning Paths')}</Link>
                 <a href="/#doc-processing" className="footer-link" onClick={e => handleCategoryNav(e, '/#doc-processing')}>{t('categories.doc-processing', 'Document Processing')}</a>
                 <a href="/#notes" className="footer-link" onClick={e => handleCategoryNav(e, '/#notes')}>{t('categories.notes', 'Note-taking')}</a>
                 <a href="/#project" className="footer-link" onClick={e => handleCategoryNav(e, '/#project')}>{t('categories.project', 'Project Management')}</a>
@@ -93,13 +96,12 @@ export default function Footer({ isStatic = false }) {
             <div className="footer-section">
               <h4 className="footer-section__title">{t('footer.resources', 'Resources')}</h4>
               <nav className="footer-links">
-                <Link to="/bookmarks" className="footer-link">{t('footer.bookmarks', 'Bookmarks')}</Link>
-                <Link to="/compare" className="footer-link">{t('footer.compare', 'Comparison Tools')}</Link>
-                <Link to="/learning-paths" className="footer-link">{t('footer.learningPaths', 'Learning Paths')}</Link>
                 <Link to="/faq" className="footer-link">{t('footer.faq', 'Frequently Asked Questions')}</Link>
+                <Link to="/glossary" className="footer-link">{t('footer.glossary', 'Glossary')}</Link>
                 <a href="https://github.com/Abakada-org" target="_blank" rel="noopener" className="footer-link">{t('footer.contribute', 'Contribute on GitHub')}</a>
-                <a href="https://opensource.org" target="_blank" rel="noopener noreferrer" className="footer-link">Open Source Initiative</a>
+                <a href="https://opensource.org" target="_blank" rel="noopener noreferrer" className="footer-link">{t('footer.openSourceInitiative', 'Open Source Initiative')}</a>
                 <Link to="/privacy" className="footer-link">{t('footer.privacyPolicy', 'Privacy Policy')}</Link>
+                <Link to="/terms" className="footer-link">{t('footer.termsOfUse', 'Terms of Use')}</Link>
                 <Link to="/sitemap" className="footer-link">{t('footer.sitemap', 'Sitemap')}</Link>
               </nav>
             </div>
@@ -108,10 +110,29 @@ export default function Footer({ isStatic = false }) {
               <h4 className="footer-section__title">{t('footer.abakada', 'Abakada')}</h4>
               <nav className="footer-links">
                 <Link to="/about" className="footer-link">{t('footer.about', 'About Us')}</Link>
-                <Link to="/official-partners" className="footer-link">Official Partners</Link>
-                <Link to="/partnerships" className="footer-link">Partnerships</Link>
+                <Link to="/official-partners" className="footer-link">{t('footer.officialPartners', 'Official Partners')}</Link>
+                <Link to="/partnerships" className="footer-link">{t('footer.partnerships', 'Partnerships')}</Link>
                 <Link to="/contact" className="footer-link">{t('footer.contact', 'Contact')}</Link>
               </nav>
+              <a
+                href="https://elevenlabs.io/startup-grants"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-elevenlabs"
+                aria-label="ElevenLabs Startup Grants"
+              >
+                <img
+                  src={
+                    appliedTheme === 'dark'
+                      ? 'https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp'
+                      : 'https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp'
+                  }
+                  alt="ElevenLabs"
+                  className="footer-elevenlabs__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -120,7 +141,7 @@ export default function Footer({ isStatic = false }) {
         <div className="container">
           <div className="footer-bottom-content">
             <p className="footer-copyright">
-              <img src="/assets/logo/philippine.svg" alt="Philippine Flag" className="footer-flag" width="24" height="16" />
+              <img src="/assets/logo/philippine.svg" alt="Philippine Flag" className="footer-flag" width="24" height="16" loading="lazy" decoding="async" />
               <span className="footer-copyright__line1">{t('footer.copyright_line1', 'Brown and Proud.')}</span>
               <span className="footer-copyright__line2">{t('footer.copyright_line2', 'Show your support by sharing this website.')}</span>
             </p>

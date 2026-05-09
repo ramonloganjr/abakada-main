@@ -5,9 +5,11 @@ import { useBookmarks } from '../contexts/BookmarkContext'
 import StaticPageLayout from '../components/StaticPageLayout'
 import ToolCard from '../components/ToolCard'
 import ToolModal from '../components/ToolModal'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 export default function Bookmarks({ toolsData = { tools: [], categories: [] } }) {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const { bookmarks } = useBookmarks()
   const [selectedTool, setSelectedTool] = useState(null)
 
@@ -15,6 +17,8 @@ export default function Bookmarks({ toolsData = { tools: [], categories: [] } })
   const selectedCategory = toolsData.categories.find(c => c.id === selectedTool?.category)
 
   return (
+    <>
+    <SEO {...pageMeta.bookmarks} lang={lang} />
     <StaticPageLayout
       breadcrumb={t('bookmarks.title', 'My Bookmarks')}
       heroTitle={t('bookmarks.title', 'My Bookmarks')}
@@ -59,5 +63,6 @@ export default function Bookmarks({ toolsData = { tools: [], categories: [] } })
         />
       )}
     </StaticPageLayout>
+    </>
   )
 }

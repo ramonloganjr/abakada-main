@@ -1,16 +1,28 @@
 import { Link } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import StaticPageLayout from '../components/StaticPageLayout'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 const FAQ_ITEMS = [
-  { q: 'What is Abakada?', a: 'Abakada is a curated directory of free and open-source productivity tools designed specifically for Filipino students, scholars, and educators. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.' },
-  { q: 'Are all the tools really free?', a: 'Yes! Every tool in our directory is either completely free or has a free tier that provides substantial functionality. We prioritize open-source software that respects user freedom and privacy.' },
-  { q: 'How do I suggest a new tool?', a: 'We welcome tool suggestions! You can contribute by opening an issue or pull request on our GitHub repository, or reach out through our contact page.' },
-  { q: 'What does "Open Source" mean?', a: "Open-source software has its source code publicly available for anyone to view, modify, and distribute. This ensures transparency, security through community review, and freedom from vendor lock-in." },
-  { q: 'Can I use these tools offline?', a: 'Many tools in our directory work offline after installation. We indicate platform compatibility (Windows, macOS, Linux, Web) for each tool so you can find options that work for your setup.' },
-  { q: 'How do you select tools for the directory?', a: 'We evaluate tools based on relevance, maturity, security posture, licensing clarity, and community adoption. We prioritize tools that are actively maintained, well-documented, and suitable for educational use.' },
-  { q: 'Is Abakada affiliated with any government agency?', a: 'No, Abakada is an independent, volunteer-driven project. We are not affiliated with any government agency, educational institution, or commercial entity.' },
-  { q: 'How can I contribute to Abakada?', a: 'There are many ways to contribute! You can suggest tools, report issues, improve translations, write documentation, or contribute code. Visit our GitHub repository to get started.' },
+  { q: 'What is Abakada?', a: 'Abakada is a free, curated directory of 1,288 open-source productivity tools designed specifically for Filipino students, scholars, educators, and professionals. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.' },
+  { q: 'Are all the tools really free?', a: 'Yes. Every tool listed on Abakada is free and open-source. We do not list paid software, freemium-only products, or trialware. If a tool ever changes its license to something proprietary or paid-only, we remove it.' },
+  { q: 'What does "open source" mean?', a: 'Open-source software has its source code publicly available for anyone to view, modify, and redistribute under a recognized license (e.g., MIT, GPL, Apache, AGPL). This guarantees transparency, security through community review, and freedom from vendor lock-in.' },
+  { q: 'How do you select tools for the directory?', a: 'Each tool is reviewed against five criteria: (1) relevance to Filipino learners, (2) project maturity and active maintenance, (3) security posture and license clarity, (4) documentation quality and accessibility, and (5) community adoption. Paid tools, abandoned projects, and AI-generated submissions without human review are rejected.' },
+  { q: 'Can I use these tools offline?', a: 'Many tools work fully offline after installation. We indicate platform compatibility (Windows, macOS, Linux, Web, Android, iOS) for every tool so you can find options that match your hardware and connectivity. Abakada itself is a Progressive Web App and works offline once installed.' },
+  { q: 'Which licenses do you accept?', a: 'We accept widely recognized OSI-approved licenses (MIT, Apache 2.0, BSD, GPL, LGPL, AGPL, MPL) and Creative Commons licenses for content (CC BY, CC BY-SA). We do not list "source-available" tools that restrict commercial use or "fair source" tools with non-commercial clauses.' },
+  { q: 'What languages does Abakada support?', a: 'Abakada is fully translated into English (en), Filipino/Tagalog (tl), Ilokano (ilo), and Bisaya/Cebuano (bis). Tool listings, navigation, and learning paths are all localized. We welcome contributions for additional Philippine languages.' },
+  { q: 'Is Abakada accessible?', a: 'Abakada follows WCAG 2.1 AA guidelines: keyboard navigation, semantic landmarks, ARIA labels, sufficient color contrast in both light and dark themes, and screen-reader-friendly markup. Report accessibility issues to hello@abakada.org.' },
+  { q: 'How does Abakada handle AI training crawlers?', a: 'Abakada blocks AI training crawlers (GPTBot, anthropic-ai, CCBot, Google-Extended, Applebot-Extended, PerplexityBot, Bytespider, and others) via robots.txt. We allow real-time search retrievers (Googlebot, Bingbot, DuckDuckBot, Applebot) so users can still discover us via search and AI overviews. Our content is licensed for human readers and downstream open-source integrations, not for opaque LLM training datasets.' },
+  { q: 'Does Abakada use AI to write content?', a: 'No. All tool reviews, descriptions, and learning-path content are written and verified by human contributors. AI-generated submissions without explicit human review and disclosure are rejected per our contributing guidelines.' },
+  { q: 'How can I contribute?', a: 'Open an issue or pull request on the Abakada GitHub repository (github.com/Abakada-org). You can suggest new tools, fix outdated information, improve translations, write learning-path content, or contribute code. We also welcome contributions for accessibility, documentation, and design.' },
+  { q: 'Is Abakada affiliated with any government agency?', a: 'No. Abakada is an independent, volunteer-driven project. We are not affiliated with any government agency, educational institution, or commercial entity. We accept no paid placements and do not run advertising.' },
+  { q: 'How is Abakada funded?', a: 'Abakada is currently self-funded by founder Ramon Logan Jr. and runs on volunteer time. We accept in-kind partnerships (hosting credits, FOSS project sponsorships, educational partnerships) but do not accept paid editorial placement.' },
+  { q: 'Does Abakada use cookies or track me?', a: 'We use Google Analytics 4 with anonymized IP addresses to understand aggregate usage patterns. No personal data is stored on our servers. We do not run advertising trackers, third-party pixels, or cross-site tracking. See our Privacy Policy for full details.' },
+  { q: 'How can my school or organization partner with Abakada?', a: 'We partner with schools, NGOs, and FOSS projects in four tiers: Technology, Educational, Content, and Community partners. Email partnerships@abakada.org or visit our Partnerships page to start a conversation.' },
+  { q: 'How often is the tool directory updated?', a: 'Tool data is reviewed quarterly at minimum, with high-traffic categories reviewed more frequently. The "Last reviewed" date on each tool page reflects the most recent verification. Report broken or outdated entries via the Contact page.' },
+  { q: 'Can I request takedown of a tool listing?', a: 'Maintainers of listed tools can request takedown by emailing hello@abakada.org with proof of ownership. Removal happens within 7 days. Trademark, defamation, or copyright concerns are addressed under the same process.' },
+  { q: 'Where can I see comparisons between tools?', a: 'Use the Compare feature (/compare) to view side-by-side comparisons of any 2-4 tools — features, supported platforms, license type, and editorial notes. Comparisons are particularly useful for choosing between similar tools (e.g., LibreOffice vs. ONLYOFFICE).' },
 ]
 
 const QuestionIcon = () => (
@@ -22,8 +34,20 @@ const QuestionIcon = () => (
 )
 
 export default function FAQ() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+  const meta = pageMeta.faq
   return (
+    <>
+    <SEO {...meta} jsonLd={[meta.jsonLd, faqJsonLd]} lang={lang} />
     <StaticPageLayout
       breadcrumb={t('breadcrumb.faq', 'FAQ')}
       heroTitle={t('pages.faq.heroTitle', 'Frequently Asked Questions')}
@@ -81,5 +105,6 @@ export default function FAQ() {
         </div>
       </section>
     </StaticPageLayout>
+    </>
   )
 }

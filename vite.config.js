@@ -11,8 +11,17 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Split vendor code into a separate long-lived cached chunk
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (
+              id.includes('react') ||
+              id.includes('scheduler') ||
+              id.includes('react-router') ||
+              id.includes('react-helmet')
+            ) {
+              return 'vendor'
+            }
+          }
         },
         // Content-hash filenames for optimal long-term caching
         entryFileNames: 'assets/[name]-[hash].js',

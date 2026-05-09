@@ -9,11 +9,13 @@ import ToolModal from '../components/ToolModal'
 import FeaturedCarousel from '../components/FeaturedCarousel'
 import Pagination from '../components/Pagination'
 import Icon from '../components/Icon'
+import SEO from '../components/SEO'
+import { pageMeta } from '../lib/pageMeta'
 
 const ITEMS_PER_PAGE = 18
 
 export default function Home({ toolsData, navOpen, onCloseNav }) {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const { saveData } = useLowBandwidth()
   const location = useLocation()
   const navigate = useNavigate()
@@ -77,6 +79,7 @@ export default function Home({ toolsData, navOpen, onCloseNav }) {
 
   return (
     <>
+      <SEO {...pageMeta.home} lang={lang} />
       <Sidebar
         categories={toolsData.categories}
         tools={toolsData.tools}
@@ -103,6 +106,12 @@ export default function Home({ toolsData, navOpen, onCloseNav }) {
               <span className="hero__title-gradient">{t('hero.titleHighlight', 'Productivity Tools')}</span>
             </h1>
             <p className="hero__subtitle">{t('hero.subtitle', 'Discover powerful, free, and open-source productivity tools organized by category.')}</p>
+            <p className="hero__definition" aria-label="About Abakada">
+              {t(
+                'hero.definition',
+                'Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required.'
+              )}
+            </p>
             <div className="hero__stats">
               <div className="hero__stat">
                 <div className="hero__stat-value">{(stats.totalTools || toolsData.tools.length).toLocaleString()}+</div>

@@ -1,28 +1,202 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "tracks": [
+    {
+      "id": "foundations",
+      "title": "Digital Foundations",
+      "description": "Build essential digital skills — open-source first, internet-safe, no prior experience required.",
+      "icon": "compass"
+    },
+    {
+      "id": "productivity",
+      "title": "Productivity",
+      "description": "Master modern personal productivity, focus, and knowledge work with proven open-source tools.",
+      "icon": "zap"
+    },
+    {
+      "id": "collaboration",
+      "title": "Collaboration",
+      "description": "Work, communicate, and ship together — privacy-respecting, self-hostable team workflows.",
+      "icon": "users"
+    },
+    {
+      "id": "creativity",
+      "title": "Creativity",
+      "description": "Design, draw, animate, edit, and publish — professional-grade tools for every creative discipline.",
+      "icon": "palette"
+    },
+    {
+      "id": "specialized",
+      "title": "Specialized Skills",
+      "description": "Role-specific pathways for researchers, developers, accountants, and educators.",
+      "icon": "target"
+    }
+  ],
+  "audiences": [
+    { "id": "student", "label": "Student" },
+    { "id": "out-of-school-youth", "label": "Out-of-School Youth" },
+    { "id": "teacher", "label": "Educator" },
+    { "id": "professional", "label": "Working Professional" },
+    { "id": "self-directed", "label": "Self-Directed Learner" },
+    { "id": "researcher", "label": "Researcher" },
+    { "id": "developer", "label": "Developer" },
+    { "id": "designer", "label": "Designer" },
+    { "id": "accountant", "label": "Accountant" }
+  ],
   "toolkits": [
+    {
+      "id": "digital-foundations",
+      "title": "Digital Foundations",
+      "track": "foundations",
+      "role": "beginner",
+      "audiences": ["out-of-school-youth", "student", "self-directed"],
+      "difficulty": "beginner",
+      "duration": "3-5 hours",
+      "icon": "sprout",
+      "tagline": "Your first confident steps online — safe, private, and free.",
+      "description": "A welcoming starting point for anyone new to digital tools. Learn to browse safely, communicate privately, manage files, and protect your accounts — no jargon, no cost.",
+      "outcomes": [
+        "Browse the internet safely with privacy-respecting tools",
+        "Send secure messages and email to family, friends, and colleagues",
+        "Protect your passwords, files, and personal data"
+      ],
+      "stages": [
+        {
+          "id": "safe-browsing",
+          "title": "Browse Safely & Privately",
+          "description": "Start with a safer browser and learn the basics of staying private online — your foundation for everything else.",
+          "objectives": [
+            "Choose a privacy-respecting browser as your daily default",
+            "Recognize trackers, phishing, and unsafe sites",
+            "Set up a private alternative for sensitive browsing"
+          ],
+          "tasks": [
+            "Install Firefox or LibreWolf and import your bookmarks",
+            "Try a private browsing window for one full day",
+            "Switch your default search engine to a private option"
+          ],
+          "estimatedTime": "30 min",
+          "toolIds": ["firefox", "librewolf", "brave", "tor-browser"]
+        },
+        {
+          "id": "secure-comms",
+          "title": "Communicate Securely",
+          "description": "Replace insecure SMS and unencrypted email with private, end-to-end encrypted alternatives.",
+          "objectives": [
+            "Send your first end-to-end encrypted message",
+            "Set up a private email account",
+            "Verify a contact's identity for confidential conversations"
+          ],
+          "tasks": [
+            "Install Signal and invite one trusted contact",
+            "Create a Tutanota or ProtonMail account for private email",
+            "Try Element for an encrypted group chat"
+          ],
+          "estimatedTime": "45 min",
+          "toolIds": ["signal", "element", "tutanota", "protonmail", "thunderbird"]
+        },
+        {
+          "id": "passwords-files",
+          "title": "Protect Passwords & Files",
+          "description": "Stop reusing passwords. Start backing up what matters. Two habits that change everything.",
+          "objectives": [
+            "Move every account into a password manager",
+            "Generate unique strong passwords for your top 10 sites",
+            "Establish a simple, automatic file backup routine"
+          ],
+          "tasks": [
+            "Set up Bitwarden or KeePassXC and import your saved passwords",
+            "Replace passwords on your 5 most important accounts",
+            "Sync one important folder with Syncthing or Nextcloud"
+          ],
+          "estimatedTime": "60 min",
+          "toolIds": ["bitwarden", "keepassxc", "syncthing", "nextcloud"]
+        },
+        {
+          "id": "media-everyday",
+          "title": "Read, Watch & Listen",
+          "description": "Free, ad-free media tools for everyday digital life — documents, video, and audio.",
+          "objectives": [
+            "Open and edit any document format without paying",
+            "Play any audio or video file reliably",
+            "Read PDFs and ebooks comfortably"
+          ],
+          "tasks": [
+            "Install LibreOffice and open one document, spreadsheet, and slide deck",
+            "Set VLC as your default media player",
+            "Open a PDF in Okular and try its annotation tools"
+          ],
+          "estimatedTime": "30 min",
+          "toolIds": ["libreoffice", "vlc", "okular", "calibre"]
+        }
+      ]
+    },
     {
       "id": "research-starter",
       "title": "Research Starter Kit",
-      "description": "Essential tools for students and academics beginning their research journey — from note-taking to citation management.",
+      "track": "specialized",
       "role": "researcher",
+      "audiences": ["researcher", "student", "self-directed"],
+      "difficulty": "intermediate",
+      "duration": "5-7 hours",
+      "icon": "flask-round",
+      "tagline": "Capture, cite, and publish — the open-source research stack.",
+      "description": "Essential tools for students and academics beginning their research journey — from note-taking to citation management to academic writing.",
+      "outcomes": [
+        "Build a connected, searchable personal knowledge base",
+        "Manage citations and bibliographies without manual formatting",
+        "Draft and publish academic papers in any format"
+      ],
       "stages": [
         {
           "id": "capture",
           "title": "Capture & Organize Notes",
           "description": "Start by building a personal knowledge base. These tools help you capture ideas, web clips, and research notes.",
+          "objectives": [
+            "Adopt a daily-notes workflow that fits your style",
+            "Capture web articles and PDFs into your library",
+            "Connect notes with bidirectional links to surface insight"
+          ],
+          "tasks": [
+            "Pick one tool from this stage and create your first daily note",
+            "Clip 3 web pages and tag them by topic",
+            "Connect 2 notes using a backlink"
+          ],
+          "estimatedTime": "75 min",
           "toolIds": ["joplin", "logseq", "obsidian", "appflowy"]
         },
         {
           "id": "references",
           "title": "Manage References & Citations",
           "description": "Keep your bibliography organized. These tools handle citations, PDFs, and reference lists for academic writing.",
+          "objectives": [
+            "Build a reference library you can search and cite from",
+            "Use citation styles (APA, MLA, Chicago) without manual formatting",
+            "Sync references across devices and writing tools"
+          ],
+          "tasks": [
+            "Import 5 PDFs into Zotero or JabRef",
+            "Generate a bibliography in your preferred citation style",
+            "Install the browser connector and clip one paper directly from the web"
+          ],
+          "estimatedTime": "60 min",
           "toolIds": ["zotero", "jabref", "mendeley"]
         },
         {
           "id": "writing",
           "title": "Write & Publish",
           "description": "Draft papers and reports with tools built for academic and long-form writing.",
+          "objectives": [
+            "Choose a writing tool that supports your output format",
+            "Convert between Markdown, LaTeX, DOCX, and PDF cleanly",
+            "Maintain focus during long writing sessions"
+          ],
+          "tasks": [
+            "Draft a 500-word section in LibreOffice or LyX",
+            "Use Pandoc to convert one Markdown file to PDF",
+            "Try FocusWriter for a 25-minute distraction-free session"
+          ],
+          "estimatedTime": "90 min",
           "toolIds": ["libreoffice", "lyx", "focuswriter", "pandoc"]
         }
       ]
@@ -30,25 +204,69 @@
     {
       "id": "student-productivity",
       "title": "Student Productivity Pack",
-      "description": "A curated set of tools to help students stay organized, collaborate on projects, and get more done every day.",
+      "track": "productivity",
       "role": "student",
+      "audiences": ["student", "self-directed"],
+      "difficulty": "beginner",
+      "duration": "4-6 hours",
+      "icon": "graduation-cap",
+      "tagline": "Stay organized. Study smarter. Submit on time.",
+      "description": "A curated set of tools to help students stay organized, collaborate on projects, and get more done every day.",
+      "outcomes": [
+        "Keep notes, tasks, and deadlines under control across every subject",
+        "Collaborate on group projects without paid software",
+        "Visualize complex topics to study and present better"
+      ],
       "stages": [
         {
           "id": "notes-tasks",
           "title": "Notes & Task Management",
           "description": "Build good study habits with note-taking apps and task managers that keep your workload under control.",
+          "objectives": [
+            "Capture every class, assignment, and idea in one place",
+            "Plan your week using a simple kanban or calendar",
+            "Build a spaced-repetition habit for memorization"
+          ],
+          "tasks": [
+            "Take notes in Joplin or AppFlowy for one full class day",
+            "Set up a Focalboard with three columns: To Do · Doing · Done",
+            "Create your first 10 Anki cards from this week's lessons"
+          ],
+          "estimatedTime": "60 min",
           "toolIds": ["joplin", "appflowy", "focalboard", "anki"]
         },
         {
           "id": "documents",
           "title": "Documents & Collaboration",
           "description": "Create, edit, and share documents with classmates using these office and collaboration tools.",
+          "objectives": [
+            "Edit any document format without paying for software",
+            "Co-write a document live with classmates",
+            "Share notes securely without sign-up friction"
+          ],
+          "tasks": [
+            "Write a paper in LibreOffice and export it to PDF",
+            "Open a CryptPad doc and invite a classmate to edit live",
+            "Try HedgeDoc for a real-time Markdown study group session"
+          ],
+          "estimatedTime": "75 min",
           "toolIds": ["libreoffice", "cryptpad", "hedgedoc", "onlyoffice"]
         },
         {
           "id": "diagrams",
           "title": "Diagrams & Visual Thinking",
           "description": "Visualize concepts, plan projects, and brainstorm ideas with diagramming and mind-mapping tools.",
+          "objectives": [
+            "Turn complex topics into visual study aids",
+            "Map your project ideas before you start writing",
+            "Communicate concepts clearly in presentations"
+          ],
+          "tasks": [
+            "Draw a mind map of one chapter using Freeplane or XMind",
+            "Build a flowchart in draw.io for a process you're studying",
+            "Document a system using Mermaid syntax"
+          ],
+          "estimatedTime": "60 min",
           "toolIds": ["drawio", "mermaid", "freeplane", "xmind"]
         }
       ]
@@ -56,51 +274,383 @@
     {
       "id": "teacher-digital-classroom",
       "title": "Teacher's Digital Classroom",
-      "description": "Tools to help educators create engaging lessons, manage content, and support students in digital and hybrid classrooms.",
+      "track": "specialized",
       "role": "teacher",
+      "audiences": ["teacher"],
+      "difficulty": "intermediate",
+      "duration": "6-8 hours",
+      "icon": "presentation",
+      "tagline": "Build engaging lessons. Reach every learner.",
+      "description": "Tools to help educators create engaging lessons, manage content, and support students in digital and hybrid classrooms.",
+      "outcomes": [
+        "Author interactive lessons and learning content",
+        "Run a hybrid classroom with privacy-respecting tools",
+        "Assess student progress with structured feedback"
+      ],
       "stages": [
         {
           "id": "content-creation",
           "title": "Create Learning Content",
           "description": "Build interactive lessons, presentations, and educational materials your students will actually enjoy.",
+          "objectives": [
+            "Author a multi-format lesson (slides, handouts, quizzes)",
+            "Create one interactive learning experience",
+            "Publish materials in a format learners can access offline"
+          ],
+          "tasks": [
+            "Build a slide deck and matching handout in LibreOffice",
+            "Try one H5P interaction (drag-the-words or quiz)",
+            "Package a Kolibri channel of your favorite resources"
+          ],
+          "estimatedTime": "120 min",
           "toolIds": ["libreoffice", "kolibri", "h5p", "scribus"]
         },
         {
           "id": "classroom-tools",
           "title": "Classroom & Communication Tools",
           "description": "Manage your classroom, communicate with students, and share resources efficiently.",
+          "objectives": [
+            "Run a class discussion in a private, ad-free space",
+            "Share resources without forcing sign-ups",
+            "Co-author class notes with students in real time"
+          ],
+          "tasks": [
+            "Create a Canvas LMS course shell for one unit",
+            "Run a 15-minute live note session in Etherpad",
+            "Publish a class wiki on BookStack"
+          ],
+          "estimatedTime": "90 min",
           "toolIds": ["canvas-lms", "bookstack", "etherpad", "cryptpad", "element"]
         },
         {
           "id": "assessment",
           "title": "Assessment & Feedback",
           "description": "Create quizzes, track student progress, and provide structured feedback with these tools.",
+          "objectives": [
+            "Author one formative and one summative assessment",
+            "Use spaced repetition for vocabulary or concept retention",
+            "Document a feedback workflow you can reuse every term"
+          ],
+          "tasks": [
+            "Build an Anki shared deck for your class",
+            "Try GCompris for a younger-learner activity",
+            "Document one assessment rubric in DokuWiki"
+          ],
+          "estimatedTime": "60 min",
           "toolIds": ["anki", "gcompris", "dokuwiki"]
+        }
+      ]
+    },
+    {
+      "id": "remote-collaboration",
+      "title": "Remote Team Collaboration",
+      "track": "collaboration",
+      "role": "professional",
+      "audiences": ["professional", "self-directed"],
+      "difficulty": "intermediate",
+      "duration": "4-6 hours",
+      "icon": "users",
+      "tagline": "Work better together — privacy-respecting, self-hostable, free.",
+      "description": "A complete open-source collaboration stack for distributed teams: chat, video, shared docs, and file sync. Replace expensive SaaS with tools you control.",
+      "outcomes": [
+        "Run a privacy-respecting team chat and video stack",
+        "Co-author documents and notes in real time without vendor lock-in",
+        "Sync and share files across your team securely"
+      ],
+      "stages": [
+        {
+          "id": "team-chat",
+          "title": "Team Chat & Messaging",
+          "description": "Replace closed-source workplace chat with self-hostable, encryption-aware alternatives that respect your team's privacy.",
+          "objectives": [
+            "Set up a team chat workspace with channels and DMs",
+            "Establish a messaging hygiene protocol (channels vs DMs)",
+            "Verify identity and end-to-end encryption is on"
+          ],
+          "tasks": [
+            "Create channels for #general, #random, and one project",
+            "Invite three teammates and pin a welcome message",
+            "Run a stand-up using threads or scheduled posts"
+          ],
+          "estimatedTime": "60 min",
+          "toolIds": ["element", "rocket-chat", "mattermost", "signal"]
+        },
+        {
+          "id": "video-meetings",
+          "title": "Video & Voice Meetings",
+          "description": "Host meetings without licenses, accounts, or attendee caps — Jitsi runs in the browser, no install.",
+          "objectives": [
+            "Run a meeting with no install required for guests",
+            "Record and share a meeting summary",
+            "Set up a low-latency voice channel for daily work"
+          ],
+          "tasks": [
+            "Host a Jitsi call with two guests and screen-share",
+            "Try Mumble or TeamSpeak for an always-on voice room",
+            "Set a recurring weekly meeting room URL"
+          ],
+          "estimatedTime": "45 min",
+          "toolIds": ["jitsi", "mumble", "teamspeak", "element"]
+        },
+        {
+          "id": "shared-docs",
+          "title": "Shared Docs & Notes",
+          "description": "Co-author documents, take live meeting notes, and build a team knowledge base — no third-party account required.",
+          "objectives": [
+            "Co-edit a document in real time with at least two teammates",
+            "Maintain meeting notes the team can search later",
+            "Publish a public-facing knowledge base"
+          ],
+          "tasks": [
+            "Co-write a one-page proposal in CryptPad",
+            "Run a meeting with live notes in HedgeDoc or Etherpad",
+            "Spin up a BookStack knowledge base for your team"
+          ],
+          "estimatedTime": "75 min",
+          "toolIds": ["cryptpad", "hedgedoc", "etherpad", "onlyoffice", "bookstack"]
+        },
+        {
+          "id": "files-sync",
+          "title": "File Sync & Sharing",
+          "description": "Self-hostable file-sharing — your data, your storage, your control.",
+          "objectives": [
+            "Sync a shared team folder across devices",
+            "Share a file via expiring, password-protected link",
+            "Establish one place for all team files"
+          ],
+          "tasks": [
+            "Set up Nextcloud or Seafile and sync a team folder",
+            "Create one share link with an expiry date",
+            "Mirror a critical folder with Syncthing for offline-first work"
+          ],
+          "estimatedTime": "75 min",
+          "toolIds": ["nextcloud", "seafile", "syncthing"]
+        }
+      ]
+    },
+    {
+      "id": "workplace-pro",
+      "title": "Workplace Productivity for Professionals",
+      "track": "productivity",
+      "role": "professional",
+      "audiences": ["professional", "self-directed"],
+      "difficulty": "intermediate",
+      "duration": "5-7 hours",
+      "icon": "briefcase",
+      "tagline": "A professional-grade open-source stack for daily work.",
+      "description": "For working professionals who want to do their best work without subscription fatigue — office, knowledge, automation, and security tools that feel premium.",
+      "outcomes": [
+        "Replace your office suite with a professional open-source equivalent",
+        "Build a personal knowledge system that compounds over time",
+        "Lock down your accounts and data with industry-standard tools"
+      ],
+      "stages": [
+        {
+          "id": "office-suite",
+          "title": "Office & Documents",
+          "description": "A complete office suite that opens, edits, and exports every common format — desktop or browser.",
+          "objectives": [
+            "Edit DOCX, XLSX, and PPTX without compatibility issues",
+            "Pick a primary office tool and stick with it for 7 days",
+            "Set up a clean PDF reading and annotation workflow"
+          ],
+          "tasks": [
+            "Open three real work documents in LibreOffice or OnlyOffice",
+            "Annotate one PDF in Okular and email it back",
+            "Export one document to PDF/A for archiving"
+          ],
+          "estimatedTime": "60 min",
+          "toolIds": ["libreoffice", "onlyoffice", "okular", "calibre"]
+        },
+        {
+          "id": "knowledge-system",
+          "title": "Personal Knowledge System",
+          "description": "A second brain for projects, meeting notes, and references — searchable, linked, and yours forever.",
+          "objectives": [
+            "Capture meeting notes with consistent structure",
+            "Link related notes to surface patterns",
+            "Establish a weekly review ritual"
+          ],
+          "tasks": [
+            "Create a daily-notes template in Obsidian or Logseq",
+            "Connect 5 notes with backlinks",
+            "Schedule a 15-minute Friday review on your calendar"
+          ],
+          "estimatedTime": "90 min",
+          "toolIds": ["obsidian", "logseq", "joplin", "zettlr", "marktext"]
+        },
+        {
+          "id": "secure-stack",
+          "title": "Security & Privacy Stack",
+          "description": "Industry-standard password management, encryption, and private communication for working professionals.",
+          "objectives": [
+            "Move every work account into a password manager",
+            "Use end-to-end encrypted email for sensitive threads",
+            "Verify two-factor authentication on critical accounts"
+          ],
+          "tasks": [
+            "Audit and replace 10 reused passwords in Bitwarden",
+            "Send one E2EE email via ProtonMail or Tutanota",
+            "Set up Signal as a secondary work-comms channel"
+          ],
+          "estimatedTime": "75 min",
+          "toolIds": ["bitwarden", "keepassxc", "protonmail", "tutanota", "signal"]
+        },
+        {
+          "id": "automation",
+          "title": "Automation & Backup",
+          "description": "Stop losing work. Stop doing the same task twice. The professional's safety net.",
+          "objectives": [
+            "Establish an automatic backup of your critical files",
+            "Sync work data across devices reliably",
+            "Document one repeatable workflow you can hand off"
+          ],
+          "tasks": [
+            "Set up a daily Restic or Borg backup of one folder",
+            "Sync your laptop and desktop with Syncthing",
+            "Mirror a folder to an external drive with rclone"
+          ],
+          "estimatedTime": "60 min",
+          "toolIds": ["restic", "borg", "duplicati", "syncthing", "rclone", "nextcloud"]
+        }
+      ]
+    },
+    {
+      "id": "self-directed-learner",
+      "title": "Self-Directed Learner's Toolkit",
+      "track": "productivity",
+      "role": "self-directed",
+      "audiences": ["self-directed", "student", "professional"],
+      "difficulty": "beginner",
+      "duration": "4-6 hours",
+      "icon": "route",
+      "tagline": "Learn anything, retain it, build something.",
+      "description": "For lifelong learners building their own curriculum. A structured stack for memorization, deep reading, hands-on practice, and turning what you learn into work you ship.",
+      "outcomes": [
+        "Build a memorization habit that survives months, not days",
+        "Read deeply and capture insights you'll actually revisit",
+        "Turn your learning into a portfolio you can show"
+      ],
+      "stages": [
+        {
+          "id": "memorize",
+          "title": "Memorize What Matters",
+          "description": "Spaced repetition is the closest thing to a learning superpower. Make it a 5-minute daily habit.",
+          "objectives": [
+            "Build a daily 5-minute review habit",
+            "Author 20 cards on your current topic",
+            "Use cloze deletion for nuanced concepts"
+          ],
+          "tasks": [
+            "Install Anki and pick one shared deck to review daily for a week",
+            "Author 20 of your own cards from your current subject",
+            "Schedule a daily 5-minute review on your calendar"
+          ],
+          "estimatedTime": "60 min",
+          "toolIds": ["anki"]
+        },
+        {
+          "id": "read-deep",
+          "title": "Read & Capture Deeply",
+          "description": "Go beyond highlighting. Capture, link, and revisit what you read so it shapes how you think.",
+          "objectives": [
+            "Set up a reading queue you'll actually finish",
+            "Capture book and article notes in a searchable system",
+            "Link new ideas to what you already know"
+          ],
+          "tasks": [
+            "Import 3 ebooks into Calibre and start a reading queue",
+            "Take notes on one article in Obsidian or Logseq",
+            "Connect today's notes to two older notes"
+          ],
+          "estimatedTime": "75 min",
+          "toolIds": ["calibre", "okular", "obsidian", "logseq", "zettlr"]
+        },
+        {
+          "id": "practice",
+          "title": "Practice in Public",
+          "description": "Build something small with what you learn. Public practice compounds faster than private study.",
+          "objectives": [
+            "Pick a small build project tied to your current learning",
+            "Use a notebook or sandbox to experiment freely",
+            "Publish or share one artifact this week"
+          ],
+          "tasks": [
+            "Open a Jupyter notebook and run your first cell",
+            "Try one of: a script, a sketch, a writeup, or a short demo",
+            "Post or share one result with a friend or community"
+          ],
+          "estimatedTime": "120 min",
+          "toolIds": ["jupyter", "jupyterlab", "vscode", "obsidian", "logseq"]
         }
       ]
     },
     {
       "id": "beginner-coding",
       "title": "Beginner Coding Path",
-      "description": "Start your programming journey with the right tools — from writing your first lines of code to version control basics.",
+      "track": "specialized",
       "role": "developer",
+      "audiences": ["developer", "student", "self-directed"],
+      "difficulty": "beginner",
+      "duration": "6-8 hours",
+      "icon": "code",
+      "tagline": "From your first line of code to your first pull request.",
+      "description": "Start your programming journey with the right tools — from writing your first lines of code to version control basics and hands-on AI experimentation.",
+      "outcomes": [
+        "Write, run, and debug code in a modern editor",
+        "Track your work and collaborate using Git",
+        "Experiment with AI and notebooks to learn faster"
+      ],
       "stages": [
         {
           "id": "editor",
           "title": "Pick Your Editor",
           "description": "Choose a code editor that fits your style. These are beginner-friendly options to get you writing code fast.",
+          "objectives": [
+            "Pick one editor and customize it lightly",
+            "Install one language extension you'll use",
+            "Build muscle memory for save, run, and find"
+          ],
+          "tasks": [
+            "Install VS Code or Kate and write a Hello World",
+            "Install one extension for the language you're learning",
+            "Practice three keyboard shortcuts until they're automatic"
+          ],
+          "estimatedTime": "45 min",
           "toolIds": ["vscode", "kate", "helix", "emacs"]
         },
         {
           "id": "version-control",
           "title": "Version Control Basics",
           "description": "Learn to track your code changes and collaborate with others using Git-based tools.",
+          "objectives": [
+            "Initialize a repo and make commits with meaningful messages",
+            "Push your code to a remote you control",
+            "Open and merge your first pull request"
+          ],
+          "tasks": [
+            "Create a Git repo for one small personal project",
+            "Push it to Gitea or Forgejo",
+            "Open one pull request and merge it"
+          ],
+          "estimatedTime": "75 min",
           "toolIds": ["github-desktop", "gitea", "forgejo"]
         },
         {
           "id": "interactive-learning",
           "title": "Interactive Learning & Notebooks",
           "description": "Experiment with code in interactive environments — great for learning Python, data science, and scripting.",
+          "objectives": [
+            "Run code in a notebook and chart one dataset",
+            "Try local AI to learn without paying per token",
+            "Build a tiny end-to-end script from scratch"
+          ],
+          "tasks": [
+            "Open Jupyter and run your first 10 cells",
+            "Try Ollama with one local model and ask it three questions",
+            "Write a 20-line script that solves a real annoyance"
+          ],
+          "estimatedTime": "90 min",
           "toolIds": ["jupyter", "jupyterlab", "ollama", "jan"]
         }
       ]
@@ -108,31 +658,86 @@
     {
       "id": "designer-toolkit",
       "title": "Designer's Toolkit",
-      "description": "A complete open-source design workflow — from raster and vector editing to UI prototyping, typography, and print-ready layouts.",
+      "track": "creativity",
       "role": "designer",
+      "audiences": ["designer", "self-directed"],
+      "difficulty": "advanced",
+      "duration": "8-12 hours",
+      "icon": "palette",
+      "tagline": "Pixels, vectors, type, and motion — all open-source.",
+      "description": "A complete open-source design workflow — from raster and vector editing to UI prototyping, typography, and print-ready layouts.",
+      "outcomes": [
+        "Run a full creative workflow without proprietary software",
+        "Ship raster, vector, UI, print, and motion deliverables",
+        "Build a portfolio piece using only FOSS tools"
+      ],
       "stages": [
         {
           "id": "raster-vector",
           "title": "Raster & Vector Editing",
           "description": "Master the foundational tools for editing photos and creating scalable vector graphics.",
+          "objectives": [
+            "Edit a photo with non-destructive layers",
+            "Draw a vector logo in Inkscape from scratch",
+            "Export at the right size for web, print, and social"
+          ],
+          "tasks": [
+            "Edit one photo in GIMP using layers and masks",
+            "Draw a simple logo in Inkscape and export as SVG and PNG",
+            "Try Krita for a quick digital sketch"
+          ],
+          "estimatedTime": "120 min",
           "toolIds": ["gimp", "inkscape", "krita", "pixlr"]
         },
         {
           "id": "ui-prototyping",
           "title": "UI Design & Prototyping",
           "description": "Design interfaces and interactive prototypes with tools built for modern product design workflows.",
+          "objectives": [
+            "Design a one-screen UI with consistent components",
+            "Build an interactive prototype with at least two states",
+            "Hand off specs and assets cleanly"
+          ],
+          "tasks": [
+            "Design a sign-in screen in Penpot using auto-layout",
+            "Build a clickable two-screen prototype",
+            "Export design tokens and assets for development"
+          ],
+          "estimatedTime": "150 min",
           "toolIds": ["penpot", "vectr", "gravit", "drawio"]
         },
         {
           "id": "typography-print",
           "title": "Typography & Print",
           "description": "Create custom typefaces and produce professional print-ready layouts for publications and marketing materials.",
+          "objectives": [
+            "Lay out a multi-page document with master pages",
+            "Choose and pair typefaces with intent",
+            "Export press-ready PDF/X for a print shop"
+          ],
+          "tasks": [
+            "Lay out a 4-page brochure in Scribus",
+            "Sketch one custom letterform in FontForge or BirdFont",
+            "Export a CMYK PDF/X-1a from Scribus"
+          ],
+          "estimatedTime": "120 min",
           "toolIds": ["scribus", "fontforge", "birdfont", "libreoffice"]
         },
         {
           "id": "animation-motion",
           "title": "Animation & Motion",
           "description": "Bring your designs to life with 2D animation and motion graphics tools used by professionals worldwide.",
+          "objectives": [
+            "Animate one short loop or a 5-second motion piece",
+            "Try keyframing and easing in a real timeline",
+            "Render and export at proper resolution and codec"
+          ],
+          "tasks": [
+            "Animate a 3-second logo reveal in Synfig or Pencil2D",
+            "Try a simple bouncing-ball exercise to learn easing",
+            "Render and share one short piece on social"
+          ],
+          "estimatedTime": "150 min",
           "toolIds": ["pencil2d", "synfig", "opentoonz", "blender"]
         }
       ]
@@ -140,31 +745,86 @@
     {
       "id": "accountant-essentials",
       "title": "Accountant's Essentials",
-      "description": "Open-source tools for bookkeeping, financial reporting, budgeting, and data analysis — built for accounting professionals.",
+      "track": "specialized",
       "role": "accountant",
+      "audiences": ["accountant", "professional"],
+      "difficulty": "intermediate",
+      "duration": "6-9 hours",
+      "icon": "calculator",
+      "tagline": "Books, budgets, and BI — open-source from end to end.",
+      "description": "Open-source tools for bookkeeping, financial reporting, budgeting, and data analysis — built for accounting professionals.",
+      "outcomes": [
+        "Maintain double-entry books for a small business or personal use",
+        "Build budgets and cash-flow forecasts you actually use",
+        "Turn raw financial data into dashboards stakeholders trust"
+      ],
       "stages": [
         {
           "id": "bookkeeping",
           "title": "Bookkeeping & Accounting",
           "description": "Record transactions, manage accounts, and produce financial statements with these double-entry accounting tools.",
+          "objectives": [
+            "Set up a chart of accounts for one entity",
+            "Reconcile one bank statement end-to-end",
+            "Produce a P&L and balance sheet for a single period"
+          ],
+          "tasks": [
+            "Create a sample company in GnuCash and enter 10 transactions",
+            "Reconcile last month's bank statement",
+            "Generate a P&L for a single period"
+          ],
+          "estimatedTime": "120 min",
           "toolIds": ["gnucash", "homebank", "ledger", "hledger", "beancount"]
         },
         {
           "id": "budgeting",
           "title": "Budgeting & Personal Finance",
           "description": "Track budgets, forecast cash flow, and manage personal or small-business finances with clarity.",
+          "objectives": [
+            "Build an envelope or zero-based budget",
+            "Forecast cash flow for the next 3 months",
+            "Set up category-level reporting you can review weekly"
+          ],
+          "tasks": [
+            "Build a category budget in Firefly III or Actual",
+            "Import 30 days of transactions and categorize them",
+            "Set a 15-minute weekly money-review on your calendar"
+          ],
+          "estimatedTime": "90 min",
           "toolIds": ["firefly-iii", "actual"]
         },
         {
           "id": "reporting-analysis",
           "title": "Reporting & Data Analysis",
           "description": "Turn raw financial data into actionable insights with BI dashboards, SQL tools, and spreadsheet analysis.",
+          "objectives": [
+            "Connect a database or CSV to a BI tool",
+            "Build one shareable dashboard",
+            "Clean a messy dataset before analysis"
+          ],
+          "tasks": [
+            "Stand up Metabase against a sample finance dataset",
+            "Build a 3-card dashboard (revenue, expenses, margin)",
+            "Clean one CSV with OpenRefine"
+          ],
+          "estimatedTime": "120 min",
           "toolIds": ["metabase", "redash", "apache-superset", "libreoffice", "openrefine"]
         },
         {
           "id": "data-tools",
           "title": "Data & Spreadsheet Tools",
           "description": "Work with structured data, clean datasets, and run statistical analysis to support financial decision-making.",
+          "objectives": [
+            "Query a database without writing wall-of-SQL",
+            "Run a basic statistical analysis on a real dataset",
+            "Publish a reproducible analysis you can rerun next month"
+          ],
+          "tasks": [
+            "Connect DBeaver to a sample database and run 3 queries",
+            "Run a basic regression in R-Project or a notebook",
+            "Publish a Datasette of one cleaned dataset"
+          ],
+          "estimatedTime": "105 min",
           "toolIds": ["csvkit", "datasette", "dbeaver", "r-project"]
         }
       ]
