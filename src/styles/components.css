@@ -4228,7 +4228,8 @@ a:focus-visible svg {
   margin-bottom: var(--space-12);
 }
 
-/* Error Icon */
+/* Error Icon — legacy lens/icon variant (kept for non-404 error states
+   like /500 that may still mount the circular accent badge) */
 .error-page__icon {
   width: 120px;
   height: 120px;
@@ -4252,6 +4253,30 @@ a:focus-visible svg {
 
 .error-page__icon--warning svg {
   color: var(--warning);
+}
+
+/* 404 wordmark artwork — theme-aware SVG sits as a hero block above the
+   label/title. aspect-ratio matches the SVG viewBox so the box never
+   collapses or shifts during paint. */
+.error-page__artwork {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+}
+
+.error-page__artwork img {
+  display: block;
+  width: clamp(200px, 30vw, 280px);
+  height: auto;
+  aspect-ratio: 175.35 / 64.14;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .error-page__artwork img {
+    width: clamp(180px, 60vw, 220px);
+  }
 }
 
 /* Error Label */

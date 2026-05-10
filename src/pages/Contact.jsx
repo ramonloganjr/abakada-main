@@ -29,7 +29,7 @@ export default function Contact() {
                   <div className="contact-method__content">
                     <h3 className="contact-method__title">{t('pages.contact.emailTitle', 'Email')}</h3>
                     <a href="mailto:hello@abakada.org" className="contact-method__link">hello@abakada.org</a>
-                    <p className="contact-method__note">{t('pages.contact.emailNote', 'We typically respond within 24-48 hours')}</p>
+                    <p className="contact-method__note">{t('pages.contact.emailNote', 'We typically respond within 24-72 hours')}</p>
                   </div>
                 </div>
                 <div className="contact-method">
