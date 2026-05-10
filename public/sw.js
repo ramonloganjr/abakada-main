@@ -1,4 +1,4 @@
-const CACHE_NAME = 'abakada-v2';
+const CACHE_NAME = 'abakada-v3';
 // Bump CACHE_NAME on every deploy to invalidate stale caches.
 // In a CI/CD pipeline, inject the build hash here automatically.
 
@@ -41,6 +41,13 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
   const pathname = url.pathname;
+
+  // Never intercept downloadable docs. The browser must talk directly to the
+  // origin so the server's Content-Disposition header reaches it; otherwise
+  // a previously cached HTML SPA fallback could be served as the PDF body.
+  if (pathname.startsWith('/assets/doc/') || /\.(pdf|zip)$/i.test(pathname)) {
+    return;
+  }
 
   // Stale-while-revalidate for tools.json (Req 3.4, 2.5)
   if (pathname.endsWith('tools.json')) {

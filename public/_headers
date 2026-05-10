@@ -44,6 +44,16 @@
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Cross-Origin-Resource-Policy: same-origin
 
+# Downloadable docs (PDF, etc.) — force correct MIME + attachment behavior.
+# Mobile Safari ignores the HTML `download` attribute, so the header is the
+# only reliable way to make the file download instead of inline-preview.
+/assets/doc/*
+  Content-Type: application/pdf
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=3600, must-revalidate
+  Cross-Origin-Resource-Policy: same-origin
+  X-Content-Type-Options: nosniff
+
 # Service worker — never cache
 /sw.js
   Cache-Control: no-cache, no-store, must-revalidate

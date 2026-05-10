@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
+import { downloadFile } from '../lib/downloadFile'
+
+const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
+const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
 
 // Partnership deck — scroll-snap, reveal-on-scroll, theme-aware.
 const SLIDES = [
@@ -1134,10 +1138,14 @@ export default function PartnershipDeck() {
                 </svg>
               </a>
               <a
-                href="/assets/doc/Abakada-Pitch-Deck-2026.pdf"
-                download="Abakada-Pitch-Deck-2026.pdf"
+                href={PITCH_DECK_URL}
+                download={PITCH_DECK_FILENAME}
                 className="deck-btn deck-btn--outline"
                 aria-label="Download Abakada Partnership Pitch Deck PDF"
+                onClick={(e) => {
+                  e.preventDefault()
+                  downloadFile(PITCH_DECK_URL, PITCH_DECK_FILENAME)
+                }}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>

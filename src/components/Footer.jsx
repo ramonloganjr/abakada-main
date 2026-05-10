@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
+import { downloadFile } from '../lib/downloadFile'
+
+const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
+const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
 
 export default function Footer({ isStatic = false }) {
   const { appliedTheme } = useTheme()
@@ -101,10 +105,14 @@ export default function Footer({ isStatic = false }) {
                 <a href="https://github.com/Abakada-org" target="_blank" rel="noopener" className="footer-link">{t('footer.contribute', 'Contribute on GitHub')}</a>
                 <a href="https://opensource.org" target="_blank" rel="noopener noreferrer" className="footer-link">{t('footer.openSourceInitiative', 'Open Source Initiative')}</a>
                 <a
-                  href="/assets/doc/Abakada-Pitch-Deck-2026.pdf"
-                  download="Abakada-Pitch-Deck-2026.pdf"
+                  href={PITCH_DECK_URL}
+                  download={PITCH_DECK_FILENAME}
                   className="footer-link"
                   aria-label="Download Abakada Partnership Pitch Deck 2026 PDF"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    downloadFile(PITCH_DECK_URL, PITCH_DECK_FILENAME)
+                  }}
                 >
                   {t('footer.pitchDeck', 'Partnership Pitch Deck')}
                 </a>

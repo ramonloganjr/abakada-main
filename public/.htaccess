@@ -31,6 +31,11 @@ DirectoryIndex index.html
   RewriteCond %{QUERY_STRING} (?:^|&)lang=en(?:&|$)
   RewriteRule ^(.*)$ /$1? [L,R=301]
 
+  # ── Never rewrite real static assets (defensive — even if -f check fails) ───
+  RewriteRule ^assets/  -  [L]
+  RewriteRule ^favicon  -  [L]
+  RewriteRule \.(?:pdf|zip|png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf|otf|eot|mp4|webm|mp3|wav|json|xml|txt|webmanifest|map)$ - [L]
+
   # ── SPA Fallback — serve index.html for all non-file, non-directory routes ──
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -86,7 +91,32 @@ DirectoryIndex index.html
   AddType application/manifest+json       .webmanifest
   AddType application/json                .json
   AddType text/xml                        .xml
+  AddType application/pdf                 .pdf
+  AddType application/zip                 .zip
 </IfModule>
+
+# ── PDF / downloadable docs ───────────────────────────────────────────────────
+# Force correct Content-Type, prevent compression, and trigger a true download
+# (instead of in-browser preview) on every browser including mobile Safari,
+# which ignores the HTML `download` attribute and only respects the header.
+<FilesMatch "\.pdf$">
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/pdf"
+    Header set Content-Disposition "attachment"
+    Header set X-Content-Type-Options "nosniff"
+    # Allow the asset to be fetched as a blob from the same origin
+    Header set Cross-Origin-Resource-Policy "same-origin"
+    # Short cache so deck updates propagate quickly
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </IfModule>
+  <IfModule mod_deflate.c>
+    SetEnv no-gzip 1
+    SetEnvIfNoCase Request_URI \.pdf$ no-gzip dont-vary
+  </IfModule>
+  <IfModule mod_filter.c>
+    RemoveOutputFilter pdf
+  </IfModule>
+</FilesMatch>
 
 # ── Compression ───────────────────────────────────────────────────────────────
 <IfModule mod_deflate.c>
