@@ -1133,12 +1133,19 @@ export default function PartnershipDeck() {
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
               </a>
-              <Link to="/contact" className="deck-btn deck-btn--outline">
-                Use the Contact Form
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <a
+                href="/assets/doc/Abakada-Pitch-Deck-2026.pdf"
+                download="Abakada-Pitch-Deck-2026.pdf"
+                className="deck-btn deck-btn--outline"
+                aria-label="Download Abakada Partnership Pitch Deck PDF"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
-              </Link>
+                Download Pitch Deck
+              </a>
               <Link to="/" className="deck-btn deck-btn--outline">
                 Browse the Directory
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

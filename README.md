@@ -208,6 +208,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
   - Infrastructure Sponsor — for hosting/financial sponsors
 - Includes the same impact stats shown in the deck (1,288 tools · 45+ categories · 10 paths · 4 languages)
 - **Partnership Deck** (`/partnership-deck`) — 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page
+- **Download Pitch Deck** — dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Pitch-Deck-2026.pdf` from `/assets/doc/`
 
 </details>
 
@@ -286,7 +287,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <br/>
 
 - **Quick Links** column: All Tools · Bookmarks · Comparison Tools · Learning Paths · top categories
-- **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Privacy Policy · Terms of Use · Sitemap
+- **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Partnership Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
 - **Abakada** column: About · Official Partners · Partnerships · Contact
 - All link labels translated across en/tl/ilo/bis
 - Visitor count pill — improved contrast (medium font weight, accent-tinted icon, subtle filled background) showing total visitors and last update from `visitors.json`
@@ -441,6 +442,7 @@ abakada.org/
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
 │   │   │   ├── visitors.json             # Updated nightly via GitHub Action
 │   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis)
+│   │   ├── doc/                           # Downloadable documents (Pitch Deck PDF)
 │   │   ├── fonts/                        # Self-hosted Inter woff2 files
 │   │   └── logo/                         # Favicons, OG image, brand logos
 │   ├── .htaccess                         # Apache: SPA routing, headers, gzip, cache

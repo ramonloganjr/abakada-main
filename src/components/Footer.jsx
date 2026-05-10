@@ -100,6 +100,14 @@ export default function Footer({ isStatic = false }) {
                 <Link to="/glossary" className="footer-link">{t('footer.glossary', 'Glossary')}</Link>
                 <a href="https://github.com/Abakada-org" target="_blank" rel="noopener" className="footer-link">{t('footer.contribute', 'Contribute on GitHub')}</a>
                 <a href="https://opensource.org" target="_blank" rel="noopener noreferrer" className="footer-link">{t('footer.openSourceInitiative', 'Open Source Initiative')}</a>
+                <a
+                  href="/assets/doc/Abakada-Pitch-Deck-2026.pdf"
+                  download="Abakada-Pitch-Deck-2026.pdf"
+                  className="footer-link"
+                  aria-label="Download Abakada Partnership Pitch Deck 2026 PDF"
+                >
+                  {t('footer.pitchDeck', 'Partnership Pitch Deck')}
+                </a>
                 <Link to="/privacy" className="footer-link">{t('footer.privacyPolicy', 'Privacy Policy')}</Link>
                 <Link to="/terms" className="footer-link">{t('footer.termsOfUse', 'Terms of Use')}</Link>
                 <Link to="/sitemap" className="footer-link">{t('footer.sitemap', 'Sitemap')}</Link>
@@ -114,25 +122,32 @@ export default function Footer({ isStatic = false }) {
                 <Link to="/partnerships" className="footer-link">{t('footer.partnerships', 'Partnerships')}</Link>
                 <Link to="/contact" className="footer-link">{t('footer.contact', 'Contact')}</Link>
               </nav>
-              <a
-                href="https://elevenlabs.io/startup-grants"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-elevenlabs"
-                aria-label="ElevenLabs Startup Grants"
-              >
-                <img
-                  src={
-                    appliedTheme === 'dark'
-                      ? 'https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp'
-                      : 'https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp'
-                  }
-                  alt="ElevenLabs"
-                  className="footer-elevenlabs__img"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+              {/* ElevenLabs Startup Grants — homepage footer only.
+                  Uses local theme-aware SVGs from /public/assets/elevenlabs/
+                  to avoid third-party CDN dependency and CLS. */}
+              {!isStatic && (
+                <a
+                  href="https://elevenlabs.io/startup-grants"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-elevenlabs"
+                  aria-label="ElevenLabs Startup Grants"
+                >
+                  <img
+                    src={
+                      appliedTheme === 'dark'
+                        ? '/assets/elevenlabs/elevenlabs-logo-white-for-dark-mode.svg'
+                        : '/assets/elevenlabs/elevenlabs-logo-black-for-light-mode.svg'
+                    }
+                    alt="ElevenLabs"
+                    className="footer-elevenlabs__img"
+                    width="160"
+                    height="21"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -908,21 +908,36 @@ body.nav-open .sidebar {
   opacity: 1;
 }
 
-/* ElevenLabs Badge */
+/* Download variant — icon is always subtly visible to signal file download */
+.footer-link--download svg {
+  opacity: 0.5;
+}
+
+.footer-link--download:hover svg {
+  opacity: 1;
+}
+
+/* ElevenLabs Startup Grants badge — homepage footer only.
+   Theme-aware SVG swap is handled in Footer.jsx (light/dark variants
+   under /public/assets/elevenlabs/). aspect-ratio locks the box so the
+   layout never shifts even if the SVG paints late. */
 .footer-elevenlabs {
   display: inline-block;
   margin-top: var(--space-4);
+  line-height: 0;
 }
 
 .footer-elevenlabs__img {
   width: 160px;
   height: auto;
+  aspect-ratio: 694 / 90;
   display: block;
   opacity: 0.85;
   transition: opacity 0.2s ease;
 }
 
-.footer-elevenlabs:hover .footer-elevenlabs__img {
+.footer-elevenlabs:hover .footer-elevenlabs__img,
+.footer-elevenlabs:focus-visible .footer-elevenlabs__img {
   opacity: 1;
 }
 
