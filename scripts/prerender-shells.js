@@ -10,7 +10,7 @@
 //
 // Run after `vite build` (a `postbuild` npm hook).
 
-import { readFileSync, writeFileSync, mkdirSync, statSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, statSync, existsSync, rmSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 
@@ -131,3 +131,12 @@ for (const page of all) {
 }
 
 console.log(`[prerender] wrote ${written} HTML shells (${STATIC_PAGES.length} static + ${toolkitPages.length} toolkits + ${toolPages.length} tools)`)
+
+// visitors.json is the live GA4 total, maintained on production by the
+// fetch-visitors workflow. Excluding it from dist/ prevents manual `dist/` uploads
+// from overwriting the freshly-fetched value with whatever was bundled at build time.
+const visitorsFile = resolve(DIST, 'assets/data/visitors.json')
+if (existsSync(visitorsFile)) {
+  rmSync(visitorsFile)
+  console.log('[prerender] removed dist/assets/data/visitors.json (workflow-managed on prod)')
+}

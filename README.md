@@ -636,7 +636,7 @@ Deploy the `dist/` folder verbatim — every file in it is intended to be upload
 3. In cPanel File Manager, enable **Show Hidden Files** to confirm `.htaccess` is present
 4. The `.htaccess` handles SPA routing, security headers, gzip, and cache control
 
-The repository ships GitHub Actions for nightly visitor-count updates that deploy via FTPS to cPanel — see `.github/workflows/update-visitors.yml`.
+The repository ships an hourly GitHub Action that pulls the live GA4 visitor total and FTPS-uploads `visitors.json` directly to cPanel — see `.github/workflows/fetch-visitors.yml`. The file is stripped from `dist/` during `postbuild` so manual deploys never overwrite the workflow's freshly-fetched value.
 
 ### Vercel
 
@@ -706,8 +706,7 @@ home: {
 
 | Workflow | Trigger | Purpose |
 |:---|:---|:---|
-| `update-visitors.yml` | `schedule` (nightly) + manual | Pulls daily totals from the GA4 Data API into `public/assets/data/visitors.json`, commits with `[skip ci]`, and deploys to cPanel via FTPS |
-| `fetch-visitors.yml` | Manual | Same as above, on demand |
+| `fetch-visitors.yml` | `schedule` (hourly) + manual | Pulls the cumulative `totalUsers` from the GA4 Data API into `public/assets/data/visitors.json`, commits with `[skip ci]`, and deploys the file to cPanel via FTPS. Skips commit/deploy when the value is unchanged. |
 | `lighthouse.yml` | `pull_request` | Runs Lighthouse CI against the preview URL |
 | `sitemap-refresh.yml` | `schedule` | Regenerates `sitemap.xml` against current data |
 
@@ -715,8 +714,8 @@ Required repository secrets:
 
 | Secret | Used by |
 |:---|:---|
-| `GA_PROPERTY_ID`, `GA_CLIENT_EMAIL`, `GA_PRIVATE_KEY` | visitor workflows |
-| `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD` | cPanel deploy |
+| `GA4_SERVICE_ACCOUNT_KEY` (full JSON key) | `fetch-visitors.yml` — GA4 Data API access |
+| `CPANEL_FTP_HOST`, `CPANEL_FTP_USER`, `CPANEL_FTP_PASS` | `fetch-visitors.yml` — FTPS upload to cPanel |
 
 ---
 

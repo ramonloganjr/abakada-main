@@ -2,8 +2,8 @@ name: Fetch GA4 Visitor Count
 
 on:
   schedule:
-    # Runs every day at 00:00 UTC
-    - cron: '0 0 * * *'
+    # Hourly so the production value never drifts more than ~1h from GA4
+    - cron: '0 * * * *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
@@ -22,6 +22,7 @@ jobs:
           node-version: '20'
 
       - name: Fetch total users from GA4
+        id: fetch
         env:
           GA4_PROPERTY_ID: '522500658'
           GA4_SERVICE_ACCOUNT_KEY: ${{ secrets.GA4_SERVICE_ACCOUNT_KEY }}
@@ -131,13 +132,23 @@ jobs:
 
             const totalUsers = parseInt(report.rows[0].metricValues[0].value, 10);
             const fs = require('fs');
+            const path = 'public/assets/data/visitors.json';
+            let prev = null;
+            try { prev = JSON.parse(fs.readFileSync(path, 'utf8')); } catch {}
+            if (prev && prev.totalUsers === totalUsers) {
+              console.log('No change in totalUsers (' + totalUsers + '), skipping write/commit/deploy.');
+              fs.appendFileSync(process.env.GITHUB_OUTPUT, 'changed=false\n');
+              return;
+            }
             const out = JSON.stringify({ totalUsers, updatedAt: new Date().toISOString() }, null, 2);
-            fs.writeFileSync('public/assets/data/visitors.json', out);
+            fs.writeFileSync(path, out);
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, 'changed=true\n');
             console.log('Written:', out);
           })();
           "
 
       - name: Commit and push visitors.json
+        if: steps.fetch.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -146,6 +157,7 @@ jobs:
           git push
 
       - name: Deploy visitors.json to cPanel via FTP
+        if: steps.fetch.outputs.changed == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.CPANEL_FTP_HOST }}
