@@ -136,7 +136,7 @@ jobs:
             let prev = null;
             try { prev = JSON.parse(fs.readFileSync(path, 'utf8')); } catch {}
             if (prev && prev.totalUsers === totalUsers) {
-              console.log('No change in totalUsers (' + totalUsers + '), skipping write/commit/deploy.');
+              console.log('No change in totalUsers (' + totalUsers + '), skipping write/commit.');
               fs.appendFileSync(process.env.GITHUB_OUTPUT, 'changed=false\n');
               return;
             }
@@ -157,7 +157,7 @@ jobs:
           git push
 
       - name: Deploy visitors.json to cPanel via FTP
-        if: steps.fetch.outputs.changed == 'true'
+        if: steps.fetch.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.CPANEL_FTP_HOST }}
