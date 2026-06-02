@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import StaticPageLayout from '../components/StaticPageLayout'
@@ -26,7 +26,7 @@ function buildFAQ(tool) {
     },
     {
       q: `Where can I download ${name}?`,
-      a: `Visit the official ${name} project site at ${tool.url || 'the link in this page'} for downloads and documentation.`,
+      a: `Visit the official ${name} project site at ${tool.website || 'the link in this page'} for downloads and documentation.`,
     },
   ]
 }
@@ -98,9 +98,9 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] } }
                 {tool.tags?.length ? (<><dt>{t('tools.tags', 'Tags')}</dt><dd>{tool.tags.join(', ')}</dd></>) : null}
               </dl>
 
-              {tool.url ? (
+              {tool.website ? (
                 <p className="tool-detail__cta">
-                  <a className="btn btn--primary" href={tool.url} target="_blank" rel="noopener noreferrer">
+                  <a className="btn btn--primary" href={tool.website} target="_blank" rel="noopener noreferrer">
                     {t('tools.visitSite', 'Visit official site')} →
                   </a>
                 </p>

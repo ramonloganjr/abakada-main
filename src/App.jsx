@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
-import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
+import { Routes, Route, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
-import { I18nProvider } from './contexts/I18nContext'
+import { I18nProvider, useI18n } from './contexts/I18nContext'
 import { BookmarkProvider } from './contexts/BookmarkContext'
 import { ComparisonProvider } from './contexts/ComparisonContext'
 import Header from './components/Header'
@@ -11,7 +11,7 @@ import OnboardingModal from './components/OnboardingModal'
 import ErrorBoundary from './components/ErrorBoundary'
 import PWAInstallBanner from './components/PWAInstallBanner'
 import BrandLoader from './components/BrandLoader'
-import { stripLangPrefix } from './lib/canonical'
+import { stripLangPrefix, langPrefix } from './lib/canonical'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -59,6 +59,8 @@ function AppContent() {
   const [showOnboarding, setShowOnboarding] = useState(false)
   const [swUpdateReady, setSwUpdateReady] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
+  const { lang } = useI18n()
 
   // Normalize pathname so route checks ignore the optional /<lang> prefix
   // (e.g. /tl, /ilo, /bis, /en). Without this, the home page under a language
@@ -85,16 +87,17 @@ function AppContent() {
         const data = await r.json()
         setToolsData(data)
         setFetchError(false)
+        setLoading(false)
       } catch (err) {
         if (retries < MAX_RETRIES) {
+          // Keep the loader visible while we retry instead of flashing empty content
           retries++
           setTimeout(loadTools, 1000 * retries)
         } else {
           setFetchError(true)
+          setLoading(false)
           if (import.meta.env.DEV) console.error('[App] Failed to load tools.json:', err)
         }
-      } finally {
-        setLoading(false)
       }
     }
 
@@ -112,22 +115,17 @@ function AppContent() {
     return () => window.removeEventListener('sw-update-ready', handleUpdateReady)
   }, [])
 
-  // Close lang dropdown on outside click
-  useEffect(() => {
-    const handler = () => {
-      document.querySelector('.lang-selector')?.classList.remove('open')
-    }
-    document.addEventListener('click', handler)
-    return () => document.removeEventListener('click', handler)
-  }, [])
-
   // Viewport height fix for mobile browsers
   useEffect(() => {
     const setVh = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
+    const onOrientation = () => setTimeout(setVh, 100)
     setVh()
     window.addEventListener('resize', setVh)
-    window.addEventListener('orientationchange', () => setTimeout(setVh, 100))
-    return () => window.removeEventListener('resize', setVh)
+    window.addEventListener('orientationchange', onOrientation)
+    return () => {
+      window.removeEventListener('resize', setVh)
+      window.removeEventListener('orientationchange', onOrientation)
+    }
   }, [])
 
   const isHome = normalizedPath === '/'
@@ -210,7 +208,7 @@ function AppContent() {
                 category="all"
                 query=""
                 onQueryChange={() => {}}
-                onCategoryChange={() => { closeNav() }}
+                onCategoryChange={(cat) => { const base = langPrefix(lang); navigate(cat === 'all' ? `${base}/` : `${base}/#${cat}`); closeNav() }}
                 platforms={[]}
                 tags={[]}
                 availablePlatforms={[]}
@@ -219,6 +217,7 @@ function AppContent() {
                 onToggleTag={() => {}}
                 onReset={() => {}}
                 hasActiveFilters={false}
+                filtering={false}
                 collapsible={isStaticSidebarPage}
                 collapsed={sidebarCollapsed}
                 onToggleCollapse={() => setSidebarCollapsed(c => !c)}
@@ -265,7 +264,7 @@ function AppContent() {
             <Routes>
               {[''].concat(['/en', '/tl', '/ilo', '/bis']).map((prefix) => (
                 <Route key={prefix || 'root'} path={prefix || '/'} element={<Outlet />}>
-                  <Route index element={<Home toolsData={toolsData} navOpen={navOpen} onCloseNav={closeNav} />} />
+                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} />} />
                   <Route path="about" element={<About />} />
                   <Route path="contact" element={<Contact />} />
                   <Route path="faq" element={<FAQ />} />

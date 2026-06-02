@@ -1,25 +1,31 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 
 export function useLowBandwidth() {
-  const connection = typeof navigator !== 'undefined' ? navigator.connection : undefined
+  // navigator.connection is a stable object reference; hold it in a ref so
+  // useCallback and useEffect dependency arrays stay empty/stable.
+  const connectionRef = useRef(
+    typeof navigator !== 'undefined' ? navigator.connection : undefined
+  )
 
-  const getState = () => {
-    if (!connection) return { isLowBandwidth: false, saveData: false }
-    const effectiveType = connection.effectiveType || ''
+  const getState = useCallback(() => {
+    const conn = connectionRef.current
+    if (!conn) return { isLowBandwidth: false, saveData: false }
+    const effectiveType = conn.effectiveType || ''
     return {
       isLowBandwidth: effectiveType === '2g' || effectiveType === 'slow-2g',
-      saveData: connection.saveData === true,
+      saveData: conn.saveData === true,
     }
-  }
+  }, [])
 
   const [state, setState] = useState(getState)
 
   useEffect(() => {
-    if (!connection) return
+    const conn = connectionRef.current
+    if (!conn) return
     const handler = () => setState(getState())
-    connection.addEventListener('change', handler)
-    return () => connection.removeEventListener('change', handler)
-  }, [])
+    conn.addEventListener('change', handler)
+    return () => conn.removeEventListener('change', handler)
+  }, [getState])
 
   return state
 }

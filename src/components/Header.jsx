@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
@@ -13,7 +13,26 @@ export default function Header({ onMenuToggle, navOpen = false }) {
   const { bookmarks } = useBookmarks()
   const { selectedIds } = useComparison()
   const [langOpen, setLangOpen] = useState(false)
+  const langRef = useRef(null)
   const { canInstall, triggerInstall } = usePWAInstall()
+
+  // Close the language dropdown on outside click / Escape, kept in sync with React
+  // state so the trigger button always reflects the real open/closed state.
+  useEffect(() => {
+    if (!langOpen) return
+    function onPointer(e) {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false)
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') setLangOpen(false)
+    }
+    document.addEventListener('click', onPointer)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('click', onPointer)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [langOpen])
 
   const logoSrc = appliedTheme === 'dark'
     ? '/assets/logo/logo-dark-background.svg'
@@ -67,27 +86,45 @@ export default function Header({ onMenuToggle, navOpen = false }) {
           <Link to="/learning-paths" className="btn btn--icon header-nav-btn header-nav-btn--secondary" aria-label={t('nav.learningPaths', 'Learning Paths')} style={{ position: 'relative' }}>
             <Icon name="graduation-cap" collection="category" size={18} />
           </Link>
-          <div className="theme-toggle" role="group" aria-label="Theme selection">
-            {['light', 'auto', 'dark'].map(mode => (
+          <div
+            className="theme-toggle"
+            role="group"
+            aria-label="Color theme"
+            data-active-index={String(['light', 'auto', 'dark'].indexOf(theme))}
+          >
+            {/* Sliding active-state indicator — GPU-composited, pointer-events none */}
+            <span className="theme-toggle__thumb" aria-hidden="true" />
+            {[
+              { value: 'light', icon: 'sun',     label: 'Light theme'  },
+              { value: 'auto',  icon: 'monitor', label: 'System theme' },
+              { value: 'dark',  icon: 'moon',    label: 'Dark theme'   },
+            ].map(({ value, icon, label }) => (
               <button
-                key={mode}
+                key={value}
                 type="button"
-                className={`theme-toggle__btn${theme === mode ? ' active' : ''}`}
-                data-theme={mode}
-                aria-label={`${mode} theme`}
-                onClick={() => setTheme(mode)}
+                className={`theme-toggle__btn${theme === value ? ' active' : ''}`}
+                data-theme={value}
+                aria-label={label}
+                aria-pressed={theme === value}
+                onClick={(e) => {
+                  const r = e.currentTarget.getBoundingClientRect()
+                  setTheme(value, {
+                    x: Math.round(r.left + r.width  / 2),
+                    y: Math.round(r.top  + r.height / 2),
+                  })
+                }}
               >
-                <Icon name={mode === 'light' ? 'sun' : mode === 'dark' ? 'moon' : 'monitor'} collection="ui" size={16} />
+                <Icon name={icon} collection="ui" size={15} />
               </button>
             ))}
           </div>
-          <div className={`lang-selector${langOpen ? ' open' : ''}`}>
+          <div className={`lang-selector${langOpen ? ' open' : ''}`} ref={langRef}>
             <button
               type="button"
               className="lang-selector__btn"
               aria-haspopup="listbox"
               aria-expanded={langOpen}
-              onClick={(e) => { e.stopPropagation(); setLangOpen(o => !o) }}
+              onClick={() => setLangOpen(o => !o)}
             >
               <Icon name="globe" collection="ui" size={16} />
               <span>{langCodes[lang] || 'EN'}</span>

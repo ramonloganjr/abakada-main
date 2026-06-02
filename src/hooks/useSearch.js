@@ -145,6 +145,8 @@ export function useSearch(tools) {
   }, [tools, query, category, platforms, tags, index])
 
   const setQuery = useCallback((val) => {
+    // Strip control characters from user input before searching.
+    // eslint-disable-next-line no-control-regex
     const raw = String(val || '').replace(/[\x00-\x1F\x7F]/g, '').slice(0, MAX_QUERY_LENGTH)
     setDisplayQuery(raw)
     if (debounceRef.current) clearTimeout(debounceRef.current)

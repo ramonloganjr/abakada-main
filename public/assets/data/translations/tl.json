@@ -247,6 +247,7 @@
     "termsOfUse": "Mga Tuntunin ng Paggamit",
     "officialPartners": "Mga Opisyal na Kasosyo",
     "partnerships": "Pakikipagsosyo",
+    "pitchDeck": "Pitch Deck ng Pakikipagtulungan",
     "glossary": "Talahuluganan"
   },
   "accessibility": {
@@ -503,6 +504,7 @@
   "bookmark": {
     "add": "I-bookmark",
     "remove": "Alisin ang bookmark",
+    "saved": "Naka-bookmark",
     "storageUnavailable": "Hindi mase-save ang mga bookmark — hindi available ang storage sa session na ito",
     "pageTitle": "Mga Bookmark",
     "emptyTitle": "Wala pang mga bookmark",
@@ -514,6 +516,9 @@
     "add": "Ikumpara",
     "remove": "Alisin sa pagkukumpara",
     "clear": "Burahin ang pagkukumpara",
+    "share": "Kopyahin ang link",
+    "copied": "Na-kopya ang link!",
+    "shareHint": "Maaari mo ring ibahagi ang paghahambing sa pamamagitan ng pagkopya ng URL ng pahina pagkatapos pumili ng mga kagamitan.",
     "emptyTitle": "Walang napiling kagamitan",
     "emptyDesc": "Pumili ng hindi bababa sa 2 kagamitan mula sa home page para ikumpara ang mga ito nang magkatabi.",
     "browseTools": "Mag-browse ng Mga Kagamitan",

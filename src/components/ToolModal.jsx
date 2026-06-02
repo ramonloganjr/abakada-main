@@ -23,6 +23,7 @@ function getProjectHealth(dateString) {
 export default function ToolModal({ tool, categoryIcon, onClose }) {
   const { t } = useI18n()
   const { isBookmarked, addBookmark, removeBookmark } = useBookmarks()
+  const bookmarked = isBookmarked(tool?.id)
   const modalRef = useRef(null)
 
   // Focus trap + Escape key + body scroll lock
@@ -71,7 +72,6 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
 
   const health = getProjectHealth(tool.last_update)
   const isFoss = tool.is_foss === true || (tool.is_foss == null && ['MIT','GPL','LGPL','Apache','BSD','MPL','AGPL','CC0','Unlicense'].some(l => (tool.license || '').toUpperCase().includes(l.toUpperCase())))
-  const bookmarked = isBookmarked(tool.id)
 
   function formatDate(d) {
     if (!d) return ''
@@ -84,7 +84,7 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
       onClick={(e) => e.target === e.currentTarget && onClose()}
       role="dialog"
       aria-modal="true"
-      aria-label={tool.name}
+      aria-labelledby="modal-title"
     >
       <div className="modal active" ref={modalRef}>
         {/* Header */}
@@ -94,7 +94,7 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
               <Icon name={categoryIcon || 'box'} size={24} />
             </div>
             <div className="modal__title-content">
-              <h2 className="modal__title">{tool.name}</h2>
+              <h2 className="modal__title" id="modal-title">{tool.name}</h2>
               <p className="modal__tagline">{tool.tagline}</p>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
                 <span className="modal__meta-value">{formatDate(tool.last_update)}</span>
               </div>
             )}
-            {tool.stars && (
+            {tool.stars > 0 && (
               <div className="modal__meta-item">
                 <Icon name="star" collection="ui" size={14} />
                 <span className="modal__meta-value">{tool.stars.toLocaleString()} stars</span>
@@ -179,6 +179,16 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
 
         {/* Footer */}
         <div className="modal__footer">
+          <button
+            type="button"
+            className={`btn btn--secondary${bookmarked ? ' active' : ''}`}
+            aria-label={bookmarked ? t('bookmark.remove', 'Remove bookmark') : t('bookmark.add', 'Save')}
+            aria-pressed={bookmarked}
+            onClick={() => bookmarked ? removeBookmark(tool.id) : addBookmark(tool.id)}
+          >
+            <Icon name={bookmarked ? 'bookmark-filled' : 'bookmark'} collection="category" size={14} />
+            {bookmarked ? t('bookmark.saved', 'Saved') : t('bookmark.add', 'Save')}
+          </button>
           {tool.website && isSafeUrl(tool.website) && (
             <a href={tool.website} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
               {t('tools.visitWebsite', 'Visit Website & Download')}

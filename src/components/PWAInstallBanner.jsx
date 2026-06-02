@@ -10,17 +10,10 @@ function isIOS() {
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 }
 
-// Detect Android Chrome / Samsung / other Android browsers
-function isAndroid() {
-  if (typeof navigator === 'undefined') return false
-  return /android/i.test(navigator.userAgent)
-}
-
 export default function PWAInstallBanner() {
   const { canInstall, isStandalone, triggerInstall } = usePWAInstall()
   const [visible, setVisible] = useState(false)
   const ios = isIOS()
-  const android = isAndroid()
 
   useEffect(() => {
     // Already installed as PWA — never show

@@ -20,7 +20,7 @@ function getProjectHealth(dateString) {
   return { status: 'stale' }
 }
 
-function LearningToolCardInner({ tool, categoryIcon, onInfoClick, isExplored, onToggleExplored }) {
+function LearningToolCardInner({ tool, categoryIcon, onInfoClick, isExplored }) {
   const { t } = useI18n()
   const { isBookmarked, addBookmark, removeBookmark } = useBookmarks()
   const { selectedIds, addTool, removeTool } = useComparison()

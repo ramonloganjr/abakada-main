@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import { useComparison } from '../hooks/useComparison'
 import { buildMatrix } from '../lib/comparison'
+import { COMPARISON_MAX } from '../contexts/ComparisonContext'
 import StaticPageLayout from '../components/StaticPageLayout'
+import Icon from '../components/Icon'
 import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
 
@@ -14,10 +17,84 @@ function formatValue(value) {
 
 export default function Compare({ toolsData = { tools: [], categories: [] } }) {
   const { t, lang } = useI18n()
-  const { selectedIds, removeTool, clearComparison, addError } = useComparison()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { selectedIds, setIds, removeTool, clearComparison, addError } = useComparison()
 
-  const hasEnough = selectedIds.length >= 2
-  const matrix = hasEnough ? buildMatrix(selectedIds, toolsData.tools) : null
+  // ── URL seeding ────────────────────────────────────────────────────────────
+  // Capture URL params on first render so the effect dep array stays stable.
+  const initialUrlIds = useRef(
+    new URLSearchParams(location.search)
+      .getAll('t')
+      .filter(id => typeof id === 'string' && id.trim().length > 0)
+      .slice(0, COMPARISON_MAX)
+  )
+
+  // Whether the initial URL seed has been processed. Used to:
+  //   1. Optimistically show URL-based selection on the very first render (no flash).
+  //   2. Gate the URL-sync effect so it only runs after seeding is complete.
+  const [seeded, setSeeded] = useState(false)
+
+  useEffect(() => {
+    if (initialUrlIds.current.length > 0) {
+      setIds(initialUrlIds.current)
+    }
+    setSeeded(true)
+  }, [setIds])
+
+  // ── URL sync ───────────────────────────────────────────────────────────────
+  // After seeding, keep the URL in sync with context state.
+  // Using replace so forward/back navigation is not polluted.
+  useEffect(() => {
+    if (!seeded) return
+    const params = new URLSearchParams()
+    selectedIds.forEach(id => params.append('t', id))
+    const newSearch = selectedIds.length ? '?' + params.toString() : ''
+    if (window.location.search !== newSearch) {
+      navigate({ search: params.toString() }, { replace: true })
+    }
+  }, [selectedIds, seeded, navigate])
+
+  // ── Effective IDs ──────────────────────────────────────────────────────────
+  // On the very first render (before the seed effect fires) show the URL params
+  // directly so there is no blank-→-table flash when a shared link is opened.
+  const effectiveIds = !seeded && initialUrlIds.current.length > 0
+    ? initialUrlIds.current
+    : selectedIds
+
+  // ── Share / copy-link ──────────────────────────────────────────────────────
+  const [copied, setCopied] = useState(false)
+  const copyTimer = useRef(null)
+
+  function handleShare() {
+    const url = window.location.href
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true)
+      clearTimeout(copyTimer.current)
+      copyTimer.current = setTimeout(() => setCopied(false), 2000)
+    }).catch(() => {
+      // Fallback for browsers without clipboard API (e.g. insecure contexts)
+      try {
+        const el = document.createElement('textarea')
+        el.value = url
+        el.style.position = 'fixed'
+        el.style.opacity = '0'
+        document.body.appendChild(el)
+        el.select()
+        document.execCommand('copy')
+        document.body.removeChild(el)
+        setCopied(true)
+        clearTimeout(copyTimer.current)
+        copyTimer.current = setTimeout(() => setCopied(false), 2000)
+      } catch { /* silent fail */ }
+    })
+  }
+
+  useEffect(() => () => clearTimeout(copyTimer.current), [])
+
+  // ── Render ─────────────────────────────────────────────────────────────────
+  const hasEnough = effectiveIds.length >= 2
+  const matrix = hasEnough ? buildMatrix(effectiveIds, toolsData.tools) : null
 
   const dynamicMeta = matrix
     ? { ...pageMeta.compare, title: `Compare ${matrix.tools.map((t) => t.name).join(' vs ')}`, rawTitle: false }
@@ -45,6 +122,9 @@ export default function Compare({ toolsData = { tools: [], categories: [] } }) {
                 <p className="empty-state__description">
                   {t('compare.emptyDesc', 'Select at least 2 tools from the home page to compare them side by side.')}
                 </p>
+                <p className="empty-state__description" style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+                  {t('compare.shareHint', 'You can also share a comparison by copying the page URL after selecting tools.')}
+                </p>
                 <div className="empty-state__actions">
                   <Link to="/" className="empty-state__btn empty-state__btn--primary">
                     {t('compare.browseTools', 'Browse Tools')}
@@ -61,6 +141,15 @@ export default function Compare({ toolsData = { tools: [], categories: [] } }) {
                   onClick={clearComparison}
                 >
                   {t('compare.clear', 'Clear comparison')}
+                </button>
+                <button
+                  type="button"
+                  className={`btn btn--sm${copied ? ' btn--primary' : ' btn--secondary'}`}
+                  onClick={handleShare}
+                  aria-live="polite"
+                >
+                  <Icon name={copied ? 'check' : 'share-2'} collection="category" size={14} />
+                  {copied ? t('compare.copied', 'Link copied!') : t('compare.share', 'Copy link')}
                 </button>
               </div>
 

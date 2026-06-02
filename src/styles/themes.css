@@ -355,6 +355,24 @@
 }
 
 /* ==========================================================================
+   Initial-Load Transition Guard
+   The `loading` class is added by the inline FOUC script in index.html and
+   removed by ThemeContext after the first rAF pair (first browser paint).
+   It zeroes transition-duration/delay on every element so that:
+     • body background-color doesn't sweep in when Vite injects CSS in dev
+     • the theme-toggle thumb doesn't slide from 0 → final position on load
+     • icon opacity/transform changes don't animate on initial render
+   CSS `animation` properties are NOT touched so the boot-loader keeps pulsing.
+   ========================================================================== */
+
+html.loading *,
+html.loading *::before,
+html.loading *::after {
+  transition-duration: 0s !important;
+  transition-delay:    0s !important;
+}
+
+/* ==========================================================================
    Theme Transition
    ========================================================================== */
 
@@ -363,10 +381,76 @@ html.theme-transitioning *,
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
   transition:
-    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background-color 0.25s ease,
+    color            0.25s ease,
+    border-color     0.25s ease,
+    box-shadow       0.25s ease,
+    fill             0.25s ease,
+    stroke           0.25s ease,
+    outline-color    0.25s ease !important;
+}
+
+/* Honour the user's motion preference — disable the page-wide colour sweep */
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Circular Reveal — View Transitions API
+   Supported: Chrome 111+, Edge 111+, Safari 18+.
+   Firefox and other browsers fall back to .theme-transitioning above.
+   ========================================================================== */
+
+/*
+ * --reveal-x / --reveal-y are set inline on <html> by ThemeContext.setTheme()
+ * right before document.startViewTransition() is called.
+ * They hold the viewport coordinates of the toggle button's centre so the
+ * circle always radiates from exactly where the user clicked.
+ */
+
+/*
+ * All ::view-transition rules are scoped to html.theme-switching.
+ * ThemeContext adds that class immediately before calling
+ * document.startViewTransition() and removes it in vt.finished.
+ *
+ * Without this scope the rules would fire on ANY browser-initiated View
+ * Transition (e.g. same-origin navigation in Chrome 126+), producing an
+ * unwanted circular-reveal on every page load / refresh.
+ */
+
+/* Suppress the default cross-fade for our theme switches only */
+html.theme-switching::view-transition-old(root),
+html.theme-switching::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation-duration: 0s;
+}
+
+/* Old theme stays static underneath — acts as the backdrop */
+html.theme-switching::view-transition-old(root) {
+  animation: none;
+  z-index: 0;
+}
+
+/*
+ * New theme expands as a circle from --reveal-x / --reveal-y
+ * (set inline on <html> by ThemeContext before startViewTransition).
+ * 100vmax is always large enough to cover every corner.
+ */
+html.theme-switching::view-transition-new(root) {
+  z-index: 1;
+  clip-path: circle(0 at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  animation: theme-circle-reveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes theme-circle-reveal {
+  to {
+    clip-path: circle(100vmax at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
 }
 
 /* ==========================================================================

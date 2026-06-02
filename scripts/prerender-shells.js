@@ -10,7 +10,7 @@
 //
 // Run after `vite build` (a `postbuild` npm hook).
 
-import { readFileSync, writeFileSync, mkdirSync, statSync, existsSync, rmSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 

@@ -343,6 +343,9 @@ body.nav-open .sidebar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
   padding: var(--space-2) var(--space-4);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);

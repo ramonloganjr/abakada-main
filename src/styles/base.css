@@ -147,7 +147,6 @@ body {
   line-height: var(--line-height-normal);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  transition: background-color var(--transition-base), color var(--transition-base);
   overflow-x: hidden;
   min-height: 100%;
 }

@@ -49,16 +49,23 @@ export default function FeaturedCarousel({ tools, categories, onToolClick }) {
   // Re-pick when tools data loads (initially empty)
   useEffect(() => {
     if (tools.length) setItems(pickFeatured(tools))
-  }, [tools.length])
+  }, [tools])
 
-  // Periodic reshuffle
+  // Periodic reshuffle — skip while the tab is hidden so we don't burn CPU
+  // reshuffling and re-rendering a carousel nobody is looking at.
+  // toolsRef keeps the interval callback in sync with the latest tools array
+  // without re-scheduling the interval on every render.
+  const toolsRef = useRef(tools)
+  useEffect(() => { toolsRef.current = tools }, [tools])
+
   useEffect(() => {
     timerRef.current = setInterval(() => {
-      setItems(pickFeatured(tools))
+      if (document.visibilityState !== 'visible') return
+      setItems(pickFeatured(toolsRef.current))
       setPage(0)
     }, REFRESH_MS)
     return () => clearInterval(timerRef.current)
-  }, [tools])
+  }, [])
 
   const totalPages = Math.ceil(items.length / perPage)
 
@@ -116,7 +123,6 @@ export default function FeaturedCarousel({ tools, categories, onToolClick }) {
               className="featured-card"
               data-tool-id={tool.id}
               tabIndex={0}
-              role="button"
               aria-label={`${tool.name}: ${tool.tagline}`}
               onClick={() => onToolClick(tool)}
               onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && onToolClick(tool)}

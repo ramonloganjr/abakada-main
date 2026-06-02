@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, useCallback } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const I18nContext = createContext(null)
@@ -36,7 +36,7 @@ export function I18nProvider({ children }) {
   })
 
   const [translations, setTranslations] = useState({})
-  const [cache, setCache] = useState({})
+  const cacheRef = useRef({})
 
   // Sync lang with URL on every navigation.
   useEffect(() => {
@@ -44,28 +44,30 @@ export function I18nProvider({ children }) {
     if (fromUrl && fromUrl !== lang) setLangState(fromUrl)
   }, [location.pathname, lang])
 
+  // Lazy-load: fetch only the active language on demand, cache in a ref so
+  // switching back to a previously-loaded language is instant.
   useEffect(() => {
-    async function loadAll() {
-      const results = {}
-      await Promise.all(
-        SUPPORTED_LANGS.map(async (l) => {
-          try {
-            const res = await fetch(`/assets/data/translations/${l}.json`)
-            if (res.ok) results[l] = await res.json()
-          } catch {}
-        })
-      )
-      setCache(results)
-      setTranslations(results[lang] || {})
-    }
-    loadAll()
-  }, [])
-
-  useEffect(() => {
-    if (cache[lang]) setTranslations(cache[lang])
     // Keep html[lang] in sync for screen readers and SEO; map `bis` to `ceb`.
     document.documentElement.lang = lang === 'bis' ? 'ceb' : lang
-  }, [lang, cache])
+
+    if (cacheRef.current[lang]) {
+      setTranslations(cacheRef.current[lang])
+      return
+    }
+
+    let cancelled = false
+    fetch(`/assets/data/translations/${lang}.json`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!cancelled && data) {
+          cacheRef.current[lang] = data
+          setTranslations(data)
+        }
+      })
+      .catch(() => {})
+
+    return () => { cancelled = true }
+  }, [lang])
 
   const t = useCallback((key, fallback = '') => {
     const parts = key.split('.')
@@ -98,4 +100,5 @@ export function I18nProvider({ children }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useI18n = () => useContext(I18nContext)

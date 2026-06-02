@@ -23,10 +23,21 @@ export function hreflangMap(pathname = '/') {
   const base = trim(pathname || '/')
   const map = {}
   for (const lang of LANGS) {
-    map[HREFLANG[lang]] = `${SITE_ORIGIN}/${lang}${base || ''}`
+    if (lang === DEFAULT_LANG) {
+      // Default language uses the canonical URL without any language prefix.
+      map[HREFLANG[lang]] = `${SITE_ORIGIN}${base || '/'}`
+    } else {
+      map[HREFLANG[lang]] = `${SITE_ORIGIN}/${lang}${base || ''}`
+    }
   }
   map['x-default'] = `${SITE_ORIGIN}${base || '/'}`
   return map
+}
+
+// Router path prefix for the active language ('' for the default language).
+// Use when building in-app navigation targets so the language context is kept.
+export function langPrefix(lang) {
+  return !lang || lang === DEFAULT_LANG ? '' : `/${lang}`
 }
 
 // Strip a leading `/<lang>` segment from a router pathname so we can compare

@@ -11,10 +11,11 @@ import Pagination from '../components/Pagination'
 import Icon from '../components/Icon'
 import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
+import { langPrefix } from '../lib/canonical'
 
 const ITEMS_PER_PAGE = 18
 
-export default function Home({ toolsData, navOpen, onCloseNav }) {
+export default function Home({ toolsData, onCloseNav }) {
   const { t, lang } = useI18n()
   const { saveData } = useLowBandwidth()
   const location = useLocation()
@@ -37,12 +38,13 @@ export default function Home({ toolsData, navOpen, onCloseNav }) {
     } else if (!hash) {
       setCategory('all')
     }
-  }, [location.hash])
+  }, [location.hash, setCategory, toolsData.categories])
 
   function handleCategoryChange(cat) {
     setCategory(cat)
     setPage(1)
-    navigate(cat === 'all' ? '/' : `/#${cat}`, { replace: true })
+    const base = langPrefix(lang)
+    navigate(cat === 'all' ? `${base}/` : `${base}/#${cat}`, { replace: true })
     if (onCloseNav) onCloseNav()
     // Scroll to top of tools section
     requestAnimationFrame(() => {
@@ -109,7 +111,7 @@ export default function Home({ toolsData, navOpen, onCloseNav }) {
             <p className="hero__definition" aria-label="About Abakada">
               {t(
                 'hero.definition',
-                'Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required.'
+                `Abakada is a free, curated directory of ${(stats.totalTools || toolsData.tools.length).toLocaleString()}+ open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required.`
               )}
             </p>
             <div className="hero__stats">

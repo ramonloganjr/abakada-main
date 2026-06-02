@@ -1,35 +1,59 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
+
+// Shared install state lives at module scope so every consumer (header button,
+// sidebar action, install banner) reflects the same status. Previously each hook
+// instance kept its own copy, so installing from one surface left stale "Install"
+// buttons on the others.
+let deferredPrompt = null
+let installed = false
+const subscribers = new Set()
+
+function notify() {
+  for (const cb of subscribers) cb()
+}
+
+function isStandalone() {
+  if (typeof window === 'undefined') return false
+  return (
+    window.matchMedia('(display-mode: standalone)').matches ||
+    window.navigator.standalone === true // iOS Safari
+  )
+}
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault()
+    deferredPrompt = e
+    notify()
+  })
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null
+    installed = true
+    notify()
+  })
+}
 
 export function usePWAInstall() {
-  const deferredPrompt = useRef(null)
-
-  const isStandalone =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(display-mode: standalone)').matches
-
-  const [canInstall, setCanInstall] = useState(false)
-
+  // Re-render this consumer whenever the shared state changes.
+  const [, forceRender] = useState(0)
   useEffect(() => {
-    if (isStandalone) return
+    const cb = () => forceRender((n) => n + 1)
+    subscribers.add(cb)
+    return () => subscribers.delete(cb)
+  }, [])
 
-    const handler = (e) => {
-      e.preventDefault()
-      deferredPrompt.current = e
-      setCanInstall(true)
-    }
-
-    window.addEventListener('beforeinstallprompt', handler)
-    return () => window.removeEventListener('beforeinstallprompt', handler)
-  }, [isStandalone])
+  const standalone = isStandalone()
+  const canInstall = !installed && !standalone && Boolean(deferredPrompt)
 
   const triggerInstall = async () => {
-    if (!deferredPrompt.current) return null
-    deferredPrompt.current.prompt()
-    const { outcome } = await deferredPrompt.current.userChoice
-    deferredPrompt.current = null
-    setCanInstall(false)
+    if (!deferredPrompt) return null
+    deferredPrompt.prompt()
+    const { outcome } = await deferredPrompt.userChoice
+    deferredPrompt = null
+    if (outcome === 'accepted') installed = true
+    notify()
     return outcome
   }
 
-  return { canInstall, isStandalone, triggerInstall }
+  return { canInstall, isStandalone: standalone, triggerInstall }
 }

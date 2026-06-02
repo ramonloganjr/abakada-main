@@ -41,30 +41,30 @@ export function collectBotSignals() {
 
 // ─── Devtools detection (passive, no blocking) ───────────────────────────────
 let _devtoolsOpen = false
-let _devtoolsCallbacks = []
+const _devtoolsCallbacks = []
+let _devtoolsTimer = null
 
-export function onDevToolsOpen(cb) {
-  _devtoolsCallbacks.push(cb)
+function _checkDevTools() {
+  const threshold = 160
+  const widthDiff  = window.outerWidth  - window.innerWidth
+  const heightDiff = window.outerHeight - window.innerHeight
+  const opened = widthDiff > threshold || heightDiff > threshold
+  if (opened && !_devtoolsOpen) {
+    _devtoolsOpen = true
+    _devtoolsCallbacks.forEach(cb => cb())
+  } else if (!opened) {
+    _devtoolsOpen = false
+  }
 }
 
-;(function detectDevTools() {
-  const threshold = 160
-  function check() {
-    const widthDiff  = window.outerWidth  - window.innerWidth
-    const heightDiff = window.outerHeight - window.innerHeight
-    const opened = widthDiff > threshold || heightDiff > threshold
-    if (opened && !_devtoolsOpen) {
-      _devtoolsOpen = true
-      _devtoolsCallbacks.forEach(cb => cb())
-    } else if (!opened) {
-      _devtoolsOpen = false
-    }
+// Start polling only when a consumer actually registers interest, so we never
+// run a 1.5s timer forever for no reason (the previous version always did).
+export function onDevToolsOpen(cb) {
+  _devtoolsCallbacks.push(cb)
+  if (!_devtoolsTimer && import.meta.env.PROD) {
+    _devtoolsTimer = setInterval(_checkDevTools, 1500)
   }
-  // Only run in production
-  if (import.meta.env.PROD) {
-    setInterval(check, 1500)
-  }
-})()
+}
 
 // ─── Disable right-click context menu on tool data cards ─────────────────────
 export function disableContextMenuOn(selector) {

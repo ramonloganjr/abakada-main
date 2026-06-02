@@ -17,7 +17,7 @@ const CATEGORY_GROUPS = [
   { id: 'business', categories: ['ecommerce', 'crm'] },
 ]
 
-export default function Sidebar({ categories, tools, category, query, onQueryChange, onCategoryChange, platforms, tags, availablePlatforms, availableTags, onTogglePlatform, onToggleTag, onReset, hasActiveFilters, collapsible, collapsed, onToggleCollapse }) {
+export default function Sidebar({ categories, tools, category, query, onQueryChange, onCategoryChange, platforms, tags, availablePlatforms, availableTags, onTogglePlatform, onToggleTag, onReset, hasActiveFilters, collapsible, collapsed, onToggleCollapse, filtering = true }) {
   const { t } = useI18n()
   const { bookmarks } = useBookmarks()
   const { selectedIds } = useComparisonContext()
@@ -93,6 +93,8 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
           <span>{t('nav.learningPaths', 'Learning Paths')}</span>
         </Link>
       </div>
+      {filtering && (
+      <>
       <div className="sidebar__header">
         <div className="sidebar__search">
           <svg className="sidebar__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -193,6 +195,8 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
           )}
         </div>
       </div>
+      </>
+      )}
 
       <nav className="sidebar__nav" id="sidebar-nav" aria-label="Tool categories">
         <button
@@ -212,12 +216,17 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
           const isCollapsed = groupsCollapsed[group.id]
           return (
             <div key={group.id} className={`nav-group${isCollapsed ? ' collapsed' : ''}`} data-group={group.id}>
-              <div className="nav-group__header" role="button" aria-expanded={!isCollapsed} onClick={() => toggleGroup(group.id)}>
+              <button
+                type="button"
+                className="nav-group__header"
+                aria-expanded={!isCollapsed}
+                onClick={() => toggleGroup(group.id)}
+              >
                 <span>{t(`groups.${group.id}`, group.id)}</span>
                 <svg className="nav-group__toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
-              </div>
+              </button>
               <div className="nav-group__items">
                 {groupCats.map(cat => {
                   const count = tools.filter(tool => tool.category === cat.id).length

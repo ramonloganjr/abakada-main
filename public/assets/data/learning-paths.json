@@ -33,15 +33,42 @@
     }
   ],
   "audiences": [
-    { "id": "student", "label": "Student" },
-    { "id": "out-of-school-youth", "label": "Out-of-School Youth" },
-    { "id": "teacher", "label": "Educator" },
-    { "id": "professional", "label": "Working Professional" },
-    { "id": "self-directed", "label": "Self-Directed Learner" },
-    { "id": "researcher", "label": "Researcher" },
-    { "id": "developer", "label": "Developer" },
-    { "id": "designer", "label": "Designer" },
-    { "id": "accountant", "label": "Accountant" }
+    {
+      "id": "student",
+      "label": "Student"
+    },
+    {
+      "id": "out-of-school-youth",
+      "label": "Out-of-School Youth"
+    },
+    {
+      "id": "teacher",
+      "label": "Educator"
+    },
+    {
+      "id": "professional",
+      "label": "Working Professional"
+    },
+    {
+      "id": "self-directed",
+      "label": "Self-Directed Learner"
+    },
+    {
+      "id": "researcher",
+      "label": "Researcher"
+    },
+    {
+      "id": "developer",
+      "label": "Developer"
+    },
+    {
+      "id": "designer",
+      "label": "Designer"
+    },
+    {
+      "id": "accountant",
+      "label": "Accountant"
+    }
   ],
   "toolkits": [
     {
@@ -49,7 +76,11 @@
       "title": "Digital Foundations",
       "track": "foundations",
       "role": "beginner",
-      "audiences": ["out-of-school-youth", "student", "self-directed"],
+      "audiences": [
+        "out-of-school-youth",
+        "student",
+        "self-directed"
+      ],
       "difficulty": "beginner",
       "duration": "3-5 hours",
       "icon": "sprout",
@@ -76,7 +107,12 @@
             "Switch your default search engine to a private option"
           ],
           "estimatedTime": "30 min",
-          "toolIds": ["firefox", "librewolf", "brave", "tor-browser"]
+          "toolIds": [
+            "firefox",
+            "librewolf",
+            "brave",
+            "tor-browser"
+          ]
         },
         {
           "id": "secure-comms",
@@ -93,7 +129,13 @@
             "Try Element for an encrypted group chat"
           ],
           "estimatedTime": "45 min",
-          "toolIds": ["signal", "element", "tutanota", "protonmail", "thunderbird"]
+          "toolIds": [
+            "signal",
+            "element",
+            "tutanota",
+            "protonmail",
+            "thunderbird"
+          ]
         },
         {
           "id": "passwords-files",
@@ -110,7 +152,12 @@
             "Sync one important folder with Syncthing or Nextcloud"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["bitwarden", "keepassxc", "syncthing", "nextcloud"]
+          "toolIds": [
+            "bitwarden",
+            "keepassxc",
+            "syncthing",
+            "nextcloud"
+          ]
         },
         {
           "id": "media-everyday",
@@ -127,8 +174,27 @@
             "Open a PDF in Okular and try its annotation tools"
           ],
           "estimatedTime": "30 min",
-          "toolIds": ["libreoffice", "vlc", "okular", "calibre"]
+          "toolIds": [
+            "libreoffice",
+            "vlc",
+            "okular",
+            "calibre"
+          ]
         }
+      ],
+      "curriculum": [
+        "STEM",
+        "ABM",
+        "HUMSS",
+        "GAS",
+        "TVL-ICT",
+        "Arts",
+        "BSCS",
+        "BSIT",
+        "BSEd",
+        "BSBA",
+        "BSAcc",
+        "BSComm"
       ]
     },
     {
@@ -136,7 +202,11 @@
       "title": "Research Starter Kit",
       "track": "specialized",
       "role": "researcher",
-      "audiences": ["researcher", "student", "self-directed"],
+      "audiences": [
+        "researcher",
+        "student",
+        "self-directed"
+      ],
       "difficulty": "intermediate",
       "duration": "5-7 hours",
       "icon": "flask-round",
@@ -163,7 +233,12 @@
             "Connect 2 notes using a backlink"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["joplin", "logseq", "obsidian", "appflowy"]
+          "toolIds": [
+            "joplin",
+            "logseq",
+            "obsidian",
+            "appflowy"
+          ]
         },
         {
           "id": "references",
@@ -180,7 +255,11 @@
             "Install the browser connector and clip one paper directly from the web"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["zotero", "jabref", "mendeley"]
+          "toolIds": [
+            "zotero",
+            "jabref",
+            "mendeley"
+          ]
         },
         {
           "id": "writing",
@@ -197,8 +276,25 @@
             "Try FocusWriter for a 25-minute distraction-free session"
           ],
           "estimatedTime": "90 min",
-          "toolIds": ["libreoffice", "lyx", "focuswriter", "pandoc"]
+          "toolIds": [
+            "libreoffice",
+            "lyx",
+            "focuswriter",
+            "pandoc"
+          ]
         }
+      ],
+      "curriculum": [
+        "HUMSS",
+        "STEM",
+        "ABM",
+        "GAS",
+        "BSCS",
+        "BSIT",
+        "BSEd",
+        "BSBA",
+        "BSAcc",
+        "BSComm"
       ]
     },
     {
@@ -206,7 +302,10 @@
       "title": "Student Productivity Pack",
       "track": "productivity",
       "role": "student",
-      "audiences": ["student", "self-directed"],
+      "audiences": [
+        "student",
+        "self-directed"
+      ],
       "difficulty": "beginner",
       "duration": "4-6 hours",
       "icon": "graduation-cap",
@@ -233,7 +332,12 @@
             "Create your first 10 Anki cards from this week's lessons"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["joplin", "appflowy", "focalboard", "anki"]
+          "toolIds": [
+            "joplin",
+            "appflowy",
+            "focalboard",
+            "anki"
+          ]
         },
         {
           "id": "documents",
@@ -250,7 +354,12 @@
             "Try HedgeDoc for a real-time Markdown study group session"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["libreoffice", "cryptpad", "hedgedoc", "onlyoffice"]
+          "toolIds": [
+            "libreoffice",
+            "cryptpad",
+            "hedgedoc",
+            "onlyoffice"
+          ]
         },
         {
           "id": "diagrams",
@@ -267,8 +376,27 @@
             "Document a system using Mermaid syntax"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["drawio", "mermaid", "freeplane", "xmind"]
+          "toolIds": [
+            "drawio",
+            "mermaid",
+            "freeplane",
+            "xmind"
+          ]
         }
+      ],
+      "curriculum": [
+        "STEM",
+        "ABM",
+        "HUMSS",
+        "GAS",
+        "TVL-ICT",
+        "Arts",
+        "BSCS",
+        "BSIT",
+        "BSEd",
+        "BSBA",
+        "BSAcc",
+        "BSComm"
       ]
     },
     {
@@ -276,7 +404,9 @@
       "title": "Teacher's Digital Classroom",
       "track": "specialized",
       "role": "teacher",
-      "audiences": ["teacher"],
+      "audiences": [
+        "teacher"
+      ],
       "difficulty": "intermediate",
       "duration": "6-8 hours",
       "icon": "presentation",
@@ -303,7 +433,12 @@
             "Package a Kolibri channel of your favorite resources"
           ],
           "estimatedTime": "120 min",
-          "toolIds": ["libreoffice", "kolibri", "h5p", "scribus"]
+          "toolIds": [
+            "libreoffice",
+            "kolibri",
+            "h5p",
+            "scribus"
+          ]
         },
         {
           "id": "classroom-tools",
@@ -320,7 +455,13 @@
             "Publish a class wiki on BookStack"
           ],
           "estimatedTime": "90 min",
-          "toolIds": ["canvas-lms", "bookstack", "etherpad", "cryptpad", "element"]
+          "toolIds": [
+            "canvas-lms",
+            "bookstack",
+            "etherpad",
+            "cryptpad",
+            "element"
+          ]
         },
         {
           "id": "assessment",
@@ -337,8 +478,15 @@
             "Document one assessment rubric in DokuWiki"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["anki", "gcompris", "dokuwiki"]
+          "toolIds": [
+            "anki",
+            "gcompris",
+            "dokuwiki"
+          ]
         }
+      ],
+      "curriculum": [
+        "BSEd"
       ]
     },
     {
@@ -346,7 +494,10 @@
       "title": "Remote Team Collaboration",
       "track": "collaboration",
       "role": "professional",
-      "audiences": ["professional", "self-directed"],
+      "audiences": [
+        "professional",
+        "self-directed"
+      ],
       "difficulty": "intermediate",
       "duration": "4-6 hours",
       "icon": "users",
@@ -373,7 +524,12 @@
             "Run a stand-up using threads or scheduled posts"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["element", "rocket-chat", "mattermost", "signal"]
+          "toolIds": [
+            "element",
+            "rocket-chat",
+            "mattermost",
+            "signal"
+          ]
         },
         {
           "id": "video-meetings",
@@ -390,7 +546,12 @@
             "Set a recurring weekly meeting room URL"
           ],
           "estimatedTime": "45 min",
-          "toolIds": ["jitsi", "mumble", "teamspeak", "element"]
+          "toolIds": [
+            "jitsi",
+            "mumble",
+            "teamspeak",
+            "element"
+          ]
         },
         {
           "id": "shared-docs",
@@ -407,7 +568,13 @@
             "Spin up a BookStack knowledge base for your team"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["cryptpad", "hedgedoc", "etherpad", "onlyoffice", "bookstack"]
+          "toolIds": [
+            "cryptpad",
+            "hedgedoc",
+            "etherpad",
+            "onlyoffice",
+            "bookstack"
+          ]
         },
         {
           "id": "files-sync",
@@ -424,8 +591,18 @@
             "Mirror a critical folder with Syncthing for offline-first work"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["nextcloud", "seafile", "syncthing"]
+          "toolIds": [
+            "nextcloud",
+            "seafile",
+            "syncthing"
+          ]
         }
+      ],
+      "curriculum": [
+        "ABM",
+        "GAS",
+        "BSBA",
+        "BSComm"
       ]
     },
     {
@@ -433,7 +610,10 @@
       "title": "Workplace Productivity for Professionals",
       "track": "productivity",
       "role": "professional",
-      "audiences": ["professional", "self-directed"],
+      "audiences": [
+        "professional",
+        "self-directed"
+      ],
       "difficulty": "intermediate",
       "duration": "5-7 hours",
       "icon": "briefcase",
@@ -460,7 +640,12 @@
             "Export one document to PDF/A for archiving"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["libreoffice", "onlyoffice", "okular", "calibre"]
+          "toolIds": [
+            "libreoffice",
+            "onlyoffice",
+            "okular",
+            "calibre"
+          ]
         },
         {
           "id": "knowledge-system",
@@ -477,7 +662,13 @@
             "Schedule a 15-minute Friday review on your calendar"
           ],
           "estimatedTime": "90 min",
-          "toolIds": ["obsidian", "logseq", "joplin", "zettlr", "marktext"]
+          "toolIds": [
+            "obsidian",
+            "logseq",
+            "joplin",
+            "zettlr",
+            "marktext"
+          ]
         },
         {
           "id": "secure-stack",
@@ -494,7 +685,13 @@
             "Set up Signal as a secondary work-comms channel"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["bitwarden", "keepassxc", "protonmail", "tutanota", "signal"]
+          "toolIds": [
+            "bitwarden",
+            "keepassxc",
+            "protonmail",
+            "tutanota",
+            "signal"
+          ]
         },
         {
           "id": "automation",
@@ -511,8 +708,22 @@
             "Mirror a folder to an external drive with rclone"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["restic", "borg", "duplicati", "syncthing", "rclone", "nextcloud"]
+          "toolIds": [
+            "restic",
+            "borg",
+            "duplicati",
+            "syncthing",
+            "rclone",
+            "nextcloud"
+          ]
         }
+      ],
+      "curriculum": [
+        "ABM",
+        "GAS",
+        "BSBA",
+        "BSAcc",
+        "BSComm"
       ]
     },
     {
@@ -520,7 +731,11 @@
       "title": "Self-Directed Learner's Toolkit",
       "track": "productivity",
       "role": "self-directed",
-      "audiences": ["self-directed", "student", "professional"],
+      "audiences": [
+        "self-directed",
+        "student",
+        "professional"
+      ],
       "difficulty": "beginner",
       "duration": "4-6 hours",
       "icon": "route",
@@ -547,7 +762,9 @@
             "Schedule a daily 5-minute review on your calendar"
           ],
           "estimatedTime": "60 min",
-          "toolIds": ["anki"]
+          "toolIds": [
+            "anki"
+          ]
         },
         {
           "id": "read-deep",
@@ -564,7 +781,13 @@
             "Connect today's notes to two older notes"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["calibre", "okular", "obsidian", "logseq", "zettlr"]
+          "toolIds": [
+            "calibre",
+            "okular",
+            "obsidian",
+            "logseq",
+            "zettlr"
+          ]
         },
         {
           "id": "practice",
@@ -581,8 +804,22 @@
             "Post or share one result with a friend or community"
           ],
           "estimatedTime": "120 min",
-          "toolIds": ["jupyter", "jupyterlab", "vscode", "obsidian", "logseq"]
+          "toolIds": [
+            "jupyter",
+            "jupyterlab",
+            "vscode",
+            "obsidian",
+            "logseq"
+          ]
         }
+      ],
+      "curriculum": [
+        "STEM",
+        "HUMSS",
+        "GAS",
+        "BSEd",
+        "BSComm",
+        "BSBA"
       ]
     },
     {
@@ -590,7 +827,11 @@
       "title": "Beginner Coding Path",
       "track": "specialized",
       "role": "developer",
-      "audiences": ["developer", "student", "self-directed"],
+      "audiences": [
+        "developer",
+        "student",
+        "self-directed"
+      ],
       "difficulty": "beginner",
       "duration": "6-8 hours",
       "icon": "code",
@@ -617,7 +858,12 @@
             "Practice three keyboard shortcuts until they're automatic"
           ],
           "estimatedTime": "45 min",
-          "toolIds": ["vscode", "kate", "helix", "emacs"]
+          "toolIds": [
+            "vscode",
+            "kate",
+            "helix",
+            "emacs"
+          ]
         },
         {
           "id": "version-control",
@@ -634,7 +880,11 @@
             "Open one pull request and merge it"
           ],
           "estimatedTime": "75 min",
-          "toolIds": ["github-desktop", "gitea", "forgejo"]
+          "toolIds": [
+            "github-desktop",
+            "gitea",
+            "forgejo"
+          ]
         },
         {
           "id": "interactive-learning",
@@ -651,8 +901,19 @@
             "Write a 20-line script that solves a real annoyance"
           ],
           "estimatedTime": "90 min",
-          "toolIds": ["jupyter", "jupyterlab", "ollama", "jan"]
+          "toolIds": [
+            "jupyter",
+            "jupyterlab",
+            "ollama",
+            "jan"
+          ]
         }
+      ],
+      "curriculum": [
+        "STEM",
+        "TVL-ICT",
+        "BSCS",
+        "BSIT"
       ]
     },
     {
@@ -660,7 +921,10 @@
       "title": "Designer's Toolkit",
       "track": "creativity",
       "role": "designer",
-      "audiences": ["designer", "self-directed"],
+      "audiences": [
+        "designer",
+        "self-directed"
+      ],
       "difficulty": "advanced",
       "duration": "8-12 hours",
       "icon": "palette",
@@ -687,7 +951,12 @@
             "Try Krita for a quick digital sketch"
           ],
           "estimatedTime": "120 min",
-          "toolIds": ["gimp", "inkscape", "krita", "pixlr"]
+          "toolIds": [
+            "gimp",
+            "inkscape",
+            "krita",
+            "pixlr"
+          ]
         },
         {
           "id": "ui-prototyping",
@@ -704,7 +973,12 @@
             "Export design tokens and assets for development"
           ],
           "estimatedTime": "150 min",
-          "toolIds": ["penpot", "vectr", "gravit", "drawio"]
+          "toolIds": [
+            "penpot",
+            "vectr",
+            "gravit",
+            "drawio"
+          ]
         },
         {
           "id": "typography-print",
@@ -721,7 +995,12 @@
             "Export a CMYK PDF/X-1a from Scribus"
           ],
           "estimatedTime": "120 min",
-          "toolIds": ["scribus", "fontforge", "birdfont", "libreoffice"]
+          "toolIds": [
+            "scribus",
+            "fontforge",
+            "birdfont",
+            "libreoffice"
+          ]
         },
         {
           "id": "animation-motion",
@@ -738,8 +1017,19 @@
             "Render and share one short piece on social"
           ],
           "estimatedTime": "150 min",
-          "toolIds": ["pencil2d", "synfig", "opentoonz", "blender"]
+          "toolIds": [
+            "pencil2d",
+            "synfig",
+            "opentoonz",
+            "blender"
+          ]
         }
+      ],
+      "curriculum": [
+        "Arts",
+        "TVL-ICT",
+        "BSIT",
+        "BSComm"
       ]
     },
     {
@@ -747,7 +1037,10 @@
       "title": "Accountant's Essentials",
       "track": "specialized",
       "role": "accountant",
-      "audiences": ["accountant", "professional"],
+      "audiences": [
+        "accountant",
+        "professional"
+      ],
       "difficulty": "intermediate",
       "duration": "6-9 hours",
       "icon": "calculator",
@@ -774,7 +1067,13 @@
             "Generate a P&L for a single period"
           ],
           "estimatedTime": "120 min",
-          "toolIds": ["gnucash", "homebank", "ledger", "hledger", "beancount"]
+          "toolIds": [
+            "gnucash",
+            "homebank",
+            "ledger",
+            "hledger",
+            "beancount"
+          ]
         },
         {
           "id": "budgeting",
@@ -791,7 +1090,10 @@
             "Set a 15-minute weekly money-review on your calendar"
           ],
           "estimatedTime": "90 min",
-          "toolIds": ["firefly-iii", "actual"]
+          "toolIds": [
+            "firefly-iii",
+            "actual"
+          ]
         },
         {
           "id": "reporting-analysis",
@@ -808,7 +1110,13 @@
             "Clean one CSV with OpenRefine"
           ],
           "estimatedTime": "120 min",
-          "toolIds": ["metabase", "redash", "apache-superset", "libreoffice", "openrefine"]
+          "toolIds": [
+            "metabase",
+            "redash",
+            "apache-superset",
+            "libreoffice",
+            "openrefine"
+          ]
         },
         {
           "id": "data-tools",
@@ -825,8 +1133,18 @@
             "Publish a Datasette of one cleaned dataset"
           ],
           "estimatedTime": "105 min",
-          "toolIds": ["csvkit", "datasette", "dbeaver", "r-project"]
+          "toolIds": [
+            "csvkit",
+            "datasette",
+            "dbeaver",
+            "r-project"
+          ]
         }
+      ],
+      "curriculum": [
+        "ABM",
+        "BSAcc",
+        "BSBA"
       ]
     }
   ]

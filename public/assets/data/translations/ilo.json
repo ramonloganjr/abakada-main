@@ -247,6 +247,7 @@
     "termsOfUse": "Pagannurot ti Pannakausar",
     "officialPartners": "Opisial a Kasosio",
     "partnerships": "Pannakikadua",
+    "pitchDeck": "Pitch Deck ti Pakikipartner",
     "glossary": "Diccionario"
   },
   "accessibility": {
@@ -503,6 +504,7 @@
   "bookmark": {
     "add": "I-bookmark",
     "remove": "Ikkaten ti bookmark",
+    "saved": "Nabookmark",
     "storageUnavailable": "Saan a masalbar dagiti bookmark — saan a magun-od ti storage iti daytoy a sesyon",
     "pageTitle": "Dagiti Bookmark",
     "emptyTitle": "Awan pay dagiti bookmark",
@@ -514,6 +516,9 @@
     "add": "Ipagpada",
     "remove": "Ikkaten iti panagipagpada",
     "clear": "Buraen ti panagipagpada",
+    "share": "Kopieren ti link",
+    "copied": "Nakopya ti link!",
+    "shareHint": "Mabalin met a ibagi ti panagipareha babaen ti panagkopir iti URL ti panid kalpasan ti panagpili kadagiti ramit.",
     "emptyTitle": "Awan ti napili a ramit",
     "emptyDesc": "Agpili ti dua wenno ad-adu a ramit manipud iti home page tapno maipagpada dagitoy.",
     "browseTools": "Ag-browse kadagiti Ramit",

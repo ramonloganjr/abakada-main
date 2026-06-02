@@ -2,7 +2,8 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 import { addToComparison, removeFromComparison } from '../lib/comparison'
 
 const STORAGE_KEY = 'abakada_compare'
-const MAX = 3
+export const COMPARISON_MAX = 3
+const MAX = COMPARISON_MAX
 
 function loadFromStorage() {
   try {
@@ -45,13 +46,23 @@ export function ComparisonProvider({ children }) {
     try { localStorage.removeItem(STORAGE_KEY) } catch {}
   }, [])
 
+  // Replaces the entire selection at once — used by Compare page to seed from URL params.
+  const setIds = useCallback((ids) => {
+    const sanitized = Array.isArray(ids)
+      ? ids.filter(id => typeof id === 'string' && id.trim().length > 0).slice(0, MAX)
+      : []
+    setSelectedIds(sanitized)
+    setAddError(null)
+  }, [])
+
   return (
-    <ComparisonContext.Provider value={{ selectedIds, addTool, removeTool, clearComparison, addError, max: MAX }}>
+    <ComparisonContext.Provider value={{ selectedIds, addTool, removeTool, clearComparison, setIds, addError, max: MAX }}>
       {children}
     </ComparisonContext.Provider>
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useComparisonContext() {
   const ctx = useContext(ComparisonContext)
   if (!ctx) throw new Error('useComparisonContext must be used within a ComparisonProvider')

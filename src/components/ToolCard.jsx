@@ -4,15 +4,6 @@ import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparison } from '../hooks/useComparison'
 import Icon from './Icon'
 
-/** Validate that a URL uses http or https to prevent javascript: injection */
-function isSafeUrl(url) {
-  if (!url) return false
-  try {
-    const u = new URL(url)
-    return u.protocol === 'http:' || u.protocol === 'https:'
-  } catch { return false }
-}
-
 function getProjectHealth(dateString) {
   if (!dateString) return null
   const months = (Date.now() - new Date(dateString)) / (1000 * 60 * 60 * 24 * 30)
@@ -46,7 +37,6 @@ function ToolCardInner({ tool, categoryIcon, onClick }) {
       className="card"
       data-tool-id={tool.id}
       tabIndex={0}
-      role="button"
       aria-label={`${tool.name}: ${tool.tagline}`}
       onClick={() => onClick(tool)}
       onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && onClick(tool)}

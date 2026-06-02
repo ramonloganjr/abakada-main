@@ -1,0 +1,114 @@
+{
+  "categories": [
+    {
+      "id": "k12",
+      "label": "K-12 Senior High School",
+      "authority": "DepEd",
+      "description": "Senior High School academic and technical-vocational tracks under the DepEd K-12 Basic Education Curriculum."
+    },
+    {
+      "id": "ched",
+      "label": "CHED Programs",
+      "authority": "CHED",
+      "description": "Higher education programs regulated by the Commission on Higher Education."
+    }
+  ],
+  "strands": [
+    {
+      "id": "STEM",
+      "category": "k12",
+      "label": "STEM",
+      "fullName": "Science, Technology, Engineering & Mathematics",
+      "description": "Scientific inquiry, computing, mathematics, and engineering design — tools for research, coding, and data work are highly relevant.",
+      "color": "blue"
+    },
+    {
+      "id": "ABM",
+      "category": "k12",
+      "label": "ABM",
+      "fullName": "Accountancy, Business & Management",
+      "description": "Business operations, financial literacy, entrepreneurship, and management — productivity and finance tools align directly.",
+      "color": "green"
+    },
+    {
+      "id": "HUMSS",
+      "category": "k12",
+      "label": "HUMSS",
+      "fullName": "Humanities & Social Sciences",
+      "description": "Critical thinking, research, communication, and social inquiry — writing and research tools are central.",
+      "color": "purple"
+    },
+    {
+      "id": "GAS",
+      "category": "k12",
+      "label": "GAS",
+      "fullName": "General Academic Strand",
+      "description": "Broad academic preparation spanning multiple disciplines — general-purpose productivity and research tools apply.",
+      "color": "neutral"
+    },
+    {
+      "id": "TVL-ICT",
+      "category": "k12",
+      "label": "TVL-ICT",
+      "fullName": "Technical-Vocational-Livelihood: ICT",
+      "description": "Computer systems servicing, programming, web design, and digital media — technical tools are core curriculum.",
+      "color": "orange"
+    },
+    {
+      "id": "Arts",
+      "category": "k12",
+      "label": "Arts & Design",
+      "fullName": "Arts and Design Track",
+      "description": "Visual arts, graphic design, digital media, and creative production — open-source design tools replace costly commercial suites.",
+      "color": "rose"
+    },
+    {
+      "id": "BSCS",
+      "category": "ched",
+      "label": "BS Comp. Science",
+      "fullName": "Bachelor of Science in Computer Science",
+      "description": "Algorithms, software engineering, data structures, and computational theory.",
+      "color": "teal"
+    },
+    {
+      "id": "BSIT",
+      "category": "ched",
+      "label": "BS Info. Technology",
+      "fullName": "Bachelor of Science in Information Technology",
+      "description": "Systems administration, web development, networking, and enterprise IT solutions.",
+      "color": "teal"
+    },
+    {
+      "id": "BSEd",
+      "category": "ched",
+      "label": "Teacher Education",
+      "fullName": "Bachelor of Secondary / Elementary Education",
+      "description": "Pedagogy, instructional design, classroom technology integration, and curriculum development.",
+      "color": "teal"
+    },
+    {
+      "id": "BSBA",
+      "category": "ched",
+      "label": "BS Business Admin.",
+      "fullName": "Bachelor of Science in Business Administration",
+      "description": "Management, marketing, operations, logistics, and organisational behaviour.",
+      "color": "teal"
+    },
+    {
+      "id": "BSAcc",
+      "category": "ched",
+      "label": "BS Accountancy",
+      "fullName": "Bachelor of Science in Accountancy",
+      "description": "Financial accounting, auditing, taxation, cost accounting, and management accounting.",
+      "color": "teal"
+    },
+    {
+      "id": "BSComm",
+      "category": "ched",
+      "label": "BS Communication",
+      "fullName": "Bachelor of Science in Communication",
+      "description": "Media production, journalism, public relations, broadcasting, and digital communication.",
+      "color": "teal"
+    }
+  ]
+}

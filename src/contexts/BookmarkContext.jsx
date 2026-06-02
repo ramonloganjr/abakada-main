@@ -16,7 +16,10 @@ async function queueBookmarkOp(toolId, action) {
       const db = e.target.result
       const tx = db.transaction('bookmark-queue', 'readwrite')
       const store = tx.objectStore('bookmark-queue')
-      const op = { id: crypto.randomUUID(), toolId, action }
+      const uid = typeof crypto.randomUUID === 'function'
+        ? crypto.randomUUID()
+        : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`
+      const op = { id: uid, toolId, action }
       const addReq = store.add(op)
       addReq.onsuccess = () => resolve()
       addReq.onerror = (err) => reject(err.target.error)
@@ -53,6 +56,20 @@ export function BookmarkProvider({ children }) {
   useEffect(() => {
     storage.set(bookmarks)
   }, [bookmarks, storage])
+
+  // Apply bookmark lists pushed by the service worker after a Background Sync
+  // replay (Req 6.2). Without this listener the SW's postMessage is dropped and
+  // offline-queued changes never reach the running app.
+  useEffect(() => {
+    if (!('serviceWorker' in navigator)) return
+    const onMessage = (e) => {
+      if (e.data?.type === 'BOOKMARK_SYNC' && Array.isArray(e.data.bookmarks)) {
+        setBookmarks(e.data.bookmarks)
+      }
+    }
+    navigator.serviceWorker.addEventListener('message', onMessage)
+    return () => navigator.serviceWorker.removeEventListener('message', onMessage)
+  }, [])
 
   const addBookmark = useCallback((id) => {
     // Optimistic state update regardless of online/offline status
@@ -108,6 +125,7 @@ export function BookmarkProvider({ children }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useBookmarks() {
   const ctx = useContext(BookmarkContext)
   if (!ctx) throw new Error('useBookmarks must be used within a BookmarkProvider')

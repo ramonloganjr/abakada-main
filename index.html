@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+  <!-- Resolve the saved theme before first paint to avoid a light/dark flash (FOUC). -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('abakada-theme');
+        var dark = t === 'dark' || ((!t || t === 'auto') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        // Suppress all CSS transitions during the initial paint so that
+        // injected styles (Vite dev), body background-color, toggle thumb
+        // positions, and icon opacity changes never visibly animate on load.
+        // React's ThemeContext removes this class after the first frame is drawn.
+        document.documentElement.classList.add('loading');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Content Security Policy (frame-ancestors and upgrade-insecure-requests must be HTTP headers, not meta) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; worker-src 'self'; base-uri 'self'; form-action 'self'" />
 
@@ -12,11 +28,9 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
 
-  <!-- Search Engine Verification — replace placeholders after registering -->
-  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN" />
-  <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN" />
-  <meta name="yandex-verification" content="REPLACE_WITH_YANDEX_TOKEN" />
-  <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_TOKEN" />
+  <!-- Search Engine Verification — add the real tokens here after registering
+       each property (Google Search Console, Bing, Yandex, Pinterest). Placeholder
+       tags were removed so no invalid verification meta ships to production. -->
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TGSJ6EKYB"></script>
@@ -42,11 +56,11 @@
   <meta name="geo.country" content="Philippines" />
   <link rel="canonical" href="https://abakada.org/" />
 
-  <!-- Hreflang — multilingual targeting -->
+  <!-- Hreflang — multilingual targeting (react-helmet-async overrides these per-page) -->
   <link rel="alternate" hreflang="en" href="https://abakada.org/" />
-  <link rel="alternate" hreflang="tl" href="https://abakada.org/?lang=tl" />
-  <link rel="alternate" hreflang="ilo" href="https://abakada.org/?lang=ilo" />
-  <link rel="alternate" hreflang="ceb" href="https://abakada.org/?lang=bis" />
+  <link rel="alternate" hreflang="tl" href="https://abakada.org/tl" />
+  <link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo" />
+  <link rel="alternate" hreflang="ceb" href="https://abakada.org/bis" />
   <link rel="alternate" hreflang="x-default" href="https://abakada.org/" />
 
   <!-- Open Graph — Facebook, LinkedIn, Messenger, Viber -->
@@ -328,8 +342,10 @@
       background: #ffffff;
       z-index: 9999;
     }
+    /* Match the theme resolved by the pre-paint script; fall back to OS pref. */
+    html[data-theme="dark"] .boot-loader { background: #0b1419; }
     @media (prefers-color-scheme: dark) {
-      .boot-loader { background: #0b1419; }
+      html:not([data-theme="light"]) .boot-loader { background: #0b1419; }
     }
     .boot-loader__mark {
       position: relative;

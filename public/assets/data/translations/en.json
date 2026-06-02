@@ -247,6 +247,7 @@
     "termsOfUse": "Terms of Use",
     "officialPartners": "Official Partners",
     "partnerships": "Partnerships",
+    "pitchDeck": "Partnership Pitch Deck",
     "glossary": "Glossary"
   },
   "accessibility": {
@@ -503,6 +504,7 @@
   "bookmark": {
     "add": "Bookmark",
     "remove": "Remove bookmark",
+    "saved": "Saved",
     "storageUnavailable": "Bookmarks won't be saved — storage is unavailable in this session",
     "pageTitle": "Bookmarks",
     "emptyTitle": "No bookmarks yet",
@@ -514,6 +516,9 @@
     "add": "Compare",
     "remove": "Remove from comparison",
     "clear": "Clear comparison",
+    "share": "Copy link",
+    "copied": "Link copied!",
+    "shareHint": "You can also share a comparison by copying the page URL after selecting tools.",
     "emptyTitle": "No tools selected",
     "emptyDesc": "Select at least 2 tools from the home page to compare them side by side.",
     "browseTools": "Browse Tools",

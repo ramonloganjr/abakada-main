@@ -1,8 +1,6 @@
-import { useI18n } from '../contexts/I18nContext'
 import Icon from './Icon'
 
-export default function Pagination({ page, totalPages, total, onPage }) {
-  const { t } = useI18n()
+export default function Pagination({ page, totalPages, onPage }) {
   if (totalPages <= 1) return null
 
   const pages = []

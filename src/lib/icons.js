@@ -114,5 +114,9 @@ export function getIconPath(name, collection = 'category') {
   const map = collection === 'platform' ? PLATFORM_ICONS
     : collection === 'ui' ? UI_ICONS
     : CATEGORY_ICONS
-  return map[name] || CATEGORY_ICONS['box']
+  // Prefer the requested collection, but fall back across the others so an icon
+  // referenced from the "wrong" collection still renders instead of a blank box.
+  return map[name]
+    || CATEGORY_ICONS[name] || UI_ICONS[name] || PLATFORM_ICONS[name]
+    || CATEGORY_ICONS['box']
 }

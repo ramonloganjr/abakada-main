@@ -20,8 +20,9 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
   const { toolkitId } = useParams()
   const { t, lang } = useI18n()
   const [data, setData] = useState({ toolkit: null, track: null })
+  const [curriculumStrands, setCurriculumStrands] = useState([])
   const [loading, setLoading] = useState(true)
-  const { exploredIds, markExplored, unmarkExplored, isExplored } = useProgress(toolkitId)
+  const { markExplored, unmarkExplored, isExplored } = useProgress(toolkitId)
   const [selectedTool, setSelectedTool] = useState(null)
   const [openStageId, setOpenStageId] = useState(null)
   const [completedTasks, setCompletedTasks] = useState(() => {
@@ -32,18 +33,19 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
   })
 
   useEffect(() => {
-    fetch('/assets/data/learning-paths.json')
-      .then(r => r.json())
-      .then(d => {
-        const tk = (d.toolkits || []).find(t => t.id === toolkitId)
-        const tr = tk ? (d.tracks || []).find(x => x.id === tk.track) : null
-        setData({ toolkit: tk || null, track: tr || null })
-        setLoading(false)
-        if (tk && tk.stages.length > 0) {
-          setOpenStageId(tk.stages[0].id)
-        }
-      })
-      .catch(() => setLoading(false))
+    Promise.all([
+      fetch('/assets/data/learning-paths.json').then(r => r.json()),
+      fetch('/assets/data/curriculum.json').then(r => r.json()),
+    ]).then(([lp, cur]) => {
+      const tk = (lp.toolkits || []).find(t => t.id === toolkitId)
+      const tr = tk ? (lp.tracks || []).find(x => x.id === tk.track) : null
+      setData({ toolkit: tk || null, track: tr || null })
+      setCurriculumStrands(cur.strands || [])
+      setLoading(false)
+      if (tk && tk.stages.length > 0) {
+        setOpenStageId(tk.stages[0].id)
+      }
+    }).catch(() => setLoading(false))
   }, [toolkitId])
 
   useEffect(() => {
@@ -67,7 +69,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
       }
     })
     return { allToolIds, totalTools: allToolIds.length, exploredCount, stageStatus }
-  }, [data.toolkit, exploredIds, isExplored])
+  }, [data.toolkit, isExplored])
 
   if (loading) {
     return (
@@ -177,6 +179,61 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                   </ul>
                 </div>
               )}
+
+              {/* ── Curriculum Alignment ── */}
+              {Array.isArray(toolkit.curriculum) && toolkit.curriculum.length > 0 && (() => {
+                const tags = toolkit.curriculum
+                  .map(id => curriculumStrands.find(s => s.id === id))
+                  .filter(Boolean)
+                const k12 = tags.filter(s => s.category === 'k12')
+                const ched = tags.filter(s => s.category === 'ched')
+                if (!tags.length) return null
+                return (
+                  <div className="lpj-curriculum" aria-label="Curriculum alignment">
+                    <h2 className="lpj-curriculum__title">
+                      <Icon name="graduation-cap" collection="category" size={14} />
+                      Curriculum Alignment
+                    </h2>
+                    <p className="lpj-curriculum__intro">
+                      This pathway is aligned with the following DepEd and CHED frameworks, making it directly applicable to your coursework and learning goals.
+                    </p>
+                    {k12.length > 0 && (
+                      <div className="lpj-curriculum__group">
+                        <span className="lpj-curriculum__group-label">
+                          <span className="lp-curriculum__authority lp-curriculum__authority--deped">DepEd</span>
+                          K-12 Senior High School
+                        </span>
+                        <div className="lpj-curriculum__tags">
+                          {k12.map(s => (
+                            <span key={s.id} className={`lp-strand-tag lp-strand-tag--${s.color} lp-strand-tag--lg`} title={s.fullName}>
+                              <span className={`lp-strand-dot lp-strand-dot--${s.color}`} aria-hidden="true" />
+                              <strong>{s.label}</strong>
+                              <span className="lp-strand-tag__full">{s.fullName}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {ched.length > 0 && (
+                      <div className="lpj-curriculum__group">
+                        <span className="lpj-curriculum__group-label">
+                          <span className="lp-curriculum__authority lp-curriculum__authority--ched">CHED</span>
+                          Higher Education Programs
+                        </span>
+                        <div className="lpj-curriculum__tags">
+                          {ched.map(s => (
+                            <span key={s.id} className="lp-strand-tag lp-strand-tag--teal lp-strand-tag--lg" title={s.fullName}>
+                              <span className="lp-strand-dot lp-strand-dot--teal" aria-hidden="true" />
+                              <strong>{s.label}</strong>
+                              <span className="lp-strand-tag__full">{s.fullName}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )
+              })()}
             </div>
 
             <aside className="lpj-progress" aria-label={t('learningPaths.progressLabel', 'Progress')}>
@@ -234,7 +291,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
               const stateIcon = status.complete ? 'check-circle' : status.started ? 'play-circle' : 'circle-empty'
 
               return (
-                <li key={stage.id} className={`lpj-stage ${stateClass}${isOpen ? ' lpj-stage--open' : ''}`}>
+                <li key={stage.id} id={`stage-${stage.id}`} className={`lpj-stage ${stateClass}${isOpen ? ' lpj-stage--open' : ''}`}>
                   <button
                     type="button"
                     className="lpj-stage__header"
@@ -268,15 +325,23 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                         )}
                         <span className="lpj-stage__pct">{status.pct}%</span>
                       </div>
-                      <div className="lpj-stage__bar"><div className="lpj-stage__bar-fill" style={{ width: `${status.pct}%` }} /></div>
+                      <div
+                        className="lpj-stage__bar"
+                        role="progressbar"
+                        aria-valuenow={status.pct}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-label={`Stage progress: ${status.pct}%`}
+                      >
+                        <div className="lpj-stage__bar-fill" style={{ width: `${status.pct}%` }} />
+                      </div>
                     </div>
                     <span className="lpj-stage__chevron" aria-hidden="true">
                       <Icon name="chevron-down" collection="ui" size={18} />
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div className="lpj-stage__body" id={`stage-body-${stage.id}`}>
+                  <div className="lpj-stage__body" id={`stage-body-${stage.id}`} hidden={!isOpen}>
                       {Array.isArray(stage.objectives) && stage.objectives.length > 0 && (
                         <div className="lpj-block">
                           <h3 className="lpj-block__title">
@@ -311,7 +376,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                                       type="checkbox"
                                       checked={done}
                                       onChange={() => toggleTask(key)}
-                                      aria-label={`Mark task ${i + 1} as complete`}
+                                      aria-label={done ? `Task ${i + 1} complete — click to mark incomplete` : `Mark task ${i + 1} as complete`}
                                     />
                                     <span>{task}</span>
                                   </label>
@@ -352,15 +417,20 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                           </div>
                           {idx + 1 < toolkit.stages.length && (
                             <button type="button" className="btn btn--secondary btn--sm"
-                              onClick={() => setOpenStageId(toolkit.stages[idx + 1].id)}>
+                              onClick={() => {
+                                const nextStage = toolkit.stages[idx + 1]
+                                setOpenStageId(nextStage.id)
+                                requestAnimationFrame(() => {
+                                  document.getElementById(`stage-${nextStage.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                })
+                              }}>
                               Next stage
-                              <Icon name="chevron-right" collection="ui" size={12} />
+                              <Icon name="chevron-right" collection="ui" size={12} aria-hidden="true" />
                             </button>
                           )}
                         </div>
                       )}
-                    </div>
-                  )}
+                  </div>
                 </li>
               )
             })}

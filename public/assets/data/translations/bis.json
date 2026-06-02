@@ -247,6 +247,7 @@
     "termsOfUse": "Mga Termino sa Paggamit",
     "officialPartners": "Mga Opisyal nga Kasosyo",
     "partnerships": "Pakigkasosyo",
+    "pitchDeck": "Pitch Deck sa Pakigtambayayong",
     "glossary": "Glosaryo"
   },
   "accessibility": {
@@ -503,6 +504,7 @@
   "bookmark": {
     "add": "I-bookmark",
     "remove": "Kuhaa ang bookmark",
+    "saved": "Na-bookmark",
     "storageUnavailable": "Dili ma-save ang mga bookmark — dili available ang storage niini nga sesyon",
     "pageTitle": "Mga Bookmark",
     "emptyTitle": "Wala pay mga bookmark",
@@ -514,6 +516,9 @@
     "add": "Itandi",
     "remove": "Kuhaa sa pagtandi",
     "clear": "Papasa ang pagtandi",
+    "share": "Kopyaha ang link",
+    "copied": "Na-kopya ang link!",
+    "shareHint": "Mahimo usab nimong ibahagi ang pagtandi pinaagi sa pagkopya sa URL sa pahina pagkahuman sa pagpili og mga gamit.",
     "emptyTitle": "Walay napiling gamit",
     "emptyDesc": "Pagpili og labing menos 2 ka gamit gikan sa home page aron itandi kini sa kilid sa kilid.",
     "browseTools": "Tan-awa ang Mga Gamit",
