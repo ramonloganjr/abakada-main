@@ -10,7 +10,7 @@
 //
 // Run after `vite build` (a `postbuild` npm hook).
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 
@@ -132,11 +132,18 @@ for (const page of all) {
 
 console.log(`[prerender] wrote ${written} HTML shells (${STATIC_PAGES.length} static + ${toolkitPages.length} toolkits + ${toolPages.length} tools)`)
 
-// visitors.json is the live GA4 total, maintained on production by the
-// fetch-visitors workflow. Excluding it from dist/ prevents manual `dist/` uploads
-// from overwriting the freshly-fetched value with whatever was bundled at build time.
+// Keep visitors.json in dist so the Total Visitors counter is present after
+// EVERY deploy — CI or manual zip upload. (Previously this file was stripped,
+// which made the counter 404 and the badge vanish on every full deploy until
+// the next hourly fetch-visitors run.) The committed value is refreshed hourly
+// with [skip ci] by the fetch-visitors workflow — which also live-updates the
+// production file — so what ships here is at most ~1h stale and self-corrects.
 const visitorsFile = resolve(DIST, 'assets/data/visitors.json')
 if (existsSync(visitorsFile)) {
-  rmSync(visitorsFile)
-  console.log('[prerender] removed dist/assets/data/visitors.json (workflow-managed on prod)')
+  console.log('[prerender] kept dist/assets/data/visitors.json (ships with build)')
+} else {
+  // Defensive: if Vite did not copy it, emit a valid placeholder so the path
+  // never 404s. The workflow overwrites it with the live GA4 total on prod.
+  writeFileSync(visitorsFile, JSON.stringify({ totalUsers: 0, updatedAt: new Date().toISOString() }, null, 2))
+  console.log('[prerender] wrote placeholder dist/assets/data/visitors.json (was missing)')
 }

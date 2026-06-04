@@ -10,6 +10,12 @@ on:
       - '.github/workflows/sitemap-refresh.yml'
   workflow_dispatch:
 
+# Serialize deploys: never let two FTP syncs hit the same docroot at once
+# (overlapping uploads corrupt the sync state and can leave a half-deployed site).
+concurrency:
+  group: cpanel-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

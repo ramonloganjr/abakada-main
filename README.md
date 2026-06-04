@@ -665,7 +665,7 @@ Deploy the `dist/` folder verbatim — every file in it is intended to be upload
 3. In cPanel File Manager, enable **Show Hidden Files** to confirm `.htaccess` is present
 4. The `.htaccess` handles SPA routing, security headers, gzip, and cache control
 
-The repository ships an hourly GitHub Action that pulls the live GA4 visitor total and FTPS-uploads `visitors.json` directly to cPanel — see `.github/workflows/fetch-visitors.yml`. The file is stripped from `dist/` during `postbuild` so manual deploys never overwrite the workflow's freshly-fetched value.
+The repository ships an hourly GitHub Action that pulls the live GA4 visitor total, commits `visitors.json` (with `[skip ci]`), and FTPS-uploads it directly to cPanel — see `.github/workflows/fetch-visitors.yml`. `visitors.json` is **kept in `dist/`** so the Total Visitors badge is present after every deploy (CI or manual upload); the committed value is refreshed hourly by the workflow, so a build ships a value at most ~1h stale and the live file self-corrects on the next run. (Run `git pull` before a manual build to ship the freshest committed value.)
 
 > **Deploy path note (production):** On the canonical `abakada.org` host the FTP account lands in the account home and the document root is the **`abakada.org/`** folder, so both workflows use `server-dir: abakada.org/…`. It is *not* `public_html/` on this host — repointing the workflows at `public_html/` uploads to an unserved sibling directory and the file 404s. Both workflows now run a post-deploy liveness check that fails the build if the uploaded file is not reachable at its public URL.
 
