@@ -44,7 +44,10 @@ export default function Footer({ isStatic = false }) {
 
   useEffect(() => {
     fetch('/assets/data/visitors.json')
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status} fetching visitors.json`)
+        return r.json()
+      })
       .then(d => {
         if (d.totalUsers > 0) {
           setTotalUsers(d.totalUsers)
@@ -55,7 +58,9 @@ export default function Footer({ isStatic = false }) {
           setVisitorDate(`${day} ${mon} ${yr}`)
         }
       })
-      .catch(() => {})
+      // Counter is non-critical: degrade gracefully (hide badge) but leave a
+      // breadcrumb in the console so a future deploy/path regression is visible.
+      .catch(err => { console.warn('[footer] visitor count unavailable:', err.message) })
   }, [])
 
   const logoSrc = appliedTheme === 'dark'

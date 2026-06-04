@@ -667,6 +667,8 @@ Deploy the `dist/` folder verbatim — every file in it is intended to be upload
 
 The repository ships an hourly GitHub Action that pulls the live GA4 visitor total and FTPS-uploads `visitors.json` directly to cPanel — see `.github/workflows/fetch-visitors.yml`. The file is stripped from `dist/` during `postbuild` so manual deploys never overwrite the workflow's freshly-fetched value.
 
+> **Deploy path note (production):** On the canonical `abakada.org` host the FTP account lands in the account home and the document root is the **`abakada.org/`** folder, so both workflows use `server-dir: abakada.org/…`. It is *not* `public_html/` on this host — repointing the workflows at `public_html/` uploads to an unserved sibling directory and the file 404s. Both workflows now run a post-deploy liveness check that fails the build if the uploaded file is not reachable at its public URL.
+
 ### Vercel
 
 Push to your connected GitHub repository. `vercel.json` handles SPA rewrites and security headers automatically.

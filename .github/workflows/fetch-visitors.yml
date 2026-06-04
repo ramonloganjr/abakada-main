@@ -182,8 +182,36 @@ jobs:
           port: 21
           protocol: ftps
           security: loose
+          timeout: 60000
           local-dir: ./public/assets/data/
-          server-dir: public_html/assets/data/
+          # IMPORTANT: The FTP account lands in the account home and the
+          # document root for abakada.org is the `abakada.org/` folder, NOT
+          # `public_html/` (which is an unserved sibling directory on this host).
+          # Do NOT "correct" this to public_html/ — doing so uploads to a path
+          # that is never served, returning 404 and hiding the visitor badge.
+          # Verified via the live .ftp-deploy-sync-state.json at the web root.
+          server-dir: abakada.org/assets/data/
           exclude: |
             **
             !visitors.json
+
+      # Fail loudly if the file is not actually reachable at the public URL.
+      # This turns a silent wrong-path deploy (the exact bug this fixes) into a
+      # red build instead of an invisible 404.
+      - name: Verify visitors.json is live
+        if: steps.fetch.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          url="https://abakada.org/assets/data/visitors.json?cb=${GITHUB_RUN_ID}"
+          echo "Verifying ${url}"
+          for attempt in 1 2 3 4 5; do
+            body="$(curl -fsSL -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' --max-time 20 "$url" || true)"
+            users="$(printf '%s' "$body" | grep -oE '"totalUsers"[[:space:]]*:[[:space:]]*[0-9]+' | grep -oE '[0-9]+' || true)"
+            if [ -n "$users" ] && [ "$users" -gt 0 ] 2>/dev/null; then
+              echo "OK: live visitors.json reports totalUsers=${users}"
+              exit 0
+            fi
+            echo "Attempt ${attempt}: not live yet (FTP/propagation), retrying in 15s..."
+            sleep 15
+          done
+          echo "ERROR: visitors.json did not become reachable with a positive totalUsers."
+          exit 1

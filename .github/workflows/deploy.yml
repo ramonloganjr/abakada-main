@@ -39,5 +39,26 @@ jobs:
           port: 21
           protocol: ftps
           security: loose
+          timeout: 60000
           local-dir: ./dist/
-          server-dir: public_html/
+          # IMPORTANT: The FTP account lands in the account home and the
+          # document root for abakada.org is the `abakada.org/` folder, NOT
+          # `public_html/` (an unserved sibling on this host). The last good
+          # full deploy used `abakada.org/` and its sync-state landed at the
+          # live web root, confirming this is the served directory.
+          # Do NOT change this to public_html/.
+          server-dir: abakada.org/
+
+      - name: Verify homepage is live
+        run: |
+          for attempt in 1 2 3 4 5; do
+            code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://abakada.org/?cb=${GITHUB_RUN_ID}" || true)"
+            if [ "$code" = "200" ]; then
+              echo "OK: homepage returned 200"
+              exit 0
+            fi
+            echo "Attempt ${attempt}: homepage returned ${code}, retrying in 15s..."
+            sleep 15
+          done
+          echo "ERROR: homepage did not return 200 after deploy."
+          exit 1
