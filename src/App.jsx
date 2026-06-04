@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, useLayoutEffect, lazy, Suspense } from 'react'
 import { Routes, Route, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { I18nProvider, useI18n } from './contexts/I18nContext'
@@ -155,14 +155,19 @@ function AppContent() {
   const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths']
   const isStaticSidebarPage = STATIC_SIDEBAR_PATHS.includes(normalizedPath) || normalizedPath.startsWith('/learning-paths/')
 
-  // Sync body class for sidebar collapsed state (desktop only)
-  useEffect(() => {
+  // Sync body class for sidebar collapsed state (desktop only).
+  // useLayoutEffect (not useEffect) so the class lands BEFORE the first paint —
+  // otherwise the sidebar paints expanded for one frame and then slides shut,
+  // flashing the panel and animating .site-main's margin on initial load.
+  useLayoutEffect(() => {
     document.body.classList.toggle('sidebar-collapsed', sidebarCollapsed && isStaticSidebarPage)
     return () => document.body.classList.remove('sidebar-collapsed')
   }, [sidebarCollapsed, isStaticSidebarPage])
 
-  // Apply static-page class to body for non-home routes
-  useEffect(() => {
+  // Apply static-page class to body for non-home routes.
+  // Also pre-paint: body.static-page zeroes .site-main's sidebar margin, so a
+  // post-paint toggle would shift content 280px -> 0 on the first frame.
+  useLayoutEffect(() => {
     if (isHome) {
       document.body.classList.remove('static-page')
     } else {
