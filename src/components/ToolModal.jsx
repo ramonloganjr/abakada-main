@@ -189,6 +189,12 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
             <Icon name={bookmarked ? 'bookmark-filled' : 'bookmark'} collection="category" size={14} />
             {bookmarked ? t('bookmark.saved', 'Saved') : t('bookmark.add', 'Save')}
           </button>
+          {tool.web_try_url && isSafeUrl(tool.web_try_url) && (
+            <a href={tool.web_try_url} target="_blank" rel="noopener noreferrer" className="btn btn--try-browser">
+              <Icon name="play-circle" collection="ui" size={14} />
+              {t('tools.tryInBrowser', 'Try in Browser')}
+            </a>
+          )}
           {tool.website && isSafeUrl(tool.website) && (
             <a href={tool.website} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
               {t('tools.visitWebsite', 'Visit Website & Download')}

@@ -104,13 +104,26 @@ export function ThemeProvider({ children }) {
       // html.theme-switching gates the ::view-transition CSS so it ONLY fires
       // for our explicit switches — never for browser navigation or page load.
       root.classList.add('theme-switching')
-      const vt = document.startViewTransition(() => {
+      try {
+        const vt = document.startViewTransition(() => {
+          root.setAttribute('data-theme', newApplied)
+          // flushSync commits React's re-render synchronously so the new
+          // active-button state (thumb position) is captured in the new snapshot.
+          flushSync(() => setThemeState(t))
+        })
+        vt.finished.finally(() => root.classList.remove('theme-switching'))
+      } catch {
+        // startViewTransition can throw on some browsers mid-transition;
+        // fall through to the class-based sweep instead.
+        root.classList.remove('theme-switching')
+        setThemeState(t)
+        root.classList.add('theme-transitioning')
         root.setAttribute('data-theme', newApplied)
-        // flushSync commits React's re-render synchronously so the new
-        // active-button state (thumb position) is captured in the new snapshot.
-        flushSync(() => setThemeState(t))
-      })
-      vt.finished.finally(() => root.classList.remove('theme-switching'))
+        transitionTimer.current = setTimeout(
+          () => root.classList.remove('theme-transitioning'),
+          FALLBACK_MS
+        )
+      }
     } else {
       // ─── Fallback: class-based colour sweep ───────────────────────────────
       setThemeState(t)

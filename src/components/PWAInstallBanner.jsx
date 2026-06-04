@@ -13,6 +13,7 @@ function isIOS() {
 export default function PWAInstallBanner() {
   const { canInstall, isStandalone, triggerInstall } = usePWAInstall()
   const [visible, setVisible] = useState(false)
+  const [installError, setInstallError] = useState(false)
   const ios = isIOS()
 
   useEffect(() => {
@@ -40,8 +41,14 @@ export default function PWAInstallBanner() {
   }
 
   async function handleInstall() {
-    const outcome = await triggerInstall()
-    if (outcome === 'accepted' || outcome === null) dismiss()
+    setInstallError(false)
+    try {
+      const outcome = await triggerInstall()
+      if (outcome === 'accepted' || outcome === null) dismiss()
+    } catch (err) {
+      console.warn('[pwa] Install failed:', err?.message)
+      setInstallError(true)
+    }
   }
 
   return (
@@ -70,6 +77,11 @@ export default function PWAInstallBanner() {
           <button type="button" className="btn btn--primary btn--sm" onClick={handleInstall}>
             Install
           </button>
+        )}
+        {installError && (
+          <span className="pwa-banner__error" role="alert">
+            Installation unavailable in this browser
+          </span>
         )}
         <button type="button" className="btn btn--ghost btn--sm" onClick={dismiss}>
           {ios ? 'Dismiss' : 'Not now'}

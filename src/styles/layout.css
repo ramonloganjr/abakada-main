@@ -920,33 +920,62 @@ body.nav-open .sidebar {
   opacity: 1;
 }
 
-/* ElevenLabs Startup Grants badge — homepage footer only.
-   Theme-aware SVG swap is handled in Footer.jsx (light/dark variants
-   under /public/assets/elevenlabs/). aspect-ratio locks the box so the
-   layout never shifts even if the SVG paints late. */
-.footer-elevenlabs {
-  display: inline-block;
-  margin-top: var(--space-4);
-  line-height: 0;
+/* Featured In — press/media strip, full-width below the main columns */
+.footer-press {
+  padding-top: var(--space-8);
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--border-primary);
 }
 
-.footer-elevenlabs__img {
-  width: 160px;
-  height: auto;
-  aspect-ratio: 694 / 90;
+.footer-press__label {
   display: block;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  margin-bottom: var(--space-4);
 }
 
-.footer-elevenlabs:hover .footer-elevenlabs__img,
-.footer-elevenlabs:focus-visible .footer-elevenlabs__img {
+.footer-press__logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-8);
+}
+
+.footer-press__link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  opacity: 0.55;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-press__link:hover,
+.footer-press__link:focus-visible {
   opacity: 1;
+  outline-offset: 4px;
 }
 
-@media (max-width: 768px) {
-  .footer-elevenlabs__img {
-    width: 140px;
+.footer-press__img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .footer-press {
+    text-align: center;
+  }
+
+  .footer-press__logos {
+    justify-content: center;
+    gap: var(--space-4) var(--space-6);
+  }
+
+  .footer-press__img {
+    height: 32px;
   }
 }
 

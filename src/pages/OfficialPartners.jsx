@@ -17,6 +17,12 @@ const PARTNERS = [
     logo: '/assets/partner/vaultera-labs.png',
     url: 'https://vaulteralabs.com/',
   },
+  {
+    name: 'ElevenLabs',
+    logoLight: '/assets/partner/elevenlabs-logo-black-for-light-mode.svg',
+    logoDark:  '/assets/partner/elevenlabs-logo-white-for-dark-mode.svg',
+    url: 'https://elevenlabs.io/startup-grants',
+  },
 ]
 
 function PartnerCard({ partner, appliedTheme }) {
@@ -92,7 +98,7 @@ export default function OfficialPartners() {
 
         <section className="content-section content-section--alt">
           <div className="container">
-            <div className="partner-grid partner-grid--2col">
+            <div className="partner-grid partner-grid--lg">
               {PARTNERS.map((partner) => (
                 <PartnerCard key={partner.name} partner={partner} appliedTheme={appliedTheme} />
               ))}

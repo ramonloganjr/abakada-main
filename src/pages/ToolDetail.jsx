@@ -31,7 +31,7 @@ function buildFAQ(tool) {
   ]
 }
 
-export default function ToolDetail({ toolsData = { tools: [], categories: [] } }) {
+export default function ToolDetail({ toolsData = { tools: [], categories: [] }, hasToolsData = false }) {
   const { toolId } = useParams()
   const { t, lang } = useI18n()
 
@@ -48,6 +48,23 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] } }
   }, [toolsData.tools, tool])
 
   if (!tool) {
+    // If tools data never loaded successfully, the tool may still exist —
+    // show a recoverable error instead of a permanent "not found" page.
+    if (!hasToolsData) {
+      return (
+        <StaticPageLayout breadcrumb={t('common.error', 'Error')} heroTitle="">
+          <section className="content-section">
+            <div className="container">
+              <p>Could not load tool data. Check your connection and try again.</p>
+              <button type="button" className="btn btn--primary" onClick={() => window.location.reload()}>
+                Retry
+              </button>
+            </div>
+          </section>
+        </StaticPageLayout>
+      )
+    }
+
     return (
       <StaticPageLayout breadcrumb={t('tools.notFound', 'Tool not found')} heroTitle={t('tools.notFound', 'Tool not found')}>
         <section className="content-section">

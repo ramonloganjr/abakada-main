@@ -8,20 +8,17 @@ import ToolModal from '../components/ToolModal'
 import Icon from '../components/Icon'
 import SEO from '../components/SEO'
 import BrandLoader from '../components/BrandLoader'
+import CompletionCertificate from '../components/CompletionCertificate'
 import { buildLearningPathMeta } from '../lib/pageMeta'
-
-const DIFFICULTY_LABEL = {
-  beginner: 'Beginner',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
-}
 
 export default function LearningPathDetail({ toolsData = { tools: [], categories: [] } }) {
   const { toolkitId } = useParams()
   const { t, lang } = useI18n()
+  const diffLabel = (d) => t(`learningPaths.${d}`, d.charAt(0).toUpperCase() + d.slice(1))
   const [data, setData] = useState({ toolkit: null, track: null })
   const [curriculumStrands, setCurriculumStrands] = useState([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const { markExplored, unmarkExplored, isExplored } = useProgress(toolkitId)
   const [selectedTool, setSelectedTool] = useState(null)
   const [openStageId, setOpenStageId] = useState(null)
@@ -33,19 +30,30 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
   })
 
   useEffect(() => {
-    Promise.all([
-      fetch('/assets/data/learning-paths.json').then(r => r.json()),
-      fetch('/assets/data/curriculum.json').then(r => r.json()),
-    ]).then(([lp, cur]) => {
-      const tk = (lp.toolkits || []).find(t => t.id === toolkitId)
-      const tr = tk ? (lp.tracks || []).find(x => x.id === tk.track) : null
-      setData({ toolkit: tk || null, track: tr || null })
-      setCurriculumStrands(cur.strands || [])
-      setLoading(false)
-      if (tk && tk.stages.length > 0) {
-        setOpenStageId(tk.stages[0].id)
-      }
-    }).catch(() => setLoading(false))
+    const required = fetch('/assets/data/learning-paths.json').then(r => {
+      if (!r.ok) throw new Error(`learning-paths.json: HTTP ${r.status}`)
+      return r.json()
+    })
+    const optional = fetch('/assets/data/curriculum.json')
+      .then(r => r.ok ? r.json() : { strands: [] })
+      .catch(() => ({ strands: [] }))
+
+    Promise.all([required, optional])
+      .then(([lp, cur]) => {
+        const tk = (lp.toolkits || []).find(t => t.id === toolkitId)
+        const tr = tk ? (lp.tracks || []).find(x => x.id === tk.track) : null
+        setData({ toolkit: tk || null, track: tr || null })
+        setCurriculumStrands(cur.strands || [])
+        setLoading(false)
+        if (tk && tk.stages.length > 0) {
+          setOpenStageId(tk.stages[0].id)
+        }
+      })
+      .catch(err => {
+        console.error('[LearningPathDetail] Failed to load required data:', err.message)
+        setLoadError(true)
+        setLoading(false)
+      })
   }, [toolkitId])
 
   useEffect(() => {
@@ -75,6 +83,19 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
     return (
       <StaticPageLayout breadcrumb={t('common.loading', 'Loading')} heroTitle="">
         <BrandLoader variant="block" ariaLabel={t('common.loading', 'Loading')} />
+      </StaticPageLayout>
+    )
+  }
+
+  if (loadError) {
+    return (
+      <StaticPageLayout breadcrumb={t('common.error', 'Error')} heroTitle="">
+        <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
+          <p>Could not load this learning path. Check your connection and try again.</p>
+          <button type="button" className="btn btn--primary" style={{ marginTop: '1rem' }} onClick={() => window.location.reload()}>
+            Retry
+          </button>
+        </div>
       </StaticPageLayout>
     )
   }
@@ -149,7 +170,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                       <span className="lp-card__difficulty-dots" aria-hidden="true">
                         <span /><span /><span />
                       </span>
-                      {DIFFICULTY_LABEL[toolkit.difficulty] || toolkit.difficulty}
+                      {diffLabel(toolkit.difficulty)}
                     </span>
                   )}
                   {toolkit.duration && (
@@ -167,7 +188,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                 <div className="lpj-outcomes">
                   <h2 className="lpj-outcomes__title">
                     <Icon name="target" collection="ui" size={14} />
-                    By the end, you'll be able to:
+                    {t('learningPaths.byTheEnd', "By the end, you'll be able to:")}
                   </h2>
                   <ul className="lpj-outcomes__list">
                     {toolkit.outcomes.map((o, i) => (
@@ -192,16 +213,16 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                   <div className="lpj-curriculum" aria-label="Curriculum alignment">
                     <h2 className="lpj-curriculum__title">
                       <Icon name="graduation-cap" collection="category" size={14} />
-                      Curriculum Alignment
+                      {t('learningPaths.curriculumAlignment', 'Curriculum Alignment')}
                     </h2>
                     <p className="lpj-curriculum__intro">
-                      This pathway is aligned with the following DepEd and CHED frameworks, making it directly applicable to your coursework and learning goals.
+                      {t('learningPaths.curriculumAlignedIntro', 'This pathway is aligned with the following DepEd and CHED frameworks, making it directly applicable to your coursework and learning goals.')}
                     </p>
                     {k12.length > 0 && (
                       <div className="lpj-curriculum__group">
                         <span className="lpj-curriculum__group-label">
-                          <span className="lp-curriculum__authority lp-curriculum__authority--deped">DepEd</span>
-                          K-12 Senior High School
+                          <span className="lp-curriculum__authority lp-curriculum__authority--deped">{t('learningPaths.depedLabel', 'DepEd')}</span>
+                          {t('learningPaths.k12Label', 'K-12 Senior High School')}
                         </span>
                         <div className="lpj-curriculum__tags">
                           {k12.map(s => (
@@ -217,8 +238,8 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                     {ched.length > 0 && (
                       <div className="lpj-curriculum__group">
                         <span className="lpj-curriculum__group-label">
-                          <span className="lp-curriculum__authority lp-curriculum__authority--ched">CHED</span>
-                          Higher Education Programs
+                          <span className="lp-curriculum__authority lp-curriculum__authority--ched">{t('learningPaths.chedLabel', 'CHED')}</span>
+                          {t('learningPaths.higherEdLabel', 'Higher Education Programs')}
                         </span>
                         <div className="lpj-curriculum__tags">
                           {ched.map(s => (
@@ -253,28 +274,25 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                 </svg>
                 <div className="lpj-progress__ring-label">
                   <strong>{overallPct}%</strong>
-                  <span>complete</span>
+                  <span>{t('learningPaths.complete', 'complete')}</span>
                 </div>
               </div>
               <ul className="lpj-progress__stats">
                 <li>
                   <Icon name="check-circle" collection="ui" size={14} />
-                  <span><strong>{completedStages}</strong> / {totalStages} stages cleared</span>
+                  <span><strong>{completedStages}</strong> / {totalStages} {t('learningPaths.stagesCleared', 'stages cleared')}</span>
                 </li>
                 <li>
                   <Icon name="wrench" collection="ui" size={14} />
-                  <span><strong>{exploredCount}</strong> / {totalTools} tools explored</span>
+                  <span><strong>{exploredCount}</strong> / {totalTools} {t('learningPaths.toolsExplored', 'tools explored')}</span>
                 </li>
                 <li>
                   <Icon name="list-checks" collection="ui" size={14} />
-                  <span><strong>{completedTaskCount}</strong> hands-on tasks done</span>
+                  <span><strong>{completedTaskCount}</strong> {t('learningPaths.tasksDone', 'hands-on tasks done')}</span>
                 </li>
               </ul>
               {overallPct === 100 && (
-                <div className="lpj-progress__celebrate" role="status">
-                  <Icon name="award" collection="ui" size={16} />
-                  Pathway mastered. Share your wins.
-                </div>
+                <CompletionCertificate toolkit={toolkit} />
               )}
             </aside>
           </div>
@@ -346,7 +364,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                         <div className="lpj-block">
                           <h3 className="lpj-block__title">
                             <Icon name="target" collection="ui" size={13} />
-                            Learning objectives
+                            {t('learningPaths.learningObjectives', 'Learning objectives')}
                           </h3>
                           <ul className="lpj-objectives">
                             {stage.objectives.map((obj, i) => (
@@ -363,7 +381,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                         <div className="lpj-block">
                           <h3 className="lpj-block__title">
                             <Icon name="list-checks" collection="ui" size={13} />
-                            Hands-on tasks
+                            {t('learningPaths.handsonTasks', 'Hands-on tasks')}
                           </h3>
                           <ul className="lpj-tasks">
                             {stage.tasks.map((task, i) => {
@@ -390,7 +408,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                       <div className="lpj-block">
                         <h3 className="lpj-block__title">
                           <Icon name="wrench" collection="ui" size={13} />
-                          Recommended tools
+                          {t('learningPaths.recommendedTools', 'Recommended tools')}
                         </h3>
                         <div className="grid grid--tools learning-path-tools-grid">
                           {stageTools.map(tool => (
@@ -413,7 +431,10 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                             <Icon name="award" collection="ui" size={20} />
                           </span>
                           <div className="lpj-milestone__copy">
-                            <strong>Stage complete.</strong> {idx + 1 < toolkit.stages.length ? "You've earned the next stage." : "You've completed the pathway."}
+                            <strong>{t('learningPaths.stageComplete', 'Stage complete.')}</strong>{' '}
+                            {idx + 1 < toolkit.stages.length
+                              ? t('learningPaths.earnedNextStage', "You've earned the next stage.")
+                              : t('learningPaths.completedPathway', "You've completed the pathway.")}
                           </div>
                           {idx + 1 < toolkit.stages.length && (
                             <button type="button" className="btn btn--secondary btn--sm"
@@ -424,7 +445,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                                   document.getElementById(`stage-${nextStage.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
                                 })
                               }}>
-                              Next stage
+                              {t('learningPaths.nextStage', 'Next stage')}
                               <Icon name="chevron-right" collection="ui" size={12} aria-hidden="true" />
                             </button>
                           )}
@@ -441,9 +462,18 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
               <Icon name="chevron-left" collection="ui" size={14} />
               {t('learningPaths.backToAll', 'Back to Learning Paths')}
             </Link>
+            <button
+              type="button"
+              className="btn btn--secondary btn--sm no-print"
+              onClick={() => window.print()}
+              aria-label={t('learningPaths.printChecklist', 'Print Checklist')}
+            >
+              <Icon name="printer" collection="ui" size={14} aria-hidden="true" />
+              {t('learningPaths.printChecklist', 'Print Checklist')}
+            </button>
             {overallPct < 100 && (
               <p className="lpj-footer__nudge">
-                Consistency beats intensity — even 15 minutes a day will get you there.
+                {t('learningPaths.motivationNudge', 'Consistency beats intensity — even 15 minutes a day will get you there.')}
               </p>
             )}
           </div>

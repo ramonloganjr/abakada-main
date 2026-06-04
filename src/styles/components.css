@@ -6962,6 +6962,11 @@ a:focus-visible svg {
   }
 }
 
+/* Active route state — icon adopts accent color (mirrors nav-badge accent on Bookmarks/Compare) */
+.header-nav-btn--active {
+  color: var(--accent-primary);
+}
+
 /* Hide these header controls on mobile — they live in the sidebar instead */
 @media (max-width: 1023px) {
   .header-install-btn,
@@ -7217,24 +7222,6 @@ a:focus-visible svg {
   display: flex;
   flex-direction: column;
 }
-.partnership-tier--featured {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 1px var(--accent-primary), 0 16px 40px -16px rgba(3,170,191,0.25);
-}
-.partnership-tier--featured::before {
-  content: 'Recommended';
-  position: absolute;
-  top: -10px;
-  left: 1.5rem;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.625rem;
-  border-radius: 0.375rem;
-  background: var(--accent-primary);
-  color: var(--color-on-accent);
-}
 .partnership-tier__icon {
   width: 44px;
   height: 44px;
@@ -7293,4 +7280,574 @@ a:focus-visible svg {
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+}
+
+/* ==========================================================================
+   Try in Browser — ToolModal + LearningToolCard button
+   ========================================================================== */
+
+.btn--try-browser {
+  background: var(--accent-subtle);
+  color: var(--accent-primary);
+  border: 1px solid rgba(16, 127, 135, 0.3);
+  font-weight: var(--font-weight-semibold);
+}
+.btn--try-browser:hover:not(:disabled) {
+  background: var(--accent-primary);
+  color: #fff;
+  border-color: transparent;
+}
+.btn--try-browser svg {
+  color: inherit;
+  stroke: inherit;
+}
+
+.learning-tool-card__try-btn {
+  color: var(--accent-primary) !important;
+}
+.learning-tool-card__try-btn:hover {
+  background: var(--accent-subtle) !important;
+  color: var(--accent-primary) !important;
+}
+
+/* ==========================================================================
+   Completion Certificate — trigger, modal, and printable certificate
+   ========================================================================== */
+
+/* ── Trigger (replaces celebrate banner in progress sidebar) ── */
+.cert-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(135deg, var(--accent-subtle), transparent);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+.cert-trigger__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-accent);
+}
+.cert-trigger__copy {
+  flex: 1;
+  min-width: 140px;
+}
+.cert-trigger__copy strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: 0.125rem;
+}
+.cert-trigger__copy p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* ── Certificate modal overlay ── */
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+.cert-modal__inner {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-primary);
+  padding: var(--space-6);
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.cert-modal__controls {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.cert-modal__name-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 200px;
+}
+.cert-modal__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+.cert-modal__optional {
+  font-weight: var(--font-weight-normal);
+  color: var(--text-muted);
+}
+.cert-modal__input {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+.cert-modal__input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+.cert-modal__btns {
+  display: flex;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+/* ── The printable certificate itself ── */
+.certificate {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #1a1a1a;
+}
+.certificate__outer {
+  border: 3px double #107f87;
+  border-radius: 4px;
+  padding: 6px;
+  background: #fff;
+}
+.certificate__inner {
+  border: 1px solid #107f87;
+  border-radius: 2px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: #fff;
+}
+.certificate__logo {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #107f87;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.certificate__heading {
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 2rem;
+}
+.certificate__presented-to {
+  font-size: 0.875rem;
+  color: #777;
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+.certificate__name {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  min-height: 2.75rem;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 0.375rem;
+  margin: 0 auto 1.5rem;
+  max-width: 480px;
+  line-height: 1.2;
+}
+.certificate__name-blank {
+  color: #bbb;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+}
+.certificate__completed-text {
+  font-size: 0.875rem;
+  color: #777;
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+.certificate__path-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #107f87;
+  margin-bottom: 0.375rem;
+}
+.certificate__path-tagline {
+  font-size: 0.9375rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.certificate__meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.certificate__date {
+  font-size: 0.875rem;
+  color: #555;
+}
+.certificate__duration {
+  font-size: 0.875rem;
+  color: #777;
+}
+.certificate__seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #107f87;
+  color: #107f87;
+  margin-bottom: 1rem;
+}
+.certificate__footer-line {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Print Layout — learning path checklist + certificate
+   ========================================================================== */
+
+@media print {
+  /* Hide everything except the learning path content and certificate */
+  header,
+  footer,
+  nav,
+  .sidebar,
+  .pwa-banner,
+  .pwa-install-banner,
+  .static-page-layout__hero,
+  .static-page-layout__breadcrumb,
+  .lpj-progress__ring,
+  .lpj-stage__chevron,
+  .lpj-milestone,
+  .lpj-footer,
+  .tool-modal,
+  .modal-backdrop,
+  .lp-card,
+  .btn--secondary,
+  .btn--ghost,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  /* Header with title and progress summary */
+  .lpj-header {
+    display: block !important;
+  }
+  .lpj-header__main {
+    width: 100% !important;
+  }
+  .lpj-header__tagline {
+    font-size: 1rem;
+    color: #333 !important;
+  }
+  .lpj-header__description {
+    color: #555 !important;
+    margin-bottom: 1rem;
+  }
+  .lpj-outcomes {
+    margin-bottom: 1rem;
+  }
+
+  /* Stages — collapse accordion, show all content */
+  .lpj-stages {
+    list-style: none;
+    padding: 0;
+  }
+  .lpj-stage {
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    margin-bottom: 0.75rem !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .lpj-stage__body {
+    display: block !important; /* override hidden attr */
+  }
+  .lpj-stage__header {
+    background: none !important;
+    border: none !important;
+    padding: 0.75rem !important;
+  }
+  .lpj-stage__bar,
+  .lpj-stage__state,
+  .lpj-stage__pct {
+    display: none !important;
+  }
+
+  /* Tasks — render as printable checkboxes */
+  .lpj-tasks {
+    padding-left: 0.5rem !important;
+  }
+  .lpj-task {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin-bottom: 0.25rem;
+    break-inside: avoid;
+  }
+  .lpj-task label {
+    gap: 0.5rem !important;
+    padding: 0.25rem 0 !important;
+    font-size: 10pt !important;
+  }
+  .lpj-task input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px !important;
+    height: 14px !important;
+    border: 1.5px solid #555 !important;
+    border-radius: 2px !important;
+    flex-shrink: 0 !important;
+    background: #fff !important;
+  }
+  .lpj-task--done label span {
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+  .lpj-task--done input[type="checkbox"] {
+    background: #107f87 !important;
+    border-color: #107f87 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Tool names in stage — compact list */
+  .lpj-block {
+    padding-top: 0.5rem !important;
+  }
+  .grid.grid--tools {
+    display: block !important;
+  }
+  .learning-path-tools-grid {
+    display: block !important;
+  }
+  .learning-path-stage__tool-wrapper {
+    display: inline !important;
+  }
+  .learning-tool-card {
+    display: none !important; /* too complex to print — tool names shown via tasks */
+  }
+
+  /* URL printed at bottom of page */
+  .lpj-header::after {
+    content: "abakada.org/learning-paths";
+    display: block;
+    font-size: 8pt;
+    color: #999;
+    margin-top: 0.5rem;
+  }
+
+  /* Certificate — full page when printing from cert modal */
+  .cert-modal {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+  }
+  .cert-modal__inner {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .cert-modal__controls {
+    display: none !important;
+  }
+  .certificate {
+    page-break-before: always;
+  }
+  .certificate__outer {
+    border: 3px double #107f87 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .certificate__inner {
+    border: 1px solid #107f87 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .certificate__logo,
+  .certificate__path-title,
+  .certificate__seal {
+    color: #107f87 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ==========================================================================
+   Tool Detail Page
+   ========================================================================== */
+
+.content-section {
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.tool-detail {
+  max-width: 760px;
+}
+
+.tool-detail__header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.tool-detail__definition {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+}
+
+.tool-detail__byline {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+/* Metadata definition list */
+.tool-detail__meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-2) var(--space-6);
+  margin: 0 0 var(--space-6);
+  padding: var(--space-5);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+}
+
+.tool-detail__meta dt {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  padding: var(--space-1) 0;
+  white-space: nowrap;
+}
+
+.tool-detail__meta dd {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  margin: 0;
+  padding: var(--space-1) 0;
+}
+
+@media (max-width: 480px) {
+  .tool-detail__meta {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+
+  .tool-detail__meta dt {
+    margin-top: var(--space-2);
+    color: var(--text-tertiary);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tool-detail__meta dt:first-child {
+    margin-top: 0;
+  }
+}
+
+.tool-detail__cta {
+  margin: 0 0 var(--space-8);
+}
+
+.tool-detail__faq {
+  margin-bottom: var(--space-8);
+}
+
+.tool-detail__faq > h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-5);
+}
+
+.tool-detail__faq .faq-item {
+  margin-bottom: var(--space-4);
+}
+
+.tool-detail__related {
+  margin-bottom: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-primary);
+}
+
+.tool-detail__related > h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.tool-detail__related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tool-detail__related-list li a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.tool-detail__related-list li a:hover {
+  border-color: var(--accent-primary);
+  background: var(--accent-subtle);
+  color: var(--accent-primary);
+}
+
+.tool-detail__related-list li a strong {
+  color: var(--accent-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tool-detail__source {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-primary);
 }

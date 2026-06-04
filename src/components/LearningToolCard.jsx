@@ -106,6 +106,19 @@ function LearningToolCardInner({ tool, categoryIcon, onInfoClick, isExplored }) 
           >
             {inComparison ? t('compare.added', 'Added') : atMax ? t('compare.full', 'Full') : t('compare.add', 'Compare')}
           </button>
+          {isSafeUrl(tool.web_try_url) && (
+            <a
+              href={tool.web_try_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="learning-tool-card__action-btn learning-tool-card__try-btn"
+              aria-label={`Try ${tool.name} in browser`}
+              title="Try in browser — no install needed"
+              onClick={e => e.stopPropagation()}
+            >
+              <Icon name="play-circle" collection="ui" size={15} />
+            </a>
+          )}
           {hasWebsite && (
             <a
               href={tool.website}

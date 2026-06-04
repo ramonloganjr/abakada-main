@@ -36,6 +36,7 @@ export function I18nProvider({ children }) {
   })
 
   const [translations, setTranslations] = useState({})
+  const [translationError, setTranslationError] = useState(false)
   const cacheRef = useRef({})
 
   // Sync lang with URL on every navigation.
@@ -52,21 +53,42 @@ export function I18nProvider({ children }) {
 
     if (cacheRef.current[lang]) {
       setTranslations(cacheRef.current[lang])
+      setTranslationError(false)
       return
     }
 
     let cancelled = false
-    fetch(`/assets/data/translations/${lang}.json`)
-      .then(r => r.ok ? r.json() : null)
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 8000)
+
+    fetch(`/assets/data/translations/${lang}.json`, { signal: controller.signal })
+      .then(r => {
+        if (!r.ok) throw new Error(`Translations ${lang}: HTTP ${r.status}`)
+        return r.json()
+      })
       .then(data => {
-        if (!cancelled && data) {
+        if (!cancelled) {
           cacheRef.current[lang] = data
           setTranslations(data)
+          setTranslationError(false)
         }
       })
-      .catch(() => {})
+      .catch(err => {
+        if (cancelled) return
+        if (err.name === 'AbortError') {
+          console.warn(`[i18n] Translation fetch timed out for "${lang}"`)
+        } else {
+          console.error('[i18n] Failed to load translations:', err.message)
+        }
+        // UI falls back to English fallback strings already in the t() calls
+        setTranslationError(true)
+      })
+      .finally(() => clearTimeout(timeout))
 
-    return () => { cancelled = true }
+    return () => {
+      cancelled = true
+      controller.abort()
+    }
   }, [lang])
 
   const t = useCallback((key, fallback = '') => {
@@ -94,7 +116,7 @@ export function I18nProvider({ children }) {
   }
 
   return (
-    <I18nContext.Provider value={{ lang, t, setLanguage, supportedLangs: SUPPORTED_LANGS }}>
+    <I18nContext.Provider value={{ lang, t, setLanguage, supportedLangs: SUPPORTED_LANGS, translationError }}>
       {children}
     </I18nContext.Provider>
   )

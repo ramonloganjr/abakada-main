@@ -7,6 +7,33 @@ import { downloadFile } from '../lib/downloadFile'
 const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
 const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
 
+const PRESS = [
+  {
+    name: 'GMA News Online',
+    logoLight: '/assets/press/gma-news-online-light.png',
+    logoDark:  '/assets/press/gma-news-online-dark.png',
+    url: 'https://www.gmanetwork.com/news/pinoyabroad/dispatch/989216/ofw-developersoftware-hub-filipino-students/story/',
+  },
+  {
+    name: 'The Global Filipino Magazine',
+    logoLight: '/assets/press/the-global-filipino-magazine-dubai-light.png',
+    logoDark:  '/assets/press/the-global-filipino-magazine-dubai-dark.png',
+    url: 'https://theglobalfilipinomagazine.com/the-advocate-behind-a-growing-free-tech-movement-in-philippine-education/',
+  },
+  {
+    name: 'Walastech',
+    logoLight: '/assets/press/walastech-light.png',
+    logoDark:  '/assets/press/walastech-dark.png',
+    url: 'https://walastech.com/news/abakada-org-wants-to-close-the-software-gap-in-philippine-schools/',
+  },
+  {
+    name: 'Bombo Radyo',
+    logoLight: '/assets/press/bombo-radyo-light.png',
+    logoDark:  '/assets/press/bombo-radyo-dark.png',
+    url: 'https://tuguegarao.bomboradyo.com/ofw-developer-naglunsad-ng-libreng-software-hub-para-sa-mga-estudyanteng-pilipino/',
+  },
+]
+
 export default function Footer({ isStatic = false }) {
   const { appliedTheme } = useTheme()
   const { t } = useI18n()
@@ -130,32 +157,33 @@ export default function Footer({ isStatic = false }) {
                 <Link to="/partnerships" className="footer-link">{t('footer.partnerships', 'Partnerships')}</Link>
                 <Link to="/contact" className="footer-link">{t('footer.contact', 'Contact')}</Link>
               </nav>
-              {/* ElevenLabs Startup Grants — homepage footer only.
-                  Uses local theme-aware SVGs from /public/assets/elevenlabs/
-                  to avoid third-party CDN dependency and CLS. */}
-              {!isStatic && (
+            </div>
+          </div>
+
+          {/* Featured In — press coverage strip */}
+          <div className="footer-press">
+            <span className="footer-press__label">Featured In</span>
+            <div className="footer-press__logos">
+              {PRESS.map(item => (
                 <a
-                  href="https://elevenlabs.io/startup-grants"
+                  key={item.name}
+                  href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-elevenlabs"
-                  aria-label="ElevenLabs Startup Grants"
+                  className="footer-press__link"
+                  aria-label={`Read Abakada coverage on ${item.name}`}
                 >
                   <img
-                    src={
-                      appliedTheme === 'dark'
-                        ? '/assets/elevenlabs/elevenlabs-logo-white-for-dark-mode.svg'
-                        : '/assets/elevenlabs/elevenlabs-logo-black-for-light-mode.svg'
-                    }
-                    alt="ElevenLabs"
-                    className="footer-elevenlabs__img"
-                    width="160"
-                    height="21"
+                    src={appliedTheme === 'dark' ? item.logoDark : item.logoLight}
+                    alt={item.name}
+                    className="footer-press__img"
                     loading="lazy"
                     decoding="async"
+                    height="24"
+                    width="auto"
                   />
                 </a>
-              )}
+              ))}
             </div>
           </div>
         </div>

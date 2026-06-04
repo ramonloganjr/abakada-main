@@ -8,12 +8,6 @@ import SEO from '../components/SEO'
 import BrandLoader from '../components/BrandLoader'
 import { pageMeta } from '../lib/pageMeta'
 
-const DIFFICULTY_LABEL = {
-  beginner: 'Beginner',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
-}
-
 function getProgress(toolkitId) {
   try {
     const raw = localStorage.getItem(`abakada_progress_${toolkitId}`)
@@ -28,6 +22,7 @@ export default function LearningPaths() {
   const [data, setData] = useState({ toolkits: [], tracks: [] })
   const [curriculum, setCurriculum] = useState({ categories: [], strands: [] })
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [showOnboarding, setShowOnboarding] = useState(false)
   const [activeTrack, setActiveTrack] = useState('all')
   const [activeDifficulty, setActiveDifficulty] = useState('all')
@@ -36,14 +31,25 @@ export default function LearningPaths() {
   const [query, setQuery] = useState('')
 
   useEffect(() => {
-    Promise.all([
-      fetch('/assets/data/learning-paths.json').then(r => r.json()),
-      fetch('/assets/data/curriculum.json').then(r => r.json()),
-    ]).then(([lp, cur]) => {
-      setData({ toolkits: lp.toolkits || [], tracks: lp.tracks || [] })
-      setCurriculum({ categories: cur.categories || [], strands: cur.strands || [] })
-      setLoading(false)
-    }).catch(() => setLoading(false))
+    const required = fetch('/assets/data/learning-paths.json').then(r => {
+      if (!r.ok) throw new Error(`learning-paths.json: HTTP ${r.status}`)
+      return r.json()
+    })
+    const optional = fetch('/assets/data/curriculum.json')
+      .then(r => r.ok ? r.json() : { categories: [], strands: [] })
+      .catch(() => ({ categories: [], strands: [] }))
+
+    Promise.all([required, optional])
+      .then(([lp, cur]) => {
+        setData({ toolkits: lp.toolkits || [], tracks: lp.tracks || [] })
+        setCurriculum({ categories: cur.categories || [], strands: cur.strands || [] })
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('[LearningPaths] Failed to load required data:', err.message)
+        setLoadError(true)
+        setLoading(false)
+      })
   }, [])
 
   const userRole = (typeof localStorage !== 'undefined' && localStorage.getItem('abakada_onboarding_role')) || ''
@@ -117,25 +123,25 @@ export default function LearningPaths() {
             aria-atomic="true"
             className="sr-only"
           >
-            {!loading && `${filtered.length} pathway${filtered.length !== 1 ? 's' : ''} found`}
+            {!loading && `${filtered.length} ${filtered.length !== 1 ? t('learningPaths.pathwaysFoundAria', 'pathways found') : t('learningPaths.pathwayFoundAria', 'pathway found')}`}
           </div>
 
           <div className="lp-stats">
             <div className="lp-stat">
               <div className="lp-stat__value">{totalToolkits}</div>
-              <div className="lp-stat__label">Curated Pathways</div>
+              <div className="lp-stat__label">{t('learningPaths.statCuratedPathways', 'Curated Pathways')}</div>
             </div>
             <div className="lp-stat">
               <div className="lp-stat__value">{data.tracks.length}</div>
-              <div className="lp-stat__label">Skill Tracks</div>
+              <div className="lp-stat__label">{t('learningPaths.statSkillTracks', 'Skill Tracks')}</div>
             </div>
             <div className="lp-stat">
               <div className="lp-stat__value">{totalStages}</div>
-              <div className="lp-stat__label">Hands-On Stages</div>
+              <div className="lp-stat__label">{t('learningPaths.statHandsOnStages', 'Hands-On Stages')}</div>
             </div>
             <div className="lp-stat">
               <div className="lp-stat__value">{totalTools}</div>
-              <div className="lp-stat__label">Vetted FOSS Tools</div>
+              <div className="lp-stat__label">{t('learningPaths.statVettedTools', 'Vetted FOSS Tools')}</div>
             </div>
           </div>
 
@@ -172,9 +178,9 @@ export default function LearningPaths() {
               <div className="lp-section-head">
                 <span className="lp-section-head__badge">
                   <Icon name="sparkles" collection="ui" size={12} />
-                  For You
+                  {t('learningPaths.forYouLabel', 'For You')}
                 </span>
-                <h2 className="lp-section-head__title">Recommended pathways</h2>
+                <h2 className="lp-section-head__title">{t('learningPaths.recommendedPathways', 'Recommended pathways')}</h2>
               </div>
               <div className="lp-grid">
                 {featured.map(tk => (
@@ -193,7 +199,7 @@ export default function LearningPaths() {
                 placeholder={t('learningPaths.searchPlaceholder', 'Search pathways, tools, or outcomes…')}
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                aria-label="Search pathways"
+                aria-label={t('learningPaths.searchPlaceholder', 'Search pathways, tools, or outcomes…')}
                 aria-controls="lp-results-region"
               />
             </div>
@@ -201,7 +207,7 @@ export default function LearningPaths() {
               <div className="lp-pills" role="group" aria-label="Filter by track">
                 <button type="button" aria-pressed={activeTrack === 'all'}
                   className={`lp-pill${activeTrack === 'all' ? ' lp-pill--active' : ''}`}
-                  onClick={() => setActiveTrack('all')}>All Tracks</button>
+                  onClick={() => setActiveTrack('all')}>{t('learningPaths.allTracks', 'All Tracks')}</button>
                 {data.tracks.map(tr => (
                   <button key={tr.id} type="button" aria-pressed={activeTrack === tr.id}
                     className={`lp-pill${activeTrack === tr.id ? ' lp-pill--active' : ''}`}
@@ -216,7 +222,9 @@ export default function LearningPaths() {
                   <button key={diff} type="button" aria-pressed={activeDifficulty === diff}
                     className={`lp-pill lp-pill--ghost${activeDifficulty === diff ? ' lp-pill--active' : ''}`}
                     onClick={() => setActiveDifficulty(diff)}>
-                    {diff === 'all' ? 'Any Level' : DIFFICULTY_LABEL[diff]}
+                    {diff === 'all'
+                      ? t('learningPaths.anyLevel', 'Any Level')
+                      : t(`learningPaths.${diff}`, diff.charAt(0).toUpperCase() + diff.slice(1))}
                   </button>
                 ))}
               </div>
@@ -231,7 +239,7 @@ export default function LearningPaths() {
                 onClick={() => setShowCurriculumFilter(v => !v)}
               >
                 <Icon name="graduation-cap" collection="category" size={14} />
-                <span>Curriculum Alignment</span>
+                <span>{t('learningPaths.curriculumFilter', 'Curriculum Alignment')}</span>
                 {activeCurriculum !== 'all' && (
                   <span className="lp-curriculum__active-badge">{activeCurriculumStrand?.label}</span>
                 )}
@@ -241,18 +249,18 @@ export default function LearningPaths() {
               {showCurriculumFilter && (
                 <div className="lp-curriculum__body" role="group" aria-label="Filter by curriculum strand or program">
                   <p className="lp-curriculum__hint">
-                    Filter pathways aligned to a specific DepEd or CHED framework. Select one strand or program to see matching pathways.
+                    {t('learningPaths.curriculumFilterHint', 'Filter pathways aligned to a specific DepEd or CHED framework. Select one strand or program to see matching pathways.')}
                   </p>
 
                   <div className="lp-curriculum__section">
                     <span className="lp-curriculum__section-label">
-                      <span className="lp-curriculum__authority lp-curriculum__authority--deped">DepEd</span>
-                      K-12 Senior High School Strands
+                      <span className="lp-curriculum__authority lp-curriculum__authority--deped">{t('learningPaths.depedLabel', 'DepEd')}</span>
+                      {t('learningPaths.k12Strands', 'K-12 Senior High School Strands')}
                     </span>
                     <div className="lp-pills" role="radiogroup" aria-label="K-12 strand">
                       <button type="button" role="radio" aria-checked={activeCurriculum === 'all'}
                         className={`lp-pill lp-pill--ghost${activeCurriculum === 'all' ? ' lp-pill--active' : ''}`}
-                        onClick={() => setActiveCurriculum('all')}>All</button>
+                        onClick={() => setActiveCurriculum('all')}>{t('learningPaths.allStrands', 'All')}</button>
                       {k12Strands.map(s => (
                         <button key={s.id} type="button" role="radio" aria-checked={activeCurriculum === s.id}
                           className={`lp-pill lp-strand-pill lp-strand-pill--${s.color}${activeCurriculum === s.id ? ' lp-pill--active lp-strand-pill--selected' : ''}`}
@@ -266,8 +274,8 @@ export default function LearningPaths() {
 
                   <div className="lp-curriculum__section">
                     <span className="lp-curriculum__section-label">
-                      <span className="lp-curriculum__authority lp-curriculum__authority--ched">CHED</span>
-                      Higher Education Programs
+                      <span className="lp-curriculum__authority lp-curriculum__authority--ched">{t('learningPaths.chedLabel', 'CHED')}</span>
+                      {t('learningPaths.chedPrograms', 'Higher Education Programs')}
                     </span>
                     <div className="lp-pills" role="radiogroup" aria-label="CHED program">
                       {chedPrograms.map(s => (
@@ -288,7 +296,7 @@ export default function LearningPaths() {
               <div className="lp-filters__clear">
                 <button type="button" className="btn btn--ghost btn--sm" onClick={resetAllFilters}>
                   <Icon name="x" collection="ui" size={12} />
-                  Clear all filters
+                  {t('learningPaths.clearAllFilters', 'Clear all filters')}
                 </button>
               </div>
             )}
@@ -303,7 +311,7 @@ export default function LearningPaths() {
                 <span>{activeCurriculumStrand.description}</span>
               </div>
               <button type="button" className="lp-curriculum-banner__clear btn btn--ghost btn--sm"
-                aria-label="Clear curriculum filter"
+                aria-label={t('learningPaths.clearFilters', 'Clear filters')}
                 onClick={() => setActiveCurriculum('all')}>
                 <Icon name="x" collection="ui" size={13} />
               </button>
@@ -313,12 +321,20 @@ export default function LearningPaths() {
           <div id="lp-results-region">
           {loading ? (
             <BrandLoader variant="inline" ariaLabel={t('common.loading', 'Loading')} />
+          ) : loadError ? (
+            <div className="lp-empty" role="alert">
+              <h3>Could not load learning paths</h3>
+              <p>Check your connection and try again.</p>
+              <button type="button" className="btn btn--secondary btn--sm" onClick={() => window.location.reload()}>
+                Retry
+              </button>
+            </div>
           ) : filtered.length === 0 ? (
             <div className="lp-empty">
-              <h3>No pathways match your filters</h3>
-              <p>Try clearing the search or selecting a different strand or track.</p>
+              <h3>{t('learningPaths.noPathwaysFound', 'No pathways match your filters')}</h3>
+              <p>{t('learningPaths.noPathwaysHint', 'Try clearing the search or selecting a different strand or track.')}</p>
               <button type="button" className="btn btn--secondary btn--sm" onClick={resetAllFilters}>
-                Clear filters
+                {t('learningPaths.clearFilters', 'Clear filters')}
               </button>
             </div>
           ) : (
@@ -333,7 +349,7 @@ export default function LearningPaths() {
                     <p className="lp-section-head__sub">{track.description}</p>
                   </div>
                   <span className="lp-section-head__count">
-                    {toolkits.length} {toolkits.length === 1 ? 'pathway' : 'pathways'}
+                    {toolkits.length} {toolkits.length === 1 ? t('learningPaths.pathwayCount', 'pathway') : t('learningPaths.pathwaysCount', 'pathways')}
                   </span>
                 </div>
                 <div className="lp-grid">
@@ -357,6 +373,7 @@ export default function LearningPaths() {
 }
 
 function PathCard({ toolkit, tracks, strands = [], activeCurriculum = 'all' }) {
+  const { t } = useI18n()
   const track = tracks.find(tr => tr.id === toolkit.track)
   const totalTools = toolkit.stages.reduce((sum, s) => sum + s.toolIds.length, 0)
   const explored = getProgress(toolkit.id)
@@ -373,13 +390,18 @@ function PathCard({ toolkit, tracks, strands = [], activeCurriculum = 'all' }) {
     return { shown: combined.slice(0, 3), overflow: Math.max(0, combined.length - 3) }
   }, [toolkit.curriculum, strands])
 
+  const diffLabel = (d) => t(`learningPaths.${d}`, d.charAt(0).toUpperCase() + d.slice(1))
+  const stagesText = toolkit.stages.length === 1
+    ? `${toolkit.stages.length} ${t('learningPaths.stageLabel', 'stage')}`
+    : `${toolkit.stages.length} ${t('learningPaths.stagesLabel', 'stages')}`
+
   const cardLabel = [
     toolkit.title,
-    track ? `${track.title} track` : null,
-    toolkit.difficulty ? `${DIFFICULTY_LABEL[toolkit.difficulty]} difficulty` : null,
+    track ? track.title : null,
+    toolkit.difficulty ? diffLabel(toolkit.difficulty) : null,
     toolkit.duration || null,
-    `${toolkit.stages.length} stage${toolkit.stages.length !== 1 ? 's' : ''}`,
-    started ? `${pct}% complete` : 'Not started',
+    stagesText,
+    started ? `${pct}${t('learningPaths.percentComplete', '% complete')}` : t('learningPaths.notStarted', 'Not started'),
   ].filter(Boolean).join('. ')
 
   return (
@@ -404,7 +426,7 @@ function PathCard({ toolkit, tracks, strands = [], activeCurriculum = 'all' }) {
               <span className="lp-card__difficulty-dots" aria-hidden="true">
                 <span /><span /><span />
               </span>
-              {DIFFICULTY_LABEL[toolkit.difficulty] || toolkit.difficulty}
+              {diffLabel(toolkit.difficulty)}
             </span>
           )}
         </div>
@@ -444,19 +466,19 @@ function PathCard({ toolkit, tracks, strands = [], activeCurriculum = 'all' }) {
       )}
 
       <div className="lp-card__meta">
-        <span className="lp-card__meta-item" title="Stages">
+        <span className="lp-card__meta-item" title={t('learningPaths.stagesLabel', 'stages')}>
           <Icon name="list" collection="ui" size={13} />
-          {toolkit.stages.length} stages
+          {stagesText}
         </span>
         {toolkit.duration && (
-          <span className="lp-card__meta-item" title="Estimated duration">
+          <span className="lp-card__meta-item">
             <Icon name="clock" collection="ui" size={13} />
             {toolkit.duration}
           </span>
         )}
-        <span className="lp-card__meta-item" title="Tools">
+        <span className="lp-card__meta-item">
           <Icon name="wrench" collection="ui" size={13} />
-          {totalTools} tools
+          {totalTools} {t('learningPaths.toolsLabel', 'tools')}
         </span>
       </div>
 
@@ -467,12 +489,14 @@ function PathCard({ toolkit, tracks, strands = [], activeCurriculum = 'all' }) {
           aria-valuenow={pct}
           aria-valuemin={0}
           aria-valuemax={100}
-          aria-label={`Progress: ${pct}%`}
+          aria-label={`${t('learningPaths.progressLabel', 'Progress')}: ${pct}%`}
         >
           <div className="lp-card__progress-fill" style={{ width: `${pct}%` }} />
         </div>
         <span className="lp-card__progress-label">
-          {started ? `${pct}% complete` : 'Start path'}
+          {started
+            ? `${pct}${t('learningPaths.percentComplete', '% complete')}`
+            : t('learningPaths.startPath', 'Start path')}
           <Icon name="chevron-right" collection="ui" size={12} aria-hidden="true" />
         </span>
       </div>

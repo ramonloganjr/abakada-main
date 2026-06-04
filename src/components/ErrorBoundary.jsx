@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { reportError } from '../lib/reportError'
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -11,10 +12,7 @@ export default class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, info) {
-    // In production, forward to an error tracking service (e.g. Sentry)
-    if (import.meta.env.PROD) {
-      console.error('[ErrorBoundary]', error, info.componentStack)
-    }
+    reportError(error, `ErrorBoundary${info.componentStack?.split('\n')[1]?.trim() ?? ''}`)
   }
 
   render() {

@@ -345,24 +345,6 @@ export default function PartnershipDeck() {
           flex-direction: column;
           position: relative;
         }
-        .deck-tier--featured {
-          border-color: var(--accent-primary);
-          box-shadow: 0 0 0 1px var(--accent-primary), 0 16px 40px -16px rgba(3,170,191,0.4);
-        }
-        .deck-tier--featured::before {
-          content: 'Recommended';
-          position: absolute;
-          top: -10px;
-          left: 1.5rem;
-          font-size: 0.6875rem;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          padding: 0.25rem 0.625rem;
-          border-radius: 0.375rem;
-          background: var(--accent-primary);
-          color: var(--color-on-accent);
-        }
         .deck-tier__name {
           font-size: 0.875rem;
           font-weight: 600;
@@ -991,7 +973,7 @@ export default function PartnershipDeck() {
                   <li>Annual impact recap</li>
                 </ul>
               </div>
-              <div className="deck-tier deck-tier--featured deck-reveal deck-reveal--d3">
+              <div className="deck-tier deck-reveal deck-reveal--d3">
                 <div className="deck-tier__name">Model 02</div>
                 <div className="deck-tier__title">Content &amp; Editorial Partner</div>
                 <p className="deck-tier__desc">For educators, publishers, and open-source projects who want to co-create learning content.</p>

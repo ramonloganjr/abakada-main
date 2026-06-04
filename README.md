@@ -6,6 +6,13 @@
   <p>A curated, multilingual directory of 1,288 free and open-source productivity tools<br/>for Filipino students, educators, scholars, and professionals.</p>
 
   <p>
+    <a href="https://www.gmanetwork.com/news/pinoyabroad/dispatch/989216/ofw-developersoftware-hub-filipino-students/story/"><img src="https://img.shields.io/badge/Featured%20In-GMA%20News%20Online-107f87?style=flat-square" alt="GMA News Online" /></a>
+    <a href="https://theglobalfilipinomagazine.com/the-advocate-behind-a-growing-free-tech-movement-in-philippine-education/"><img src="https://img.shields.io/badge/Featured%20In-The%20Global%20Filipino%20Magazine-107f87?style=flat-square" alt="The Global Filipino Magazine" /></a>
+    <a href="https://walastech.com/news/abakada-org-wants-to-close-the-software-gap-in-philippine-schools/"><img src="https://img.shields.io/badge/Featured%20In-Walastech-107f87?style=flat-square" alt="Walastech" /></a>
+    <a href="https://tuguegarao.bomboradyo.com/ofw-developer-naglunsad-ng-libreng-software-hub-para-sa-mga-estudyanteng-pilipino/"><img src="https://img.shields.io/badge/Featured%20In-Bombo%20Radyo-107f87?style=flat-square" alt="Bombo Radyo" /></a>
+  </p>
+
+  <p>
     <a href="https://abakada.org"><img src="https://img.shields.io/badge/Website-abakada.org-107f87?style=flat-square&logo=googlechrome&logoColor=white" alt="Website" /></a>
     <a href="mailto:hello@abakada.org"><img src="https://img.shields.io/badge/Email-hello@abakada.org-107f87?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/License-MIT%20%7C%20CC%20BY%204.0-107f87?style=flat-square" alt="License" /></a>
@@ -141,9 +148,13 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 
 - 10 curated learning paths organized by role and goal:
   - Digital Foundations · Research Starter · Student Productivity · Teacher's Digital Classroom · Remote Team Collaboration · Workplace Productivity · Self-Directed Learner · Beginner Coding · Designer's Toolkit · Accountant's Essentials
-- Onboarding modal on first visit prompts the user to choose a role
+- Onboarding modal on first visit prompts the user to choose a role (9 personas: Student, Educator, Professional, Self-Directed, New to Digital, Researcher, Developer, Designer, Accountant)
 - Progress tracking persisted in `localStorage` — no account required
-- Dedicated detail page per toolkit with stage-based structure
+- Dedicated detail page per toolkit with stage-based accordion structure
+- Hands-on task checklists per stage, persisted in `localStorage`
+- Curriculum alignment section: DepEd K-12 and CHED framework tags displayed per toolkit
+- `<CompletionCertificate />` component unlocked at 100% progress — printable/PDF-saveable
+- Full i18n coverage: all UI strings in LearningPaths, LearningPathDetail, CompletionCertificate and the OnboardingModal are wired through `t()` across all four languages
 - JSON-LD `Course` structured data per toolkit
 
 </details>
@@ -202,12 +213,13 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Partnerships</b></summary>
 <br/>
 
-- **Partnerships page** (`/partnerships`) — three partnership tiers, fully synced with the deck:
+- **Partnerships page** (`/partnerships`) — three equal-weight partnership tiers, fully synced with the deck:
   - Community Supporter — for NGOs, schools, student organizations
   - Content & Editorial Partner — for educators, publishers, FOSS projects
   - Infrastructure Sponsor — for hosting/financial sponsors
+- All three tiers rendered with identical visual weight — no "Recommended" badge or highlight on any tier
 - Includes the same impact stats shown in the deck (1,288 tools · 45+ categories · 10 paths · 4 languages)
-- **Partnership Deck** (`/partnership-deck`) — 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page
+- **Partnership Deck** (`/partnership-deck`) — 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page; tier cards are visually equal with no featured/recommended callout
 - **Download Pitch Deck** — dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Pitch-Deck-2026.pdf` from `/assets/doc/`
 
 </details>
@@ -236,7 +248,9 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - Language switcher in header
 - URL-prefixed routes per language (`/`, `/tl`, `/ilo`, `/bis`, `/en`)
 - Translation files stored at `public/assets/data/translations/{en,tl,ilo,bis}.json`
-- 567 translation keys per language with full key parity (verified at build time)
+- 620+ translation keys per language with full key parity across all four files
+- Complete Learning Paths module i18n: all UI strings in `LearningPaths.jsx`, `LearningPathDetail.jsx`, `CompletionCertificate.jsx`, and `OnboardingModal.jsx` wired through `t()` — no hardcoded English strings remain in the module
+- New `learningPaths.*` keys include: difficulty labels, stats row, filter UI (tracks, levels, curriculum strands), DepEd/CHED authority labels, progress ring, stage body section headings, milestone messages, motivational nudge, certificate strings, and all 9 onboarding role labels
 - `<html lang>` attribute syncs on language change (BIS maps to BCP-47 `ceb`)
 - Native authoring — no machine translation
 - Smooth opacity transition on language change
@@ -289,9 +303,11 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - **Quick Links** column: All Tools · Bookmarks · Comparison Tools · Learning Paths · top categories
 - **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Partnership Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
 - **Abakada** column: About · Official Partners · Partnerships · Contact
+- **Featured In** strip: full-width press/media section below the column grid with theme-aware logo variants for GMA News Online, The Global Filipino Magazine, Walastech, and Bombo Radyo — each an external link (`target="_blank" rel="noopener noreferrer"`)
 - All link labels translated across en/tl/ilo/bis
 - Visitor count pill — improved contrast (medium font weight, accent-tinted icon, subtle filled background) showing total visitors and last update from `visitors.json`
 - Header language switcher includes BIS, ILO, TL, EN with native and BCP-47 `<html lang>` mapping
+- Learning Paths header icon adopts accent color when the current route is `/learning-paths` or any sub-path, using `useLocation` + `stripLangPrefix` for language-prefix-aware route matching; `aria-current="section"` set for screen readers
 
 </details>
 
@@ -330,7 +346,7 @@ All routes are prerendered at build time and lazy-loaded via `React.lazy`. Each 
 | `/terms` | Terms of Use | Collapsed |
 | `/partnerships` | Partnership tiers and stats | Collapsed |
 | `/partnership-deck` | 10-slide presentation | Hidden |
-| `/official-partners` | Official partner logos by tier | Collapsed |
+| `/official-partners` | Official partner logos — BetterGov PH, Vaultera Labs, ElevenLabs | Collapsed |
 | `/sitemap` | HTML sitemap covering all 1,309 routes | Collapsed |
 
 > The `<html lang>` attribute, `og:locale`, and `hreflang` alternates update automatically per route and language.
@@ -347,9 +363,9 @@ public/assets/data/translations/
 └── bis.json   Bisaya / Cebuano (BCP-47: ceb)
 ```
 
-- **567 keys per language** with verified parity
-- Top-level groups: `meta`, `nav`, `hero`, `groups`, `categories`, `tools`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `cta`, `breadcrumb`, `errors`, `glossary`, `deck`
-- Dynamic-prefix lookups: `groups.${id}`, `categories.${id}`, `learningPaths.role.${id}`
+- **620+ keys per language** with verified parity across all four files
+- Top-level groups: `meta`, `nav`, `hero`, `groups`, `categories`, `tools`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `cta`, `breadcrumb`, `errors`, `glossary`, `deck`, `bookmarks`
+- Dynamic-prefix lookups: `groups.${id}`, `categories.${id}`, `learningPaths.role.${id}`, `learningPaths.${difficulty}`
 - Translations are authored editorially per language — no machine translation
 - Adding a new key requires updating all four files; CI verifies parity at build time
 
@@ -420,14 +436,18 @@ The site is built for traditional search engines (SEO), generative answer engine
 | Cache headers | `/assets/*` immutable for 1 year; HTML revalidates on every request |
 | Web Vitals | `reportWebVitals()` instruments LCP, CLS, INP for monitoring |
 
-**Bundle footprint (gzipped):**
+**Bundle footprint (gzipped, latest build):**
 
 | Chunk | Size |
 |:---|---:|
-| `vendor` (React + Router + Helmet) | ~60 KB |
-| App entry (`index`) | ~14 KB |
-| Largest route (`PartnershipDeck`) | ~11 KB |
-| Average route | < 5 KB |
+| `vendor` (React + Router + Helmet) | 59.9 KB |
+| CSS (full design system) | 26.0 KB |
+| App entry (`index`) | 16.4 KB |
+| `PartnershipDeck` | 11.1 KB |
+| `LearningPathDetail` | 6.8 KB |
+| `LearningPaths` | 4.5 KB |
+| Average page chunk | < 4 KB |
+| Total build time | ~2.1 s |
 
 ---
 
@@ -440,11 +460,17 @@ abakada.org/
 │   │   ├── data/
 │   │   │   ├── tools.json                # All tool data (1,288 entries)
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
+│   │   │   ├── curriculum.json           # DepEd K-12 and CHED strand definitions
 │   │   │   ├── visitors.json             # Updated nightly via GitHub Action
 │   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis)
-│   │   ├── doc/                           # Downloadable documents (Pitch Deck PDF)
+│   │   ├── doc/                          # Downloadable documents (Pitch Deck PDF)
 │   │   ├── fonts/                        # Self-hosted Inter woff2 files
-│   │   └── logo/                         # Favicons, OG image, brand logos
+│   │   ├── logo/                         # Favicons, OG image, brand logos
+│   │   ├── partner/                      # Official partner logos (light + dark variants)
+│   │   │                                 # BetterGov PH · Vaultera Labs · ElevenLabs
+│   │   └── press/                        # Press / media logos (light + dark variants)
+│   │                                     # GMA News Online · The Global Filipino Magazine
+│   │                                     # Walastech · Bombo Radyo
 │   ├── .htaccess                         # Apache: SPA routing, headers, gzip, cache
 │   ├── _headers                          # Netlify / Cloudflare Pages headers
 │   ├── llms.txt                          # LLM-ingestion summary
@@ -459,10 +485,11 @@ abakada.org/
 ├── src/
 │   ├── components/
 │   │   ├── BrandLoader.jsx               # Glowing-favicon loading indicator
+│   │   ├── CompletionCertificate.jsx     # Printable/PDF certificate, unlocked at 100% LP progress
 │   │   ├── ErrorBoundary.jsx
 │   │   ├── FeaturedCarousel.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
+│   │   ├── Footer.jsx                    # Includes "Featured In" press strip + PRESS data
+│   │   ├── Header.jsx                    # Active-state accent on LP icon via useLocation
 │   │   ├── Icon.jsx
 │   │   ├── LearningToolCard.jsx
 │   │   ├── OnboardingModal.jsx
@@ -488,8 +515,10 @@ abakada.org/
 │   ├── lib/
 │   │   ├── canonical.js                  # SITE_ORIGIN, hreflang, language helpers
 │   │   ├── comparison.js
+│   │   ├── downloadFile.js
 │   │   ├── icons.js
 │   │   ├── pageMeta.js                   # Per-page <head> metadata
+│   │   ├── reportError.js                # Production error reporter (POST to VITE_ERROR_REPORT_URL)
 │   │   ├── security.js
 │   │   └── vitals.js                     # Core Web Vitals reporter
 │   ├── pages/

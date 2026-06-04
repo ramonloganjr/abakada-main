@@ -78,26 +78,46 @@ function AppContent() {
 
   useEffect(() => {
     let retries = 0
-    const MAX_RETRIES = 2
+    const MAX_RETRIES = 3
 
     async function loadTools() {
       try {
         const r = await fetch('/assets/data/tools.json')
-        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+
+        // Retry on server errors; treat 404 as permanent failure
+        if (!r.ok) {
+          if (r.status === 404) throw new Error('tools.json not found')
+          throw new Error(`HTTP ${r.status}`)
+        }
+
         const data = await r.json()
         setToolsData(data)
         setFetchError(false)
         setLoading(false)
       } catch (err) {
         if (retries < MAX_RETRIES) {
-          // Keep the loader visible while we retry instead of flashing empty content
           retries++
           setTimeout(loadTools, 1000 * retries)
-        } else {
-          setFetchError(true)
-          setLoading(false)
-          if (import.meta.env.DEV) console.error('[App] Failed to load tools.json:', err)
+          return
         }
+
+        // Final fallback: try the service worker cache before showing error UI
+        try {
+          const cached = await caches.match('/assets/data/tools.json')
+          if (cached) {
+            const data = await cached.json()
+            setToolsData(data)
+            setFetchError(false)
+            setLoading(false)
+            return
+          }
+        } catch {
+          // Cache also unavailable — fall through to error state
+        }
+
+        console.error('[App] Failed to load tools.json after retries:', err.message)
+        setFetchError(true)
+        setLoading(false)
       }
     }
 
@@ -277,7 +297,7 @@ function AppContent() {
                   <Route path="compare" element={<Compare toolsData={toolsData} />} />
                   <Route path="learning-paths" element={<LearningPaths />} />
                   <Route path="learning-paths/:toolkitId" element={<LearningPathDetail toolsData={toolsData} />} />
-                  <Route path="tools/:toolId" element={<ToolDetail toolsData={toolsData} />} />
+                  <Route path="tools/:toolId" element={<ToolDetail toolsData={toolsData} hasToolsData={toolsData.tools.length > 0} />} />
                   <Route path="glossary" element={<Glossary />} />
                   <Route path="official-partners" element={<OfficialPartners />} />
                 </Route>

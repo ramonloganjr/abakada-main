@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparison } from '../hooks/useComparison'
 import { usePWAInstall } from '../hooks/usePWAInstall'
+import { stripLangPrefix } from '../lib/canonical'
 import Icon from './Icon'
 
 export default function Header({ onMenuToggle, navOpen = false }) {
@@ -12,9 +13,13 @@ export default function Header({ onMenuToggle, navOpen = false }) {
   const { lang, setLanguage, supportedLangs, t } = useI18n()
   const { bookmarks } = useBookmarks()
   const { selectedIds } = useComparison()
+  const location = useLocation()
   const [langOpen, setLangOpen] = useState(false)
   const langRef = useRef(null)
   const { canInstall, triggerInstall } = usePWAInstall()
+
+  const normalizedPath = stripLangPrefix(location.pathname)
+  const isOnLearningPaths = normalizedPath === '/learning-paths' || normalizedPath.startsWith('/learning-paths/')
 
   // Close the language dropdown on outside click / Escape, kept in sync with React
   // state so the trigger button always reflects the real open/closed state.
@@ -83,7 +88,13 @@ export default function Header({ onMenuToggle, navOpen = false }) {
               <span className="nav-badge" aria-label={`${selectedIds.length} tools in comparison`}>{selectedIds.length}</span>
             )}
           </Link>
-          <Link to="/learning-paths" className="btn btn--icon header-nav-btn header-nav-btn--secondary" aria-label={t('nav.learningPaths', 'Learning Paths')} style={{ position: 'relative' }}>
+          <Link
+            to="/learning-paths"
+            className={`btn btn--icon header-nav-btn${isOnLearningPaths ? ' header-nav-btn--active' : ''}`}
+            aria-label={t('nav.learningPaths', 'Learning Paths')}
+            aria-current={isOnLearningPaths ? 'section' : undefined}
+            style={{ position: 'relative' }}
+          >
             <Icon name="graduation-cap" collection="category" size={18} />
           </Link>
           <div

@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App'
 import { reportWebVitals } from './lib/vitals'
+import { reportError } from './lib/reportError'
 import './styles/inter.css'
 import './styles/base.css'
 import './styles/themes.css'
@@ -64,3 +65,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 
 if (import.meta.env.PROD) reportWebVitals()
+
+if (import.meta.env.PROD) {
+  window.addEventListener('unhandledrejection', ({ reason }) => {
+    reportError(reason instanceof Error ? reason : new Error(String(reason)), 'unhandledrejection')
+  })
+}

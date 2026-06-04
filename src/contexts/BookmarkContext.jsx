@@ -51,6 +51,7 @@ export function BookmarkProvider({ children }) {
   const [storage] = useState(() => safeLocalStorage())
   const [bookmarks, setBookmarks] = useState(() => storage.get())
   const [storageUnavailable] = useState(!storage.available)
+  const [syncUnavailable, setSyncUnavailable] = useState(false)
   const [noticeDismissed, setNoticeDismissed] = useState(false)
 
   useEffect(() => {
@@ -79,8 +80,10 @@ export function BookmarkProvider({ children }) {
     if (!navigator.onLine && 'serviceWorker' in navigator && 'SyncManager' in window) {
       queueBookmarkOp(id, 'add')
         .then(() => navigator.serviceWorker.ready.then(reg => reg.sync.register('abakada-bookmark-sync')))
-        .catch(() => {
-          // Fallback: synchronous localStorage update already handled by useEffect
+        .catch(err => {
+          // IndexedDB unavailable (private browsing, quota, permissions)
+          console.warn('[bookmarks] Offline sync queue unavailable:', err?.message)
+          setSyncUnavailable(true)
         })
     }
     // Otherwise: synchronous behavior via useEffect (Req 6.3)
@@ -94,8 +97,9 @@ export function BookmarkProvider({ children }) {
     if (!navigator.onLine && 'serviceWorker' in navigator && 'SyncManager' in window) {
       queueBookmarkOp(id, 'remove')
         .then(() => navigator.serviceWorker.ready.then(reg => reg.sync.register('abakada-bookmark-sync')))
-        .catch(() => {
-          // Fallback: synchronous localStorage update already handled by useEffect
+        .catch(err => {
+          console.warn('[bookmarks] Offline sync queue unavailable:', err?.message)
+          setSyncUnavailable(true)
         })
     }
     // Otherwise: synchronous behavior via useEffect (Req 6.3)
@@ -105,11 +109,27 @@ export function BookmarkProvider({ children }) {
     return bookmarks.includes(id)
   }, [bookmarks])
 
+  const showStorageNotice = storageUnavailable && !noticeDismissed
+  const showSyncNotice = !storageUnavailable && syncUnavailable && !noticeDismissed
+
   return (
-    <BookmarkContext.Provider value={{ bookmarks, addBookmark, removeBookmark, isBookmarked }}>
-      {storageUnavailable && !noticeDismissed && (
+    <BookmarkContext.Provider value={{ bookmarks, addBookmark, removeBookmark, isBookmarked, syncUnavailable }}>
+      {showStorageNotice && (
         <div className="storage-notice" role="alert">
           <span>{t('bookmark.storageUnavailable', "Bookmarks won't be saved — storage is unavailable in this session")}</span>
+          <button
+            type="button"
+            className="storage-notice__dismiss"
+            aria-label={t('common.dismiss', 'Dismiss')}
+            onClick={() => setNoticeDismissed(true)}
+          >
+            ×
+          </button>
+        </div>
+      )}
+      {showSyncNotice && (
+        <div className="storage-notice" role="alert">
+          <span>{t('bookmark.syncUnavailable', "You're offline — bookmarks are saved for this session but won't sync across devices")}</span>
           <button
             type="button"
             className="storage-notice__dismiss"

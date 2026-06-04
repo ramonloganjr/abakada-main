@@ -22,7 +22,6 @@ const TIERS = [
     name: 'Model 02',
     title: 'Content & Editorial Partner',
     desc: 'For educators, publishers, and open-source projects who want to co-create learning content.',
-    featured: true,
     benefits: [
       'Co-authored learning paths or tool collections',
       'Bylined guides published under CC BY 4.0',
@@ -116,7 +115,7 @@ export default function Partnerships() {
           </p>
           <div className="partnership-tiers">
             {TIERS.map((tier, i) => (
-              <div key={i} className={`partnership-tier${tier.featured ? ' partnership-tier--featured' : ''}`}>
+              <div key={i} className="partnership-tier">
                 <div className="partnership-tier__icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
                     {tier.icon}
