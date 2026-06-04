@@ -40,4 +40,4 @@ jobs:
           protocol: ftps
           security: loose
           local-dir: ./dist/
-          server-dir: abakada.org/
+          server-dir: public_html/
