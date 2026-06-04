@@ -1330,7 +1330,8 @@
       "stars": 15000,
       "maturity": "mature",
       "license_type": "BSD-3-Clause",
-      "searchTerms": "jupyter interactive notebooks web-based interactive computing platform for data science and ml. notebooks data-science interactive google colab ai-ml bsd-3-clause windows macos linux web"
+      "searchTerms": "jupyter interactive notebooks web-based interactive computing platform for data science and ml. notebooks data-science interactive google colab ai-ml bsd-3-clause windows macos linux web",
+      "web_try_url": "https://jupyter.org/try"
     },
     {
       "id": "jupyterlab",
@@ -9902,7 +9903,8 @@
       "stars": 82000,
       "maturity": "stable",
       "license_type": "MIT",
-      "searchTerms": "excalidraw hand-drawn diagrams virtual whiteboard for sketching hand-drawn like diagrams with real-time collaboration. diagrams whiteboard collaboration miro lucidchart design mit web self-hosted"
+      "searchTerms": "excalidraw hand-drawn diagrams virtual whiteboard for sketching hand-drawn like diagrams with real-time collaboration. diagrams whiteboard collaboration miro lucidchart design mit web self-hosted",
+      "web_try_url": "https://excalidraw.com"
     },
     {
       "id": "figma",
@@ -15635,7 +15637,8 @@
       "stars": 165000,
       "maturity": "mature",
       "license_type": "MIT",
-      "searchTerms": "vscode visual studio code modern code editor lightweight but powerful source code editor with built-in support for javascript, typescript, and node.js. ide editor typescript sublime text atom development mit windows macos linux"
+      "searchTerms": "vscode visual studio code modern code editor lightweight but powerful source code editor with built-in support for javascript, typescript, and node.js. ide editor typescript sublime text atom development mit windows macos linux",
+      "web_try_url": "https://vscode.dev"
     },
     {
       "id": "codium",
@@ -18435,7 +18438,8 @@
       "stars": 5500,
       "maturity": "stable",
       "license_type": "AGPL-3.0",
-      "searchTerms": "cryptpad encrypted collaboration suite end-to-end encrypted collaborative office suite with documents, spreadsheets, presentations, and more. encryption collaboration privacy google docs microsoft 365 doc-processing agpl-3.0 web self-hosted"
+      "searchTerms": "cryptpad encrypted collaboration suite end-to-end encrypted collaborative office suite with documents, spreadsheets, presentations, and more. encryption collaboration privacy google docs microsoft 365 doc-processing agpl-3.0 web self-hosted",
+      "web_try_url": "https://cryptpad.fr"
     },
     {
       "id": "docmost",
@@ -18522,7 +18526,8 @@
       "stars": 16000,
       "maturity": "mature",
       "license_type": "Apache-2.0",
-      "searchTerms": "etherpad real-time collaborative editor highly customizable open-source online editor providing collaborative editing in real-time. collaboration real-time editor google docs doc-processing apache-2.0 web self-hosted"
+      "searchTerms": "etherpad real-time collaborative editor highly customizable open-source online editor providing collaborative editing in real-time. collaboration real-time editor google docs doc-processing apache-2.0 web self-hosted",
+      "web_try_url": "https://pad.riseup.net"
     },
     {
       "id": "hedgedoc",
@@ -18581,7 +18586,8 @@
       "stars": 8500,
       "maturity": "mature",
       "license_type": "LGPL-3.0",
-      "searchTerms": "libreoffice complete office suite a free, comprehensive office suite including writer, calc, impress, and draw. full compatibility with microsoft office formats. office documents spreadsheets microsoft office google docs doc-processing lgpl-3.0 windows macos linux"
+      "searchTerms": "libreoffice complete office suite a free, comprehensive office suite including writer, calc, impress, and draw. full compatibility with microsoft office formats. office documents spreadsheets microsoft office google docs doc-processing lgpl-3.0 windows macos linux",
+      "web_try_url": "https://online.libreoffice.org"
     },
     {
       "id": "lyx",
@@ -19323,7 +19329,8 @@
       "stars": 18500,
       "maturity": "mature",
       "license_type": "AGPL-3.0",
-      "searchTerms": "anki flashcard app powerful, intelligent flashcard program using spaced repetition. flashcards learning spaced-repetition quizlet education agpl-3.0 windows macos linux ios android"
+      "searchTerms": "anki flashcard app powerful, intelligent flashcard program using spaced repetition. flashcards learning spaced-repetition quizlet education agpl-3.0 windows macos linux ios android",
+      "web_try_url": "https://ankiweb.net"
     },
     {
       "id": "chemtools",
@@ -19705,7 +19712,8 @@
       "license_type": "BSD-3-Clause",
       "last_update": "2026-01-15",
       "repo_url": "https://scratch.mit.edu",
-      "searchTerms": "scratch visual programming programming language and online community for kids to create projects. kids programming visual mit blockly education bsd-3-clause web windows macos"
+      "searchTerms": "scratch visual programming programming language and online community for kids to create projects. kids programming visual mit blockly education bsd-3-clause web windows macos",
+      "web_try_url": "https://scratch.mit.edu"
     },
     {
       "id": "simulide",
@@ -21242,7 +21250,8 @@
       "stars": 27000,
       "maturity": "mature",
       "license_type": "AGPL-3.0",
-      "searchTerms": "nextcloud self-hosted cloud self-hosted productivity platform with file sync, collaboration, and communication. cloud sync collaboration google drive dropbox file agpl-3.0 windows macos linux ios android self-hosted"
+      "searchTerms": "nextcloud self-hosted cloud self-hosted productivity platform with file sync, collaboration, and communication. cloud sync collaboration google drive dropbox file agpl-3.0 windows macos linux ios android self-hosted",
+      "web_try_url": "https://try.nextcloud.com"
     },
     {
       "id": "nnn",
@@ -25599,7 +25608,8 @@
       "stars": 1500,
       "maturity": "mature",
       "license_type": "GPL-3.0",
-      "searchTerms": "geogebra dynamic mathematics free online math tools for graphing, geometry, 3d, and more. math graphing geometry desmos wolfram alpha gpl-3.0 windows macos linux web ios android"
+      "searchTerms": "geogebra dynamic mathematics free online math tools for graphing, geometry, 3d, and more. math graphing geometry desmos wolfram alpha gpl-3.0 windows macos linux web ios android",
+      "web_try_url": "https://www.geogebra.org"
     },
     {
       "id": "octave",
@@ -25835,7 +25845,8 @@
       "stars": 12500,
       "maturity": "mature",
       "license_type": "GPL-3.0",
-      "searchTerms": "audacity audio editor free, open-source, cross-platform audio software for multi-track recording and editing. audio editing recording adobe audition media gpl-3.0 windows macos linux"
+      "searchTerms": "audacity audio editor free, open-source, cross-platform audio software for multi-track recording and editing. audio editing recording adobe audition media gpl-3.0 windows macos linux",
+      "web_try_url": "https://wavacity.com"
     },
     {
       "id": "celluloid",
@@ -29405,7 +29416,8 @@
       "stars": 9000,
       "maturity": "mature",
       "license_type": "GPL-3.0",
-      "searchTerms": "bitwarden password manager open-source password manager with end-to-end encryption and cross-platform sync. passwords encryption sync lastpass 1password password gpl-3.0 windows macos linux ios android web"
+      "searchTerms": "bitwarden password manager open-source password manager with end-to-end encryption and cross-platform sync. passwords encryption sync lastpass 1password password gpl-3.0 windows macos linux ios android web",
+      "web_try_url": "https://vault.bitwarden.com"
     },
     {
       "id": "buttercup",
@@ -36090,7 +36102,8 @@
       "stars": 72000,
       "maturity": "stable",
       "license_type": "MIT",
-      "searchTerms": "mermaid diagrams from text generate diagrams from markdown-like text definitions. diagrams markdown text-to-diagram plantuml visualization mit web"
+      "searchTerms": "mermaid diagrams from text generate diagrams from markdown-like text definitions. diagrams markdown text-to-diagram plantuml visualization mit web",
+      "web_try_url": "https://mermaid.live"
     },
     {
       "id": "plantuml",

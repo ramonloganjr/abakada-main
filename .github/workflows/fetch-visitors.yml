@@ -21,13 +21,9 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch total users from GA4
-        id: fetch
-        env:
-          GA4_PROPERTY_ID: '522500658'
-          GA4_SERVICE_ACCOUNT_KEY: ${{ secrets.GA4_SERVICE_ACCOUNT_KEY }}
+      - name: Write GA4 fetch script
         run: |
-          node -e "
+          cat > /tmp/fetch-ga4.js << 'EOF'
           const https = require('https');
           const crypto = require('crypto');
 
@@ -57,7 +53,6 @@ jobs:
 
           const jwt = header + '.' + claim + '.' + sig;
 
-          // Exchange JWT for access token
           function post(url, data) {
             return new Promise((resolve, reject) => {
               const body = new URLSearchParams(data).toString();
@@ -145,7 +140,28 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_OUTPUT, 'changed=true\n');
             console.log('Written:', out);
           })();
-          "
+          EOF
+
+      - name: Fetch total users from GA4 (3 attempts, 30s back-off)
+        id: fetch
+        timeout-minutes: 5
+        env:
+          GA4_PROPERTY_ID: '522500658'
+          GA4_SERVICE_ACCOUNT_KEY: ${{ secrets.GA4_SERVICE_ACCOUNT_KEY }}
+        run: |
+          for attempt in 1 2 3; do
+            echo "Attempt ${attempt} of 3..."
+            if node /tmp/fetch-ga4.js; then
+              echo "Success on attempt ${attempt}"
+              exit 0
+            fi
+            if [ $attempt -lt 3 ]; then
+              echo "Failed, retrying in 30s..."
+              sleep 30
+            fi
+          done
+          echo "All 3 attempts failed"
+          exit 1
 
       - name: Commit and push visitors.json
         if: steps.fetch.outputs.changed == 'true'

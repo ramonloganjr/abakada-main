@@ -133,9 +133,11 @@ async function replayBookmarkQueue() {
     req.onerror = (e) => reject(e.target.error);
   });
 
+  let successCount = 0;
+  let failCount = 0;
+  let finalBookmarks = null;
+
   for (const op of ops) {
-    // Apply the operation using Cache Storage as a proxy (SW can't access localStorage directly)
-    // and notify clients to apply the updated bookmarks list to their localStorage
     try {
       const bookmarksCache = await caches.open(CACHE_NAME);
       const cachedResponse = await bookmarksCache.match('/__bookmarks__');
@@ -157,22 +159,34 @@ async function replayBookmarkQueue() {
         })
       );
 
-      // Notify all clients to sync their localStorage
-      const allClients = await self.clients.matchAll({ includeUncontrolled: true });
-      for (const client of allClients) {
-        client.postMessage({ type: 'BOOKMARK_SYNC', bookmarks });
-      }
-    } catch {
-      // If replay fails, leave in queue to retry
+      finalBookmarks = bookmarks;
+      successCount++;
+    } catch (err) {
+      // Leave failed op in queue — it will retry on next sync event
+      console.error('[sw] Bookmark sync replay failed for op:', op.id, err?.message);
+      failCount++;
       continue;
     }
 
-    // Delete the operation from the queue after successful replay
+    // Only delete from queue after confirmed success
     await new Promise((resolve, reject) => {
       const tx = db.transaction('bookmark-queue', 'readwrite');
       const req = tx.objectStore('bookmark-queue').delete(op.id);
       req.onsuccess = () => resolve();
       req.onerror = (e) => reject(e.target.error);
+    });
+  }
+
+  // Notify all clients with the final state and a count of any failures
+  const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+  for (const client of allClients) {
+    if (finalBookmarks !== null) {
+      client.postMessage({ type: 'BOOKMARK_SYNC', bookmarks: finalBookmarks });
+    }
+    client.postMessage({
+      type: 'BOOKMARK_SYNC_RESULT',
+      synced: successCount,
+      failed: failCount,
     });
   }
 }
