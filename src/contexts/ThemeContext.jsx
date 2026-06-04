@@ -68,6 +68,7 @@ export function ThemeProvider({ children }) {
     clearTimeout(transitionTimer.current)
     root.classList.add('theme-transitioning')
     root.setAttribute('data-theme', appliedTheme)
+    root.style.colorScheme = appliedTheme
     transitionTimer.current = setTimeout(
       () => root.classList.remove('theme-transitioning'),
       FALLBACK_MS
@@ -92,6 +93,11 @@ export function ThemeProvider({ children }) {
     const newApplied = t === 'auto' ? systemPref : t
     const root       = document.documentElement
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // Keep the native colour scheme (scrollbars, controls, caret, root canvas)
+    // in lock-step with the theme so nothing renders in the wrong scheme — set
+    // before the View Transition snapshot so it is captured in the new frame.
+    root.style.colorScheme = newApplied
 
     // Pin the animation origin so the CSS circle() knows where to start.
     const ox = origin?.x ?? Math.round(window.innerWidth  / 2)

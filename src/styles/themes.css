@@ -380,14 +380,19 @@ html.theme-transitioning,
 html.theme-transitioning *,
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
+  /* Only the GPU/paint-cheap colour properties are crossfaded. box-shadow and
+     outline-color are deliberately excluded: animating box-shadow on every
+     element forces a full repaint per frame and is the dominant jank source of
+     this fallback sweep on large DOMs / low-end hardware. Shadows snap in <16ms
+     and the change is imperceptible behind the 250ms colour crossfade.
+     (Chrome/Edge/Safari 18+ never reach this path — they use the GPU-composited
+     View Transitions snapshot instead.) */
   transition:
     background-color 0.25s ease,
     color            0.25s ease,
     border-color     0.25s ease,
-    box-shadow       0.25s ease,
     fill             0.25s ease,
-    stroke           0.25s ease,
-    outline-color    0.25s ease !important;
+    stroke           0.25s ease !important;
 }
 
 /* Honour the user's motion preference — disable the page-wide colour sweep */
