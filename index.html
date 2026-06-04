@@ -11,6 +11,10 @@
         var t = localStorage.getItem('abakada-theme');
         var dark = t === 'dark' || ((!t || t === 'auto') && window.matchMedia('(prefers-color-scheme: dark)').matches);
         document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        // Tell the browser which native scheme to render (scrollbars, form
+        // controls, caret, and the root canvas shown during overscroll) so dark
+        // mode never flashes a white canvas before/around the painted body.
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
         // Suppress all CSS transitions during the initial paint so that
         // injected styles (Vite dev), body background-color, toggle thumb
         // positions, and icon opacity changes never visibly animate on load.
@@ -90,6 +94,7 @@
   <meta name="twitter:image:alt" content="Abakada — Free Open-Source Tools for Filipinos" />
 
   <!-- Theme & PWA -->
+  <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#107f87" />
   <meta name="msapplication-TileColor" content="#107f87" />
   <meta name="msapplication-TileImage" content="/assets/logo/favicon-180px.png" />

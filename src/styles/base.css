@@ -124,6 +124,10 @@ html {
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
   height: 100%;
+  /* Paint the root canvas with the theme surface so the area revealed by
+     rubber-band overscroll (iOS/macOS) — and any frame before <body> paints —
+     matches the theme instead of flashing the UA-default white. */
+  background-color: var(--bg-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {
