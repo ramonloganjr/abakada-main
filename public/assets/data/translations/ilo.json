@@ -22,7 +22,10 @@
     "close": "Ikeddeng",
     "bookmarks": "Dagiti Bookmark",
     "compare": "Ipagpada Dagiti Ramit",
-    "learningPaths": "Dagiti Dalan ti Panagadal"
+    "learningPaths": "Dagiti Dalan ti Panagadal",
+    "bookmarksShort": "Naidulin",
+    "compareShort": "Ipagpada",
+    "learningPathsShort": "Agadal"
   },
   "hero": {
     "title": "Dagiti Open Source a",
@@ -31,7 +34,30 @@
     "statsTools": "Dagiti Ramit",
     "statsCategories": "Dagiti Kategoria",
     "statsOpenSource": "Open Source",
-    "definition": "Ti Abakada ket libre, naurnos a direktorio ti 1,288 nga open-source a kagamitan ti produktibidad para kadagiti Filipino nga estudiante, mannursuro, ken propesional — binangon dagiti boluntario, awan ti masapul a panagrehistro."
+    "definition": "Ti Abakada ket libre, naurnos a direktorio ti 1,288 nga open-source a kagamitan ti produktibidad para kadagiti Filipino nga estudiante, mannursuro, ken propesional — binangon dagiti boluntario, awan ti masapul a panagrehistro.",
+    "ctaGuided": "Tulongannak a mangrugi",
+    "ctaBrowse": "Kitaen amin a ramit"
+  },
+  "home": {
+    "quickStart": {
+      "aria": "I-personalize ti panagrugim",
+      "prompt": "Baro ditoy? Ibagam no ania ti ar-aramidem ket idalankami:",
+      "student": "Estudiante-ak",
+      "teacher": "Mannursuro-ak",
+      "exploring": "Agbirbirok laeng",
+      "more": "Kitaen amin a pagpilian"
+    }
+  },
+  "trust": {
+    "ariaLabel": "Mapagtalkan ti komunidad ken naipabuya iti damag",
+    "visitors": "a Filipino ti napagserbian ken umad-adu pay",
+    "featuredIn": "Naipabuya iti",
+    "coverageOn": "Basaen ti damag maipapan iti Abakada iti"
+  },
+  "beginnerPicks": {
+    "eyebrow": "Baro iti open source?",
+    "title": "Mangrugi ditoy — libre ken nalaka a kasukat dagiti app nga ammomon",
+    "subtitle": "Napili a ramit a nalaka nga i-install a makaaramid iti trabaho dagiti popular a bayad a software — nga awan bayadna."
   },
   "groups": {
     "productivity": "Produktibidad",
@@ -165,7 +191,37 @@
     "lastUpdate": "Naudi a Naipasingked",
     "moreInfo": "Ad-adu pay nga impormasion maipanggep iti",
     "results": "kagamitan",
-    "category": "Kategoria"
+    "category": "Kategoria",
+    "freeAlternativeTo": "Maysa a libre ken open-source nga alternatibo iti",
+    "tryInBrowser": "Padasen iti browser — awan install"
+  },
+  "install": {
+    "title": "Kasano nga i-install ti {name}",
+    "safetyNote": "Kanayon nga ag-download manipud iti opisial a site iti ngato. Ti laeng libre ken open-source a software ti adda iti Abakada.",
+    "web": {
+      "title": "Iti web browser mo",
+      "steps": "Awan ti masapul nga i-install — agtaray ti {name} iti browser mo.\nUsaren ti “Visit official site” iti ngato tapno luktan daytoy.\nDadduma a web app ket mangted iti libre nga account tapno maidulin ti trabahom."
+    },
+    "desktop": {
+      "title": "Iti kompyuter mo ({platforms})",
+      "steps": "I-click ti “Visit official site” iti ngato tapno luktan ti opisial a website ti {name}.\nI-download ti bersion para iti sistemam ({platforms}).\nLuktan ti na-download a file ket surotem dagiti addang iti screen.\nLuktan ti {name} manipud kadagiti app mo — nakasaganaka."
+    },
+    "mobile": {
+      "title": "Iti telepono wenno tablet mo ({platforms})",
+      "steps": "Luktan ti app store ti device mo, wenno ti opisial a site ti {name}.\nBirokem ti “{name}” ket i-tap ti Install.\nLuktan ti app ket surotem ti napartak a setup."
+    },
+    "runtime": {
+      "title": "Babaen iti package manager ({platforms})",
+      "steps": "Mai-install ti {name} babaen iti package manager para iti {platforms}.\nSurotem ti opisial a dokumentasion para iti husto a bilin ti panag-install.\nPataryen ti {name} manipud iti terminal mo tapno makumpirma."
+    },
+    "server": {
+      "title": "Iti bukodmo a server ({platforms})",
+      "steps": "Self-hosted ti {name} — pataryem daytoy iti server a kontroladom ({platforms}).\nSurotem ti opisial a deployment guide para iti setup mo.\nKitaem ti dokumentasion para iti configuration, seguridad, ken update."
+    },
+    "generic": {
+      "title": "Alaen ti {name}",
+      "steps": "I-click ti “Visit official site” iti ngato tapno luktan ti website ti {name}.\nSurotem dagiti instruksion ti panag-install sadiay para iti platform mo."
+    }
   },
   "featured": {
     "label": "Naisangsangayan",
@@ -248,7 +304,9 @@
     "officialPartners": "Opisial a Kasosio",
     "partnerships": "Pannakikadua",
     "pitchDeck": "Pitch Deck ti Pakikipartner",
-    "glossary": "Diccionario"
+    "glossary": "Diccionario",
+    "educators": "Para Kadagiti Mannursuro",
+    "students": "Para Kadagiti Estudiante"
   },
   "accessibility": {
     "skipToContent": "Lumaktaw iti kangrunaan a linaon",
@@ -312,6 +370,102 @@
     "ago": "idi"
   },
   "pages": {
+    "students": {
+      "breadcrumb": "Para Kadagiti Estudiante",
+      "heroTitle": "Libre a Ramit para iti Tunggal Estudiante a Pilipino",
+      "heroSubtitle": "Amin a kasapulam para iti eskuela — panagsurat, presentasion, ladawan, video, coding, ken panagadal — nga awan bayadna uray maysa nga app.",
+      "ctaBasics": "Mangrugi kadagiti pundasion",
+      "ctaByTask": "Agbirok iti ramit segun iti trabaho",
+      "trustLabel": "Apay nga us-usaren dagiti estudiante ti Abakada",
+      "trust": { "free": "100% libre", "noAccount": "Awan kasapulan nga account", "offline": "Agtaray offline" },
+      "goalsTitle": "Ania ti kayatmo nga aramiden?",
+      "goalsSubtitle": "Mangpili iti trabaho ket ipakitami dagiti libre a ramit a makaaramid iti dayta.",
+      "goals": {
+        "write": "Agsurat iti report ken sanaysay",
+        "present": "Agaramid iti presentasion",
+        "notes": "Agnota ken agadal",
+        "photos": "Ag-edit iti ladawan ken arte",
+        "media": "Agaramid iti video ken audio",
+        "code": "Agadal nga ag-code",
+        "science": "Siensia ken matematika",
+        "safe": "Agtalinaed a natalged online"
+      },
+      "pathsTitle": "Dagiti learning path a naaramid para kadagiti estudiante",
+      "pathsSubtitle": "Addang-addang a toolkit a mangidalan kenka manipud iti awan agingga iti natalged.",
+      "startHere": "Mangrugi ditoy",
+      "altTitle": "Libre imbes a bayad",
+      "altSubtitle": "Sukatan dagiti nangina nga app iti libre a katupag a makaaramid iti isu met laeng a trabaho.",
+      "altReplaces": "imbes a",
+      "tipsTitle": "Agadal a nasirsirib",
+      "tips": {
+        "tip1": { "title": "Idulin dagiti nota iti maysa a lugar", "text": "Mangpili iti maysa a notes app (kas iti Joplin wenno Obsidian) ket ikabilmo amin sadiay, tapno kanayon a mabirokam." },
+        "tip2": { "title": "I-backup ti trabahom", "text": "Idulin dagiti napateg a file iti libre a cloud kas iti Nextcloud, wenno mangidulin iti kopia iti USB drive, tapno saanka a mapukaw iti deadline." },
+        "tip3": { "title": "Agadal iti sumagmamano a shortcut", "text": "Sumagmamano a keyboard shortcut — copy, paste, undo, save — ti makaikkat iti oras iti intero a tawen ti panagadal." },
+        "tip4": { "title": "Agtrabaho offline no bassit ti data", "text": "Kaaduan kadagiti ramit ditoy ket agtaray nga awan internet. I-download maminsan ket itultuloy uray awanen ti data." }
+      },
+      "faqTitle": "Dagiti saludsod ti estudiante",
+      "faq": {
+        "q1": "Adda kadi bayadanak?",
+        "a1": "Awan. Tunggal ramit ditoy ket libre ken open-source. Awan trial nga ag-expire ken awan nakalemmeng a bayad.",
+        "q2": "Masapul kadi nga agaramidak iti account?",
+        "a2": "Awan kasapulan nga account tapno usaren ti Abakada, ken kaaduan kadagiti ramit ket agtaray nga awan sign-up. Dadduma a piliyen a cloud feature ket mabalin a mangted iti libre nga account.",
+        "q3": "Agtaray kadi daytoy iti telepono ko?",
+        "a3": "Adu, ken dadduma ket para iti telepono. Nakalista iti tunggal panid ti ramit dagiti platform a suportaranna — birokem ti Android wenno iOS.",
+        "q4": "Mausarko kadi daytoy para iti schoolwork?",
+        "a4": "Wen. Dagitoy a ramit ket agaramid iti gagangay a file — dokumento, ladawan, video — a maipasam iti sadinoman, naimbag para iti report, proyekto, ken presentasion."
+      },
+      "ctaTitle": "Nakasaganaka nga ag-level up?",
+      "ctaText": "Kitaen ti intero a library, wenno surotem ti naidalan a dalan ket gun-oden ti sertipiko.",
+      "ctaBrowse": "Kitaen amin a ramit",
+      "ctaPaths": "Sukimaten dagiti learning path"
+    },
+    "educators": {
+      "breadcrumb": "Para Kadagiti Mannursuro",
+      "heroTitle": "Libre, Naipada iti Kurikulum a Ramit para Kadagiti Silid-adalan ti Pilipinas",
+      "heroSubtitle": "Ikkan dagiti estudiantem iti propesional a software nga awan bayadna, awan kasapulan a lisensia, ken agtaray kadagiti kompiuter nga adda metten iti eskuelaanyo.",
+      "valuesTitle": "Naaramid para iti pudno a kasasaad dagiti silid-adalan iti Pilipinas",
+      "value": {
+        "aligned": { "title": "Naipada iti kurikulum", "text": "Naka-map kadagiti strand ti DepEd Senior High School, tapno nalaka a birokem dagiti ramit a maitunos iti isursurom." },
+        "free": { "title": "Awan bayadna, awan lisensia", "text": "Tunggal ramit ket libre ken open-source — awan subscription, awan license key, awan papeles ti procurement." },
+        "safe": { "title": "Natalged para kadagiti estudiante", "text": "Awan kasapulan nga account ti estudiante ken awan panangsurot. Kitaen ti pamay-anmi iti privacy uray kaano." },
+        "hardware": { "title": "Agtaray iti gagangay a hardware", "text": "Nalag-an a ramit nga agtaray kadagiti daan a PC ken offline — para kadagiti eskuela nga adda limitado a koneksion." }
+      },
+      "browserTitle": "Agbirok iti ramit para iti strand mo",
+      "browserSubtitle": "Mangpili iti strand ti DepEd Senior High School tapno makita dagiti learning path a maitunos iti kurikulumna.",
+      "strandGroupLabel": "Dagiti strand ti DepEd Senior High School",
+      "browserShare": "Kopiaen ti link para iti klase",
+      "browserShared": "Nakopia ti link!",
+      "browserShareHint": "Ibingay daytoy a link tapno agdisso dagiti estudiantem iti isu met laeng a strand.",
+      "browserEmpty": "Awan pay learning path a naka-map iti daytoy a strand.",
+      "loadError": "Saanmi a maikarga ti datos ti kurikulum ita. Pangngaasi i-refresh ti panid.",
+      "featuredLabel": "Naipabuya para kadagiti mannursuro",
+      "featuredCta": "Luktan ti Teacher’s Digital Classroom",
+      "kitTitle": "Starter kit para iti silid-adalan",
+      "kitSubtitle": "Mapagtalkan a libre a ramit a mangsakup iti kaaduan a kasapulan iti klase — manipud kadagiti dokumento ken worksheet agingga iti ladawan, audio, ken panagrekord ti leksion.",
+      "guideTitle": "Kasano nga iyam-ammo ti open source kadagiti estudiantem",
+      "guide": {
+        "step1": { "title": "Mangrugi iti maysa a ramit", "text": "Mangpili iti maysa a ramit a maitunos iti sumaruno a leksionmo — LibreOffice Writer para iti worksheet, wenno GIMP para iti panag-edit ti ladawan — imbes a sabalien amin a sangsangkamaysa." },
+        "step2": { "title": "Ipakita nga umuna", "text": "Idatag mo a mismo ti ramit iti projector wenno shared screen tapno makita dagiti estudiante ti proseso sakbay a padasenda." },
+        "step3": { "title": "Mangted iti bassit, pudno a trabaho", "text": "Pagaramiden dagiti estudiante iti banag nga aramidenda met laeng — report, poster, audio clip — babaen ti libre a ramit." },
+        "step4": { "title": "Itudo ti opisial a tulong", "text": "Tunggal panid ti ramit ket adda link iti opisial a site ken dokumentasion. Paregtaen dagiti estudiante nga agsursuro nga agbirok iti sungbat a bukbukodda." }
+      },
+      "parentTitle": "Para kadagiti nagannak",
+      "parentSubtitle": "Napartak a sungbat kadagiti kadawyan a saludsod dagiti pamilia.",
+      "parent": {
+        "q1": "Natalged kadi daytoy a software para iti anakko?",
+        "a1": "Wen. Tunggal ramit ket open-source ken nasukimat sakbay nga nailista, ken aglinglink kami laeng kadagiti opisial a download site. Ti open-source code ket mabalin a kitaen ti publiko, maysa kadagiti rason no apay a pagtaltalkan dagiti eskuela ken gobierno iti intero a lubong.",
+        "q2": "Masapul kadi nga agaramid iti account ti anakko?",
+        "a2": "Saan. Awan kasapulan nga panagrehistro iti Abakada, ken dagiti ramit nga ipabpabuyami para iti silid-adalan ket mausar nga awan account. Dadduma a piliyen nga online a serbisio ket mabalin a mangted iti libre nga account tapno maidulin ti trabaho.",
+        "q3": "Agtaray kadi daytoy iti kompiutermi iti balay?",
+        "a3": "Halos sigurado. Iyun-unami dagiti ramit nga agtaray iti Windows, macOS, ken Linux, agraman dagiti daan ken nababbaba ti spec a makina, ken adu ti agtaray offline.",
+        "q4": "In-endorso kadi ti DepEd ti Abakada?",
+        "a4": "Ti Abakada ket independiente ken boluntario a proyekto. Iyaalinno mi dagiti learning path mi kadagiti strand ti DepEd Senior High School para iti kaitunosan, ngem saankami nga opisial a programa ti DepEd."
+      },
+      "ctaTitle": "Iyeg ti Abakada iti eskuelaanyo",
+      "ctaText": "Makitrabtrabaho kami kadagiti eskuela, ALS center, ken LGU tapno mangaramid kami iti sesion ti digital literacy ken mangpili kami iti ramit a maitunos iti konteksto yo.",
+      "ctaPartner": "Sukimaten ti panagtutulong",
+      "ctaContact": "Makiuman iti timpuyog mi"
+    },
     "about": {
       "title": "Maipapan Kadakami",
       "pageTitle": "Maipapan Kadakami - Abakada | Libre a Ramit para kadagiti Estudiante ken Mannursuro",

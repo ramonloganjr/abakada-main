@@ -58,4 +58,16 @@ export default [
     },
     rules: baseRules,
   },
+
+  // Tests — Node built-in test runner (unit) and Playwright (e2e). `test`/`expect`
+  // are imported, not globals, so plain node globals are enough here.
+  {
+    files: ['tests/**/*.{js,mjs}', 'e2e/**/*.{js,mjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: globals.node,
+    },
+    rules: baseRules,
+  },
 ]

@@ -147,6 +147,80 @@ export const pageMeta = {
     ]),
   },
 
+  educators: {
+    title: 'For Educators — Free Curriculum-Aligned Classroom Tools',
+    description:
+      'Free, open-source tools for Filipino teachers — mapped to DepEd Senior High School strands. No licenses, no student accounts. Plus a classroom starter kit and parent FAQ.',
+    pathname: '/educators',
+    jsonLd: [
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'For Educators', path: '/educators' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'EducationalOrganization',
+        name: 'Abakada',
+        url: `${SITE_ORIGIN}/educators`,
+        description:
+          'A volunteer-driven directory of free, open-source tools for Filipino educators, aligned to DepEd Senior High School strands.',
+        audience: { '@type': 'EducationalAudience', educationalRole: 'teacher' },
+        inLanguage: ['en', 'tl', 'ilo', 'ceb'],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          ['Is this software safe for my child?', 'Yes. Every tool is open-source and reviewed before listing, and we link only to official download sites. Open-source code can be publicly inspected, which is one reason schools and governments worldwide trust it.'],
+          ['Does my child need to create an account?', 'No. Abakada requires no sign-up, and the tools we highlight for classrooms can be used without creating accounts. Some optional online services may offer a free account to save work.'],
+          ['Will these run on our home computer?', 'Almost certainly. We prioritise tools that run on Windows, macOS, and Linux, including older and lower-spec machines, and many work offline.'],
+          ['Is Abakada endorsed by DepEd?', 'Abakada is an independent, volunteer-driven project. We align our learning paths to DepEd Senior High School strands for relevance, but we are not an official DepEd program.'],
+        ].map(([q, a]) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      },
+    ],
+  },
+
+  students: {
+    title: 'For Students — Free Tools for Schoolwork & Study',
+    description:
+      'Free, open-source tools for Filipino students — for writing, presentations, photos, video, coding, and study. No cost, no account, works offline.',
+    pathname: '/students',
+    jsonLd: [
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'For Students', path: '/students' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'EducationalOrganization',
+        name: 'Abakada',
+        url: `${SITE_ORIGIN}/students`,
+        description:
+          'A volunteer-driven directory of free, open-source tools for Filipino students — organized by what you need to do.',
+        audience: { '@type': 'EducationalAudience', educationalRole: 'student' },
+        inLanguage: ['en', 'tl', 'ilo', 'ceb'],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          ['Do I have to pay for anything?', 'No. Every tool here is free and open-source. There are no trials that expire and no hidden fees.'],
+          ['Do I need to make an account?', 'No account is needed to use Abakada, and most tools work without signing up. Some optional cloud features may offer a free account.'],
+          ['Will these work on my phone?', 'Many do, and some are phone-first. Each tool page lists the platforms it supports — look for Android or iOS.'],
+          ['Can I use these for schoolwork?', 'Yes. These tools create standard files — documents, images, video — you can submit anywhere, perfect for reports, projects, and presentations.'],
+        ].map(([q, a]) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      },
+    ],
+  },
+
   bookmarks: {
     title: 'My Bookmarks',
     description: 'Your saved tools on Abakada — synced across the device, no account required.',

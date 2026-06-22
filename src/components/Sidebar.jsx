@@ -231,12 +231,15 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
                 {groupCats.map(cat => {
                   const count = tools.filter(tool => tool.category === cat.id).length
                   const isActive = category === cat.id
+                  // Plain-language hint for non-technical visitors (review R1.2).
+                  const hint = t(`categoryDescriptions.${cat.id}`, '')
                   return (
                     <button
                       key={cat.id}
                       type="button"
                       className={`nav-item${isActive ? ' active' : ''}`}
                       data-category={cat.id}
+                      title={hint || undefined}
                       onClick={() => onCategoryChange(cat.id)}
                     >
                       <Icon name={cat.icon || 'box'} size={18} className="nav-item__icon" />

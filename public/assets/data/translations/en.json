@@ -22,7 +22,10 @@
     "close": "Close",
     "bookmarks": "Bookmarks",
     "compare": "Compare Tools",
-    "learningPaths": "Learning Paths"
+    "learningPaths": "Learning Paths",
+    "bookmarksShort": "Saved",
+    "compareShort": "Compare",
+    "learningPathsShort": "Learn"
   },
   "hero": {
     "title": "Open Source",
@@ -31,7 +34,30 @@
     "statsTools": "Tools",
     "statsCategories": "Categories",
     "statsOpenSource": "Open Source",
-    "definition": "Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required."
+    "definition": "Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required.",
+    "ctaGuided": "Help me get started",
+    "ctaBrowse": "Browse all tools"
+  },
+  "home": {
+    "quickStart": {
+      "aria": "Personalize your start",
+      "prompt": "New here? Tell us what you do and we’ll point you the right way:",
+      "student": "I’m a student",
+      "teacher": "I’m a teacher",
+      "exploring": "Just exploring",
+      "more": "See all options"
+    }
+  },
+  "trust": {
+    "ariaLabel": "Trusted by the community and featured in the press",
+    "visitors": "Filipinos served and counting",
+    "featuredIn": "As featured in",
+    "coverageOn": "Read Abakada coverage on"
+  },
+  "beginnerPicks": {
+    "eyebrow": "New to open source?",
+    "title": "Start here — friendly, free replacements for apps you already know",
+    "subtitle": "Hand-picked, easy-to-install tools that do the job of popular paid software — at no cost."
   },
   "groups": {
     "productivity": "Productivity",
@@ -165,7 +191,37 @@
     "lastUpdate": "Last Updated",
     "moreInfo": "More info about",
     "results": "tools",
-    "category": "Category"
+    "category": "Category",
+    "freeAlternativeTo": "A free, open-source alternative to",
+    "tryInBrowser": "Try in browser — no install"
+  },
+  "install": {
+    "title": "How to install {name}",
+    "safetyNote": "Always download from the official site linked above. Abakada only lists free, open-source software.",
+    "web": {
+      "title": "In your web browser",
+      "steps": "No installation needed — {name} runs right in your browser.\nUse the “Visit official site” button above to open it.\nSome web apps offer a free account so you can save your work."
+    },
+    "desktop": {
+      "title": "On your computer ({platforms})",
+      "steps": "Click “Visit official site” above to open the official {name} website.\nDownload the version for your system ({platforms}).\nOpen the downloaded file and follow the on-screen steps.\nLaunch {name} from your apps — you’re ready to go."
+    },
+    "mobile": {
+      "title": "On your phone or tablet ({platforms})",
+      "steps": "Open your device’s app store, or the official {name} site.\nSearch for “{name}” and tap Install.\nOpen the app and follow the quick setup."
+    },
+    "runtime": {
+      "title": "Via a package manager ({platforms})",
+      "steps": "{name} installs through a package manager for {platforms}.\nFollow the official documentation for the exact install command.\nRun {name} from your terminal to confirm it works."
+    },
+    "server": {
+      "title": "On your own server ({platforms})",
+      "steps": "{name} is self-hosted — you run it on a server you control ({platforms}).\nFollow the official deployment guide for your environment.\nSee the documentation for configuration, security, and updates."
+    },
+    "generic": {
+      "title": "Get {name}",
+      "steps": "Click “Visit official site” above to open the {name} website.\nFollow the installation instructions there for your platform."
+    }
   },
   "featured": {
     "label": "Featured",
@@ -248,7 +304,9 @@
     "officialPartners": "Official Partners",
     "partnerships": "Partnerships",
     "pitchDeck": "Partnership Pitch Deck",
-    "glossary": "Glossary"
+    "glossary": "Glossary",
+    "educators": "For Educators",
+    "students": "For Students"
   },
   "accessibility": {
     "skipToContent": "Skip to main content",
@@ -312,6 +370,102 @@
     "ago": "ago"
   },
   "pages": {
+    "students": {
+      "breadcrumb": "For Students",
+      "heroTitle": "Free Tools for Every Filipino Student",
+      "heroSubtitle": "Everything you need for school — writing, presentations, photos, video, coding, and study — without paying for a single app.",
+      "ctaBasics": "Start with the basics",
+      "ctaByTask": "Find tools by task",
+      "trustLabel": "Why students use Abakada",
+      "trust": { "free": "100% free", "noAccount": "No account needed", "offline": "Works offline" },
+      "goalsTitle": "What do you want to do?",
+      "goalsSubtitle": "Pick a task and we’ll show free tools that do the job.",
+      "goals": {
+        "write": "Write reports & essays",
+        "present": "Make presentations",
+        "notes": "Take notes & study",
+        "photos": "Edit photos & art",
+        "media": "Make videos & audio",
+        "code": "Learn to code",
+        "science": "Science & math",
+        "safe": "Stay safe online"
+      },
+      "pathsTitle": "Learning paths made for students",
+      "pathsSubtitle": "Step-by-step toolkits that take you from zero to confident.",
+      "startHere": "Start here",
+      "altTitle": "Free instead of paid",
+      "altSubtitle": "Swap expensive apps for free ones that do the same job.",
+      "altReplaces": "instead of",
+      "tipsTitle": "Study smarter",
+      "tips": {
+        "tip1": { "title": "Keep notes in one place", "text": "Pick one notes app (like Joplin or Obsidian) and put everything there, so you can always find it later." },
+        "tip2": { "title": "Back up your work", "text": "Save important files to a free cloud like Nextcloud, or keep a copy on a USB drive, so you never lose a deadline." },
+        "tip3": { "title": "Learn a few shortcuts", "text": "A handful of keyboard shortcuts — copy, paste, undo, save — will save you hours over a school year." },
+        "tip4": { "title": "Work offline when data is low", "text": "Most tools here run without internet. Download once and keep working even when you’re out of data." }
+      },
+      "faqTitle": "Student questions",
+      "faq": {
+        "q1": "Do I have to pay for anything?",
+        "a1": "No. Every tool here is free and open-source. There are no trials that expire and no hidden fees.",
+        "q2": "Do I need to make an account?",
+        "a2": "No account is needed to use Abakada, and most tools work without signing up. Some optional cloud features may offer a free account.",
+        "q3": "Will these work on my phone?",
+        "a3": "Many do, and some are phone-first. Each tool page lists the platforms it supports — look for Android or iOS.",
+        "q4": "Can I use these for schoolwork?",
+        "a4": "Yes. These tools create standard files — documents, images, video — you can submit anywhere, perfect for reports, projects, and presentations."
+      },
+      "ctaTitle": "Ready to level up?",
+      "ctaText": "Browse the full library, or follow a guided path and earn a certificate.",
+      "ctaBrowse": "Browse all tools",
+      "ctaPaths": "Explore learning paths"
+    },
+    "educators": {
+      "breadcrumb": "For Educators",
+      "heroTitle": "Free, Curriculum-Aligned Tools for Filipino Classrooms",
+      "heroSubtitle": "Equip your students with professional software that costs nothing, needs no licenses, and runs on the computers your school already has.",
+      "valuesTitle": "Built for the realities of Philippine classrooms",
+      "value": {
+        "aligned": { "title": "Curriculum-aligned", "text": "Mapped to DepEd Senior High School strands, so you can find tools that fit what you already teach." },
+        "free": { "title": "Zero cost, zero licenses", "text": "Every tool is free and open-source — no subscriptions, no license keys, no procurement paperwork." },
+        "safe": { "title": "Safe for students", "text": "No student accounts and no tracking required. Review our privacy approach anytime." },
+        "hardware": { "title": "Runs on modest hardware", "text": "Lightweight tools that work on older PCs and offline — built for schools with limited connectivity." }
+      },
+      "browserTitle": "Find tools for your strand",
+      "browserSubtitle": "Choose a DepEd Senior High School strand to see learning paths matched to its curriculum.",
+      "strandGroupLabel": "DepEd Senior High School strands",
+      "browserShare": "Copy classroom link",
+      "browserShared": "Link copied!",
+      "browserShareHint": "Share this link so your students open the same strand.",
+      "browserEmpty": "No learning paths are mapped to this strand yet.",
+      "loadError": "We couldn’t load curriculum data right now. Please refresh the page.",
+      "featuredLabel": "Featured for teachers",
+      "featuredCta": "Open the Teacher’s Digital Classroom",
+      "kitTitle": "Classroom starter kit",
+      "kitSubtitle": "Dependable, free tools that cover most classroom needs — from documents and worksheets to images, audio, and recording lessons.",
+      "guideTitle": "How to introduce open source to your students",
+      "guide": {
+        "step1": { "title": "Start with one tool", "text": "Pick a single tool that maps to your next lesson — LibreOffice Writer for worksheets, or GIMP for image editing — instead of changing everything at once." },
+        "step2": { "title": "Model it first", "text": "Demonstrate the tool yourself on a projector or shared screen so students see the workflow before they try it." },
+        "step3": { "title": "Give a small, real task", "text": "Have students produce something they would have made anyway — a report, a poster, an audio clip — using the free tool." },
+        "step4": { "title": "Point to the official help", "text": "Each tool page links to the official site and documentation. Encourage students to learn to find answers themselves." }
+      },
+      "parentTitle": "For parents",
+      "parentSubtitle": "Quick answers to the questions families ask most.",
+      "parent": {
+        "q1": "Is this software safe for my child?",
+        "a1": "Yes. Every tool is open-source and reviewed before listing, and we link only to official download sites. Open-source code can be publicly inspected, which is one reason schools and governments worldwide trust it.",
+        "q2": "Does my child need to create an account?",
+        "a2": "No. Abakada requires no sign-up, and the tools we highlight for classrooms can be used without creating accounts. Some optional online services may offer a free account to save work.",
+        "q3": "Will these run on our home computer?",
+        "a3": "Almost certainly. We prioritise tools that run on Windows, macOS, and Linux, including older and lower-spec machines, and many work offline.",
+        "q4": "Is Abakada endorsed by DepEd?",
+        "a4": "Abakada is an independent, volunteer-driven project. We align our learning paths to DepEd Senior High School strands for relevance, but we are not an official DepEd program."
+      },
+      "ctaTitle": "Bring Abakada to your school",
+      "ctaText": "We work with schools, ALS centers, and LGUs to run digital-literacy sessions and curate tools for your context.",
+      "ctaPartner": "Explore partnerships",
+      "ctaContact": "Contact our team"
+    },
     "about": {
       "title": "About Us",
       "pageTitle": "About Us - Abakada | Free Tools for Filipino Students & Educators",

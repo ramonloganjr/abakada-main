@@ -22,7 +22,10 @@
     "close": "Isara",
     "bookmarks": "Mga Bookmark",
     "compare": "Ikumpara ang Mga Kagamitan",
-    "learningPaths": "Mga Landas ng Pag-aaral"
+    "learningPaths": "Mga Landas ng Pag-aaral",
+    "bookmarksShort": "Naka-save",
+    "compareShort": "Ihambing",
+    "learningPathsShort": "Matuto"
   },
   "hero": {
     "title": "Mga Open Source na",
@@ -31,7 +34,30 @@
     "statsTools": "Mga Kagamitan",
     "statsCategories": "Mga Kategorya",
     "statsOpenSource": "Open Source",
-    "definition": "Ang Abakada ay isang libre at maingat na pinili na direktoryo ng 1,288 na open-source na produktibidad na kagamitan para sa mga estudyante, guro, at propesyonal na Pilipino — itinayo ng mga boluntaryo, walang kailangang pag-sign up."
+    "definition": "Ang Abakada ay isang libre at maingat na pinili na direktoryo ng 1,288 na open-source na produktibidad na kagamitan para sa mga estudyante, guro, at propesyonal na Pilipino — itinayo ng mga boluntaryo, walang kailangang pag-sign up.",
+    "ctaGuided": "Tulungan mo akong magsimula",
+    "ctaBrowse": "Tingnan lahat ng tool"
+  },
+  "home": {
+    "quickStart": {
+      "aria": "I-personalize ang iyong simula",
+      "prompt": "Bago dito? Sabihin mo kung ano ang ginagawa mo at gagabayan ka namin:",
+      "student": "Estudyante ako",
+      "teacher": "Guro ako",
+      "exploring": "Nagbabasa-basa lang",
+      "more": "Tingnan lahat ng opsyon"
+    }
+  },
+  "trust": {
+    "ariaLabel": "Pinagkakatiwalaan ng komunidad at itinampok sa balita",
+    "visitors": "Pilipinong napaglingkuran at patuloy pang dumarami",
+    "featuredIn": "Itinampok sa",
+    "coverageOn": "Basahin ang ulat tungkol sa Abakada sa"
+  },
+  "beginnerPicks": {
+    "eyebrow": "Bago sa open source?",
+    "title": "Magsimula dito — libre at madaling kapalit ng mga app na alam mo na",
+    "subtitle": "Piling-piling tool na madaling i-install na kayang gawin ang trabaho ng sikat na bayad na software — nang walang bayad."
   },
   "groups": {
     "productivity": "Produktibidad",
@@ -165,7 +191,37 @@
     "lastUpdate": "Huling Na-update",
     "moreInfo": "Higit pang impormasyon tungkol sa",
     "results": "kagamitan",
-    "category": "Kategorya"
+    "category": "Kategorya",
+    "freeAlternativeTo": "Isang libre at open-source na alternatibo sa",
+    "tryInBrowser": "Subukan sa browser — walang install"
+  },
+  "install": {
+    "title": "Paano i-install ang {name}",
+    "safetyNote": "Palaging mag-download mula sa opisyal na site sa itaas. Tanging libre at open-source na software lang ang nasa Abakada.",
+    "web": {
+      "title": "Sa iyong web browser",
+      "steps": "Hindi na kailangang i-install — tumatakbo ang {name} sa iyong browser.\nGamitin ang “Visit official site” sa itaas para buksan ito.\nMaaaring mag-alok ang ilang web app ng libreng account para ma-save ang iyong trabaho."
+    },
+    "desktop": {
+      "title": "Sa iyong kompyuter ({platforms})",
+      "steps": "I-click ang “Visit official site” sa itaas para buksan ang opisyal na website ng {name}.\nI-download ang bersyon para sa iyong sistema ({platforms}).\nBuksan ang na-download na file at sundin ang mga hakbang sa screen.\nBuksan ang {name} mula sa iyong mga app — handa ka na."
+    },
+    "mobile": {
+      "title": "Sa iyong telepono o tablet ({platforms})",
+      "steps": "Buksan ang app store ng iyong device, o ang opisyal na site ng {name}.\nHanapin ang “{name}” at i-tap ang Install.\nBuksan ang app at sundin ang mabilis na setup."
+    },
+    "runtime": {
+      "title": "Sa pamamagitan ng package manager ({platforms})",
+      "steps": "Nai-install ang {name} sa pamamagitan ng package manager para sa {platforms}.\nSundin ang opisyal na dokumentasyon para sa eksaktong utos ng pag-install.\nPatakbuhin ang {name} mula sa iyong terminal para makumpirma."
+    },
+    "server": {
+      "title": "Sa iyong sariling server ({platforms})",
+      "steps": "Self-hosted ang {name} — pinapatakbo mo ito sa server na kontrolado mo ({platforms}).\nSundin ang opisyal na deployment guide para sa iyong setup.\nTingnan ang dokumentasyon para sa configuration, seguridad, at mga update."
+    },
+    "generic": {
+      "title": "Kunin ang {name}",
+      "steps": "I-click ang “Visit official site” sa itaas para buksan ang website ng {name}.\nSundin ang mga tagubilin sa pag-install doon para sa iyong platform."
+    }
   },
   "featured": {
     "label": "Tampok",
@@ -248,7 +304,9 @@
     "officialPartners": "Mga Opisyal na Kasosyo",
     "partnerships": "Pakikipagsosyo",
     "pitchDeck": "Pitch Deck ng Pakikipagtulungan",
-    "glossary": "Talahuluganan"
+    "glossary": "Talahuluganan",
+    "educators": "Para sa mga Guro",
+    "students": "Para sa mga Mag-aaral"
   },
   "accessibility": {
     "skipToContent": "Lumaktaw sa pangunahing nilalaman",
@@ -312,6 +370,102 @@
     "ago": "nakalipas"
   },
   "pages": {
+    "students": {
+      "breadcrumb": "Para sa mga Mag-aaral",
+      "heroTitle": "Libreng mga Kagamitan para sa Bawat Mag-aaral na Pilipino",
+      "heroSubtitle": "Lahat ng kailangan mo para sa paaralan — pagsulat, presentasyon, larawan, video, coding, at pag-aaral — nang hindi nagbabayad ng kahit isang app.",
+      "ctaBasics": "Magsimula sa mga pangunahing kaalaman",
+      "ctaByTask": "Maghanap ng kagamitan ayon sa gawain",
+      "trustLabel": "Bakit ginagamit ng mga mag-aaral ang Abakada",
+      "trust": { "free": "100% libre", "noAccount": "Walang kailangang account", "offline": "Gumagana offline" },
+      "goalsTitle": "Ano ang gusto mong gawin?",
+      "goalsSubtitle": "Pumili ng gawain at ipapakita namin ang mga libreng kagamitang kayang gawin ito.",
+      "goals": {
+        "write": "Magsulat ng ulat at sanaysay",
+        "present": "Gumawa ng presentasyon",
+        "notes": "Magtala at mag-aral",
+        "photos": "Mag-edit ng larawan at sining",
+        "media": "Gumawa ng video at audio",
+        "code": "Matutong mag-code",
+        "science": "Agham at matematika",
+        "safe": "Manatiling ligtas online"
+      },
+      "pathsTitle": "Mga learning path na ginawa para sa mga mag-aaral",
+      "pathsSubtitle": "Hakbang-hakbang na mga toolkit na magdadala sa iyo mula sa simula hanggang sa kumpiyansa.",
+      "startHere": "Magsimula dito",
+      "altTitle": "Libre sa halip na bayad",
+      "altSubtitle": "Palitan ang mga mamahaling app ng libreng katumbas na kayang gawin ang parehong trabaho.",
+      "altReplaces": "sa halip na",
+      "tipsTitle": "Mag-aral nang mas matalino",
+      "tips": {
+        "tip1": { "title": "Itago ang mga tala sa isang lugar", "text": "Pumili ng isang notes app (tulad ng Joplin o Obsidian) at ilagay lahat doon, para lagi mong mahahanap." },
+        "tip2": { "title": "I-backup ang iyong gawa", "text": "I-save ang mahahalagang file sa libreng cloud tulad ng Nextcloud, o magtago ng kopya sa USB drive, para hindi ka mawalan ng deadline." },
+        "tip3": { "title": "Matuto ng ilang shortcut", "text": "Ilang keyboard shortcut — copy, paste, undo, save — ang makakatipid sa iyo ng oras sa buong taon ng pag-aaral." },
+        "tip4": { "title": "Magtrabaho offline kapag kaunti ang data", "text": "Karamihan sa mga kagamitan dito ay gumagana nang walang internet. I-download minsan at magpatuloy kahit ubos na ang data." }
+      },
+      "faqTitle": "Mga tanong ng mag-aaral",
+      "faq": {
+        "q1": "May babayaran ba ako?",
+        "a1": "Wala. Bawat kagamitan dito ay libre at open-source. Walang trial na mag-e-expire at walang nakatagong bayad.",
+        "q2": "Kailangan ba akong gumawa ng account?",
+        "a2": "Walang kailangang account para gamitin ang Abakada, at karamihan ng kagamitan ay gumagana nang walang sign-up. Ang ilang opsyonal na cloud feature ay maaaring mag-alok ng libreng account.",
+        "q3": "Gagana ba ito sa telepono ko?",
+        "a3": "Marami, at ang ilan ay para sa telepono. Nakalista sa bawat pahina ng kagamitan ang mga platform na sinusuportahan nito — hanapin ang Android o iOS.",
+        "q4": "Magagamit ko ba ito para sa schoolwork?",
+        "a4": "Oo. Ang mga kagamitang ito ay gumagawa ng karaniwang file — dokumento, larawan, video — na maipapasa mo kahit saan, perpekto para sa ulat, proyekto, at presentasyon."
+      },
+      "ctaTitle": "Handa nang mag-level up?",
+      "ctaText": "Tingnan ang buong library, o sumunod sa isang gabay na landas at makakuha ng sertipiko.",
+      "ctaBrowse": "Tingnan lahat ng kagamitan",
+      "ctaPaths": "Tuklasin ang mga learning path"
+    },
+    "educators": {
+      "breadcrumb": "Para sa mga Guro",
+      "heroTitle": "Libre at Naka-ayon sa Kurikulum na mga Kagamitan para sa Silid-aralang Pilipino",
+      "heroSubtitle": "Bigyan ang iyong mga mag-aaral ng propesyonal na software na walang gastos, walang lisensya, at tumatakbo sa mga kompyuter na mayroon na ang inyong paaralan.",
+      "valuesTitle": "Ginawa para sa tunay na kalagayan ng mga silid-aralan sa Pilipinas",
+      "value": {
+        "aligned": { "title": "Naka-ayon sa kurikulum", "text": "Naka-map sa mga strand ng DepEd Senior High School, para madali mong matagpuan ang mga kagamitang akma sa itinuturo mo." },
+        "free": { "title": "Walang gastos, walang lisensya", "text": "Bawat kagamitan ay libre at open-source — walang subscription, walang license key, walang papeles sa procurement." },
+        "safe": { "title": "Ligtas para sa mga mag-aaral", "text": "Hindi kailangan ng account ng mag-aaral at walang pagsubaybay. Tingnan ang aming patakaran sa privacy anumang oras." },
+        "hardware": { "title": "Gumagana sa karaniwang hardware", "text": "Magagaang kagamitan na gumagana sa mas lumang PC at offline — para sa mga paaralang may limitadong koneksyon." }
+      },
+      "browserTitle": "Maghanap ng kagamitan para sa iyong strand",
+      "browserSubtitle": "Pumili ng strand ng DepEd Senior High School para makita ang mga learning path na akma sa kurikulum nito.",
+      "strandGroupLabel": "Mga strand ng DepEd Senior High School",
+      "browserShare": "Kopyahin ang link para sa klase",
+      "browserShared": "Nakopya na ang link!",
+      "browserShareHint": "Ibahagi ang link na ito para mapunta ang iyong mga mag-aaral sa parehong strand.",
+      "browserEmpty": "Wala pang learning path na naka-map sa strand na ito.",
+      "loadError": "Hindi namin ma-load ang datos ng kurikulum ngayon. Paki-refresh ang pahina.",
+      "featuredLabel": "Tampok para sa mga guro",
+      "featuredCta": "Buksan ang Teacher’s Digital Classroom",
+      "kitTitle": "Starter kit para sa silid-aralan",
+      "kitSubtitle": "Maaasahang libreng kagamitan na sumasaklaw sa karamihan ng pangangailangan sa klase — mula sa mga dokumento at worksheet hanggang sa larawan, audio, at pagre-record ng aralin.",
+      "guideTitle": "Paano ipakilala ang open source sa iyong mga mag-aaral",
+      "guide": {
+        "step1": { "title": "Magsimula sa isang kagamitan", "text": "Pumili ng isang kagamitang akma sa susunod mong aralin — LibreOffice Writer para sa worksheet, o GIMP para sa pag-edit ng larawan — sa halip na baguhin lahat nang sabay-sabay." },
+        "step2": { "title": "Ipakita muna", "text": "Ipakita mo mismo ang kagamitan sa projector o shared screen para makita ng mga mag-aaral ang proseso bago nila subukan." },
+        "step3": { "title": "Magbigay ng maliit, totoong gawain", "text": "Pagawain ang mga mag-aaral ng isang bagay na gagawin din naman nila — ulat, poster, audio clip — gamit ang libreng kagamitan." },
+        "step4": { "title": "Ituro ang opisyal na tulong", "text": "Bawat pahina ng kagamitan ay may link sa opisyal na site at dokumentasyon. Hikayatin ang mga mag-aaral na matutong maghanap ng sagot nang mag-isa." }
+      },
+      "parentTitle": "Para sa mga magulang",
+      "parentSubtitle": "Mabilisang sagot sa mga karaniwang tanong ng pamilya.",
+      "parent": {
+        "q1": "Ligtas ba ang software na ito para sa anak ko?",
+        "a1": "Oo. Bawat kagamitan ay open-source at sinusuri bago ilista, at kami ay nagli-link lamang sa mga opisyal na download site. Ang open-source code ay maaaring suriin ng publiko, isa sa mga dahilan kung bakit ito pinagkakatiwalaan ng mga paaralan at gobyerno sa buong mundo.",
+        "q2": "Kailangan bang gumawa ng account ang anak ko?",
+        "a2": "Hindi. Walang kailangang mag-sign up sa Abakada, at ang mga kagamitang itinatampok namin para sa silid-aralan ay magagamit nang walang account. Ang ilang opsyonal na online na serbisyo ay maaaring mag-alok ng libreng account para ma-save ang gawa.",
+        "q3": "Gagana ba ito sa kompyuter namin sa bahay?",
+        "a3": "Halos tiyak. Inuuna namin ang mga kagamitang tumatakbo sa Windows, macOS, at Linux, kabilang ang mas luma at mababang-spec na makina, at marami ang gumagana offline.",
+        "q4": "Endorsado ba ng DepEd ang Abakada?",
+        "a4": "Ang Abakada ay isang independyente at boluntaryong proyekto. Ina-align namin ang aming mga learning path sa mga strand ng DepEd Senior High School para sa kaugnayan, ngunit hindi kami opisyal na programa ng DepEd."
+      },
+      "ctaTitle": "Dalhin ang Abakada sa inyong paaralan",
+      "ctaText": "Nakikipagtulungan kami sa mga paaralan, ALS center, at LGU para magsagawa ng mga sesyon sa digital literacy at pumili ng mga kagamitang akma sa inyong konteksto.",
+      "ctaPartner": "Tuklasin ang pakikipagtulungan",
+      "ctaContact": "Makipag-ugnayan sa amin"
+    },
     "about": {
       "title": "Tungkol Sa Amin",
       "pageTitle": "Tungkol Sa Amin - Abakada | Libreng Kagamitan para sa mga Estudyante at Guro",

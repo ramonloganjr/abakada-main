@@ -76,26 +76,39 @@ export default function Header({ onMenuToggle, navOpen = false }) {
               {t('pwa.install', 'Install App')}
             </button>
           )}
-          <Link to="/bookmarks" className="btn btn--icon header-nav-btn" aria-label={t('nav.bookmarks', 'Bookmarks')} style={{ position: 'relative' }}>
+          <Link
+            to="/bookmarks"
+            className="header-nav-btn"
+            title={t('nav.bookmarks', 'Bookmarks')}
+            aria-label={bookmarks.length > 0 ? `${t('nav.bookmarks', 'Bookmarks')} (${bookmarks.length})` : t('nav.bookmarks', 'Bookmarks')}
+          >
             <Icon name="bookmark" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.bookmarksShort', 'Saved')}</span>
             {bookmarks.length > 0 && (
-              <span className="nav-badge" aria-label={`${bookmarks.length} bookmarks`}>{bookmarks.length}</span>
+              <span className="header-nav-btn__badge" aria-hidden="true">{bookmarks.length}</span>
             )}
           </Link>
-          <Link to="/compare" className="btn btn--icon header-nav-btn" aria-label={t('nav.compare', 'Compare Tools')} style={{ position: 'relative' }}>
+          <Link
+            to="/compare"
+            className="header-nav-btn"
+            title={t('nav.compare', 'Compare Tools')}
+            aria-label={selectedIds.length > 0 ? `${t('nav.compare', 'Compare Tools')} (${selectedIds.length})` : t('nav.compare', 'Compare Tools')}
+          >
             <Icon name="layers" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.compareShort', 'Compare')}</span>
             {selectedIds.length > 0 && (
-              <span className="nav-badge" aria-label={`${selectedIds.length} tools in comparison`}>{selectedIds.length}</span>
+              <span className="header-nav-btn__badge" aria-hidden="true">{selectedIds.length}</span>
             )}
           </Link>
           <Link
             to="/learning-paths"
-            className={`btn btn--icon header-nav-btn${isOnLearningPaths ? ' header-nav-btn--active' : ''}`}
+            className={`header-nav-btn${isOnLearningPaths ? ' header-nav-btn--active' : ''}`}
+            title={t('nav.learningPaths', 'Learning Paths')}
             aria-label={t('nav.learningPaths', 'Learning Paths')}
             aria-current={isOnLearningPaths ? 'section' : undefined}
-            style={{ position: 'relative' }}
           >
             <Icon name="graduation-cap" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.learningPathsShort', 'Learn')}</span>
           </Link>
           <div
             className="theme-toggle"

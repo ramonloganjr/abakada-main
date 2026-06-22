@@ -12,6 +12,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import PWAInstallBanner from './components/PWAInstallBanner'
 import BrandLoader from './components/BrandLoader'
 import { stripLangPrefix, langPrefix } from './lib/canonical'
+import { getOnboardingRole } from './lib/onboarding'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -30,6 +31,8 @@ const LearningPathDetail = lazy(() => import('./pages/LearningPathDetail'))
 const OfficialPartners = lazy(() => import('./pages/OfficialPartners'))
 const ToolDetail = lazy(() => import('./pages/ToolDetail'))
 const Glossary = lazy(() => import('./pages/Glossary'))
+const Educators = lazy(() => import('./pages/Educators'))
+const Students = lazy(() => import('./pages/Students'))
 
 const SUSPENSE_FALLBACK = (
   <main className="site-main" id="main-content">
@@ -71,8 +74,7 @@ function AppContent() {
   // Show onboarding on first visit to /learning-paths if role not set
   useEffect(() => {
     if (normalizedPath === '/learning-paths') {
-      const hasRole = Boolean(localStorage.getItem('abakada_onboarding_role'))
-      if (!hasRole) setShowOnboarding(true)
+      if (!getOnboardingRole()) setShowOnboarding(true)
     }
   }, [normalizedPath])
 
@@ -152,7 +154,7 @@ function AppContent() {
   const isDeck = normalizedPath === '/partnership-deck'
 
   // Static pages that show the collapsible sidebar
-  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths']
+  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths', '/educators', '/students']
   const isStaticSidebarPage = STATIC_SIDEBAR_PATHS.includes(normalizedPath) || normalizedPath.startsWith('/learning-paths/')
 
   // Sync body class for sidebar collapsed state (desktop only).
@@ -289,7 +291,7 @@ function AppContent() {
             <Routes>
               {[''].concat(['/en', '/tl', '/ilo', '/bis']).map((prefix) => (
                 <Route key={prefix || 'root'} path={prefix || '/'} element={<Outlet />}>
-                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} />} />
+                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} onStartOnboarding={() => setShowOnboarding(true)} />} />
                   <Route path="about" element={<About />} />
                   <Route path="contact" element={<Contact />} />
                   <Route path="faq" element={<FAQ />} />
@@ -304,6 +306,8 @@ function AppContent() {
                   <Route path="learning-paths/:toolkitId" element={<LearningPathDetail toolsData={toolsData} />} />
                   <Route path="tools/:toolId" element={<ToolDetail toolsData={toolsData} hasToolsData={toolsData.tools.length > 0} />} />
                   <Route path="glossary" element={<Glossary />} />
+                  <Route path="educators" element={<Educators toolsData={toolsData} />} />
+                  <Route path="students" element={<Students toolsData={toolsData} />} />
                   <Route path="official-partners" element={<OfficialPartners />} />
                 </Route>
               ))}

@@ -1,19 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
+import { toolkitForRole, setOnboardingRole } from '../lib/onboarding'
 import Icon from './Icon'
-
-const ROLE_TO_TOOLKIT = {
-  student: 'student-productivity',
-  teacher: 'teacher-digital-classroom',
-  researcher: 'research-starter',
-  developer: 'beginner-coding',
-  designer: 'designer-toolkit',
-  accountant: 'accountant-essentials',
-  professional: 'workplace-pro',
-  'self-directed': 'self-directed-learner',
-  'out-of-school-youth': 'digital-foundations',
-}
 
 const ROLES = [
   { id: 'student', icon: 'graduation-cap', label: 'Student' },
@@ -44,10 +33,8 @@ export default function OnboardingModal({ onClose }) {
   }, [onClose])
 
   function handleRoleSelect(roleId) {
-    try {
-      localStorage.setItem('abakada_onboarding_role', roleId)
-    } catch {}
-    const toolkitId = ROLE_TO_TOOLKIT[roleId]
+    setOnboardingRole(roleId)
+    const toolkitId = toolkitForRole(roleId)
     onClose()
     if (toolkitId) navigate(`/learning-paths/${toolkitId}`)
     else navigate('/learning-paths')
