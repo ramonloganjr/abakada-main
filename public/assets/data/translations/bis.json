@@ -651,6 +651,12 @@
       "attributionText": "Tinubdan: Abakada.org. Kining mga kahulogan gisulat sa editoryal nga paagi para sa mga magbabasa sa Abakada ug lisensyado ubos sa Creative Commons Attribution 4.0 International (CC BY 4.0). Katapusang girebyu:"
     }
   },
+  "consent": {
+    "label": "Pagtugot sa analytics",
+    "text": "Naggamit mi og privacy-friendly nga analytics aron makita unsay makatabang — walay ads, ug walay datos nga gibaligya. Pwede ka mobalibad ug molihok gihapon ang tanan.",
+    "accept": "Dawata",
+    "decline": "Balibad"
+  },
   "pwa": {
     "install": "I-install ang App",
     "installAriaLabel": "I-install ang Abakada App"

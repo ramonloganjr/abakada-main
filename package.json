@@ -3,12 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
-    "prebuild": "node scripts/refresh-sitemap.js",
+    "typecheck": "tsc --noEmit",
+    "validate:data": "node scripts/validate-data.mjs",
+    "headers": "node scripts/security-headers.mjs",
+    "prebuild": "node scripts/refresh-sitemap.js && node scripts/build-search-index.mjs && node scripts/security-headers.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/prerender-shells.js",
+    "postbuild": "node scripts/prerender-shells.js && node scripts/verify-csp.mjs && node scripts/version-sw.mjs",
     "preview": "vite preview",
     "sitemap": "node scripts/refresh-sitemap.js",
     "prerender": "node scripts/prerender-shells.js",
@@ -23,14 +29,17 @@
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.39.4",
     "@playwright/test": "^1.60.0",
     "@vitejs/plugin-react": "^5.2.0",
+    "ajv": "^8.17.1",
     "esbuild": "^0.28.0",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "typescript": "^5.7.3",
     "vite": "^8.0.11"
   }
 }

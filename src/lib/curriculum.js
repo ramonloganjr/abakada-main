@@ -1,3 +1,4 @@
+// @ts-check
 // Curriculum helpers shared by the Educators page (and reusable elsewhere).
 //
 // curriculum.json defines DepEd K-12 Senior High School strands and CHED programs;
@@ -7,18 +8,21 @@
 // are trivially unit-testable.
 
 // DepEd K-12 strands only, preserving curriculum.json display order.
+/** @param {import('../types').Curriculum | null | undefined} curriculum @returns {import('../types').Strand[]} */
 export function k12Strands(curriculum) {
   const strands = curriculum?.strands || []
   return strands.filter((s) => s.category === 'k12')
 }
 
 // Look up a single strand record by id.
+/** @param {import('../types').Curriculum | null | undefined} curriculum @param {string} strandId @returns {import('../types').Strand | null} */
 export function findStrand(curriculum, strandId) {
   return (curriculum?.strands || []).find((s) => s.id === strandId) || null
 }
 
 // Learning-path toolkits whose curriculum alignment includes the given strand id,
 // preserving the toolkits' original order.
+/** @param {import('../types').Toolkit[] | null | undefined} toolkits @param {string} strandId @returns {import('../types').Toolkit[]} */
 export function pathsForStrand(toolkits, strandId) {
   if (!strandId) return []
   return (toolkits || []).filter(

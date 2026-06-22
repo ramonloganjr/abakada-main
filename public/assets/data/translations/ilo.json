@@ -651,6 +651,12 @@
       "attributionText": "Naggapuanan: Abakada.org. Dagitoy a kahulugan ket sinurat para iti audience ti Abakada ken nailisensia iti Creative Commons Attribution 4.0 International (CC BY 4.0). Naudi a naipasingked:"
     }
   },
+  "consent": {
+    "label": "Pammalubos iti analytics",
+    "text": "Agus-usar kami iti privacy-friendly nga analytics tapno makita no ania ti makatulong — awan ti ads, ken awan datos a mailako. Mabalinmo nga agkedked ket agtaray latta amin.",
+    "accept": "Awaten",
+    "decline": "Agkedked"
+  },
   "pwa": {
     "install": "I-install ti App",
     "installAriaLabel": "I-install ti Abakada App"

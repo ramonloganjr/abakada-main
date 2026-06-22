@@ -651,6 +651,12 @@
       "attributionText": "Source: Abakada.org. These definitions are authored editorially for the Abakada audience and licensed under Creative Commons Attribution 4.0 International (CC BY 4.0). Last reviewed:"
     }
   },
+  "consent": {
+    "label": "Analytics consent",
+    "text": "We use privacy-friendly analytics to see what helps — never ads, and no data is sold. You can decline and everything still works.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
   "pwa": {
     "install": "Install App",
     "installAriaLabel": "Install Abakada App"

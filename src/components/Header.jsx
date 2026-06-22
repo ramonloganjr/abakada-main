@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparison } from '../hooks/useComparison'
 import { usePWAInstall } from '../hooks/usePWAInstall'
-import { stripLangPrefix } from '../lib/canonical'
+import { stripLangPrefix, langPrefix } from '../lib/canonical'
 import Icon from './Icon'
 
 export default function Header({ onMenuToggle, navOpen = false }) {
@@ -14,9 +14,20 @@ export default function Header({ onMenuToggle, navOpen = false }) {
   const { bookmarks } = useBookmarks()
   const { selectedIds } = useComparison()
   const location = useLocation()
+  const navigate = useNavigate()
   const [langOpen, setLangOpen] = useState(false)
+  const [headerQuery, setHeaderQuery] = useState('')
   const langRef = useRef(null)
   const { canInstall, triggerInstall } = usePWAInstall()
+
+  // Global search — works from any page (review item 10). Submits to the home
+  // grid via ?q=, which Home reads to seed the catalog search.
+  function handleSearchSubmit(e) {
+    e.preventDefault()
+    const q = headerQuery.trim()
+    const base = langPrefix(lang)
+    navigate(q ? `${base}/?q=${encodeURIComponent(q)}` : `${base}/`)
+  }
 
   const normalizedPath = stripLangPrefix(location.pathname)
   const isOnLearningPaths = normalizedPath === '/learning-paths' || normalizedPath.startsWith('/learning-paths/')
@@ -64,6 +75,19 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             <img id="header-logo" className="nav__logo-img" src={logoSrc} alt="Abakada" width="140" height="32" fetchpriority="high" decoding="async" />
           </Link>
         </div>
+        <form className="header-search" role="search" onSubmit={handleSearchSubmit}>
+          <Icon name="search" collection="ui" size={16} className="header-search__icon" />
+          <input
+            type="search"
+            className="header-search__input"
+            placeholder={t('search.placeholder', 'Search tools...')}
+            aria-label={t('search.placeholder', 'Search tools')}
+            value={headerQuery}
+            onChange={(e) => setHeaderQuery(e.target.value)}
+            maxLength={100}
+            autoComplete="off"
+          />
+        </form>
         <div className="nav__actions">
           {canInstall && (
             <button

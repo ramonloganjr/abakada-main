@@ -29,7 +29,7 @@ const QUICKSTART_ROLES = [
   { id: 'teacher', icon: 'presentation', labelKey: 'home.quickStart.teacher', fallback: "I'm a teacher" },
 ]
 
-export default function Home({ toolsData, onCloseNav, onStartOnboarding }) {
+export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenNav }) {
   const { t, lang } = useI18n()
   const { saveData } = useLowBandwidth()
   const location = useLocation()
@@ -100,6 +100,12 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding }) {
     dismissQuickStart()
     scrollToTools()
   }
+
+  // Seed the catalog search from ?q= (global header search + SearchAction links).
+  useEffect(() => {
+    const q = new URLSearchParams(location.search).get('q')
+    if (q) setQuery(q)
+  }, [location.search, setQuery])
 
   useEffect(() => { setPage(1) }, [query, category, platforms, tags])
 
@@ -302,6 +308,23 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding }) {
           </div>
         </section>
       </main>
+
+      {/* Mobile filter sheet trigger (review item 10) — opens the sidebar (which
+          holds search + category/platform/tag filters) as an off-canvas sheet. */}
+      {onOpenNav && (
+        <button
+          type="button"
+          className="filter-fab"
+          onClick={onOpenNav}
+          aria-label={t('filters.title', 'Filters')}
+        >
+          <Icon name="filter" collection="ui" size={18} />
+          <span>{t('filters.title', 'Filters')}</span>
+          {(platforms.length + tags.length + (category !== 'all' ? 1 : 0)) > 0 && (
+            <span className="filter-fab__count">{platforms.length + tags.length + (category !== 'all' ? 1 : 0)}</span>
+          )}
+        </button>
+      )}
 
       {selectedTool && (
         <ToolModal

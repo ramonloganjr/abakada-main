@@ -8,6 +8,8 @@ import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import OnboardingModal from './components/OnboardingModal'
+import RouteAnnouncer from './components/RouteAnnouncer'
+import ConsentBanner from './components/ConsentBanner'
 import ErrorBoundary from './components/ErrorBoundary'
 import PWAInstallBanner from './components/PWAInstallBanner'
 import BrandLoader from './components/BrandLoader'
@@ -191,9 +193,15 @@ function AppContent() {
     document.body.classList.remove('nav-open')
   }
 
+  function openNav() {
+    setNavOpen(true)
+    document.body.classList.add('nav-open')
+  }
+
   return (
     <div className="app">
       <ScrollToTop />
+      <RouteAnnouncer />
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
       {/* PWA update notification */}
@@ -291,7 +299,7 @@ function AppContent() {
             <Routes>
               {[''].concat(['/en', '/tl', '/ilo', '/bis']).map((prefix) => (
                 <Route key={prefix || 'root'} path={prefix || '/'} element={<Outlet />}>
-                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} onStartOnboarding={() => setShowOnboarding(true)} />} />
+                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} onStartOnboarding={() => setShowOnboarding(true)} onOpenNav={openNav} />} />
                   <Route path="about" element={<About />} />
                   <Route path="contact" element={<Contact />} />
                   <Route path="faq" element={<FAQ />} />
@@ -321,6 +329,7 @@ function AppContent() {
         <OnboardingModal onClose={() => setShowOnboarding(false)} />
       )}
       <PWAInstallBanner />
+      <ConsentBanner />
     </div>
   )
 }

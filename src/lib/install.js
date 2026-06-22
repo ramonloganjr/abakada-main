@@ -1,3 +1,4 @@
+// @ts-check
 // Install-guide generator.
 //
 // tools.json carries a `platforms` array using a mixed vocabulary — operating
@@ -10,6 +11,7 @@
 // This module is intentionally pure (no React, no i18n, no DOM) so it is trivially
 // unit-testable; the component layers translation + presentation on top.
 
+/** @type {Record<string, string>} */
 export const PLATFORM_LABELS = {
   windows: 'Windows',
   macos: 'macOS',
@@ -37,6 +39,7 @@ export const PLATFORM_LABELS = {
 
 // Human-readable label for a platform code, with a sensible capitalized fallback
 // for any value we have not explicitly mapped.
+/** @param {string} code @returns {string} */
 export function platformLabel(code) {
   if (!code) return ''
   return PLATFORM_LABELS[code] || code.charAt(0).toUpperCase() + code.slice(1)
@@ -56,8 +59,9 @@ const BUCKET_DEFS = [
 // Returns [{ id, platforms: [...] }] in easiest-first order. When nothing matches
 // (unknown/spec-only platforms), returns a single 'generic' bucket so the UI can
 // still point the visitor to the official site.
+/** @param {import('../types').Tool | null | undefined} tool @returns {import('../types').InstallBucket[]} */
 export function getInstallBuckets(tool) {
-  const platforms = Array.isArray(tool?.platforms) ? tool.platforms : []
+  const platforms = tool && Array.isArray(tool.platforms) ? tool.platforms : []
   const buckets = []
   for (const def of BUCKET_DEFS) {
     const matched = platforms.filter((p) => def.platforms.includes(p))
@@ -67,6 +71,7 @@ export function getInstallBuckets(tool) {
 }
 
 // Format a bucket's platforms as a readable list, e.g. "Windows, macOS, Linux".
+/** @param {string[] | null | undefined} platforms @returns {string} */
 export function formatPlatformList(platforms) {
   return (platforms || []).map(platformLabel).join(', ')
 }

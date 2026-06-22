@@ -1,3 +1,4 @@
+// @ts-check
 // Task-based entry points for the Students page.
 //
 // Students think in terms of what they need to *do* ("write a report", "edit a
@@ -18,9 +19,10 @@ export const STUDENT_GOALS = [
 
 // Resolve a goal's curated tool IDs against live tools data, preserving order and
 // dropping any that aren't present.
+/** @param {import('../types').Tool[] | null | undefined} tools @param {string} goalId @returns {import('../types').Tool[]} */
 export function toolsForGoal(tools, goalId) {
   const goal = STUDENT_GOALS.find((g) => g.id === goalId)
   if (!goal) return []
   const byId = new Map((tools || []).map((t) => [t.id, t]))
-  return goal.toolIds.map((id) => byId.get(id)).filter(Boolean)
+  return /** @type {import('../types').Tool[]} */ (goal.toolIds.map((id) => byId.get(id)).filter((t) => Boolean(t)))
 }

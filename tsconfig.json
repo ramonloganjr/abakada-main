@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": []
+  },
+  "//": "Incremental TypeScript adoption: type-checks the pure data/logic libraries that opt in with `// @ts-check`. Components remain plain JSX for now. Run via `npm run typecheck`.",
+  "include": ["src/lib/**/*.js", "src/types.d.ts"]
+}

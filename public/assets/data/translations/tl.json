@@ -651,6 +651,12 @@
       "attributionText": "Pinagmulan: Abakada.org. Ang mga kahulugang ito ay isinulat sa pang-editoryal na paraan para sa madla ng Abakada at lisensyado sa ilalim ng Creative Commons Attribution 4.0 International (CC BY 4.0). Huling sinuri:"
     }
   },
+  "consent": {
+    "label": "Pahintulot sa analytics",
+    "text": "Gumagamit kami ng privacy-friendly na analytics para makita kung ano ang nakakatulong — walang ads, at walang datos na ibinebenta. Pwede kang tumanggi at gagana pa rin ang lahat.",
+    "accept": "Tanggapin",
+    "decline": "Tanggihan"
+  },
   "pwa": {
     "install": "I-install ang App",
     "installAriaLabel": "I-install ang Abakada App"
