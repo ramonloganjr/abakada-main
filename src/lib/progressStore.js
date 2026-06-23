@@ -24,6 +24,7 @@ const hasLS = (() => {
   try { return hasWindow && !!window.localStorage } catch { return false }
 })()
 
+/** @param {string} key @param {any} fallback @returns {any} */
 function read(key, fallback) {
   if (!hasLS) return fallback
   try {
@@ -33,6 +34,7 @@ function read(key, fallback) {
   } catch { return fallback }
 }
 
+/** @param {string} key @param {any} value */
 function write(key, value) {
   if (!hasLS) return
   try { window.localStorage.setItem(key, JSON.stringify(value)) } catch { /* quota / private mode */ }
@@ -51,7 +53,7 @@ export function emitChange() {
  */
 export function onChange(cb) {
   if (!hasWindow) return () => {}
-  const storageHandler = (e) => {
+  const storageHandler = (/** @type {StorageEvent} */ e) => {
     // Only react to our own keys to avoid needless recomputes.
     if (!e.key || e.key.startsWith('abakada_')) cb()
   }
@@ -109,7 +111,9 @@ export function getRecentToolkit() {
  * @returns {{ exploredByToolkit: Record<string,string[]>, tasksByToolkit: Record<string,string[]> }}
  */
 export function getAllProgress() {
+  /** @type {Record<string, string[]>} */
   const exploredByToolkit = {}
+  /** @type {Record<string, string[]>} */
   const tasksByToolkit = {}
   if (!hasLS) return { exploredByToolkit, tasksByToolkit }
   try {

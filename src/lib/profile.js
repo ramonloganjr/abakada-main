@@ -59,8 +59,8 @@ export function computeStreak(days, today) {
   if (!days.length) return { current: 0, longest: 0, activeToday: false }
   const set = new Set(days)
   const dayMs = 86400000
-  const toDate = (s) => new Date(s + 'T00:00:00')
-  const fmt = (d) => {
+  const toDate = (/** @type {string} */ s) => new Date(s + 'T00:00:00')
+  const fmt = (/** @type {Date} */ d) => {
     const off = d.getTimezoneOffset()
     return new Date(d.getTime() - off * 60000).toISOString().slice(0, 10)
   }
@@ -127,23 +127,24 @@ export function computeProfile({
   const totalTasksDone = Object.values(tasksByToolkit).reduce((n, arr) => n + arr.length, 0)
 
   // Per-path completion + stage completion (needs the toolkit definitions).
+  /** @type {Array<{id:string,title:string,icon:string,total:number,explored:number,pct:number,completed:boolean,started:boolean,stagesDone:number,stagesTotal:number}>} */
   const perPath = []
   let stagesCompleted = 0
   let pathsCompleted = 0
   let pathsStarted = 0
 
-  toolkits.forEach((tk) => {
+  toolkits.forEach((/** @type {any} */ tk) => {
     const explored = new Set(exploredByToolkit[tk.id] || [])
     const stages = tk.stages || []
-    const allToolIds = [...new Set(stages.flatMap((s) => s.toolIds || []))]
+    const allToolIds = [...new Set(stages.flatMap((/** @type {any} */ s) => s.toolIds || []))]
     const total = allToolIds.length
-    const done = allToolIds.filter((id) => explored.has(id)).length
+    const done = allToolIds.filter((/** @type {string} */ id) => explored.has(id)).length
     const pct = total > 0 ? Math.round((done / total) * 100) : 0
 
     let stagesDoneInPath = 0
-    stages.forEach((s) => {
+    stages.forEach((/** @type {any} */ s) => {
       const ids = s.toolIds || []
-      if (ids.length > 0 && ids.every((id) => explored.has(id))) stagesDoneInPath++
+      if (ids.length > 0 && ids.every((/** @type {string} */ id) => explored.has(id))) stagesDoneInPath++
     })
     stagesCompleted += stagesDoneInPath
 
@@ -175,14 +176,16 @@ export function computeProfile({
   const streak = computeStreak(activityDays, today)
 
   // Competency radar: explored tools rolled up into the seven domains.
+  /** @type {Record<string, number>} */
   const availableByGroup = {}
-  tools.forEach((t) => {
+  tools.forEach((/** @type {any} */ t) => {
     for (const g of CATEGORY_GROUPS) {
       if (g.categories.includes(t.category)) { availableByGroup[g.id] = (availableByGroup[g.id] || 0) + 1; break }
     }
   })
+  /** @type {Record<string, number>} */
   const exploredByGroup = {}
-  exploredUnion.forEach((id) => {
+  exploredUnion.forEach((/** @type {any} */ id) => {
     const tool = toolById.get(id)
     if (!tool) return
     for (const g of CATEGORY_GROUPS) {
@@ -218,7 +221,7 @@ export function computeProfile({
   // "Continue learning": prefer the most recently touched, still-unfinished path;
   // otherwise the started path closest to completion.
   let continuePath = null
-  const byId = (id) => perPath.find((p) => p.id === id)
+  const byId = (/** @type {string} */ id) => perPath.find((p) => p.id === id)
   const recent = recentToolkit ? byId(recentToolkit) : null
   if (recent && recent.started && !recent.completed) {
     continuePath = recent
@@ -249,6 +252,7 @@ export function computeProfile({
 
 /**
  * Achievement definitions, evaluated against the computed metrics. Pure.
+ * @param {{ totalToolsExplored:number, totalTasksDone:number, stagesCompleted:number, pathsCompleted:number, domainsTouched:number, packCount:number, streak:{current:number,longest:number,activeToday:boolean} }} m
  */
 export function computeBadges(m) {
   /** @type {Array<{id:string,label:string,desc:string,icon:string,earned:boolean}>} */
