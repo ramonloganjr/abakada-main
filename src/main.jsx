@@ -70,4 +70,8 @@ if (import.meta.env.PROD) {
   window.addEventListener('unhandledrejection', ({ reason }) => {
     reportError(reason instanceof Error ? reason : new Error(String(reason)), 'unhandledrejection')
   })
+  // Synchronous global errors (the unhandledrejection handler only covers async).
+  window.addEventListener('error', (e) => {
+    if (e?.error) reportError(e.error, 'window.error')
+  })
 }

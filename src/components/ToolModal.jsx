@@ -1,16 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
+import { isSafeUrl } from '../lib/url'
 import Icon from './Icon'
-
-/** Validate that a URL uses http or https to prevent javascript: injection */
-function isSafeUrl(url) {
-  if (!url) return false
-  try {
-    const u = new URL(url)
-    return u.protocol === 'http:' || u.protocol === 'https:'
-  } catch { return false }
-}
 
 function getProjectHealth(dateString) {
   if (!dateString) return null

@@ -25,7 +25,7 @@
   </script>
 
   <!-- Content Security Policy (frame-ancestors and upgrade-insecure-requests must be HTTP headers, not meta) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; worker-src 'self'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
 
   <!-- Security Headers -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -41,13 +41,22 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
+    // Consent Mode v2 — default to denied until the visitor opts in via the
+    // in-app consent banner (no analytics cookies are set before consent).
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
     gtag('js', new Date());
     gtag('config', 'G-4TGSJ6EKYB', { anonymize_ip: true });
   </script>
 
   <!-- Primary SEO -->
-  <title>Abakada — 1,000+ Free Open-Source Tools for Filipino Students, Educators &amp; Professionals</title>
-  <meta name="description" content="Abakada is the Philippines' largest curated directory of free and open-source productivity tools. Discover 1,000+ verified tools across 45+ categories — AI, development, design, education, and more. 100% free." />
+  <title>Abakada: 1,000+ Free Open-Source Tools for Filipino Students, Educators &amp; Professionals</title>
+  <meta name="description" content="Abakada is the Philippines' largest curated directory of free and open-source productivity tools. Discover 1,000+ verified tools across 45+ categories: AI, development, design, education, and more. 100% free." />
   <meta name="keywords" content="free open source tools Philippines, Abakada, Filipino students tools, open source software, productivity tools, document processing, project management, note-taking, design tools, development tools, AI tools, machine learning, DevOps, database tools, education software, free software Philippines, libreng software, mga libreng tools" />
   <meta name="author" content="Abakada Organization" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -70,8 +79,8 @@
   <!-- Open Graph — Facebook, LinkedIn, Messenger, Viber -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Abakada" />
-  <meta property="og:title" content="Abakada — 1,000+ Free Open-Source Tools for Filipino Students &amp; Educators" />
-  <meta property="og:description" content="The Philippines' largest curated directory of free and open-source tools. 1,000+ verified tools across 45+ categories — AI, development, design, education, and more." />
+  <meta property="og:title" content="Abakada: 1,000+ Free Open-Source Tools for Filipino Students &amp; Educators" />
+  <meta property="og:description" content="The Philippines' largest curated directory of free and open-source tools. 1,000+ verified tools across 45+ categories: AI, development, design, education, and more." />
   <meta property="og:url" content="https://abakada.org/" />
   <meta property="og:locale" content="en_PH" />
   <meta property="og:locale:alternate" content="tl_PH" />
@@ -81,17 +90,17 @@
   <meta property="og:image:secure_url" content="https://abakada.org/assets/logo/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Abakada — Free Open-Source Tools for Filipinos" />
+  <meta property="og:image:alt" content="Abakada: Free Open-Source Tools for Filipinos" />
   <meta property="og:image:type" content="image/png" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@AbakadaOrg" />
   <meta name="twitter:creator" content="@AbakadaOrg" />
-  <meta name="twitter:title" content="Abakada — 1,000+ Free Open-Source Tools for Filipinos" />
+  <meta name="twitter:title" content="Abakada: 1,000+ Free Open-Source Tools for Filipinos" />
   <meta name="twitter:description" content="The Philippines' largest curated directory of free and open-source productivity tools. 45+ categories, 100% free." />
   <meta name="twitter:image" content="https://abakada.org/assets/logo/og.png" />
-  <meta name="twitter:image:alt" content="Abakada — Free Open-Source Tools for Filipinos" />
+  <meta name="twitter:image:alt" content="Abakada: Free Open-Source Tools for Filipinos" />
 
   <!-- Theme & PWA -->
   <meta name="color-scheme" content="light dark" />
@@ -200,7 +209,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Abakada — Free Open-Source Tools for Filipino Students & Educators",
+    "name": "Abakada: Free Open-Source Tools for Filipino Students & Educators",
     "url": "https://abakada.org/",
     "description": "Browse 1,000+ free and open-source productivity tools curated for Filipino students, scholars, educators, and professionals across 45+ categories.",
     "isPartOf": { "@type": "WebSite", "url": "https://abakada.org/" },
@@ -282,7 +291,7 @@
     "description": "Structured learning paths combining free open-source tools for Filipino students, educators, and professionals.",
     "url": "https://abakada.org/learning-paths",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "Digital Foundations", "description": "First confident steps online — safe, private, and free.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/digital-foundations", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "Digital Foundations", "description": "First confident steps online: safe, private, and free.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/digital-foundations", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
       { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "Research Starter", "description": "Toolkit for academic research, citation, and writing.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/research-starter", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
       { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "Student Productivity", "description": "Open-source tools for note-taking, study, and time management.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/student-productivity", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },
       { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "Teacher's Digital Classroom", "description": "Free, open tools for lesson design, delivery, and assessment.", "provider": { "@type": "EducationalOrganization", "name": "Abakada", "sameAs": "https://abakada.org/" }, "url": "https://abakada.org/learning-paths/teacher-digital-classroom", "inLanguage": ["en", "tl", "ilo", "ceb"], "isAccessibleForFree": true } },

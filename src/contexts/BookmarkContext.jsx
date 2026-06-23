@@ -116,7 +116,7 @@ export function BookmarkProvider({ children }) {
     <BookmarkContext.Provider value={{ bookmarks, addBookmark, removeBookmark, isBookmarked, syncUnavailable }}>
       {showStorageNotice && (
         <div className="storage-notice" role="alert">
-          <span>{t('bookmark.storageUnavailable', "Bookmarks won't be saved — storage is unavailable in this session")}</span>
+          <span>{t('bookmark.storageUnavailable', "Bookmarks won't be saved. Storage is unavailable in this session")}</span>
           <button
             type="button"
             className="storage-notice__dismiss"
@@ -129,7 +129,7 @@ export function BookmarkProvider({ children }) {
       )}
       {showSyncNotice && (
         <div className="storage-notice" role="alert">
-          <span>{t('bookmark.syncUnavailable', "You're offline — bookmarks are saved for this session but won't sync across devices")}</span>
+          <span>{t('bookmark.syncUnavailable', "You're offline. Bookmarks are saved for this session but won't sync across devices")}</span>
           <button
             type="button"
             className="storage-notice__dismiss"

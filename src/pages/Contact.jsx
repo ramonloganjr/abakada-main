@@ -13,7 +13,7 @@ export default function Contact() {
     <StaticPageLayout
       breadcrumb={t('breadcrumb.contact', 'Contact')}
       heroTitle={t('pages.contact.heroTitle', 'Contact Us')}
-      heroSubtitle={t('pages.contact.heroSubtitle', "We'd love to hear from you. Whether you have a question, suggestion, or want to contribute—reach out anytime.")}
+      heroSubtitle={t('pages.contact.heroSubtitle', "We'd love to hear from you. Whether you have a question, suggestion, or want to contribute, reach out anytime.")}
     >
       <section className="content-section">
         <div className="container">

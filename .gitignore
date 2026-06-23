@@ -23,6 +23,7 @@ dist
 dist-ssr
 build
 out
+release
 
 # ============================================================================
 # Environment files (may contain secrets)
@@ -46,10 +47,13 @@ out
 *.tsbuildinfo
 
 # ============================================================================
-# Test coverage
+# Test coverage & Playwright artifacts
 # ============================================================================
 coverage
 .nyc_output
+test-results
+playwright-report
+.playwright
 
 # ============================================================================
 # OS files

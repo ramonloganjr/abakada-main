@@ -75,7 +75,7 @@ export default function Partnerships() {
                 </svg>
               </div>
               <h2 className="content-block__title">{t('pages.partnerships.whyTitle', 'Why Partner with Abakada?')}</h2>
-              <p className="content-block__text">{t('pages.partnerships.whyText', 'Abakada reaches Filipino students, educators, scholars, and professionals seeking free productivity tools. Partnering with us means supporting digital equity across the Philippines — through a transparent, open-source civic-tech project with no tracking, no accounts, and no paywalls.')}</p>
+              <p className="content-block__text">{t('pages.partnerships.whyText', 'Abakada reaches Filipino students, educators, scholars, and professionals seeking free productivity tools. Partnering with us means supporting digital equity across the Philippines, through a transparent, open-source civic-tech project with no tracking, no accounts, and no paywalls.')}</p>
             </div>
             <div className="content-block">
               <div className="content-block__icon">
@@ -84,7 +84,7 @@ export default function Partnerships() {
                 </svg>
               </div>
               <h2 className="content-block__title">{t('pages.partnerships.alignedTitle', 'Aligned, Honest Engagements')}</h2>
-              <p className="content-block__text">{t('pages.partnerships.alignedText', 'We welcome partnerships with educational institutions, NGOs, open-source projects, and organizations aligned with our mission of digital equity. Every partnership model below is something we already ship today — no vaporware.')}</p>
+              <p className="content-block__text">{t('pages.partnerships.alignedText', 'We welcome partnerships with educational institutions, NGOs, open-source projects, and organizations aligned with our mission of digital equity. Every partnership model below is something we already ship today. No vaporware.')}</p>
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function Partnerships() {
         <div className="container">
           <div className="cta-block">
             <h2 className="cta-block__title">{t('pages.partnerships.ctaTitle', 'Ready to Make an Impact?')}</h2>
-            <p className="cta-block__text">{t('pages.partnerships.ctaText', 'No discovery-call funnel, no qualification round. Reach out directly to the maintainer — if there is a fit, we will figure out the rest in one call.')}</p>
+            <p className="cta-block__text">{t('pages.partnerships.ctaText', 'No discovery-call funnel, no qualification round. Reach out directly to the maintainer. If there is a fit, we will figure out the rest in one call.')}</p>
             <div className="cta-block__actions">
               <a href="mailto:partnerships@abakada.org" className="btn btn--primary">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">

@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparison } from '../hooks/useComparison'
 import { usePWAInstall } from '../hooks/usePWAInstall'
-import { stripLangPrefix } from '../lib/canonical'
+import { stripLangPrefix, langPrefix } from '../lib/canonical'
 import Icon from './Icon'
 
 export default function Header({ onMenuToggle, navOpen = false }) {
@@ -14,12 +14,25 @@ export default function Header({ onMenuToggle, navOpen = false }) {
   const { bookmarks } = useBookmarks()
   const { selectedIds } = useComparison()
   const location = useLocation()
+  const navigate = useNavigate()
   const [langOpen, setLangOpen] = useState(false)
+  const [headerQuery, setHeaderQuery] = useState('')
   const langRef = useRef(null)
+  const searchInputRef = useRef(null)
   const { canInstall, triggerInstall } = usePWAInstall()
+
+  // Global search — works from any page (review item 10). Submits to the home
+  // grid via ?q=, which Home reads to seed the catalog search.
+  function handleSearchSubmit(e) {
+    e.preventDefault()
+    const q = headerQuery.trim()
+    const base = langPrefix(lang)
+    navigate(q ? `${base}/?q=${encodeURIComponent(q)}` : `${base}/`)
+  }
 
   const normalizedPath = stripLangPrefix(location.pathname)
   const isOnLearningPaths = normalizedPath === '/learning-paths' || normalizedPath.startsWith('/learning-paths/')
+  const isOnProgress = normalizedPath === '/progress'
 
   // Close the language dropdown on outside click / Escape, kept in sync with React
   // state so the trigger button always reflects the real open/closed state.
@@ -64,6 +77,30 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             <img id="header-logo" className="nav__logo-img" src={logoSrc} alt="Abakada" width="140" height="32" fetchpriority="high" decoding="async" />
           </Link>
         </div>
+        <form className="header-search" role="search" onSubmit={handleSearchSubmit}>
+          <Icon name="search" collection="ui" size={16} className="header-search__icon" />
+          <input
+            ref={searchInputRef}
+            type="search"
+            className="header-search__input"
+            placeholder={t('search.placeholder', 'Search tools...')}
+            aria-label={t('search.placeholder', 'Search tools')}
+            value={headerQuery}
+            onChange={(e) => setHeaderQuery(e.target.value)}
+            maxLength={100}
+            autoComplete="off"
+          />
+          {headerQuery && (
+            <button
+              type="button"
+              className="header-search__clear"
+              aria-label={t('search.clear', 'Clear search')}
+              onClick={() => { setHeaderQuery(''); searchInputRef.current?.focus() }}
+            >
+              <Icon name="close" collection="ui" size={14} />
+            </button>
+          )}
+        </form>
         <div className="nav__actions">
           {canInstall && (
             <button
@@ -76,26 +113,49 @@ export default function Header({ onMenuToggle, navOpen = false }) {
               {t('pwa.install', 'Install App')}
             </button>
           )}
-          <Link to="/bookmarks" className="btn btn--icon header-nav-btn" aria-label={t('nav.bookmarks', 'Bookmarks')} style={{ position: 'relative' }}>
+          <Link
+            to="/bookmarks"
+            className="header-nav-btn"
+            title={t('nav.bookmarks', 'Bookmarks')}
+            aria-label={bookmarks.length > 0 ? `${t('nav.bookmarks', 'Bookmarks')} (${bookmarks.length})` : t('nav.bookmarks', 'Bookmarks')}
+          >
             <Icon name="bookmark" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.bookmarksShort', 'Saved')}</span>
             {bookmarks.length > 0 && (
-              <span className="nav-badge" aria-label={`${bookmarks.length} bookmarks`}>{bookmarks.length}</span>
+              <span className="header-nav-btn__badge" aria-hidden="true">{bookmarks.length}</span>
             )}
           </Link>
-          <Link to="/compare" className="btn btn--icon header-nav-btn" aria-label={t('nav.compare', 'Compare Tools')} style={{ position: 'relative' }}>
+          <Link
+            to="/compare"
+            className="header-nav-btn"
+            title={t('nav.compare', 'Compare Tools')}
+            aria-label={selectedIds.length > 0 ? `${t('nav.compare', 'Compare Tools')} (${selectedIds.length})` : t('nav.compare', 'Compare Tools')}
+          >
             <Icon name="layers" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.compareShort', 'Compare')}</span>
             {selectedIds.length > 0 && (
-              <span className="nav-badge" aria-label={`${selectedIds.length} tools in comparison`}>{selectedIds.length}</span>
+              <span className="header-nav-btn__badge" aria-hidden="true">{selectedIds.length}</span>
             )}
           </Link>
           <Link
             to="/learning-paths"
-            className={`btn btn--icon header-nav-btn${isOnLearningPaths ? ' header-nav-btn--active' : ''}`}
+            className={`header-nav-btn${isOnLearningPaths ? ' header-nav-btn--active' : ''}`}
+            title={t('nav.learningPaths', 'Learning Paths')}
             aria-label={t('nav.learningPaths', 'Learning Paths')}
             aria-current={isOnLearningPaths ? 'section' : undefined}
-            style={{ position: 'relative' }}
           >
             <Icon name="graduation-cap" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.learningPathsShort', 'Learn')}</span>
+          </Link>
+          <Link
+            to="/progress"
+            className={`header-nav-btn${isOnProgress ? ' header-nav-btn--active' : ''}`}
+            title={t('nav.progress', 'My Progress')}
+            aria-label={t('nav.progress', 'My Progress')}
+            aria-current={isOnProgress ? 'page' : undefined}
+          >
+            <Icon name="trending-up" collection="ui" size={18} />
+            <span className="header-nav-btn__label">{t('nav.progressShort', 'Progress')}</span>
           </Link>
           <div
             className="theme-toggle"

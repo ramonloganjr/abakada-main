@@ -1,0 +1,30 @@
+name: Uptime / Synthetic Monitoring
+
+# Scheduled probe of the live site's critical routes + data endpoints. A non-200
+# (other than Cloudflare's 403 bot-challenge to CI runners) fails the run, which
+# surfaces via GitHub's workflow-failure notifications. Pairs with the in-app
+# error reporter (VITE_ERROR_REPORT_URL, e.g. a Sentry ingest) for RUM.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe critical routes
+        run: |
+          ua='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+          fail=0
+          for path in "/" "/educators" "/students" "/learning-paths" "/tools/libreoffice" "/sitemap.xml" "/assets/data/tools.json"; do
+            code="$(curl -s -A "$ua" -o /dev/null -w '%{http_code}' --max-time 25 "https://abakada.org${path}?cb=${GITHUB_RUN_ID}" || echo 000)"
+            echo "${path} -> ${code}"
+            case "$code" in
+              200|301|302|304) ;;
+              403) echo "::warning::${path} returned 403 (likely Cloudflare bot protection on the CI runner, not an outage)";;
+              *) echo "::error::${path} returned ${code}"; fail=1;;
+            esac
+          done
+          exit $fail

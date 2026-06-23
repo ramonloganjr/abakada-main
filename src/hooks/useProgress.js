@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
+import { PROGRESS_PREFIX, emitChange, recordActivity, setRecentToolkit } from '../lib/progressStore'
 
 function getStorageKey(toolkitId) {
-  return `abakada_progress_${toolkitId}`
+  return `${PROGRESS_PREFIX}${toolkitId}`
 }
 
 function isStorageAvailable() {
@@ -44,10 +45,12 @@ export function useProgress(toolkitId) {
     storageAvailable ? loadIds(toolkitId) : []
   )
 
-  // Persist to localStorage whenever exploredIds changes
+  // Persist to localStorage whenever exploredIds changes, then notify the
+  // central store so the profile dashboard (and any other tab) recomputes.
   useEffect(() => {
     if (storageAvailable && toolkitId) {
       saveIds(toolkitId, exploredIds)
+      emitChange()
     }
   }, [exploredIds, toolkitId, storageAvailable])
 
@@ -62,7 +65,10 @@ export function useProgress(toolkitId) {
 
   const markExplored = useCallback((id) => {
     setExploredIds(prev => prev.includes(id) ? prev : [...prev, id])
-  }, [])
+    // Exploring a tool counts as activity today and makes this the "recent" path.
+    recordActivity()
+    if (toolkitId) setRecentToolkit(toolkitId)
+  }, [toolkitId])
 
   const unmarkExplored = useCallback((id) => {
     setExploredIds(prev => prev.filter(x => x !== id))

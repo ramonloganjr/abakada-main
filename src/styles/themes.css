@@ -485,18 +485,46 @@ html.theme-switching::view-transition-new(root) {
    High Contrast
    ========================================================================== */
 
-@media (prefers-contrast: high) {
+/* Cover both the modern Media Queries L5 value (`more`) and the older value
+   (`high`) that Chromium still reports, so the same hardening applies everywhere.
+   Beyond the primary tokens, lift the muted/tertiary text and secondary borders
+   (otherwise low-vision users still get failing contrast on counts, bylines, and
+   card dividers), and force link/focus affordances that don't rely on colour. */
+@media (prefers-contrast: more), (prefers-contrast: high) {
   :root, [data-theme="light"] {
     --text-primary: #000000;
     --text-secondary: #1a1a1a;
+    --text-tertiary: #1a1a1a;
+    --text-muted: #333333;
     --border-primary: #000000;
+    --border-secondary: #000000;
     --card-border: #000000;
   }
   [data-theme="dark"] {
     --text-primary: #ffffff;
     --text-secondary: #f0f0f0;
+    --text-tertiary: #f0f0f0;
+    --text-muted: #e6e6e6;
     --border-primary: #ffffff;
+    --border-secondary: #ffffff;
     --card-border: #ffffff;
+  }
+
+  /* Underline in-content links so they're distinguishable without colour. */
+  .tool-detail a:not(.btn),
+  .faq-item__answer a,
+  .footer-copyright a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Stronger, always-visible focus ring. */
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
   }
 }
 

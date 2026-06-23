@@ -2,6 +2,13 @@ const CACHE_NAME = 'abakada-v3';
 // Bump CACHE_NAME on every deploy to invalidate stale caches.
 // In a CI/CD pipeline, inject the build hash here automatically.
 
+// Durable bucket for user-downloaded Offline Learning Packs. Deliberately NOT
+// versioned: it must survive deploys (a learner downloaded a pathway to study
+// offline — rotating it on every release would silently delete their content).
+// The page populates this bucket directly; reads work because the global
+// caches.match() below searches every bucket, including this one.
+const PACKS_CACHE = 'abakada-packs';
+
 // App shell assets to pre-cache on install
 const APP_SHELL = [
   '/',
@@ -27,7 +34,8 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames
-          .filter((name) => name !== CACHE_NAME)
+          // Keep the current app-shell cache AND the durable offline-packs bucket.
+          .filter((name) => name !== CACHE_NAME && name !== PACKS_CACHE)
           .map((name) => caches.delete(name))
       );
     }).then(() => self.clients.claim())
@@ -211,6 +219,8 @@ async function staleWhileRevalidate(request) {
     return response;
   }).catch(() => null);
 
-  // Return cached version immediately if available, otherwise wait for network
-  return cached || networkFetch;
+  // Serve fresh cache first; otherwise wait for the network; and if that fails
+  // too (offline after a deploy rotated this cache), fall back to any other
+  // bucket — notably the durable offline-packs cache.
+  return cached || (await networkFetch) || (await caches.match(request));
 }

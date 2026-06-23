@@ -162,8 +162,8 @@ perf(build): split vendor chunk to improve cache hit rate
 2. Run the build and confirm it passes with no errors: `npm run build`
 3. Test your changes in both light and dark mode
 4. Test on at least one mobile viewport (375px width minimum)
-5. Fill out the pull request template completely — incomplete PRs will be closed
-6. One pull request per concern — do not bundle unrelated changes
+5. Fill out the pull request template completely. Incomplete PRs will be closed
+6. One pull request per concern. Do not bundle unrelated changes
 7. Do not force-push to a PR branch after review has started
 8. All review comments must be resolved before a PR can be merged
 9. The maintainer may request changes, close, or reject any PR at their discretion
@@ -191,8 +191,8 @@ fix(pwa): prevent install banner on standalone mode
 
 ### JavaScript / JSX
 
-- Use ES modules (`import`/`export`) — no CommonJS
-- Use functional React components only — no class components
+- Use ES modules (`import`/`export`), no CommonJS
+- Use functional React components only, no class components
 - Use hooks for state and side effects
 - Destructure props at the function signature level
 - Avoid inline styles except for dynamic values that cannot be expressed in CSS
@@ -201,7 +201,7 @@ fix(pwa): prevent install banner on standalone mode
 
 ### CSS
 
-- Use CSS custom properties (design tokens) from `src/styles/themes.css` — do not hardcode color values
+- Use CSS custom properties (design tokens) from `src/styles/themes.css`. Do not hardcode color values
 - Follow the existing BEM-inspired naming convention: `.block__element--modifier`
 - Do not use `!important` except to override third-party styles
 - All new component styles go in `src/styles/components.css`
@@ -228,7 +228,7 @@ A tool must meet all of the following to be accepted:
 
 - Free to use with no mandatory paid tier for core functionality
 - Open-source or source-available with a recognized license (MIT, GPL, Apache, MPL, etc.)
-- Actively maintained — last commit or release within the past 24 months
+- Actively maintained: last commit or release within the past 24 months
 - Has a stable, publicly accessible website or repository
 - Relevant to the needs of Filipino students, educators, scholars, or professionals
 
@@ -252,13 +252,13 @@ A tool must meet all of the following to be accepted:
 
 ### Rules
 
-- `id` must be unique across the entire file — check before submitting
-- `tagline` must be factual and neutral — no superlatives, no marketing language
-- `description` must be original — do not copy text from the tool's website
-- `category` must be an existing category slug — do not create new categories without prior discussion
+- `id` must be unique across the entire file. Check before submitting
+- `tagline` must be factual and neutral: no superlatives, no marketing language
+- `description` must be original. Do not copy text from the tool's website
+- `category` must be an existing category slug. Do not create new categories without prior discussion
 - `platforms` must only include platforms the tool genuinely supports
-- `url` and `download_url` must be direct, stable URLs — no redirect chains or affiliate links
-- `featured` must always be `false` in contributions — featured status is set by the maintainer only
+- `url` and `download_url` must be direct, stable URLs: no redirect chains or affiliate links
+- `featured` must always be `false` in contributions. Featured status is set by the maintainer only
 
 ---
 
@@ -277,8 +277,8 @@ Supported languages:
 
 ### Rules
 
-- Do not add new translation keys — only correct or improve existing values
-- Translations must be natural and idiomatic — avoid direct machine translation
+- Do not add new translation keys. Only correct or improve existing values
+- Translations must be natural and idiomatic. Avoid direct machine translation
 - Maintain the exact same JSON key structure as `en.json`
 - Do not alter the English (`en.json`) file unless correcting a factual error
 - If you are proposing a new language, open an issue first for discussion before submitting a PR
@@ -330,4 +330,4 @@ See [LICENSE.md](./LICENSE.md) for full license text.
 
 ---
 
-Maintained by [Ramon Logan Jr.](https://ramonloganjr.com) — [hello@abakada.org](mailto:hello@abakada.org)
+Maintained by [Ramon Logan Jr.](https://ramonloganjr.com) at [hello@abakada.org](mailto:hello@abakada.org)

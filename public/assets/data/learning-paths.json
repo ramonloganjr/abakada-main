@@ -4,7 +4,7 @@
     {
       "id": "foundations",
       "title": "Digital Foundations",
-      "description": "Build essential digital skills — open-source first, internet-safe, no prior experience required.",
+      "description": "Build essential digital skills: open-source first, internet-safe, no prior experience required.",
       "icon": "compass"
     },
     {
@@ -16,13 +16,13 @@
     {
       "id": "collaboration",
       "title": "Collaboration",
-      "description": "Work, communicate, and ship together — privacy-respecting, self-hostable team workflows.",
+      "description": "Work, communicate, and ship together: privacy-respecting, self-hostable team workflows.",
       "icon": "users"
     },
     {
       "id": "creativity",
       "title": "Creativity",
-      "description": "Design, draw, animate, edit, and publish — professional-grade tools for every creative discipline.",
+      "description": "Design, draw, animate, edit, and publish: professional-grade tools for every creative discipline.",
       "icon": "palette"
     },
     {
@@ -84,8 +84,8 @@
       "difficulty": "beginner",
       "duration": "3-5 hours",
       "icon": "sprout",
-      "tagline": "Your first confident steps online — safe, private, and free.",
-      "description": "A welcoming starting point for anyone new to digital tools. Learn to browse safely, communicate privately, manage files, and protect your accounts — no jargon, no cost.",
+      "tagline": "Your first confident steps online: safe, private, and free.",
+      "description": "A welcoming starting point for anyone new to digital tools. Learn to browse safely, communicate privately, manage files, and protect your accounts. No jargon, no cost.",
       "outcomes": [
         "Browse the internet safely with privacy-respecting tools",
         "Send secure messages and email to family, friends, and colleagues",
@@ -95,7 +95,7 @@
         {
           "id": "safe-browsing",
           "title": "Browse Safely & Privately",
-          "description": "Start with a safer browser and learn the basics of staying private online — your foundation for everything else.",
+          "description": "Start with a safer browser and learn the basics of staying private online, your foundation for everything else.",
           "objectives": [
             "Choose a privacy-respecting browser as your daily default",
             "Recognize trackers, phishing, and unsafe sites",
@@ -162,7 +162,7 @@
         {
           "id": "media-everyday",
           "title": "Read, Watch & Listen",
-          "description": "Free, ad-free media tools for everyday digital life — documents, video, and audio.",
+          "description": "Free, ad-free media tools for everyday digital life: documents, video, and audio.",
           "objectives": [
             "Open and edit any document format without paying",
             "Play any audio or video file reliably",
@@ -210,8 +210,8 @@
       "difficulty": "intermediate",
       "duration": "5-7 hours",
       "icon": "flask-round",
-      "tagline": "Capture, cite, and publish — the open-source research stack.",
-      "description": "Essential tools for students and academics beginning their research journey — from note-taking to citation management to academic writing.",
+      "tagline": "Capture, cite, and publish: the open-source research stack.",
+      "description": "Essential tools for students and academics beginning their research journey, from note-taking to citation management to academic writing.",
       "outcomes": [
         "Build a connected, searchable personal knowledge base",
         "Manage citations and bibliographies without manual formatting",
@@ -501,7 +501,7 @@
       "difficulty": "intermediate",
       "duration": "4-6 hours",
       "icon": "users",
-      "tagline": "Work better together — privacy-respecting, self-hostable, free.",
+      "tagline": "Work better together: privacy-respecting, self-hostable, free.",
       "description": "A complete open-source collaboration stack for distributed teams: chat, video, shared docs, and file sync. Replace expensive SaaS with tools you control.",
       "outcomes": [
         "Run a privacy-respecting team chat and video stack",
@@ -534,7 +534,7 @@
         {
           "id": "video-meetings",
           "title": "Video & Voice Meetings",
-          "description": "Host meetings without licenses, accounts, or attendee caps — Jitsi runs in the browser, no install.",
+          "description": "Host meetings without licenses, accounts, or attendee caps. Jitsi runs in the browser, no install.",
           "objectives": [
             "Run a meeting with no install required for guests",
             "Record and share a meeting summary",
@@ -556,7 +556,7 @@
         {
           "id": "shared-docs",
           "title": "Shared Docs & Notes",
-          "description": "Co-author documents, take live meeting notes, and build a team knowledge base — no third-party account required.",
+          "description": "Co-author documents, take live meeting notes, and build a team knowledge base. No third-party account required.",
           "objectives": [
             "Co-edit a document in real time with at least two teammates",
             "Maintain meeting notes the team can search later",
@@ -579,7 +579,7 @@
         {
           "id": "files-sync",
           "title": "File Sync & Sharing",
-          "description": "Self-hostable file-sharing — your data, your storage, your control.",
+          "description": "Self-hostable file-sharing: your data, your storage, your control.",
           "objectives": [
             "Sync a shared team folder across devices",
             "Share a file via expiring, password-protected link",
@@ -618,7 +618,7 @@
       "duration": "5-7 hours",
       "icon": "briefcase",
       "tagline": "A professional-grade open-source stack for daily work.",
-      "description": "For working professionals who want to do their best work without subscription fatigue — office, knowledge, automation, and security tools that feel premium.",
+      "description": "For working professionals who want to do their best work without subscription fatigue: office, knowledge, automation, and security tools that feel premium.",
       "outcomes": [
         "Replace your office suite with a professional open-source equivalent",
         "Build a personal knowledge system that compounds over time",
@@ -628,7 +628,7 @@
         {
           "id": "office-suite",
           "title": "Office & Documents",
-          "description": "A complete office suite that opens, edits, and exports every common format — desktop or browser.",
+          "description": "A complete office suite that opens, edits, and exports every common format, desktop or browser.",
           "objectives": [
             "Edit DOCX, XLSX, and PPTX without compatibility issues",
             "Pick a primary office tool and stick with it for 7 days",
@@ -650,7 +650,7 @@
         {
           "id": "knowledge-system",
           "title": "Personal Knowledge System",
-          "description": "A second brain for projects, meeting notes, and references — searchable, linked, and yours forever.",
+          "description": "A second brain for projects, meeting notes, and references: searchable, linked, and yours forever.",
           "objectives": [
             "Capture meeting notes with consistent structure",
             "Link related notes to surface patterns",
@@ -836,7 +836,7 @@
       "duration": "6-8 hours",
       "icon": "code",
       "tagline": "From your first line of code to your first pull request.",
-      "description": "Start your programming journey with the right tools — from writing your first lines of code to version control basics and hands-on AI experimentation.",
+      "description": "Start your programming journey with the right tools, from writing your first lines of code to version control basics and hands-on AI experimentation.",
       "outcomes": [
         "Write, run, and debug code in a modern editor",
         "Track your work and collaborate using Git",
@@ -889,7 +889,7 @@
         {
           "id": "interactive-learning",
           "title": "Interactive Learning & Notebooks",
-          "description": "Experiment with code in interactive environments — great for learning Python, data science, and scripting.",
+          "description": "Experiment with code in interactive environments, great for learning Python, data science, and scripting.",
           "objectives": [
             "Run code in a notebook and chart one dataset",
             "Try local AI to learn without paying per token",
@@ -928,8 +928,8 @@
       "difficulty": "advanced",
       "duration": "8-12 hours",
       "icon": "palette",
-      "tagline": "Pixels, vectors, type, and motion — all open-source.",
-      "description": "A complete open-source design workflow — from raster and vector editing to UI prototyping, typography, and print-ready layouts.",
+      "tagline": "Pixels, vectors, type, and motion: all open-source.",
+      "description": "A complete open-source design workflow, from raster and vector editing to UI prototyping, typography, and print-ready layouts.",
       "outcomes": [
         "Run a full creative workflow without proprietary software",
         "Ship raster, vector, UI, print, and motion deliverables",
@@ -1044,8 +1044,8 @@
       "difficulty": "intermediate",
       "duration": "6-9 hours",
       "icon": "calculator",
-      "tagline": "Books, budgets, and BI — open-source from end to end.",
-      "description": "Open-source tools for bookkeeping, financial reporting, budgeting, and data analysis — built for accounting professionals.",
+      "tagline": "Books, budgets, and BI: open-source from end to end.",
+      "description": "Open-source tools for bookkeeping, financial reporting, budgeting, and data analysis, built for accounting professionals.",
       "outcomes": [
         "Maintain double-entry books for a small business or personal use",
         "Build budgets and cash-flow forecasts you actually use",

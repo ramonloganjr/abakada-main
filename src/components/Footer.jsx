@@ -1,67 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
 import { downloadFile } from '../lib/downloadFile'
+import { PRESS } from '../lib/press'
+import { useVisitorCount } from '../hooks/useVisitorCount'
 
 const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
 const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
-
-const PRESS = [
-  {
-    name: 'GMA News Online',
-    logoLight: '/assets/press/gma-news-online-light.png',
-    logoDark:  '/assets/press/gma-news-online-dark.png',
-    url: 'https://www.gmanetwork.com/news/pinoyabroad/dispatch/989216/ofw-developersoftware-hub-filipino-students/story/',
-  },
-  {
-    name: 'The Global Filipino Magazine',
-    logoLight: '/assets/press/the-global-filipino-magazine-dubai-light.png',
-    logoDark:  '/assets/press/the-global-filipino-magazine-dubai-dark.png',
-    url: 'https://theglobalfilipinomagazine.com/the-advocate-behind-a-growing-free-tech-movement-in-philippine-education/',
-  },
-  {
-    name: 'Walastech',
-    logoLight: '/assets/press/walastech-light.png',
-    logoDark:  '/assets/press/walastech-dark.png',
-    url: 'https://walastech.com/news/abakada-org-wants-to-close-the-software-gap-in-philippine-schools/',
-  },
-  {
-    name: 'Bombo Radyo',
-    logoLight: '/assets/press/bombo-radyo-light.png',
-    logoDark:  '/assets/press/bombo-radyo-dark.png',
-    url: 'https://tuguegarao.bomboradyo.com/ofw-developer-naglunsad-ng-libreng-software-hub-para-sa-mga-estudyanteng-pilipino/',
-  },
-]
 
 export default function Footer({ isStatic = false }) {
   const { appliedTheme } = useTheme()
   const { t } = useI18n()
   const navigate = useNavigate()
   const [year] = useState(() => new Date().getFullYear())
-  const [totalUsers, setTotalUsers] = useState(null)
-  const [visitorDate, setVisitorDate] = useState('')
-
-  useEffect(() => {
-    fetch('/assets/data/visitors.json')
-      .then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status} fetching visitors.json`)
-        return r.json()
-      })
-      .then(d => {
-        if (d.totalUsers > 0) {
-          setTotalUsers(d.totalUsers)
-          const raw = d.updatedAt ? new Date(d.updatedAt) : new Date()
-          const day = raw.getUTCDate().toString().padStart(2, '0')
-          const mon = raw.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })
-          const yr = raw.getUTCFullYear()
-          setVisitorDate(`${day} ${mon} ${yr}`)
-        }
-      })
-      // Counter is non-critical: degrade gracefully (hide badge) but leave a
-      // breadcrumb in the console so a future deploy/path regression is visible.
-      .catch(err => { console.warn('[footer] visitor count unavailable:', err.message) })
-  }, [])
+  const { totalUsers, updatedDate: visitorDate } = useVisitorCount()
 
   const logoSrc = appliedTheme === 'dark'
     ? '/assets/logo/logo-dark-background.svg'
@@ -132,6 +85,8 @@ export default function Footer({ isStatic = false }) {
             <div className="footer-section">
               <h4 className="footer-section__title">{t('footer.resources', 'Resources')}</h4>
               <nav className="footer-links">
+                <Link to="/educators" className="footer-link">{t('footer.educators', 'For Educators')}</Link>
+                <Link to="/students" className="footer-link">{t('footer.students', 'For Students')}</Link>
                 <Link to="/faq" className="footer-link">{t('footer.faq', 'Frequently Asked Questions')}</Link>
                 <Link to="/glossary" className="footer-link">{t('footer.glossary', 'Glossary')}</Link>
                 <a href="https://github.com/Abakada-org" target="_blank" rel="noopener" className="footer-link">{t('footer.contribute', 'Contribute on GitHub')}</a>

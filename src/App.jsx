@@ -8,10 +8,14 @@ import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import OnboardingModal from './components/OnboardingModal'
+import RouteAnnouncer from './components/RouteAnnouncer'
+import ConsentBanner from './components/ConsentBanner'
 import ErrorBoundary from './components/ErrorBoundary'
 import PWAInstallBanner from './components/PWAInstallBanner'
 import BrandLoader from './components/BrandLoader'
 import { stripLangPrefix, langPrefix } from './lib/canonical'
+import { getOnboardingRole } from './lib/onboarding'
+import { useLiteMode } from './hooks/useLiteMode'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -30,6 +34,9 @@ const LearningPathDetail = lazy(() => import('./pages/LearningPathDetail'))
 const OfficialPartners = lazy(() => import('./pages/OfficialPartners'))
 const ToolDetail = lazy(() => import('./pages/ToolDetail'))
 const Glossary = lazy(() => import('./pages/Glossary'))
+const Educators = lazy(() => import('./pages/Educators'))
+const Students = lazy(() => import('./pages/Students'))
+const Progress = lazy(() => import('./pages/Progress'))
 
 const SUSPENSE_FALLBACK = (
   <main className="site-main" id="main-content">
@@ -61,6 +68,7 @@ function AppContent() {
   const location = useLocation()
   const navigate = useNavigate()
   const { lang } = useI18n()
+  const { liteMode } = useLiteMode()
 
   // Normalize pathname so route checks ignore the optional /<lang> prefix
   // (e.g. /tl, /ilo, /bis, /en). Without this, the home page under a language
@@ -71,8 +79,7 @@ function AppContent() {
   // Show onboarding on first visit to /learning-paths if role not set
   useEffect(() => {
     if (normalizedPath === '/learning-paths') {
-      const hasRole = Boolean(localStorage.getItem('abakada_onboarding_role'))
-      if (!hasRole) setShowOnboarding(true)
+      if (!getOnboardingRole()) setShowOnboarding(true)
     }
   }, [normalizedPath])
 
@@ -127,6 +134,13 @@ function AppContent() {
   // Close nav on route change
   useEffect(() => { setNavOpen(false) }, [location.pathname])
 
+  // Lite mode: a low-data / low-end-device experience. The body class lets CSS
+  // drop the featured carousel, decorative backgrounds, blur and large motion.
+  useEffect(() => {
+    document.body.classList.toggle('data-lite', liteMode)
+    return () => document.body.classList.remove('data-lite')
+  }, [liteMode])
+
   // Listen for SW update-ready event (genuine update, not first install)
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return
@@ -151,9 +165,16 @@ function AppContent() {
   const isHome = normalizedPath === '/'
   const isDeck = normalizedPath === '/partnership-deck'
 
-  // Static pages that show the collapsible sidebar
-  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths']
-  const isStaticSidebarPage = STATIC_SIDEBAR_PATHS.includes(normalizedPath) || normalizedPath.startsWith('/learning-paths/')
+  // Pages that show the collapsible (auto-hide) sidebar. The global category
+  // sidebar renders on every non-home page; on these it behaves as a temporary,
+  // collapsed-by-default rail. Tool-detail and learning-path-detail pages are
+  // included so the rail stays off-screen by default instead of overlaying their
+  // full-width content (which has no sidebar margin on non-home routes).
+  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths', '/educators', '/students', '/progress']
+  const isStaticSidebarPage =
+    STATIC_SIDEBAR_PATHS.includes(normalizedPath) ||
+    normalizedPath.startsWith('/learning-paths/') ||
+    normalizedPath.startsWith('/tools/')
 
   // Sync body class for sidebar collapsed state (desktop only).
   // useLayoutEffect (not useEffect) so the class lands BEFORE the first paint —
@@ -176,6 +197,43 @@ function AppContent() {
     return () => document.body.classList.remove('static-page')
   }, [isHome])
 
+  // Intelligent dismissal for the desktop static-page sidebar: once the user
+  // expands it, treat it as a temporary drawer. Clicking/tapping into the main
+  // content area (anywhere outside the sidebar) or pressing Escape collapses it
+  // again — the same click-outside pattern the mobile nav overlay already uses,
+  // so behavior stays consistent across breakpoints. Below 1024px the sidebar is
+  // the off-canvas drawer driven by nav-open, so we gate this to desktop.
+  useEffect(() => {
+    if (!isStaticSidebarPage || sidebarCollapsed) return
+
+    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches
+    if (!isDesktop()) return
+
+    const handlePointerDown = (e) => {
+      if (!isDesktop()) return
+      const sidebar = document.getElementById('sidebar')
+      // Ignore interactions inside the sidebar (incl. its collapse control).
+      if (sidebar && sidebar.contains(e.target)) return
+      setSidebarCollapsed(true)
+    }
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setSidebarCollapsed(true)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKey)
+    }
+  }, [isStaticSidebarPage, sidebarCollapsed])
+
+  // Collapse the static-page sidebar drawer whenever the route changes so each
+  // page opens in the clean, distraction-free default state.
+  useEffect(() => {
+    setSidebarCollapsed(true)
+  }, [normalizedPath])
+
   function toggleNav() {
     setNavOpen(o => {
       const next = !o
@@ -189,9 +247,15 @@ function AppContent() {
     document.body.classList.remove('nav-open')
   }
 
+  function openNav() {
+    setNavOpen(true)
+    document.body.classList.add('nav-open')
+  }
+
   return (
     <div className="app">
       <ScrollToTop />
+      <RouteAnnouncer />
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
       {/* PWA update notification */}
@@ -289,7 +353,7 @@ function AppContent() {
             <Routes>
               {[''].concat(['/en', '/tl', '/ilo', '/bis']).map((prefix) => (
                 <Route key={prefix || 'root'} path={prefix || '/'} element={<Outlet />}>
-                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} />} />
+                  <Route index element={<Home toolsData={toolsData} onCloseNav={closeNav} onStartOnboarding={() => setShowOnboarding(true)} onOpenNav={openNav} />} />
                   <Route path="about" element={<About />} />
                   <Route path="contact" element={<Contact />} />
                   <Route path="faq" element={<FAQ />} />
@@ -304,6 +368,9 @@ function AppContent() {
                   <Route path="learning-paths/:toolkitId" element={<LearningPathDetail toolsData={toolsData} />} />
                   <Route path="tools/:toolId" element={<ToolDetail toolsData={toolsData} hasToolsData={toolsData.tools.length > 0} />} />
                   <Route path="glossary" element={<Glossary />} />
+                  <Route path="educators" element={<Educators toolsData={toolsData} />} />
+                  <Route path="students" element={<Students toolsData={toolsData} />} />
+                  <Route path="progress" element={<Progress toolsData={toolsData} />} />
                   <Route path="official-partners" element={<OfficialPartners />} />
                 </Route>
               ))}
@@ -317,6 +384,7 @@ function AppContent() {
         <OnboardingModal onClose={() => setShowOnboarding(false)} />
       )}
       <PWAInstallBanner />
+      <ConsentBanner />
     </div>
   )
 }

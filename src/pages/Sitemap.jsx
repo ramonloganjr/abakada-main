@@ -5,8 +5,10 @@ import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
 
 const PAGES = [
-  { to: '/', titleKey: 'pages.sitemap.pages.home.title', descKey: 'pages.sitemap.pages.home.desc', title: 'Home — All Tools', description: 'Browse 1,000+ free open-source tools' },
+  { to: '/', titleKey: 'pages.sitemap.pages.home.title', descKey: 'pages.sitemap.pages.home.desc', title: 'Home: All Tools', description: 'Browse 1,000+ free open-source tools' },
   { to: '/about', titleKey: 'pages.sitemap.pages.about.title', descKey: 'pages.sitemap.pages.about.desc', title: 'About Us', description: 'Our mission and story' },
+  { to: '/educators', titleKey: 'pages.sitemap.pages.educators.title', descKey: 'pages.sitemap.pages.educators.desc', title: 'For Educators', description: 'Curriculum-aligned tools for teachers' },
+  { to: '/students', titleKey: 'pages.sitemap.pages.students.title', descKey: 'pages.sitemap.pages.students.desc', title: 'For Students', description: 'Free tools by task for schoolwork and study' },
   { to: '/official-partners', titleKey: 'pages.sitemap.pages.officialPartners.title', descKey: 'pages.sitemap.pages.officialPartners.desc', title: 'Official Partners', description: 'Organizations supporting Abakada' },
   { to: '/partnerships', titleKey: 'pages.sitemap.pages.partnerships.title', descKey: 'pages.sitemap.pages.partnerships.desc', title: 'Partnerships', description: 'Partner with Abakada' },
   { to: '/partnership-deck', titleKey: 'pages.sitemap.pages.partnershipDeck.title', descKey: 'pages.sitemap.pages.partnershipDeck.desc', title: 'Partnership Deck', description: 'Full presentation deck for prospective partners' },

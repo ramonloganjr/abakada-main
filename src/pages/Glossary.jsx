@@ -16,7 +16,7 @@ const SECTIONS = [
       { term: 'MIT License', def: 'A permissive open-source license allowing unrestricted use, modification, and redistribution provided the original copyright notice is preserved.' },
       { term: 'Apache License 2.0', def: 'A permissive license similar to MIT with explicit patent grants and contributor protections, widely used by major projects.' },
       { term: 'GPL', def: 'GNU General Public License. A copyleft license requiring derivative works to be distributed under the same terms, ensuring downstream users retain the same freedoms.' },
-      { term: 'AGPL', def: 'GNU Affero General Public License. Like GPL, but extends copyleft to network-deployed software (e.g., SaaS) — the source must be made available to remote users.' },
+      { term: 'AGPL', def: 'GNU Affero General Public License. Like GPL, but extends copyleft to network-deployed software (e.g., SaaS). The source must be made available to remote users.' },
       { term: 'LGPL', def: 'GNU Lesser General Public License. A weaker copyleft license used primarily for libraries; allows linking from proprietary software.' },
       { term: 'BSD License', def: 'A family of permissive licenses (2-clause, 3-clause) similar to MIT, originating from Berkeley Software Distribution.' },
       { term: 'MPL', def: 'Mozilla Public License. A weak copyleft license at the file level, allowing combination with proprietary code in larger works.' },
@@ -36,9 +36,9 @@ const SECTIONS = [
     terms: [
       { term: 'PWA', def: 'Progressive Web App. A web app that can be installed to a device, works offline via service workers, and behaves like a native app.' },
       { term: 'SPA', def: 'Single-Page Application. A web app that loads a single HTML page and dynamically updates content via JavaScript without full page reloads.' },
-      { term: 'SSG', def: 'Static Site Generation. Pre-rendering HTML at build time so each route ships as a static file — best for SEO and performance.' },
+      { term: 'SSG', def: 'Static Site Generation. Pre-rendering HTML at build time so each route ships as a static file, best for SEO and performance.' },
       { term: 'SSR', def: 'Server-Side Rendering. Generating HTML on each request from a server, useful for personalized or rapidly-changing content.' },
-      { term: 'CSR', def: 'Client-Side Rendering. Rendering happens entirely in the browser via JavaScript — fast for interactive apps but weaker for SEO without prerendering.' },
+      { term: 'CSR', def: 'Client-Side Rendering. Rendering happens entirely in the browser via JavaScript, fast for interactive apps but weaker for SEO without prerendering.' },
     ],
   },
   {
@@ -72,7 +72,7 @@ const SECTIONS = [
     id: 'crawlers',
     title: '7. Crawler & Discovery Standards',
     terms: [
-      { term: 'robots.txt', def: 'A plain-text file at the site root telling crawlers which paths they may or may not fetch. Not enforceable — respected by well-behaved bots.' },
+      { term: 'robots.txt', def: 'A plain-text file at the site root telling crawlers which paths they may or may not fetch. Not enforceable. Respected by well-behaved bots.' },
       { term: 'llms.txt', def: 'An emerging convention: a Markdown file at the site root summarizing site purpose and key URLs to help LLM-based search retrievers cite the site accurately.' },
       { term: 'Sitemap', def: 'An XML file listing site URLs with metadata (last modified date, change frequency, language alternates) to help crawlers discover and prioritize pages.' },
     ],
@@ -88,7 +88,7 @@ const SECTIONS = [
     id: 'properties',
     title: '9. Software Properties',
     terms: [
-      { term: 'Self-hostable', def: 'Software you can run on your own server or device, retaining full control over data — a frequent property of open-source tools listed on Abakada.' },
+      { term: 'Self-hostable', def: 'Software you can run on your own server or device, retaining full control over data, a frequent property of open-source tools listed on Abakada.' },
       { term: 'Vendor lock-in', def: 'A situation where switching providers is costly or impractical due to proprietary formats or APIs. Open-source tools mitigate this risk.' },
     ],
   },
@@ -146,7 +146,7 @@ export default function Glossary() {
                 <p>
                   {t(
                     'pages.glossary.intro',
-                    'This glossary defines terms commonly used across Abakada — covering open-source licensing, web standards, search visibility (SEO/AEO/GEO), and accessibility. Each entry is a single authoritative paragraph designed for citation.',
+                    'This glossary defines terms commonly used across Abakada, covering open-source licensing, web standards, search visibility (SEO/AEO/GEO), and accessibility. Each entry is a single authoritative paragraph designed for citation.',
                   )}
                 </p>
               </div>

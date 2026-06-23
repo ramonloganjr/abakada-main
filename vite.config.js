@@ -6,6 +6,10 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    // No inline module-preload polyfill: the es2020 target audience supports it
+    // natively, and dropping it keeps the built HTML's inline-script set stable
+    // (only the theme + GA snippets), which the hash-based CSP depends on.
+    modulePreload: { polyfill: false },
     // Raise chunk warning threshold slightly for vendor bundle
     chunkSizeWarningLimit: 600,
     rollupOptions: {

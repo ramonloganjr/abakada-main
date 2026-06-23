@@ -157,7 +157,7 @@ export default function Compare({ toolsData = { tools: [], categories: [] } }) {
               <div className="compare-table-wrapper">
                 <table className="compare-table" aria-label={t('compare.tableLabel', 'Tool comparison table')}>
                   <caption className="compare-table__caption">
-                    {t('compare.caption', 'Side-by-side comparison of selected open-source tools — features, platforms, license, and editorial notes.')}
+                    {t('compare.caption', 'Side-by-side comparison of selected open-source tools: features, platforms, license, and editorial notes.')}
                   </caption>
                   <thead>
                     <tr>

@@ -2,26 +2,45 @@ import { useState, useEffect, useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import { useSearch } from '../hooks/useSearch'
-import { useLowBandwidth } from '../hooks/useLowBandwidth'
+import { useLiteMode } from '../hooks/useLiteMode'
 import Sidebar from '../components/Sidebar'
 import ToolCard from '../components/ToolCard'
 import ToolModal from '../components/ToolModal'
 import FeaturedCarousel from '../components/FeaturedCarousel'
+import BeginnerPicks from '../components/BeginnerPicks'
+import TrustStrip from '../components/TrustStrip'
 import Pagination from '../components/Pagination'
 import Icon from '../components/Icon'
 import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
 import { langPrefix } from '../lib/canonical'
+import { getOnboardingRole, setOnboardingRole, toolkitForRole } from '../lib/onboarding'
 
 const ITEMS_PER_PAGE = 18
 
-export default function Home({ toolsData, onCloseNav }) {
+const QUICKSTART_DISMISS_KEY = 'abakada_home_quickstart_dismissed'
+
+// Role shortcuts shown in the first-visit quick-start strip. A deliberately tiny
+// subset of the full 9-role onboarding so a beginner isn't asked to scan a long
+// list before they've even started (review R5.3). "See all options" opens the
+// complete modal for everyone else.
+const QUICKSTART_ROLES = [
+  { id: 'student', icon: 'graduation-cap', labelKey: 'home.quickStart.student', fallback: "I'm a student" },
+  { id: 'teacher', icon: 'presentation', labelKey: 'home.quickStart.teacher', fallback: "I'm a teacher" },
+]
+
+export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenNav }) {
   const { t, lang } = useI18n()
-  const { saveData } = useLowBandwidth()
+  const { liteMode } = useLiteMode()
   const location = useLocation()
   const navigate = useNavigate()
   const [page, setPage] = useState(1)
   const [selectedTool, setSelectedTool] = useState(null)
+  const [showQuickStart, setShowQuickStart] = useState(() => {
+    try {
+      return !getOnboardingRole() && localStorage.getItem(QUICKSTART_DISMISS_KEY) !== '1'
+    } catch { return false }
+  })
 
   const { query, displayQuery, category, platforms, tags, results, setQuery, setCategory, togglePlatform, toggleTag, resetAll, hasActiveFilters, hasQuery } = useSearch(toolsData.tools)
 
@@ -57,6 +76,36 @@ export default function Home({ toolsData, onCloseNav }) {
     setPage(p)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  function scrollToTools() {
+    requestAnimationFrame(() => {
+      const el = document.getElementById('tools-section')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
+
+  function dismissQuickStart() {
+    setShowQuickStart(false)
+    try { localStorage.setItem(QUICKSTART_DISMISS_KEY, '1') } catch { /* private mode */ }
+  }
+
+  function handleQuickRole(roleId) {
+    setOnboardingRole(roleId)
+    setShowQuickStart(false)
+    const toolkitId = toolkitForRole(roleId)
+    navigate(toolkitId ? `/learning-paths/${toolkitId}` : '/learning-paths')
+  }
+
+  function handleExploring() {
+    dismissQuickStart()
+    scrollToTools()
+  }
+
+  // Seed the catalog search from ?q= (global header search + SearchAction links).
+  useEffect(() => {
+    const q = new URLSearchParams(location.search).get('q')
+    if (q) setQuery(q)
+  }, [location.search, setQuery])
 
   useEffect(() => { setPage(1) }, [query, category, platforms, tags])
 
@@ -111,7 +160,7 @@ export default function Home({ toolsData, onCloseNav }) {
             <p className="hero__definition" aria-label="About Abakada">
               {t(
                 'hero.definition',
-                `Abakada is a free, curated directory of ${(stats.totalTools || toolsData.tools.length).toLocaleString()}+ open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required.`
+                `Abakada is a free, curated directory of ${(stats.totalTools || toolsData.tools.length).toLocaleString()}+ open-source productivity tools for Filipino students, educators, and professionals. Built by volunteers, no signup required.`
               )}
             </p>
             <div className="hero__stats">
@@ -128,11 +177,77 @@ export default function Home({ toolsData, onCloseNav }) {
                 <div className="hero__stat-label">{t('hero.statsOpenSource', 'Open Source')}</div>
               </div>
             </div>
+
+            {/* Dual entry point (review R1.1): a guided path for newcomers and a
+                direct path for people who already know what they want. */}
+            <div className="hero__actions">
+              <button type="button" className="btn btn--primary hero__cta" onClick={onStartOnboarding}>
+                <Icon name="compass" collection="ui" size={18} />
+                {t('hero.ctaGuided', 'Help me get started')}
+              </button>
+              <button type="button" className="btn btn--secondary hero__cta" onClick={scrollToTools}>
+                <Icon name="layout-grid" size={18} />
+                {t('hero.ctaBrowse', 'Browse all tools')}
+              </button>
+            </div>
           </div>
         </section>
 
-        {/* Featured */}
-        {!hasQuery && category === 'all' && !saveData && (
+        {/* First-visit quick start (review R5.1): a soft, dismissible role nudge so
+            newcomers get a tailored path without a forced interstitial modal. */}
+        {showQuickStart && (
+          <section className="quick-start" aria-label={t('home.quickStart.aria', 'Personalize your start')}>
+            <div className="container quick-start__inner">
+              <p className="quick-start__prompt">
+                <Icon name="sparkles" collection="ui" size={16} />
+                {t('home.quickStart.prompt', 'New here? Tell us what you do and we’ll point you the right way:')}
+              </p>
+              <div className="quick-start__choices">
+                {QUICKSTART_ROLES.map(role => (
+                  <button
+                    key={role.id}
+                    type="button"
+                    className="quick-start__chip"
+                    onClick={() => handleQuickRole(role.id)}
+                  >
+                    <Icon name={role.icon} collection="ui" size={16} />
+                    {t(role.labelKey, role.fallback)}
+                  </button>
+                ))}
+                <button type="button" className="quick-start__chip" onClick={handleExploring}>
+                  <Icon name="search" collection="ui" size={16} />
+                  {t('home.quickStart.exploring', 'Just exploring')}
+                </button>
+                <button type="button" className="quick-start__more" onClick={onStartOnboarding}>
+                  {t('home.quickStart.more', 'See all options')}
+                </button>
+              </div>
+              <button
+                type="button"
+                className="quick-start__dismiss"
+                aria-label={t('common.dismiss', 'Dismiss')}
+                onClick={dismissQuickStart}
+              >
+                <Icon name="close" collection="ui" size={16} />
+              </button>
+            </div>
+          </section>
+        )}
+
+        {/* Social proof, above the fold (review R10.1 / R10.5) */}
+        {!hasQuery && category === 'all' && <TrustStrip />}
+
+        {/* Beginner-friendly entry point (review R3.5) */}
+        {!hasQuery && category === 'all' && (
+          <BeginnerPicks
+            tools={toolsData.tools}
+            categories={toolsData.categories}
+            onToolClick={setSelectedTool}
+          />
+        )}
+
+        {/* Featured — skipped in lite mode (low data / low-end devices) */}
+        {!hasQuery && category === 'all' && !liteMode && (
           <FeaturedCarousel
             tools={toolsData.tools}
             categories={toolsData.categories}
@@ -193,6 +308,23 @@ export default function Home({ toolsData, onCloseNav }) {
           </div>
         </section>
       </main>
+
+      {/* Mobile filter sheet trigger (review item 10) — opens the sidebar (which
+          holds search + category/platform/tag filters) as an off-canvas sheet. */}
+      {onOpenNav && (
+        <button
+          type="button"
+          className="filter-fab"
+          onClick={onOpenNav}
+          aria-label={t('filters.title', 'Filters')}
+        >
+          <Icon name="filter" collection="ui" size={18} />
+          <span>{t('filters.title', 'Filters')}</span>
+          {(platforms.length + tags.length + (category !== 'all' ? 1 : 0)) > 0 && (
+            <span className="filter-fab__count">{platforms.length + tags.length + (category !== 'all' ? 1 : 0)}</span>
+          )}
+        </button>
+      )}
 
       {selectedTool && (
         <ToolModal

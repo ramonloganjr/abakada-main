@@ -33,6 +33,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Pre-deploy quality gate — never ship a red build to production.
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Validate data (JSON Schema)
+        run: npm run validate:data
+
+      - name: Unit tests
+        run: npm test
+
       - name: Build site
         run: npm run build
 

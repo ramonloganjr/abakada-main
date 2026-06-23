@@ -27,6 +27,8 @@ const STATIC_ROUTES = [
   { path: '/', priority: '1.0', changefreq: 'daily', lastmod: today, image: true },
   { path: '/about', priority: '0.8', changefreq: 'monthly', lastmod: today },
   { path: '/learning-paths', priority: '0.9', changefreq: 'weekly', lastmod: pathsMtime },
+  { path: '/educators', priority: '0.8', changefreq: 'monthly', lastmod: today },
+  { path: '/students', priority: '0.8', changefreq: 'monthly', lastmod: today },
   { path: '/glossary', priority: '0.7', changefreq: 'monthly', lastmod: today },
   { path: '/partnerships', priority: '0.7', changefreq: 'monthly', lastmod: today },
   { path: '/official-partners', priority: '0.7', changefreq: 'monthly', lastmod: today },
@@ -65,7 +67,7 @@ const renderHreflang = (path) =>
 const renderUrl = (r) => {
   const loc = `${DOMAIN}${r.path}`
   const image = r.image
-    ? `\n    <image:image>\n      <image:loc>${DOMAIN}/assets/logo/og.png</image:loc>\n      <image:title>${xmlEscape("Abakada — Free Open-Source Tools for Filipino Students & Educators")}</image:title>\n    </image:image>`
+    ? `\n    <image:image>\n      <image:loc>${DOMAIN}/assets/logo/og.png</image:loc>\n      <image:title>${xmlEscape("Abakada: Free Open-Source Tools for Filipino Students & Educators")}</image:title>\n    </image:image>`
     : ''
   return `  <url>
     <loc>${loc}</loc>

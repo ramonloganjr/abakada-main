@@ -657,7 +657,7 @@ export default function PartnershipDeck() {
               A Curated, Free Directory<br />of Open-Source Tools for<br /><span className="deck-accent">Every Filipino Learner</span>
             </h1>
             <p className="deck-lead deck-reveal deck-reveal--d3">
-              Abakada.org is a hand-curated catalog of 1,000+ free and open-source productivity tools — built for Filipino students, educators, scholars, and professionals. No accounts, no paywalls, no tracking.
+              Abakada.org is a hand-curated catalog of 1,000+ free and open-source productivity tools, built for Filipino students, educators, scholars, and professionals. No accounts, no paywalls, no tracking.
             </p>
             <div className="deck-btn-row deck-reveal deck-reveal--d4">
               <button className="deck-btn deck-btn--primary"
@@ -686,17 +686,17 @@ export default function PartnershipDeck() {
                   Filipino students and educators face two real frictions: most "premium" software requires paid subscriptions, and free open-source alternatives are scattered across hundreds of English-only sites with no local context or trust signals.
                 </p>
                 <p className="deck-lead deck-reveal deck-reveal--d3" style={{ marginBottom: 0 }}>
-                  Abakada solves a discovery problem — not a software problem. We curate what already exists into one trusted, multilingual, free-forever directory built for Filipino learners.
+                  Abakada solves a discovery problem, not a software problem. We curate what already exists into one trusted, multilingual, free-forever directory built for Filipino learners.
                 </p>
               </div>
               <div className="deck-callout deck-reveal deck-reveal--d2">
                 <div className="deck-callout__metric">1,000+</div>
                 <div className="deck-callout__title">Hand-vetted FOSS tools</div>
-                <div className="deck-callout__text">Every tool in the directory is manually verified for licensing, safety, and educational value — across 45+ categories.</div>
+                <div className="deck-callout__text">Every tool in the directory is manually verified for licensing, safety, and educational value, across 45+ categories.</div>
                 <div style={{ height: 1, background: 'var(--border-secondary)', margin: '0.5rem 0' }} />
                 <div className="deck-callout__metric" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)' }}>4 Languages</div>
                 <div className="deck-callout__title">English · Tagalog · Bisaya · Ilokano</div>
-                <div className="deck-callout__text">Built natively in four Philippine languages — not machine-translated. Reaches learners outside the English-only digital majority.</div>
+                <div className="deck-callout__text">Built natively in four Philippine languages, not machine-translated. Reaches learners outside the English-only digital majority.</div>
               </div>
             </div>
           </div>
@@ -709,7 +709,7 @@ export default function PartnershipDeck() {
             <p className="deck-eyebrow deck-reveal">What We Built</p>
             <h2 className="deck-h2 deck-reveal deck-reveal--d1">A Trustworthy Front Door<br />to the <span className="deck-accent">Open-Source World</span>.</h2>
             <p className="deck-lead deck-reveal deck-reveal--d2">
-              Abakada.org is a Progressive Web App that runs anywhere — desktop, mobile, even offline. Four real, shipped features serve different parts of a learner's journey, from first discovery to everyday workflow.
+              Abakada.org is a Progressive Web App that runs anywhere: desktop, mobile, even offline. Four real, shipped features serve different parts of a learner's journey, from first discovery to everyday workflow.
             </p>
             <div className="deck-cards deck-cards--4">
               <div className="deck-card deck-reveal deck-reveal--d2">
@@ -728,7 +728,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Learning Paths</h3>
-                <p className="deck-card__text">10 curated, persona-based pathways — from Digital Foundations for first-time users to Workplace Productivity for professionals.</p>
+                <p className="deck-card__text">10 curated, persona-based pathways, from Digital Foundations for first-time users to Workplace Productivity for professionals.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d4">
                 <div className="deck-card__icon">
@@ -737,7 +737,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Bookmarks &amp; Compare</h3>
-                <p className="deck-card__text">Save tools to a personal list, compare up to 4 side-by-side. No account required — everything persists locally on the user's device.</p>
+                <p className="deck-card__text">Save tools to a personal list, compare up to 4 side-by-side. No account required. Everything persists locally on the user's device.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d5">
                 <div className="deck-card__icon">
@@ -761,7 +761,7 @@ export default function PartnershipDeck() {
                 <p className="deck-eyebrow deck-reveal">How It Works</p>
                 <h2 className="deck-h2 deck-reveal deck-reveal--d1">Boringly Reliable.<br />Deliberately Simple.</h2>
                 <p className="deck-lead deck-reveal deck-reveal--d2">
-                  Abakada is a static React Progressive Web App. No backend to maintain, no database to scale, no user accounts to breach. The whole product is a folder of files, a JSON catalog, and a Service Worker — which is exactly why it's fast, private, and free forever.
+                  Abakada is a static React Progressive Web App. No backend to maintain, no database to scale, no user accounts to breach. The whole product is a folder of files, a JSON catalog, and a Service Worker, which is exactly why it's fast, private, and free forever.
                 </p>
                 <div className="deck-trust deck-reveal deck-reveal--d3">
                   <div className="deck-trust__item">
@@ -844,7 +844,7 @@ export default function PartnershipDeck() {
             <p className="deck-eyebrow deck-reveal">Where We Are Today</p>
             <h2 className="deck-h2 deck-reveal deck-reveal--d1">Live. Shipping.<br />Growing organically.</h2>
             <p className="deck-lead deck-reveal deck-reveal--d2">
-              Abakada.org is in production today. It's not a pitch deck looking for funding to build a product — the product exists, runs, and is used by real people across the Philippines.
+              Abakada.org is in production today. It's not a pitch deck looking for funding to build a product. The product exists, runs, and is used by real people across the Philippines.
             </p>
             <div className="deck-stats deck-reveal deck-reveal--d3">
               <div>
@@ -873,12 +873,12 @@ export default function PartnershipDeck() {
               <div className="deck-card deck-reveal deck-reveal--d5">
                 <div className="deck-card__tag">Reach</div>
                 <h3 className="deck-card__title">Organic, Founder-Led</h3>
-                <p className="deck-card__text">All growth so far has been word-of-mouth and organic search — no paid acquisition, no marketing budget. The audience is genuinely seeking these tools.</p>
+                <p className="deck-card__text">All growth so far has been word-of-mouth and organic search. No paid acquisition, no marketing budget. The audience is genuinely seeking these tools.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d6">
                 <div className="deck-card__tag">Moat</div>
                 <h3 className="deck-card__title">Editorial &amp; Linguistic</h3>
-                <p className="deck-card__text">Every tool is manually vetted for license, safety, and relevance to Filipino learners. Content is authored in four Philippine languages — not auto-translated.</p>
+                <p className="deck-card__text">Every tool is manually vetted for license, safety, and relevance to Filipino learners. Content is authored in four Philippine languages, not auto-translated.</p>
               </div>
             </div>
           </div>
@@ -891,7 +891,7 @@ export default function PartnershipDeck() {
             <p className="deck-eyebrow deck-reveal">Why Partner With Abakada</p>
             <h2 className="deck-h2 deck-reveal deck-reveal--d1">A Mission Worth Backing.</h2>
             <p className="deck-lead deck-reveal deck-reveal--d2">
-              Abakada isn't a venture-funded SaaS chasing growth metrics. It's an independent civic-tech project — one that gives partners a credible, transparent way to support Filipino digital equity and reach learners directly.
+              Abakada isn't a venture-funded SaaS chasing growth metrics. It's an independent civic-tech project, one that gives partners a credible, transparent way to support Filipino digital equity and reach learners directly.
             </p>
             <div className="deck-cards deck-cards--3">
               <div className="deck-card deck-reveal deck-reveal--d2">
@@ -901,7 +901,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Authentic Audience Access</h3>
-                <p className="deck-card__text">Filipino students, educators, and professionals who chose to be here — looking for tools, not ads. High-intent, high-trust by definition.</p>
+                <p className="deck-card__text">Filipino students, educators, and professionals who chose to be here, looking for tools, not ads. High-intent, high-trust by definition.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d3">
                 <div className="deck-card__icon">
@@ -919,7 +919,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Editorial Co-Creation</h3>
-                <p className="deck-card__text">Co-author tutorials, guides, and tool collections that genuinely help learners — published under Creative Commons, attributable to your team.</p>
+                <p className="deck-card__text">Co-author tutorials, guides, and tool collections that genuinely help learners, published under Creative Commons, attributable to your team.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d4">
                 <div className="deck-card__icon">
@@ -928,7 +928,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Reach Filipino Educators</h3>
-                <p className="deck-card__text">A natural channel into Philippine schools, NGOs, and learning circles — places traditional ad spend struggles to penetrate.</p>
+                <p className="deck-card__text">A natural channel into Philippine schools, NGOs, and learning circles, places traditional ad spend struggles to penetrate.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d5">
                 <div className="deck-card__icon">
@@ -959,7 +959,7 @@ export default function PartnershipDeck() {
             <p className="deck-eyebrow deck-reveal">Ways to Partner</p>
             <h2 className="deck-h2 deck-reveal deck-reveal--d1">Three Honest Engagements.</h2>
             <p className="deck-lead deck-reveal deck-reveal--d2">
-              Pick the model that fits how you want to contribute. None of these require Abakada to be something it isn't — every deliverable on this slide is something we already ship today.
+              Pick the model that fits how you want to contribute. None of these require Abakada to be something it isn't. Every deliverable on this slide is something we already ship today.
             </p>
             <div className="deck-tiers">
               <div className="deck-tier deck-reveal deck-reveal--d2">
@@ -1007,7 +1007,7 @@ export default function PartnershipDeck() {
             <p className="deck-eyebrow deck-reveal">What You Get</p>
             <h2 className="deck-h2 deck-reveal deck-reveal--d1">Concrete Deliverables.<br />Things We Already Ship.</h2>
             <p className="deck-lead deck-reveal deck-reveal--d2">
-              No vaporware. Every item below is something we publish or run today — partnership just means co-creating it with your name on it.
+              No vaporware. Every item below is something we publish or run today. Partnership just means co-creating it with your name on it.
             </p>
             <div className="deck-cards deck-cards--3">
               <div className="deck-card deck-reveal deck-reveal--d2">
@@ -1053,7 +1053,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Official Partners Page</h3>
-                <p className="deck-card__text">A tiered listing on /official-partners with your logo, short blurb, and link — already live; ready for partner fill-in.</p>
+                <p className="deck-card__text">A tiered listing on /official-partners with your logo, short blurb, and link. Already live; ready for partner fill-in.</p>
               </div>
               <div className="deck-card deck-reveal deck-reveal--d6">
                 <div className="deck-card__icon">
@@ -1062,7 +1062,7 @@ export default function PartnershipDeck() {
                   </svg>
                 </div>
                 <h3 className="deck-card__title">Joint Outreach Posts</h3>
-                <p className="deck-card__text">Blog posts, social cards, and short-form content published from both your channels and ours — under shared Creative Commons terms.</p>
+                <p className="deck-card__text">Blog posts, social cards, and short-form content published from both your channels and ours, under shared Creative Commons terms.</p>
               </div>
             </div>
           </div>
@@ -1075,23 +1075,23 @@ export default function PartnershipDeck() {
             <p className="deck-eyebrow deck-reveal">What's Next</p>
             <h2 className="deck-h2 deck-reveal deck-reveal--d1">Honest Goals.<br />No Hand-Waving.</h2>
             <p className="deck-lead deck-reveal deck-reveal--d2">
-              These are realistic next steps for an independent, founder-led project. None of them require new infrastructure or enterprise stacks — just sustained editorial work and good partner collaborations.
+              These are realistic next steps for an independent, founder-led project. None of them require new infrastructure or enterprise stacks, just sustained editorial work and good partner collaborations.
             </p>
             <div className="deck-timeline">
               <div className="deck-milestone deck-reveal deck-reveal--d2">
                 <div className="deck-milestone__date">Near-Term</div>
                 <div className="deck-milestone__title">Catalog Growth &amp; Curation</div>
-                <div className="deck-milestone__text">Continue vetting and adding open-source tools across the 45+ categories. Target: a steadily growing, hand-verified directory — quality over quantity.</div>
+                <div className="deck-milestone__text">Continue vetting and adding open-source tools across the 45+ categories. Target: a steadily growing, hand-verified directory. Quality over quantity.</div>
               </div>
               <div className="deck-milestone deck-reveal deck-reveal--d3">
                 <div className="deck-milestone__date">Near-Term</div>
                 <div className="deck-milestone__title">Translation Coverage</div>
-                <div className="deck-milestone__text">Expand UI and key content translations across English, Tagalog, Bisaya, and Ilokano — with community help and partner sponsorship.</div>
+                <div className="deck-milestone__text">Expand UI and key content translations across English, Tagalog, Bisaya, and Ilokano, with community help and partner sponsorship.</div>
               </div>
               <div className="deck-milestone deck-reveal deck-reveal--d4">
                 <div className="deck-milestone__date">Mid-Term</div>
                 <div className="deck-milestone__title">More Learning Paths</div>
-                <div className="deck-milestone__text">Add pathways for under-served personas — out-of-school youth, civic-tech volunteers, OFWs returning home — co-authored with partners who know the audience.</div>
+                <div className="deck-milestone__text">Add pathways for under-served personas (out-of-school youth, civic-tech volunteers, OFWs returning home) co-authored with partners who know the audience.</div>
               </div>
               <div className="deck-milestone deck-reveal deck-reveal--d5">
                 <div className="deck-milestone__date">Mid-Term</div>
