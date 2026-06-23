@@ -43,7 +43,7 @@ export function computePackUrls(toolkit, lang = 'en') {
   urls.add(`${base}/learning-paths/${toolkit.id}`)
 
   // Every recommended tool's detail shell.
-  const toolIds = [...new Set((toolkit.stages || []).flatMap((s) => s.toolIds || []))]
+  const toolIds = [...new Set((toolkit.stages || []).flatMap((/** @type {any} */ s) => s.toolIds || []))]
   toolIds.forEach((id) => urls.add(`${base}/tools/${id}`))
 
   return [...urls]
@@ -65,7 +65,7 @@ export function estimatePackBytes(urls) {
   return bytes
 }
 
-/** Human-friendly byte size. */
+/** Human-friendly byte size. @param {number} bytes */
 export function formatBytes(bytes) {
   if (!bytes || bytes < 1024) return `${bytes || 0} B`
   if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`
