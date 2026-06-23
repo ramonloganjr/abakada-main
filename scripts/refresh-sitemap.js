@@ -67,7 +67,7 @@ const renderHreflang = (path) =>
 const renderUrl = (r) => {
   const loc = `${DOMAIN}${r.path}`
   const image = r.image
-    ? `\n    <image:image>\n      <image:loc>${DOMAIN}/assets/logo/og.png</image:loc>\n      <image:title>${xmlEscape("Abakada — Free Open-Source Tools for Filipino Students & Educators")}</image:title>\n    </image:image>`
+    ? `\n    <image:image>\n      <image:loc>${DOMAIN}/assets/logo/og.png</image:loc>\n      <image:title>${xmlEscape("Abakada: Free Open-Source Tools for Filipino Students & Educators")}</image:title>\n    </image:image>`
     : ''
   return `  <url>
     <loc>${loc}</loc>

@@ -96,7 +96,7 @@ export function printConsoleWarning() {
       'color: #e6edf3; font-size: 1rem;'
     )
     console.log(
-      '%cAbakada © 2026 — Unauthorized scraping or data extraction is prohibited.',
+      '%cAbakada © 2026. Unauthorized scraping or data extraction is prohibited.',
       'color: #8b949e; font-size: 0.875rem;'
     )
   }

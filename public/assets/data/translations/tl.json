@@ -25,7 +25,9 @@
     "learningPaths": "Mga Landas ng Pag-aaral",
     "bookmarksShort": "Naka-save",
     "compareShort": "Ihambing",
-    "learningPathsShort": "Matuto"
+    "learningPathsShort": "Matuto",
+    "progress": "Aking Progreso",
+    "progressShort": "Progreso"
   },
   "hero": {
     "title": "Mga Open Source na",
@@ -34,7 +36,7 @@
     "statsTools": "Mga Kagamitan",
     "statsCategories": "Mga Kategorya",
     "statsOpenSource": "Open Source",
-    "definition": "Ang Abakada ay isang libre at maingat na pinili na direktoryo ng 1,288 na open-source na produktibidad na kagamitan para sa mga estudyante, guro, at propesyonal na Pilipino — itinayo ng mga boluntaryo, walang kailangang pag-sign up.",
+    "definition": "Ang Abakada ay isang libre at maingat na pinili na direktoryo ng 1,288 na open-source na produktibidad na kagamitan para sa mga estudyante, guro, at propesyonal na Pilipino. Itinayo ng mga boluntaryo, walang kailangang pag-sign up.",
     "ctaGuided": "Tulungan mo akong magsimula",
     "ctaBrowse": "Tingnan lahat ng tool"
   },
@@ -56,8 +58,8 @@
   },
   "beginnerPicks": {
     "eyebrow": "Bago sa open source?",
-    "title": "Magsimula dito — libre at madaling kapalit ng mga app na alam mo na",
-    "subtitle": "Piling-piling tool na madaling i-install na kayang gawin ang trabaho ng sikat na bayad na software — nang walang bayad."
+    "title": "Magsimula dito: libre at madaling kapalit ng mga app na alam mo na",
+    "subtitle": "Piling-piling tool na madaling i-install na kayang gawin ang trabaho ng sikat na bayad na software, nang walang bayad."
   },
   "groups": {
     "productivity": "Produktibidad",
@@ -193,18 +195,18 @@
     "results": "kagamitan",
     "category": "Kategorya",
     "freeAlternativeTo": "Isang libre at open-source na alternatibo sa",
-    "tryInBrowser": "Subukan sa browser — walang install"
+    "tryInBrowser": "Subukan sa browser, walang install"
   },
   "install": {
     "title": "Paano i-install ang {name}",
     "safetyNote": "Palaging mag-download mula sa opisyal na site sa itaas. Tanging libre at open-source na software lang ang nasa Abakada.",
     "web": {
       "title": "Sa iyong web browser",
-      "steps": "Hindi na kailangang i-install — tumatakbo ang {name} sa iyong browser.\nGamitin ang “Visit official site” sa itaas para buksan ito.\nMaaaring mag-alok ang ilang web app ng libreng account para ma-save ang iyong trabaho."
+      "steps": "Hindi na kailangang i-install. Tumatakbo ang {name} sa iyong browser.\nGamitin ang “Visit official site” sa itaas para buksan ito.\nMaaaring mag-alok ang ilang web app ng libreng account para ma-save ang iyong trabaho."
     },
     "desktop": {
       "title": "Sa iyong kompyuter ({platforms})",
-      "steps": "I-click ang “Visit official site” sa itaas para buksan ang opisyal na website ng {name}.\nI-download ang bersyon para sa iyong sistema ({platforms}).\nBuksan ang na-download na file at sundin ang mga hakbang sa screen.\nBuksan ang {name} mula sa iyong mga app — handa ka na."
+      "steps": "I-click ang “Visit official site” sa itaas para buksan ang opisyal na website ng {name}.\nI-download ang bersyon para sa iyong sistema ({platforms}).\nBuksan ang na-download na file at sundin ang mga hakbang sa screen.\nBuksan ang {name} mula sa iyong mga app. Handa ka na."
     },
     "mobile": {
       "title": "Sa iyong telepono o tablet ({platforms})",
@@ -216,7 +218,7 @@
     },
     "server": {
       "title": "Sa iyong sariling server ({platforms})",
-      "steps": "Self-hosted ang {name} — pinapatakbo mo ito sa server na kontrolado mo ({platforms}).\nSundin ang opisyal na deployment guide para sa iyong setup.\nTingnan ang dokumentasyon para sa configuration, seguridad, at mga update."
+      "steps": "Self-hosted ang {name}. Pinapatakbo mo ito sa server na kontrolado mo ({platforms}).\nSundin ang opisyal na deployment guide para sa iyong setup.\nTingnan ang dokumentasyon para sa configuration, seguridad, at mga update."
     },
     "generic": {
       "title": "Kunin ang {name}",
@@ -286,7 +288,7 @@
     "bookmarks": "Mga Bookmark",
     "compare": "Mga Kagamitang Ikukumpara",
     "learningPaths": "Mga Landas ng Pag-aaral",
-    "faq": "Frequently Asked Questions",
+    "faq": "Mga Madalas Itanong",
     "contribute": "Mag-ambag sa GitHub",
     "openSourceInitiative": "Open Source Initiative",
     "opensourceCom": "Opensource.com",
@@ -294,9 +296,9 @@
     "contact": "Makipag-ugnayan",
     "privacyPolicy": "Patakaran sa Pagkapribado",
     "sitemap": "Mapa ng Site",
-    "copyright": "Brown and Proud. Show your support by sharing this website.",
+    "copyright": "Brown and Proud. Ipakita ang iyong suporta sa pamamagitan ng pagbabahagi ng website na ito.",
     "copyright_line1": "Brown and Proud.",
-    "copyright_line2": "Show your support by sharing this website.",
+    "copyright_line2": "Ipakita ang iyong suporta sa pamamagitan ng pagbabahagi ng website na ito.",
     "openSource": "100% Open Source",
     "license": "MIT | CC BY 4.0",
     "badge": "100% Open Source",
@@ -373,11 +375,15 @@
     "students": {
       "breadcrumb": "Para sa mga Mag-aaral",
       "heroTitle": "Libreng mga Kagamitan para sa Bawat Mag-aaral na Pilipino",
-      "heroSubtitle": "Lahat ng kailangan mo para sa paaralan — pagsulat, presentasyon, larawan, video, coding, at pag-aaral — nang hindi nagbabayad ng kahit isang app.",
+      "heroSubtitle": "Lahat ng kailangan mo para sa paaralan (pagsulat, presentasyon, larawan, video, coding, at pag-aaral) nang hindi nagbabayad ng kahit isang app.",
       "ctaBasics": "Magsimula sa mga pangunahing kaalaman",
       "ctaByTask": "Maghanap ng kagamitan ayon sa gawain",
       "trustLabel": "Bakit ginagamit ng mga mag-aaral ang Abakada",
-      "trust": { "free": "100% libre", "noAccount": "Walang kailangang account", "offline": "Gumagana offline" },
+      "trust": {
+        "free": "100% libre",
+        "noAccount": "Walang kailangang account",
+        "offline": "Gumagana offline"
+      },
       "goalsTitle": "Ano ang gusto mong gawin?",
       "goalsSubtitle": "Pumili ng gawain at ipapakita namin ang mga libreng kagamitang kayang gawin ito.",
       "goals": {
@@ -398,10 +404,22 @@
       "altReplaces": "sa halip na",
       "tipsTitle": "Mag-aral nang mas matalino",
       "tips": {
-        "tip1": { "title": "Itago ang mga tala sa isang lugar", "text": "Pumili ng isang notes app (tulad ng Joplin o Obsidian) at ilagay lahat doon, para lagi mong mahahanap." },
-        "tip2": { "title": "I-backup ang iyong gawa", "text": "I-save ang mahahalagang file sa libreng cloud tulad ng Nextcloud, o magtago ng kopya sa USB drive, para hindi ka mawalan ng deadline." },
-        "tip3": { "title": "Matuto ng ilang shortcut", "text": "Ilang keyboard shortcut — copy, paste, undo, save — ang makakatipid sa iyo ng oras sa buong taon ng pag-aaral." },
-        "tip4": { "title": "Magtrabaho offline kapag kaunti ang data", "text": "Karamihan sa mga kagamitan dito ay gumagana nang walang internet. I-download minsan at magpatuloy kahit ubos na ang data." }
+        "tip1": {
+          "title": "Itago ang mga tala sa isang lugar",
+          "text": "Pumili ng isang notes app (tulad ng Joplin o Obsidian) at ilagay lahat doon, para lagi mong mahahanap."
+        },
+        "tip2": {
+          "title": "I-backup ang iyong gawa",
+          "text": "I-save ang mahahalagang file sa libreng cloud tulad ng Nextcloud, o magtago ng kopya sa USB drive, para hindi ka mawalan ng deadline."
+        },
+        "tip3": {
+          "title": "Matuto ng ilang shortcut",
+          "text": "Ilang keyboard shortcut (copy, paste, undo, save) ang makakatipid sa iyo ng oras sa buong taon ng pag-aaral."
+        },
+        "tip4": {
+          "title": "Magtrabaho offline kapag kaunti ang data",
+          "text": "Karamihan sa mga kagamitan dito ay gumagana nang walang internet. I-download minsan at magpatuloy kahit ubos na ang data."
+        }
       },
       "faqTitle": "Mga tanong ng mag-aaral",
       "faq": {
@@ -410,9 +428,9 @@
         "q2": "Kailangan ba akong gumawa ng account?",
         "a2": "Walang kailangang account para gamitin ang Abakada, at karamihan ng kagamitan ay gumagana nang walang sign-up. Ang ilang opsyonal na cloud feature ay maaaring mag-alok ng libreng account.",
         "q3": "Gagana ba ito sa telepono ko?",
-        "a3": "Marami, at ang ilan ay para sa telepono. Nakalista sa bawat pahina ng kagamitan ang mga platform na sinusuportahan nito — hanapin ang Android o iOS.",
+        "a3": "Marami, at ang ilan ay para sa telepono. Nakalista sa bawat pahina ng kagamitan ang mga platform na sinusuportahan nito. Hanapin ang Android o iOS.",
         "q4": "Magagamit ko ba ito para sa schoolwork?",
-        "a4": "Oo. Ang mga kagamitang ito ay gumagawa ng karaniwang file — dokumento, larawan, video — na maipapasa mo kahit saan, perpekto para sa ulat, proyekto, at presentasyon."
+        "a4": "Oo. Ang mga kagamitang ito ay gumagawa ng karaniwang file (dokumento, larawan, video) na maipapasa mo kahit saan, perpekto para sa ulat, proyekto, at presentasyon."
       },
       "ctaTitle": "Handa nang mag-level up?",
       "ctaText": "Tingnan ang buong library, o sumunod sa isang gabay na landas at makakuha ng sertipiko.",
@@ -425,10 +443,22 @@
       "heroSubtitle": "Bigyan ang iyong mga mag-aaral ng propesyonal na software na walang gastos, walang lisensya, at tumatakbo sa mga kompyuter na mayroon na ang inyong paaralan.",
       "valuesTitle": "Ginawa para sa tunay na kalagayan ng mga silid-aralan sa Pilipinas",
       "value": {
-        "aligned": { "title": "Naka-ayon sa kurikulum", "text": "Naka-map sa mga strand ng DepEd Senior High School, para madali mong matagpuan ang mga kagamitang akma sa itinuturo mo." },
-        "free": { "title": "Walang gastos, walang lisensya", "text": "Bawat kagamitan ay libre at open-source — walang subscription, walang license key, walang papeles sa procurement." },
-        "safe": { "title": "Ligtas para sa mga mag-aaral", "text": "Hindi kailangan ng account ng mag-aaral at walang pagsubaybay. Tingnan ang aming patakaran sa privacy anumang oras." },
-        "hardware": { "title": "Gumagana sa karaniwang hardware", "text": "Magagaang kagamitan na gumagana sa mas lumang PC at offline — para sa mga paaralang may limitadong koneksyon." }
+        "aligned": {
+          "title": "Naka-ayon sa kurikulum",
+          "text": "Naka-map sa mga strand ng DepEd Senior High School, para madali mong matagpuan ang mga kagamitang akma sa itinuturo mo."
+        },
+        "free": {
+          "title": "Walang gastos, walang lisensya",
+          "text": "Bawat kagamitan ay libre at open-source. Walang subscription, walang license key, walang papeles sa procurement."
+        },
+        "safe": {
+          "title": "Ligtas para sa mga mag-aaral",
+          "text": "Hindi kailangan ng account ng mag-aaral at walang pagsubaybay. Tingnan ang aming patakaran sa privacy anumang oras."
+        },
+        "hardware": {
+          "title": "Gumagana sa karaniwang hardware",
+          "text": "Magagaang kagamitan na gumagana sa mas lumang PC at offline, para sa mga paaralang may limitadong koneksyon."
+        }
       },
       "browserTitle": "Maghanap ng kagamitan para sa iyong strand",
       "browserSubtitle": "Pumili ng strand ng DepEd Senior High School para makita ang mga learning path na akma sa kurikulum nito.",
@@ -441,13 +471,25 @@
       "featuredLabel": "Tampok para sa mga guro",
       "featuredCta": "Buksan ang Teacher’s Digital Classroom",
       "kitTitle": "Starter kit para sa silid-aralan",
-      "kitSubtitle": "Maaasahang libreng kagamitan na sumasaklaw sa karamihan ng pangangailangan sa klase — mula sa mga dokumento at worksheet hanggang sa larawan, audio, at pagre-record ng aralin.",
+      "kitSubtitle": "Maaasahang libreng kagamitan na sumasaklaw sa karamihan ng pangangailangan sa klase, mula sa mga dokumento at worksheet hanggang sa larawan, audio, at pagre-record ng aralin.",
       "guideTitle": "Paano ipakilala ang open source sa iyong mga mag-aaral",
       "guide": {
-        "step1": { "title": "Magsimula sa isang kagamitan", "text": "Pumili ng isang kagamitang akma sa susunod mong aralin — LibreOffice Writer para sa worksheet, o GIMP para sa pag-edit ng larawan — sa halip na baguhin lahat nang sabay-sabay." },
-        "step2": { "title": "Ipakita muna", "text": "Ipakita mo mismo ang kagamitan sa projector o shared screen para makita ng mga mag-aaral ang proseso bago nila subukan." },
-        "step3": { "title": "Magbigay ng maliit, totoong gawain", "text": "Pagawain ang mga mag-aaral ng isang bagay na gagawin din naman nila — ulat, poster, audio clip — gamit ang libreng kagamitan." },
-        "step4": { "title": "Ituro ang opisyal na tulong", "text": "Bawat pahina ng kagamitan ay may link sa opisyal na site at dokumentasyon. Hikayatin ang mga mag-aaral na matutong maghanap ng sagot nang mag-isa." }
+        "step1": {
+          "title": "Magsimula sa isang kagamitan",
+          "text": "Pumili ng isang kagamitang akma sa susunod mong aralin (LibreOffice Writer para sa worksheet, o GIMP para sa pag-edit ng larawan) sa halip na baguhin lahat nang sabay-sabay."
+        },
+        "step2": {
+          "title": "Ipakita muna",
+          "text": "Ipakita mo mismo ang kagamitan sa projector o shared screen para makita ng mga mag-aaral ang proseso bago nila subukan."
+        },
+        "step3": {
+          "title": "Magbigay ng maliit, totoong gawain",
+          "text": "Pagawain ang mga mag-aaral ng isang bagay na gagawin din naman nila (ulat, poster, audio clip) gamit ang libreng kagamitan."
+        },
+        "step4": {
+          "title": "Ituro ang opisyal na tulong",
+          "text": "Bawat pahina ng kagamitan ay may link sa opisyal na site at dokumentasyon. Hikayatin ang mga mag-aaral na matutong maghanap ng sagot nang mag-isa."
+        }
       },
       "parentTitle": "Para sa mga magulang",
       "parentSubtitle": "Mabilisang sagot sa mga karaniwang tanong ng pamilya.",
@@ -470,7 +512,7 @@
       "title": "Tungkol Sa Amin",
       "pageTitle": "Tungkol Sa Amin - Abakada | Libreng Kagamitan para sa mga Estudyante at Guro",
       "heroTitle": "Para sa Bawat Pilipino",
-      "heroSubtitle": "Nagbibigay-kapangyarihan sa bawat Pilipino ng libre at madaling ma-access na mga kagamitang pamproduktibitad—mula sa mga estudyante sa malalayong barangay hanggang sa mga gurong humuhubog sa susunod na henerasyon.",
+      "heroSubtitle": "Nagbibigay-kapangyarihan sa bawat Pilipino ng libre at madaling ma-access na mga kagamitang pamproduktibitad, mula sa mga estudyante sa malalayong barangay hanggang sa mga gurong humuhubog sa susunod na henerasyon.",
       "missionTitle": "Ang Aming Misyon",
       "missionText1": "Ang Abakada ay nakatuon sa paglilingkod sa lahat ng mamamayan ng Pilipinas sa pamamagitan ng pagbibigay ng libreng access sa makapangyarihang mga kagamitang pamproduktibitad. Naniniwala kami na ang kalidad na software ay hindi dapat maging hadlang sa edukasyon o tagumpay.",
       "missionText2": "Ang aming espesyal na pokus ay sa pagsuporta sa mga underprivileged na iskolar na karapat-dapat sa parehong digital na mapagkukunan tulad ng kanilang mga kapwa. Sa pamamagitan ng pag-curate ng pinakamahusay na libre at open-source na mga kagamitan, tinutulungan naming pantayin ang larangan para sa bawat Pilipinong mag-aaral.",
@@ -479,11 +521,11 @@
       "educatorsText2": "Mula sa pagpaplano ng aralin hanggang sa pagtatasa ng estudyante, sinusuportahan ng aming curated na koleksyon ang mga guro sa lahat ng asignatura at antas ng grado sa buong Pilipinas.",
       "visionLabel": "Ang Aming Bisyon",
       "visionTitle": "Digital na Pagkakapantay-pantay para sa Lahat",
-      "visionText1": "Iniisip namin ang isang Pilipinas kung saan ang bawat estudyante—anuman ang kalagayang pang-ekonomiya o lokasyon—ay may access sa parehong makapangyarihang digital na mga kagamitan tulad ng kanilang mga kapwa sa buong mundo.",
+      "visionText1": "Iniisip namin ang isang Pilipinas kung saan ang bawat estudyante, anuman ang kalagayang pang-ekonomiya o lokasyon, ay may access sa parehong makapangyarihang digital na mga kagamitan tulad ng kanilang mga kapwa sa buong mundo.",
       "visionText2": "Sa pamamagitan ng pag-curate at pagpo-promote ng libre, open-source na mga alternatibo sa mamahaling software, tinutulungan naming tulay ang digital divide nang isa-isang kagamitan.",
       "valuesTitle": "Ang Aming mga Halaga",
       "valuesSubtitle": "Ang mga prinsipyong gumagabay sa lahat ng ginagawa namin sa Abakada.",
-      "valueAccessibility": "Accessibility",
+      "valueAccessibility": "Kakayahang Magamit",
       "valueAccessibilityText": "Libreng mga kagamitan para sa lahat, saanman sa Pilipinas.",
       "valueQuality": "Kalidad",
       "valueQualityText": "Tanging ang pinakamahusay na open-source na mga kagamitan ang napapasama sa aming koleksyon.",
@@ -493,14 +535,14 @@
       "valueOpenSourceText": "Transparency at kolaborasyon sa aming core.",
       "storyTitle": "Ang Aming Kuwento",
       "storyText1": "Ang Abakada ay ipinanganak mula sa isang simpleng obserbasyon: maraming estudyanteng Pilipino ang nahihirapang ma-access ang parehong digital na mga kagamitan na tinatanggap ng kanilang mga kapwa sa mas mayayamang bansa. Ang mamahaling software license ay lumilikha ng mga hadlang na hindi dapat umiiral sa edukasyon.",
-      "storyText2": "Nagsimula kami sa pag-compile ng listahan ng mga libreng alternatibo sa popular na bayad na software. Ang nagsimula bilang personal na mapagkukunan ay mabilis na lumago sa mas malaking bagay—isang komprehensibong direktoryo na idinisenyo partikular para sa kontekstong Pilipino, na may mga kagamitang gumagana offline, sa mas lumang hardware, at sa mga lugar na may limitadong koneksyon sa internet.",
+      "storyText2": "Nagsimula kami sa pag-compile ng listahan ng mga libreng alternatibo sa popular na bayad na software. Ang nagsimula bilang personal na mapagkukunan ay mabilis na lumago sa mas malaking bagay: isang komprehensibong direktoryo na idinisenyo partikular para sa kontekstong Pilipino, na may mga kagamitang gumagana offline, sa mas lumang hardware, at sa mga lugar na may limitadong koneksyon sa internet.",
       "storyText3": "Ngayon, ang Abakada ay naglilingkod sa mga estudyante, guro, at propesyonal sa buong Pilipinas, na tumutulong sa kanila na matuklasan ang mga makapangyarihang kagamitan na walang bayad ngunit nagbibigay ng lahat."
     },
     "contact": {
       "title": "Makipag-ugnayan",
       "pageTitle": "Makipag-ugnayan - Abakada Open Source Productivity Tools",
       "heroTitle": "Makipag-ugnayan Sa Amin",
-      "heroSubtitle": "Gusto naming marinig mula sa iyo. Kung mayroon kang tanong, mungkahi, o gustong mag-ambag—makipag-ugnayan anumang oras.",
+      "heroSubtitle": "Gusto naming marinig mula sa iyo. Kung mayroon kang tanong, mungkahi, o gustong mag-ambag, makipag-ugnayan anumang oras.",
       "getInTouchTitle": "Makipag-ugnayan",
       "getInTouchText": "May tanong, mungkahi, o gustong mag-ambag? Laging masaya kaming marinig mula sa komunidad. Makipag-ugnayan sa amin at babalikan ka namin sa lalong madaling panahon.",
       "emailTitle": "Email",
@@ -605,9 +647,9 @@
         "deck": "Tingnan ang Partnership Deck"
       },
       "whyTitle": "Bakit Makipagsosyo sa Abakada?",
-      "whyText": "Inaabot ng Abakada ang mga estudyante, guro, iskolar, at propesyonal na Pilipino na naghahanap ng libreng mga kagamitan sa produktibidad. Ang pakikipagsosyo sa amin ay pagsuporta sa digital na pagkakapantay-pantay sa buong Pilipinas — sa pamamagitan ng malinaw, open-source na proyekto na walang tracking, walang account, at walang paywall.",
+      "whyText": "Inaabot ng Abakada ang mga estudyante, guro, iskolar, at propesyonal na Pilipino na naghahanap ng libreng mga kagamitan sa produktibidad. Ang pakikipagsosyo sa amin ay pagsuporta sa digital na pagkakapantay-pantay sa buong Pilipinas, sa pamamagitan ng malinaw, open-source na proyekto na walang tracking, walang account, at walang paywall.",
       "alignedTitle": "Magkaayon at Tapat na Pakikipag-ugnayan",
-      "alignedText": "Tinatanggap namin ang mga pakikipagsosyo sa mga institusyong pang-edukasyon, NGO, mga proyektong open-source, at mga organisasyong kaayon ng aming misyon ng digital na pagkakapantay-pantay. Lahat ng modelo sa ibaba ay isinusulong na namin ngayon — walang pangako lang.",
+      "alignedText": "Tinatanggap namin ang mga pakikipagsosyo sa mga institusyong pang-edukasyon, NGO, mga proyektong open-source, at mga organisasyong kaayon ng aming misyon ng digital na pagkakapantay-pantay. Lahat ng modelo sa ibaba ay isinusulong na namin ngayon. Walang pangako lang.",
       "statsTools": "Maingat na Pinili ang mga Kagamitan",
       "statsCategories": "Mga Kategorya",
       "statsPaths": "Mga Landas ng Pagkatuto",
@@ -638,7 +680,7 @@
       "deckText": "Tuklasin ang aming pananaw, mga impact stats, traction, at mga modelo ng pakikipagtulungan sa buong format ng presentasyon.",
       "viewDeck": "Tingnan ang Deck",
       "ctaTitle": "Handa Ka na Bang Magdulot ng Impact?",
-      "ctaText": "Walang discovery-call funnel, walang qualification round. Diretso lang sa maintainer — kung may angkop, aayusin natin ang lahat sa isang tawag.",
+      "ctaText": "Walang discovery-call funnel, walang qualification round. Diretso lang sa maintainer. Kung may angkop, aayusin natin ang lahat sa isang tawag.",
       "ctaEmail": "Mag-email sa partnerships@abakada.org"
     },
     "terms": {
@@ -646,14 +688,14 @@
       "lastUpdated": "Huling na-update"
     },
     "glossary": {
-      "intro": "Ang talahuluganang ito ay nagbibigay-kahulugan sa mga terminong karaniwang ginagamit sa Abakada — kabilang ang open-source na lisensya, mga pamantayan sa web, search visibility (SEO/AEO/GEO), at accessibility. Bawat entry ay isang awtoritatibong talata na idinisenyo para sa pagsipi.",
+      "intro": "Ang talahuluganang ito ay nagbibigay-kahulugan sa mga terminong karaniwang ginagamit sa Abakada, kabilang ang open-source na lisensya, mga pamantayan sa web, search visibility (SEO/AEO/GEO), at accessibility. Bawat entry ay isang awtoritatibong talata na idinisenyo para sa pagsipi.",
       "attributionTitle": "Pagkilala",
       "attributionText": "Pinagmulan: Abakada.org. Ang mga kahulugang ito ay isinulat sa pang-editoryal na paraan para sa madla ng Abakada at lisensyado sa ilalim ng Creative Commons Attribution 4.0 International (CC BY 4.0). Huling sinuri:"
     }
   },
   "consent": {
     "label": "Pahintulot sa analytics",
-    "text": "Gumagamit kami ng privacy-friendly na analytics para makita kung ano ang nakakatulong — walang ads, at walang datos na ibinebenta. Pwede kang tumanggi at gagana pa rin ang lahat.",
+    "text": "Gumagamit kami ng privacy-friendly na analytics para makita kung ano ang nakakatulong. Walang ads, at walang datos na ibinebenta. Pwede kang tumanggi at gagana pa rin ang lahat.",
     "accept": "Tanggapin",
     "decline": "Tanggihan"
   },
@@ -665,11 +707,12 @@
     "add": "I-bookmark",
     "remove": "Alisin ang bookmark",
     "saved": "Naka-bookmark",
-    "storageUnavailable": "Hindi mase-save ang mga bookmark — hindi available ang storage sa session na ito",
+    "storageUnavailable": "Hindi mase-save ang mga bookmark. Hindi available ang storage sa session na ito",
     "pageTitle": "Mga Bookmark",
     "emptyTitle": "Wala pang mga bookmark",
     "emptyDesc": "I-save ang mga kagamitang gusto mong balikan sa pamamagitan ng pag-click sa bookmark icon sa anumang tool card.",
-    "browseTools": "Mag-browse ng Mga Kagamitan"
+    "browseTools": "Mag-browse ng Mga Kagamitan",
+    "syncUnavailable": "Offline ka. Naka-save ang mga bookmark para sa session na ito ngunit hindi magsi-sync sa iba't ibang device"
   },
   "compare": {
     "title": "Ikumpara ang Mga Kagamitan",
@@ -699,11 +742,11 @@
     },
     "added": "Naidagdag",
     "full": "Puno na",
-    "caption": "Magkatabing paghahambing ng mga napiling open-source na kagamitan — mga tampok, plataporma, lisensya, at mga editoryal na tala."
+    "caption": "Magkatabing paghahambing ng mga napiling open-source na kagamitan: mga tampok, plataporma, lisensya, at mga editoryal na tala."
   },
   "learningPaths": {
     "title": "Mga Landas ng Pag-aaral",
-    "intro": "Mga curated na toolkit para gabayan ka sa iyong paglalakbay sa pag-aaral — hakbang-hakbang.",
+    "intro": "Mga curated na toolkit para gabayan ka sa iyong paglalakbay sa pag-aaral, hakbang-hakbang.",
     "changePath": "Baguhin ang aking landas",
     "stageCount": "{{count}} yugto",
     "startPath": "Simulan ang landas",
@@ -726,7 +769,7 @@
       "out-of-school-youth": "Baguhan sa Digital"
     },
     "heroTitle": "Matutuhan ang Mga Kagamitan. Itayo ang Kinabukasan.",
-    "heroSubtitle": "Maingat na pinili, hands-on na mga landas para mahasa ang mga open-source na kagamitan — para sa bawat mag-aaral, bawat antas, bawat layunin.",
+    "heroSubtitle": "Maingat na pinili, hands-on na mga landas para mahasa ang mga open-source na kagamitan. Para sa bawat mag-aaral, bawat antas, bawat layunin.",
     "searchPlaceholder": "Maghanap ng mga landas, kagamitan, o kinalabasan…",
     "takeAssessment": "Hanapin ang aking landas",
     "download": "I-download",
@@ -785,7 +828,7 @@
     "nextStage": "Susunod na yugto",
     "difficultyLabel": "kahirapan",
     "printChecklist": "I-print ang Checklist",
-    "motivationNudge": "Mas mabuti ang konsistensya kaysa intensidad — kahit 15 minuto bawat araw, maaabot mo ang iyong layunin.",
+    "motivationNudge": "Mas mabuti ang konsistensya kaysa intensidad. Kahit 15 minuto bawat araw, maaabot mo ang iyong layunin.",
     "certPathwayMastered": "Natapos na ang landas!",
     "certGetDesc": "Natapos mo na ang bawat yugto. Kunin ang iyong sertipiko.",
     "certGetButton": "Kunin ang Sertipiko",
@@ -798,7 +841,30 @@
     "certClose": "Isara",
     "certThisCertifies": "Kinikilala ng sertipikong ito na",
     "certHasCompleted": "ay matagumpay na natapos ang",
-    "certFooter": "abakada.org · Mga Libreng Open-Source na Kagamitan para sa mga Pilipino"
+    "certFooter": "abakada.org · Mga Libreng Open-Source na Kagamitan para sa mga Pilipino",
+    "stepLabel": "Hakbang",
+    "stepsWord": "hakbang",
+    "stageWord": "Yugto",
+    "back": "Bumalik",
+    "next": "Susunod",
+    "learnStep": "Matuto",
+    "doStep": "Subukan",
+    "markDone": "Nagawa ko na ito",
+    "didThis": "Tapos na",
+    "listen": "Pakinggan",
+    "stopAudio": "Itigil",
+    "guidedLesson": "Gabay na aralin",
+    "lessonSteps": "Mga hakbang ng aralin",
+    "guidedSub": "Isang hakbang sa bawat pagkakataon, may pagbasa nang malakas",
+    "startGuided": "Simulan ang gabay na aralin",
+    "exitLesson": "Lumabas sa gabay na aralin",
+    "finishLesson": "Tapusin ang aralin",
+    "downloadForOffline": "I-download para offline",
+    "availableOffline": "Magagamit offline",
+    "downloading": "Dina-download…",
+    "removeDownload": "Tanggalin",
+    "downloadError": "May mga file na hindi na-save. Suriin ang iyong koneksyon at subukang muli.",
+    "offlineHintSlow": "Mabagal ang koneksyon? I-download minsan sa Wi-Fi, pagkatapos matuto kahit saan."
   },
   "onboarding": {
     "title": "Ano ang pinakamailarawan sa iyo?",
@@ -920,5 +986,78 @@
     "title": "Talahuluganan",
     "heroTitle": "Talahuluganan",
     "heroSubtitle": "Mga kahulugan ng mga karaniwang open-source, lisensya, at produktibidad na termino na ginagamit sa Abakada."
+  },
+  "progress": {
+    "title": "Ang Aking Paglalakbay sa Pag-aaral",
+    "subtitle": "Lahat dito ay nakaimbak nang pribado sa device na ito. Walang account, walang sign-in.",
+    "breadcrumb": "Aking Progreso",
+    "seoTitle": "Aking Progreso",
+    "seoDesc": "Subaybayan ang iyong paglalakbay sa digital na kasanayan: mga antas, streak, badge, larangan ng kasanayan, at offline na download.",
+    "levelWord": "Antas",
+    "xp": "XP",
+    "toNext": "para sa susunod na antas",
+    "dayStreak": "araw na sunod-sunod",
+    "best": "pinakamahaba",
+    "streakHint": "Mga araw na sunod-sunod kang natuto ng kahit ano",
+    "continue": "Magpatuloy kung saan ka huminto",
+    "statTools": "kagamitan ang na-explore",
+    "statTasks": "gawain ang natapos",
+    "statStages": "yugto ang natapos",
+    "statPaths": "landas ang natapos",
+    "domains": "Mga larangan ng kasanayan",
+    "badges": "Mga Badge",
+    "yourPaths": "Ang iyong mga landas",
+    "offlineTitle": "Offline at data",
+    "liteTitle": "Lite mode",
+    "liteDesc": "Makatipid sa data at mapabilis ang mga lumang telepono sa pamamagitan ng paglaktaw sa mabibigat na visual.",
+    "liteAuto": "Auto",
+    "liteOn": "On",
+    "liteOff": "Off",
+    "liteAutoOn": "Auto: naka-on (natukoy na mabagal na koneksyon)",
+    "liteAutoOff": "Auto: naka-off (maganda ang koneksyon)",
+    "liteIsOn": "Naka-on ang Lite mode",
+    "liteIsOff": "Naka-off ang Lite mode",
+    "downloads": "Na-download para offline",
+    "remove": "Tanggalin",
+    "noDownloads": "Wala pang na-download na landas. Magbukas ng landas ng pag-aaral at i-tap ang “I-download para offline” para mag-aral nang walang koneksyon.",
+    "emptyTitle": "Dito nagsisimula ang iyong paglalakbay",
+    "emptyDesc": "Pumili ng landas ng pag-aaral at i-explore ang iyong unang kagamitan. Lalabas dito ang iyong antas, streak, at mga badge habang sumusulong ka.",
+    "emptyCta": "Tingnan ang mga landas ng pag-aaral",
+    "level": {
+      "newcomer": "Baguhan",
+      "explorer": "Eksplorador",
+      "builder": "Tagapagtayo",
+      "creator": "Tagalikha",
+      "contributor": "Tagaambag",
+      "advocate": "Tagataguyod"
+    },
+    "badge": {
+      "first-steps": "Unang Hakbang",
+      "explorer": "Eksplorador",
+      "toolsmith": "Dalubhasa sa Kagamitan",
+      "hands-on": "Praktikal",
+      "stage-clear": "Tapos na Yugto",
+      "path-finisher": "Tagatapos ng Landas",
+      "scholar": "Iskolar",
+      "well-rounded": "Bihasa sa Lahat",
+      "offline-ready": "Handa Offline",
+      "streak-3": "Nag-iinit Pa Lang",
+      "streak-7": "Konsistent",
+      "streak-30": "Hindi Mapipigilan"
+    },
+    "badgeDesc": {
+      "first-steps": "I-explore ang iyong unang kagamitan",
+      "explorer": "I-explore ang 10 kagamitan",
+      "toolsmith": "I-explore ang 25 kagamitan",
+      "hands-on": "Tapusin ang 10 gawain",
+      "stage-clear": "Kumpletuhin ang isang buong yugto",
+      "path-finisher": "Kumpletuhin ang isang buong landas ng pag-aaral",
+      "scholar": "Kumpletuhin ang 3 landas ng pag-aaral",
+      "well-rounded": "Tikman ang 4 na larangan ng kasanayan",
+      "offline-ready": "Mag-download ng landas para sa offline na pag-aaral",
+      "streak-3": "Mag-aral 3 araw na sunod-sunod",
+      "streak-7": "Mag-aral 7 araw na sunod-sunod",
+      "streak-30": "Mag-aral 30 araw na sunod-sunod"
+    }
   }
 }

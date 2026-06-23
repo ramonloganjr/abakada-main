@@ -30,15 +30,15 @@ const TRUST = [
 const TIPS = [
   ['Keep notes in one place', 'Pick one notes app (like Joplin or Obsidian) and put everything there, so you can always find it later.'],
   ['Back up your work', 'Save important files to a free cloud like Nextcloud, or keep a copy on a USB drive, so you never lose a deadline.'],
-  ['Learn a few shortcuts', 'A handful of keyboard shortcuts — copy, paste, undo, save — will save you hours over a school year.'],
+  ['Learn a few shortcuts', 'A handful of keyboard shortcuts (copy, paste, undo, save) will save you hours over a school year.'],
   ['Work offline when data is low', 'Most tools here run without internet. Download once and keep working even when you’re out of data.'],
 ]
 
 const FAQ = [
   ['Do I have to pay for anything?', 'No. Every tool here is free and open-source. There are no trials that expire and no hidden fees.'],
   ['Do I need to make an account?', 'No account is needed to use Abakada, and most tools work without signing up. Some optional cloud features may offer a free account.'],
-  ['Will these work on my phone?', 'Many do, and some are phone-first. Each tool page lists the platforms it supports — look for Android or iOS.'],
-  ['Can I use these for schoolwork?', 'Yes. These tools create standard files — documents, images, video — you can submit anywhere, perfect for reports, projects, and presentations.'],
+  ['Will these work on my phone?', 'Many do, and some are phone-first. Each tool page lists the platforms it supports. Look for Android or iOS.'],
+  ['Can I use these for schoolwork?', 'Yes. These tools create standard files (documents, images, video) you can submit anywhere, perfect for reports, projects, and presentations.'],
 ]
 
 export default function Students({ toolsData = { tools: [], categories: [] } }) {
@@ -91,7 +91,7 @@ export default function Students({ toolsData = { tools: [], categories: [] } }) 
       <StaticPageLayout
         breadcrumb={t('pages.students.breadcrumb', 'For Students')}
         heroTitle={t('pages.students.heroTitle', 'Free Tools for Every Filipino Student')}
-        heroSubtitle={t('pages.students.heroSubtitle', 'Everything you need for school — writing, presentations, photos, video, coding, and study — without paying for a single app.')}
+        heroSubtitle={t('pages.students.heroSubtitle', 'Everything you need for school (writing, presentations, photos, video, coding, and study) without paying for a single app.')}
       >
         {/* Hero actions + trust */}
         <section className="content-section stu-intro">

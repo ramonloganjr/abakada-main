@@ -31,24 +31,24 @@ const tools = JSON.parse(readFileSync(resolve(ROOT, 'public/assets/data/tools.js
 const learning = JSON.parse(readFileSync(resolve(ROOT, 'public/assets/data/learning-paths.json'), 'utf8'))
 
 const STATIC_PAGES = [
-  { path: '/about', title: 'About Abakada — Mission, Team & Editorial Standards', description: 'Learn about Abakada — a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.' },
-  { path: '/faq', title: 'Frequently Asked Questions — Abakada', description: 'Answers to common questions about Abakada — how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.' },
-  { path: '/privacy', title: 'Privacy Policy — Abakada', description: 'How Abakada collects, uses, and protects your data. We use minimal analytics, store no personal data on our servers, and never sell your information.' },
-  { path: '/contact', title: 'Contact Abakada — Editorial, Partnerships, Support', description: 'Reach the Abakada team for editorial corrections, partnership inquiries, or general support. Email hello@abakada.org or use our contact form.' },
-  { path: '/partnerships', title: 'Partnership Opportunities — Abakada', description: 'Partner with Abakada to bring free open-source tools to Filipino schools, communities, and organizations. Volunteer, donate, or co-publish content.' },
+  { path: '/about', title: 'About Abakada: Mission, Team & Editorial Standards', description: 'Learn about Abakada, a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.' },
+  { path: '/faq', title: 'Frequently Asked Questions | Abakada', description: 'Answers to common questions about Abakada: how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.' },
+  { path: '/privacy', title: 'Privacy Policy | Abakada', description: 'How Abakada collects, uses, and protects your data. We use minimal analytics, store no personal data on our servers, and never sell your information.' },
+  { path: '/contact', title: 'Contact Abakada: Editorial, Partnerships, Support', description: 'Reach the Abakada team for editorial corrections, partnership inquiries, or general support. Email hello@abakada.org or use our contact form.' },
+  { path: '/partnerships', title: 'Partnership Opportunities | Abakada', description: 'Partner with Abakada to bring free open-source tools to Filipino schools, communities, and organizations. Volunteer, donate, or co-publish content.' },
   { path: '/official-partners', title: 'Official Partners of Abakada', description: 'Schools, organizations, and FOSS projects officially partnered with Abakada to expand access to free open-source productivity tools in the Philippines.' },
-  { path: '/learning-paths', title: 'Learning Paths — Curated FOSS Toolkits — Abakada', description: 'Structured learning paths combining free open-source tools — Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, and more.' },
-  { path: '/educators', title: 'For Educators — Free Curriculum-Aligned Classroom Tools — Abakada', description: 'Free, open-source tools for Filipino teachers — mapped to DepEd Senior High School strands. No licenses, no student accounts, plus a classroom starter kit.' },
-  { path: '/students', title: 'For Students — Free Tools for Schoolwork & Study — Abakada', description: 'Free, open-source tools for Filipino students — for writing, presentations, photos, video, coding, and study. No cost, no account, works offline.' },
-  { path: '/compare', title: 'Compare Open-Source Tools — Abakada', description: 'Side-by-side comparison of free open-source tools — features, platforms, licenses, and use cases. Pick the right tool for your workflow.' },
-  { path: '/sitemap', title: 'HTML Sitemap — Abakada', description: 'Browse all Abakada pages — tools, learning paths, FAQ, about, partnerships, and more.' },
-  { path: '/glossary', title: 'Glossary — Open-Source, Licensing & Productivity Terms — Abakada', description: 'Definitions of common terms used on Abakada — FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more.' },
-  { path: '/terms', title: 'Terms of Use — Abakada.org', description: 'Terms of Use governing access to Abakada.org — intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law.' },
+  { path: '/learning-paths', title: 'Learning Paths: Curated FOSS Toolkits | Abakada', description: 'Structured learning paths combining free open-source tools: Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, and more.' },
+  { path: '/educators', title: 'For Educators: Free Curriculum-Aligned Classroom Tools | Abakada', description: 'Free, open-source tools for Filipino teachers, mapped to DepEd Senior High School strands. No licenses, no student accounts, plus a classroom starter kit.' },
+  { path: '/students', title: 'For Students: Free Tools for Schoolwork & Study | Abakada', description: 'Free, open-source tools for Filipino students, for writing, presentations, photos, video, coding, and study. No cost, no account, works offline.' },
+  { path: '/compare', title: 'Compare Open-Source Tools | Abakada', description: 'Side-by-side comparison of free open-source tools: features, platforms, licenses, and use cases. Pick the right tool for your workflow.' },
+  { path: '/sitemap', title: 'HTML Sitemap | Abakada', description: 'Browse all Abakada pages: tools, learning paths, FAQ, about, partnerships, and more.' },
+  { path: '/glossary', title: 'Glossary: Open-Source, Licensing & Productivity Terms | Abakada', description: 'Definitions of common terms used on Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more.' },
+  { path: '/terms', title: 'Terms of Use | Abakada.org', description: 'Terms of Use governing access to Abakada.org: intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law.' },
 ]
 
 const toolkitPages = (learning.toolkits || []).map((tk) => ({
   path: `/learning-paths/${tk.id}`,
-  title: `${tk.title} — Abakada Learning Path`,
+  title: `${tk.title} | Abakada Learning Path`,
   description: (tk.description || `${tk.title} learning path on Abakada.`).slice(0, 158),
 }))
 
@@ -56,7 +56,7 @@ const toolPages = (tools.tools || []).map((tool) => {
   const tagline = tool.tagline || 'Free open-source tool'
   return {
     path: `/tools/${tool.id}`,
-    title: `${tool.name} — ${tagline} — Abakada`,
+    title: `${tool.name}: ${tagline} | Abakada`,
     description: (tool.description || `${tool.name}: ${tagline}. Free, open-source tool reviewed by Abakada.`).slice(0, 158),
   }
 })

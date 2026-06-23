@@ -170,6 +170,15 @@ body.nav-open .nav-overlay {
   }
 }
 
+/* Lock background scroll while the off-canvas nav drawer is open so the page
+   behind the overlay can't scroll under the user's touch (premium drawer UX).
+   Scoped below the desktop breakpoint where the sidebar is a persistent rail. */
+@media (max-width: 1023px) {
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
 /* ==========================================================================
    Sidebar Navigation
    ========================================================================== */

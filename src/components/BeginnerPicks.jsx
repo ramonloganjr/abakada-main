@@ -28,10 +28,10 @@ export default function BeginnerPicks({ tools, categories, onToolClick }) {
             {t('beginnerPicks.eyebrow', 'New to open source?')}
           </span>
           <h2 id="beginner-picks-title" className="beginner-picks__title">
-            {t('beginnerPicks.title', 'Start here — friendly, free replacements for apps you already know')}
+            {t('beginnerPicks.title', 'Start here: friendly, free replacements for apps you already know')}
           </h2>
           <p className="beginner-picks__subtitle">
-            {t('beginnerPicks.subtitle', 'Hand-picked, easy-to-install tools that do the job of popular paid software — at no cost.')}
+            {t('beginnerPicks.subtitle', 'Hand-picked, easy-to-install tools that do the job of popular paid software, at no cost.')}
           </p>
         </div>
         <div className="grid grid--tools beginner-picks__grid">

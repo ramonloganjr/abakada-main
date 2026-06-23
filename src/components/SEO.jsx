@@ -7,7 +7,7 @@ const DEFAULT_IMAGE = `${SITE_ORIGIN}/assets/logo/og.png`
  * SEO — per-page <head> management.
  *
  * Props:
- *  - title         page title (will be appended with " — Abakada" unless `rawTitle`)
+ *  - title         page title (will be appended with " | Abakada" unless `rawTitle`)
  *  - rawTitle      if true, use `title` verbatim
  *  - description   meta description (≤160 chars recommended)
  *  - canonical     absolute URL of this page; falls back to current pathname
@@ -30,7 +30,7 @@ export default function SEO({
   lang = 'en',
   locale,
 }) {
-  const fullTitle = rawTitle ? title : `${title} — Abakada`
+  const fullTitle = rawTitle ? title : `${title} | Abakada`
   const url = canonical || `${SITE_ORIGIN}${pathname}`
   const hreflang = hreflangMap(pathname)
   const ogLocaleMap = { en: 'en_PH', tl: 'tl_PH', ilo: 'ilo_PH', bis: 'ceb_PH' }

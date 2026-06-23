@@ -9,7 +9,10 @@ import Icon from '../components/Icon'
 import SEO from '../components/SEO'
 import BrandLoader from '../components/BrandLoader'
 import CompletionCertificate from '../components/CompletionCertificate'
+import MicroLesson from '../components/MicroLesson'
+import OfflinePackButton from '../components/OfflinePackButton'
 import { buildLearningPathMeta } from '../lib/pageMeta'
+import { recordActivity, setRecentToolkit, emitChange } from '../lib/progressStore'
 
 export default function LearningPathDetail({ toolsData = { tools: [], categories: [] } }) {
   const { toolkitId } = useParams()
@@ -22,6 +25,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
   const { markExplored, unmarkExplored, isExplored } = useProgress(toolkitId)
   const [selectedTool, setSelectedTool] = useState(null)
   const [openStageId, setOpenStageId] = useState(null)
+  const [guidedStageId, setGuidedStageId] = useState(null)
   const [completedTasks, setCompletedTasks] = useState(() => {
     try {
       const raw = localStorage.getItem(`abakada_tasks_${toolkitId}`)
@@ -58,7 +62,13 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
 
   useEffect(() => {
     try { localStorage.setItem(`abakada_tasks_${toolkitId}`, JSON.stringify([...completedTasks])) } catch {}
+    emitChange()
   }, [completedTasks, toolkitId])
+
+  // Opening a pathway makes it the "continue where you left off" target.
+  useEffect(() => {
+    if (toolkitId) setRecentToolkit(toolkitId)
+  }, [toolkitId])
 
   const stageMetrics = useMemo(() => {
     if (!data.toolkit) return { allToolIds: [], totalTools: 0, exploredCount: 0, stageStatus: {} }
@@ -134,6 +144,9 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
       else next.add(taskKey)
       return next
     })
+    // Completing practice tasks counts as learning activity (streaks + recent).
+    recordActivity()
+    if (toolkitId) setRecentToolkit(toolkitId)
   }
 
   function toggleStage(id) {
@@ -291,6 +304,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                   <span><strong>{completedTaskCount}</strong> {t('learningPaths.tasksDone', 'hands-on tasks done')}</span>
                 </li>
               </ul>
+              <OfflinePackButton toolkit={toolkit} />
               {overallPct === 100 && (
                 <CompletionCertificate toolkit={toolkit} />
               )}
@@ -360,7 +374,36 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                   </button>
 
                   <div className="lpj-stage__body" id={`stage-body-${stage.id}`} hidden={!isOpen}>
-                      {Array.isArray(stage.objectives) && stage.objectives.length > 0 && (
+                      {((stage.objectives && stage.objectives.length > 0) || (stage.tasks && stage.tasks.length > 0)) && (
+                        guidedStageId === stage.id ? (
+                          <MicroLesson
+                            stage={stage}
+                            stageIndex={idx}
+                            completedTasks={completedTasks}
+                            onToggleTask={toggleTask}
+                            onExit={() => setGuidedStageId(null)}
+                          />
+                        ) : (
+                          <button
+                            type="button"
+                            className="lpj-guided-launch"
+                            onClick={() => setGuidedStageId(stage.id)}
+                          >
+                            <span className="lpj-guided-launch__icon" aria-hidden="true">
+                              <Icon name="play-circle" collection="ui" size={20} />
+                            </span>
+                            <span className="lpj-guided-launch__copy">
+                              <strong>{t('learningPaths.startGuided', 'Start guided lesson')}</strong>
+                              <span>{t('learningPaths.guidedSub', 'One step at a time, with read-aloud')}</span>
+                            </span>
+                            <span className="lpj-guided-launch__count">
+                              {(stage.objectives?.length || 0) + (stage.tasks?.length || 0)} {t('learningPaths.stepsWord', 'steps')}
+                            </span>
+                          </button>
+                        )
+                      )}
+
+                      {guidedStageId !== stage.id && Array.isArray(stage.objectives) && stage.objectives.length > 0 && (
                         <div className="lpj-block">
                           <h3 className="lpj-block__title">
                             <Icon name="target" collection="ui" size={13} />
@@ -377,7 +420,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                         </div>
                       )}
 
-                      {Array.isArray(stage.tasks) && stage.tasks.length > 0 && (
+                      {guidedStageId !== stage.id && Array.isArray(stage.tasks) && stage.tasks.length > 0 && (
                         <div className="lpj-block">
                           <h3 className="lpj-block__title">
                             <Icon name="list-checks" collection="ui" size={13} />
@@ -394,7 +437,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                                       type="checkbox"
                                       checked={done}
                                       onChange={() => toggleTask(key)}
-                                      aria-label={done ? `Task ${i + 1} complete — click to mark incomplete` : `Mark task ${i + 1} as complete`}
+                                      aria-label={done ? `Task ${i + 1} complete, click to mark incomplete` : `Mark task ${i + 1} as complete`}
                                     />
                                     <span>{task}</span>
                                   </label>
@@ -473,7 +516,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
             </button>
             {overallPct < 100 && (
               <p className="lpj-footer__nudge">
-                {t('learningPaths.motivationNudge', 'Consistency beats intensity — even 15 minutes a day will get you there.')}
+                {t('learningPaths.motivationNudge', 'Consistency beats intensity. Even 15 minutes a day will get you there.')}
               </p>
             )}
           </div>

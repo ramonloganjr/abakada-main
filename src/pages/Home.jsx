@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import { useSearch } from '../hooks/useSearch'
-import { useLowBandwidth } from '../hooks/useLowBandwidth'
+import { useLiteMode } from '../hooks/useLiteMode'
 import Sidebar from '../components/Sidebar'
 import ToolCard from '../components/ToolCard'
 import ToolModal from '../components/ToolModal'
@@ -31,7 +31,7 @@ const QUICKSTART_ROLES = [
 
 export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenNav }) {
   const { t, lang } = useI18n()
-  const { saveData } = useLowBandwidth()
+  const { liteMode } = useLiteMode()
   const location = useLocation()
   const navigate = useNavigate()
   const [page, setPage] = useState(1)
@@ -160,7 +160,7 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenN
             <p className="hero__definition" aria-label="About Abakada">
               {t(
                 'hero.definition',
-                `Abakada is a free, curated directory of ${(stats.totalTools || toolsData.tools.length).toLocaleString()}+ open-source productivity tools for Filipino students, educators, and professionals — built by volunteers, no signup required.`
+                `Abakada is a free, curated directory of ${(stats.totalTools || toolsData.tools.length).toLocaleString()}+ open-source productivity tools for Filipino students, educators, and professionals. Built by volunteers, no signup required.`
               )}
             </p>
             <div className="hero__stats">
@@ -246,8 +246,8 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenN
           />
         )}
 
-        {/* Featured */}
-        {!hasQuery && category === 'all' && !saveData && (
+        {/* Featured — skipped in lite mode (low data / low-end devices) */}
+        {!hasQuery && category === 'all' && !liteMode && (
           <FeaturedCarousel
             tools={toolsData.tools}
             categories={toolsData.categories}

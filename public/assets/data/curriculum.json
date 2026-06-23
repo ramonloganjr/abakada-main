@@ -19,7 +19,7 @@
       "category": "k12",
       "label": "STEM",
       "fullName": "Science, Technology, Engineering & Mathematics",
-      "description": "Scientific inquiry, computing, mathematics, and engineering design — tools for research, coding, and data work are highly relevant.",
+      "description": "Scientific inquiry, computing, mathematics, and engineering design. Tools for research, coding, and data work are highly relevant.",
       "color": "blue"
     },
     {
@@ -27,7 +27,7 @@
       "category": "k12",
       "label": "ABM",
       "fullName": "Accountancy, Business & Management",
-      "description": "Business operations, financial literacy, entrepreneurship, and management — productivity and finance tools align directly.",
+      "description": "Business operations, financial literacy, entrepreneurship, and management. Productivity and finance tools align directly.",
       "color": "green"
     },
     {
@@ -35,7 +35,7 @@
       "category": "k12",
       "label": "HUMSS",
       "fullName": "Humanities & Social Sciences",
-      "description": "Critical thinking, research, communication, and social inquiry — writing and research tools are central.",
+      "description": "Critical thinking, research, communication, and social inquiry. Writing and research tools are central.",
       "color": "purple"
     },
     {
@@ -43,7 +43,7 @@
       "category": "k12",
       "label": "GAS",
       "fullName": "General Academic Strand",
-      "description": "Broad academic preparation spanning multiple disciplines — general-purpose productivity and research tools apply.",
+      "description": "Broad academic preparation spanning multiple disciplines. General-purpose productivity and research tools apply.",
       "color": "neutral"
     },
     {
@@ -51,7 +51,7 @@
       "category": "k12",
       "label": "TVL-ICT",
       "fullName": "Technical-Vocational-Livelihood: ICT",
-      "description": "Computer systems servicing, programming, web design, and digital media — technical tools are core curriculum.",
+      "description": "Computer systems servicing, programming, web design, and digital media. Technical tools are core curriculum.",
       "color": "orange"
     },
     {
@@ -59,7 +59,7 @@
       "category": "k12",
       "label": "Arts & Design",
       "fullName": "Arts and Design Track",
-      "description": "Visual arts, graphic design, digital media, and creative production — open-source design tools replace costly commercial suites.",
+      "description": "Visual arts, graphic design, digital media, and creative production. Open-source design tools replace costly commercial suites.",
       "color": "rose"
     },
     {

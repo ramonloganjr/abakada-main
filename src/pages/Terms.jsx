@@ -182,16 +182,16 @@ export default function Terms() {
                 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE OWNER,
                 RAMON LOGAN JR., HIS HEIRS, ASSIGNS, CONTRIBUTORS, VOLUNTEERS, AGENTS, OR PARTNERS
                 BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR
-                PUNITIVE DAMAGES — INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, REVENUE, DATA,
+                PUNITIVE DAMAGES (INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, REVENUE, DATA,
                 GOODWILL, REPUTATIONAL HARM, BUSINESS INTERRUPTION, OR COST OF SUBSTITUTE
-                SERVICES — ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF (OR INABILITY TO USE)
+                SERVICES) ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF (OR INABILITY TO USE)
                 THE SITE, ANY LISTED TOOL, OR ANY CONTENT, EVEN IF THE OWNER HAS BEEN ADVISED OF
                 THE POSSIBILITY OF SUCH DAMAGES.
               </p>
               <p>
                 IN ALL CASES, THE OWNER'S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATING TO
-                THESE TERMS OR THE SITE — REGARDLESS OF THE FORM OF ACTION (CONTRACT, TORT,
-                STATUTE, OR OTHERWISE) — SHALL NOT EXCEED ONE HUNDRED PHILIPPINE PESOS (₱100.00).
+                THESE TERMS OR THE SITE, REGARDLESS OF THE FORM OF ACTION (CONTRACT, TORT,
+                STATUTE, OR OTHERWISE), SHALL NOT EXCEED ONE HUNDRED PHILIPPINE PESOS (₱100.00).
                 THIS LIMITATION REFLECTS THE NON-COMMERCIAL, FREE-OF-CHARGE NATURE OF THE SITE.
               </p>
             </section>
@@ -239,8 +239,8 @@ export default function Terms() {
                 conduct that the Owner reasonably believes is harmful to the Site, other users, the
                 Owner, or any third party, or (c) compliance with any law-enforcement request or
                 legal obligation. All provisions of these Terms which by their nature should survive
-                termination — including ownership, warranty disclaimers, indemnity, and limitations
-                of liability — shall survive.
+                termination (including ownership, warranty disclaimers, indemnity, and limitations
+                of liability) shall survive.
               </p>
             </section>
 
@@ -295,8 +295,8 @@ export default function Terms() {
             <section className="legal-section">
               <h2>17. Contact</h2>
               <p>
-                Questions, concerns, or notices regarding these Terms — including takedown requests,
-                trademark inquiries, partnership questions, or notices of alleged infringement —
+                Questions, concerns, or notices regarding these Terms (including takedown requests,
+                trademark inquiries, partnership questions, or notices of alleged infringement)
                 may be directed to:
               </p>
               <p>

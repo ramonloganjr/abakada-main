@@ -22,11 +22,11 @@ const INSTALL_TITLES = {
 }
 
 const INSTALL_STEPS = {
-  web: 'No installation needed — {name} runs right in your browser.\nUse the “Visit official site” button above to open it.\nSome web apps offer a free account so you can save your work.',
-  desktop: 'Click “Visit official site” above to open the official {name} website.\nDownload the version for your system ({platforms}).\nOpen the downloaded file and follow the on-screen steps.\nLaunch {name} from your apps — you’re ready to go.',
+  web: 'No installation needed. {name} runs right in your browser.\nUse the “Visit official site” button above to open it.\nSome web apps offer a free account so you can save your work.',
+  desktop: 'Click “Visit official site” above to open the official {name} website.\nDownload the version for your system ({platforms}).\nOpen the downloaded file and follow the on-screen steps.\nLaunch {name} from your apps. You’re ready to go.',
   mobile: 'Open your device’s app store, or the official {name} site.\nSearch for “{name}” and tap Install.\nOpen the app and follow the quick setup.',
   runtime: '{name} installs through a package manager for {platforms}.\nFollow the official documentation for the exact install command.\nRun {name} from your terminal to confirm it works.',
-  server: '{name} is self-hosted — you run it on a server you control ({platforms}).\nFollow the official deployment guide for your environment.\nSee the documentation for configuration, security, and updates.',
+  server: '{name} is self-hosted. You run it on a server you control ({platforms}).\nFollow the official deployment guide for your environment.\nSee the documentation for configuration, security, and updates.',
   generic: 'Click “Visit official site” above to open the {name} website.\nFollow the installation instructions there for your platform.',
 }
 
@@ -160,7 +160,7 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
                 {isSafeUrl(tool.web_try_url) && (
                   <a className="btn btn--try-browser" href={tool.web_try_url} target="_blank" rel="noopener noreferrer">
                     <Icon name="play-circle" collection="ui" size={15} />
-                    {t('tools.tryInBrowser', 'Try in browser — no install')}
+                    {t('tools.tryInBrowser', 'Try in browser, no install')}
                   </a>
                 )}
                 {isSafeUrl(tool.repo_url) && (
@@ -215,7 +215,7 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
                   <ul className="tool-detail__related-list">
                     {related.map((r) => (
                       <li key={r.id}>
-                        <Link to={`/tools/${r.id}`}><strong>{r.name}</strong> — {r.tagline}</Link>
+                        <Link to={`/tools/${r.id}`}><strong>{r.name}</strong>: {r.tagline}</Link>
                       </li>
                     ))}
                   </ul>

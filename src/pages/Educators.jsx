@@ -24,15 +24,15 @@ const VALUE_PROPS = [
 
 const VALUE_FALLBACK = {
   aligned: ['Curriculum-aligned', 'Mapped to DepEd Senior High School strands, so you can find tools that fit what you already teach.'],
-  free: ['Zero cost, zero licenses', 'Every tool is free and open-source — no subscriptions, no license keys, no procurement paperwork.'],
+  free: ['Zero cost, zero licenses', 'Every tool is free and open-source. No subscriptions, no license keys, no procurement paperwork.'],
   safe: ['Safe for students', 'No student accounts and no tracking required. Review our privacy approach anytime.'],
-  hardware: ['Runs on modest hardware', 'Lightweight tools that work on older PCs and offline — built for schools with limited connectivity.'],
+  hardware: ['Runs on modest hardware', 'Lightweight tools that work on older PCs and offline, built for schools with limited connectivity.'],
 }
 
 const GUIDE_STEPS = [
-  ['Start with one tool', 'Pick a single tool that maps to your next lesson — LibreOffice Writer for worksheets, or GIMP for image editing — instead of changing everything at once.'],
+  ['Start with one tool', 'Pick a single tool that maps to your next lesson (LibreOffice Writer for worksheets, or GIMP for image editing) instead of changing everything at once.'],
   ['Model it first', 'Demonstrate the tool yourself on a projector or shared screen so students see the workflow before they try it.'],
-  ['Give a small, real task', 'Have students produce something they would have made anyway — a report, a poster, an audio clip — using the free tool.'],
+  ['Give a small, real task', 'Have students produce something they would have made anyway (a report, a poster, an audio clip) using the free tool.'],
   ['Point to the official help', 'Each tool page links to the official site and documentation. Encourage students to learn to find answers themselves.'],
 ]
 
@@ -267,7 +267,7 @@ export default function Educators({ toolsData = { tools: [], categories: [] } })
             <div className="container">
               <h2 id="edu-kit-title" className="edu-section__title">{t('pages.educators.kitTitle', 'Classroom starter kit')}</h2>
               <p className="edu-section__subtitle">
-                {t('pages.educators.kitSubtitle', 'Dependable, free tools that cover most classroom needs — from documents and worksheets to images, audio, and recording lessons.')}
+                {t('pages.educators.kitSubtitle', 'Dependable, free tools that cover most classroom needs, from documents and worksheets to images, audio, and recording lessons.')}
               </p>
               <div className="grid grid--tools edu-kit__grid">
                 {kitTools.map((tool) => {

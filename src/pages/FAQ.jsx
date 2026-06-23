@@ -22,7 +22,7 @@ const FAQ_ITEMS = [
   { q: 'How can my school or organization partner with Abakada?', a: 'We partner with schools, NGOs, and FOSS projects in four tiers: Technology, Educational, Content, and Community partners. Email partnerships@abakada.org or visit our Partnerships page to start a conversation.' },
   { q: 'How often is the tool directory updated?', a: 'Tool data is reviewed quarterly at minimum, with high-traffic categories reviewed more frequently. The "Last reviewed" date on each tool page reflects the most recent verification. Report broken or outdated entries via the Contact page.' },
   { q: 'Can I request takedown of a tool listing?', a: 'Maintainers of listed tools can request takedown by emailing hello@abakada.org with proof of ownership. Removal happens within 7 days. Trademark, defamation, or copyright concerns are addressed under the same process.' },
-  { q: 'Where can I see comparisons between tools?', a: 'Use the Compare feature (/compare) to view side-by-side comparisons of any 2-4 tools — features, supported platforms, license type, and editorial notes. Comparisons are particularly useful for choosing between similar tools (e.g., LibreOffice vs. ONLYOFFICE).' },
+  { q: 'Where can I see comparisons between tools?', a: 'Use the Compare feature (/compare) to view side-by-side comparisons of any 2-4 tools: features, supported platforms, license type, and editorial notes. Comparisons are particularly useful for choosing between similar tools (e.g., LibreOffice vs. ONLYOFFICE).' },
 ]
 
 const QuestionIcon = () => (
@@ -79,7 +79,7 @@ export default function FAQ() {
               </div>
             </div>
             <div className="developer-block__content">
-              <p><a href="https://ramonloganjr.com" target="_blank" rel="noopener">Ramon Logan Jr.</a> is the developer behind Abakada and <a href="https://bettersolano.org" target="_blank" rel="noopener">BetterSolano.org</a>. Based in the United Arab Emirates, he works in IT and practices full-stack development.</p>
+              <p><a href="https://ramonloganjr.com" target="_blank" rel="noopener">Ramon Logan Jr.</a> is the developer behind Abakada and <a href="https://bettersolano.org" target="_blank" rel="noopener">BetterSolano.org</a>. He also built <a href="https://hivcareph.org/" target="_blank" rel="noopener">HIV Care Philippines</a>, a community-built digital resource designed to help people locate Department of Health (DOH)-designated HIV treatment hubs and primary care clinics across the Philippines. Based in the United Arab Emirates, he works in IT and practices full-stack development.</p>
               <p>He also started <a href="https://hellopinas.com" target="_blank" rel="noopener">HelloPinas.com</a> and contributes to <a href="https://bettergov.ph" target="_blank" rel="noopener">BetterGov.ph</a>, a volunteer-driven civic-tech effort focused on improving access to local government information in the Philippines.</p>
               <p>He is also an individual participant of the <a href="https://openjsf.org" target="_blank" rel="noopener">OpenJS Foundation</a>.</p>
               <p>Abakada is also dedicated to his wife Alison and daughter Nana.</p>

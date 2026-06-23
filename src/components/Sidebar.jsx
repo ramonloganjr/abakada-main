@@ -4,18 +4,8 @@ import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparisonContext } from '../contexts/ComparisonContext'
 import { usePWAInstall } from '../hooks/usePWAInstall'
+import { CATEGORY_GROUPS } from '../lib/categoryGroups'
 import Icon from './Icon'
-
-const CATEGORY_GROUPS = [
-  { id: 'productivity', categories: ['doc-processing', 'notes', 'project', 'communication', 'writing'] },
-  { id: 'creative', categories: ['design', 'desktop-publishing', 'visualization', 'cms', '3d', 'photography'] },
-  { id: 'data', categories: ['data-processing', 'math', 'reference', 'ai-ml', 'science'] },
-  { id: 'security', categories: ['encryption', 'password', 'privacy', 'security-tools'] },
-  { id: 'media', categories: ['media', 'ebook', 'audio', 'video', 'gaming'] },
-  { id: 'utilities', categories: ['file', 'geographic', 'health', 'finance', 'education', 'networking', 'automation', 'backup', 'homelab'] },
-  { id: 'development', categories: ['development', 'devops', 'database', 'monitoring', 'testing', 'api', 'mobile', 'web', 'virtualization'] },
-  { id: 'business', categories: ['ecommerce', 'crm'] },
-]
 
 export default function Sidebar({ categories, tools, category, query, onQueryChange, onCategoryChange, platforms, tags, availablePlatforms, availableTags, onTogglePlatform, onToggleTag, onReset, hasActiveFilters, collapsible, collapsed, onToggleCollapse, filtering = true }) {
   const { t } = useI18n()
@@ -91,6 +81,10 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
         <Link to="/learning-paths" className="sidebar__mobile-action-link">
           <Icon name="graduation-cap" collection="category" size={18} />
           <span>{t('nav.learningPaths', 'Learning Paths')}</span>
+        </Link>
+        <Link to="/progress" className="sidebar__mobile-action-link">
+          <Icon name="trending-up" collection="ui" size={18} />
+          <span>{t('nav.progress', 'My Progress')}</span>
         </Link>
       </div>
       {filtering && (

@@ -35,7 +35,7 @@ export default function ConsentBanner() {
   return (
     <div className="consent-banner" role="dialog" aria-live="polite" aria-label={t('consent.label', 'Analytics consent')}>
       <p className="consent-banner__text">
-        {t('consent.text', 'We use privacy-friendly analytics to see what helps — never ads, and no data is sold. You can decline and everything still works.')}
+        {t('consent.text', 'We use privacy-friendly analytics to see what helps. No ads, and no data is sold. You can decline and everything still works.')}
       </p>
       <div className="consent-banner__actions">
         <button type="button" className="btn btn--secondary btn--sm" onClick={() => decide(false)}>

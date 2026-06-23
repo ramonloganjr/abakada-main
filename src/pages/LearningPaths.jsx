@@ -112,7 +112,7 @@ export default function LearningPaths() {
     <StaticPageLayout
       breadcrumb={t('learningPaths.title', 'Learning Paths')}
       heroTitle={t('learningPaths.heroTitle', 'Learn the Tools. Build the Future.')}
-      heroSubtitle={t('learningPaths.heroSubtitle', 'Curated, hands-on pathways to master open-source tools — built for every learner, every level, every goal.')}
+      heroSubtitle={t('learningPaths.heroSubtitle', 'Curated, hands-on pathways to master open-source tools. Built for every learner, every level, every goal.')}
     >
       <section className="section">
         <div className="container">
@@ -158,7 +158,7 @@ export default function LearningPaths() {
               <p className="lp-persona__text">
                 {hasRole
                   ? t('learningPaths.personaTextActive', "Below are pathways matched to your role. You can switch your profile anytime.")
-                  : t('learningPaths.personaTextInactive', "Tell us who you are and we'll recommend the best pathway to start with — students, professionals, educators, and self-directed learners welcome.")}
+                  : t('learningPaths.personaTextInactive', "Tell us who you are and we'll recommend the best pathway to start with. Students, professionals, educators, and self-directed learners welcome.")}
               </p>
             </div>
             <button

@@ -25,7 +25,9 @@
     "learningPaths": "Mga Dalan sa Pagkat-on",
     "bookmarksShort": "Gitipigan",
     "compareShort": "Itandi",
-    "learningPathsShort": "Pagkat-on"
+    "learningPathsShort": "Pagkat-on",
+    "progress": "Akong Pag-uswag",
+    "progressShort": "Pag-uswag"
   },
   "hero": {
     "title": "Mga Open Source nga",
@@ -34,7 +36,7 @@
     "statsTools": "Mga Gamit",
     "statsCategories": "Mga Kategorya",
     "statsOpenSource": "Open Source",
-    "definition": "Ang Abakada usa ka libre, hugot nga giplanohan nga direktoryo sa 1,288 ka mga open-source nga galamiton sa produktibidad para sa mga Pilipino nga estudyante, magtutudlo, ug propesyonal — gitukod sa mga boluntaryo, walay gikinahanglan nga pag-sign up.",
+    "definition": "Ang Abakada usa ka libre, hugot nga giplanohan nga direktoryo sa 1,288 ka mga open-source nga galamiton sa produktibidad para sa mga Pilipino nga estudyante, magtutudlo, ug propesyonal. Gitukod sa mga boluntaryo, walay gikinahanglan nga pag-sign up.",
     "ctaGuided": "Tabangi ko sa pagsugod",
     "ctaBrowse": "Tan-awa tanang gamit"
   },
@@ -56,8 +58,8 @@
   },
   "beginnerPicks": {
     "eyebrow": "Bag-o sa open source?",
-    "title": "Sugdi dinhi — libre ug sayon nga puli sa mga app nga nahibaw-an na nimo",
-    "subtitle": "Piniling gamit nga sayon i-install nga makahimo sa trabaho sa sikat nga bayad nga software — nga walay bayad."
+    "title": "Sugdi dinhi: libre ug sayon nga puli sa mga app nga nahibaw-an na nimo",
+    "subtitle": "Piniling gamit nga sayon i-install nga makahimo sa trabaho sa sikat nga bayad nga software, nga walay bayad."
   },
   "groups": {
     "productivity": "Produktibidad",
@@ -193,18 +195,18 @@
     "results": "galamiton",
     "category": "Kategoriya",
     "freeAlternativeTo": "Usa ka libre ug open-source nga alternatibo sa",
-    "tryInBrowser": "Sulayi sa browser — walay install"
+    "tryInBrowser": "Sulayi sa browser, walay install"
   },
   "install": {
     "title": "Unsaon pag-install sa {name}",
     "safetyNote": "Pirme pag-download gikan sa opisyal nga site sa ibabaw. Libre ug open-source nga software lang ang anaa sa Abakada.",
     "web": {
       "title": "Sa imong web browser",
-      "steps": "Dili na kinahanglan i-install — ang {name} modagan sa imong browser.\nGamita ang “Visit official site” sa ibabaw aron ablihan kini.\nUbang web app mohatag og libre nga account aron ma-save ang imong trabaho."
+      "steps": "Dili na kinahanglan i-install. Ang {name} modagan sa imong browser.\nGamita ang “Visit official site” sa ibabaw aron ablihan kini.\nUbang web app mohatag og libre nga account aron ma-save ang imong trabaho."
     },
     "desktop": {
       "title": "Sa imong kompyuter ({platforms})",
-      "steps": "I-klik ang “Visit official site” sa ibabaw aron ablihan ang opisyal nga website sa {name}.\nI-download ang bersyon para sa imong sistema ({platforms}).\nAblihi ang na-download nga file ug sunda ang mga lakang sa screen.\nAblihi ang {name} gikan sa imong mga app — andam na ka."
+      "steps": "I-klik ang “Visit official site” sa ibabaw aron ablihan ang opisyal nga website sa {name}.\nI-download ang bersyon para sa imong sistema ({platforms}).\nAblihi ang na-download nga file ug sunda ang mga lakang sa screen.\nAblihi ang {name} gikan sa imong mga app. Andam na ka."
     },
     "mobile": {
       "title": "Sa imong telepono o tablet ({platforms})",
@@ -216,7 +218,7 @@
     },
     "server": {
       "title": "Sa imong kaugalingong server ({platforms})",
-      "steps": "Self-hosted ang {name} — imong padaganon kini sa server nga imong kontrolado ({platforms}).\nSunda ang opisyal nga deployment guide para sa imong setup.\nTan-awa ang dokumentasyon para sa configuration, seguridad, ug mga update."
+      "steps": "Self-hosted ang {name}. Imong padaganon kini sa server nga imong kontrolado ({platforms}).\nSunda ang opisyal nga deployment guide para sa imong setup.\nTan-awa ang dokumentasyon para sa configuration, seguridad, ug mga update."
     },
     "generic": {
       "title": "Kuhaa ang {name}",
@@ -286,7 +288,7 @@
     "bookmarks": "Mga Bookmark",
     "compare": "Mga Gamit sa Pagtandi",
     "learningPaths": "Mga Dalan sa Pagkat-on",
-    "faq": "Frequently Asked Questions",
+    "faq": "Mga Kanunay nga Pangutana",
     "contribute": "Pag-amot sa GitHub",
     "openSourceInitiative": "Open Source Initiative",
     "opensourceCom": "Opensource.com",
@@ -294,9 +296,9 @@
     "contact": "Kontaka",
     "privacyPolicy": "Palisiya sa Pribado",
     "sitemap": "Mapa sa Site",
-    "copyright": "Brown and Proud. Show your support by sharing this website.",
+    "copyright": "Brown and Proud. Ipakita ang imong suporta pinaagi sa pagpaambit niini nga website.",
     "copyright_line1": "Brown and Proud.",
-    "copyright_line2": "Show your support by sharing this website.",
+    "copyright_line2": "Ipakita ang imong suporta pinaagi sa pagpaambit niini nga website.",
     "openSource": "100% Open Source",
     "license": "MIT | CC BY 4.0",
     "badge": "100% Open Source",
@@ -373,11 +375,15 @@
     "students": {
       "breadcrumb": "Para sa mga Estudyante",
       "heroTitle": "Libre nga mga Gamit para sa Matag Estudyanteng Pilipino",
-      "heroSubtitle": "Tanan nga imong gikinahanglan para sa eskwela — pagsulat, presentasyon, hulagway, video, coding, ug pagtuon — nga walay bayad bisan usa ka app.",
+      "heroSubtitle": "Tanan nga imong gikinahanglan para sa eskwela (pagsulat, presentasyon, hulagway, video, coding, ug pagtuon) nga walay bayad bisan usa ka app.",
       "ctaBasics": "Sugdi sa mga sukaranan",
       "ctaByTask": "Pangitag gamit pinaagi sa buluhaton",
       "trustLabel": "Nganong gigamit sa mga estudyante ang Abakada",
-      "trust": { "free": "100% libre", "noAccount": "Walay kinahanglan nga account", "offline": "Modagan offline" },
+      "trust": {
+        "free": "100% libre",
+        "noAccount": "Walay kinahanglan nga account",
+        "offline": "Modagan offline"
+      },
       "goalsTitle": "Unsay gusto nimong buhaton?",
       "goalsSubtitle": "Pagpili og buluhaton ug among ipakita ang libre nga mga gamit nga makahimo niini.",
       "goals": {
@@ -398,10 +404,22 @@
       "altReplaces": "imbes nga",
       "tipsTitle": "Pagtuon nga mas maalamon",
       "tips": {
-        "tip1": { "title": "Tipigi ang notes sa usa ka lugar", "text": "Pagpili og usa ka notes app (sama sa Joplin o Obsidian) ug ibutang tanan didto, aron makit-an nimo kanunay." },
-        "tip2": { "title": "I-backup ang imong trabaho", "text": "I-save ang importante nga mga file sa libre nga cloud sama sa Nextcloud, o pagtipig og kopya sa USB drive, aron dili ka mawad-an og deadline." },
-        "tip3": { "title": "Pagkat-on og pipila ka shortcut", "text": "Pipila ka keyboard shortcut — copy, paste, undo, save — makatipig nimo og oras sa tibuok tuig sa eskwela." },
-        "tip4": { "title": "Pagtrabaho offline kung gamay ang data", "text": "Kadaghanan sa mga gamit dinhi modagan nga walay internet. I-download kausa ug padayon bisan nahurot na ang imong data." }
+        "tip1": {
+          "title": "Tipigi ang notes sa usa ka lugar",
+          "text": "Pagpili og usa ka notes app (sama sa Joplin o Obsidian) ug ibutang tanan didto, aron makit-an nimo kanunay."
+        },
+        "tip2": {
+          "title": "I-backup ang imong trabaho",
+          "text": "I-save ang importante nga mga file sa libre nga cloud sama sa Nextcloud, o pagtipig og kopya sa USB drive, aron dili ka mawad-an og deadline."
+        },
+        "tip3": {
+          "title": "Pagkat-on og pipila ka shortcut",
+          "text": "Pipila ka keyboard shortcut (copy, paste, undo, save) makatipig nimo og oras sa tibuok tuig sa eskwela."
+        },
+        "tip4": {
+          "title": "Pagtrabaho offline kung gamay ang data",
+          "text": "Kadaghanan sa mga gamit dinhi modagan nga walay internet. I-download kausa ug padayon bisan nahurot na ang imong data."
+        }
       },
       "faqTitle": "Mga pangutana sa estudyante",
       "faq": {
@@ -410,9 +428,9 @@
         "q2": "Kinahanglan ba ko maghimo og account?",
         "a2": "Walay kinahanglan nga account aron gamiton ang Abakada, ug kadaghanan sa mga gamit modagan nga walay sign-up. Ang ubang opsyonal nga cloud feature mahimong mohatag og libre nga account.",
         "q3": "Modagan ba kini sa akong telepono?",
-        "a3": "Daghan, ug ang uban para sa telepono. Gilista sa matag panid sa gamit ang mga platform nga gisuportahan niini — pangitaa ang Android o iOS.",
+        "a3": "Daghan, ug ang uban para sa telepono. Gilista sa matag panid sa gamit ang mga platform nga gisuportahan niini. Pangitaa ang Android o iOS.",
         "q4": "Magamit ba nako kini para sa schoolwork?",
-        "a4": "Oo. Kini nga mga gamit maghimo og standard nga mga file — dokumento, hulagway, video — nga imong masumiter bisan asa, perpekto para sa report, proyekto, ug presentasyon."
+        "a4": "Oo. Kini nga mga gamit maghimo og standard nga mga file (dokumento, hulagway, video) nga imong masumiter bisan asa, perpekto para sa report, proyekto, ug presentasyon."
       },
       "ctaTitle": "Andam na ba nga mo-level up?",
       "ctaText": "Tan-awa ang tibuok library, o sunda ang giyahang dalan ug makakuha og sertipiko.",
@@ -425,10 +443,22 @@
       "heroSubtitle": "Hatagi ang imong mga estudyante og propesyonal nga software nga walay bayad, walay lisensya, ug modagan sa mga kompyuter nga naa na sa inyong eskwelahan.",
       "valuesTitle": "Gihimo para sa tinuod nga kahimtang sa mga klasrum sa Pilipinas",
       "value": {
-        "aligned": { "title": "Nahiuyon sa kurikulum", "text": "Gi-map sa mga strand sa DepEd Senior High School, aron sayon nimo makita ang mga gamit nga haom sa imong gitudlo." },
-        "free": { "title": "Walay gasto, walay lisensya", "text": "Matag gamit libre ug open-source — walay subscription, walay license key, walay papeles sa procurement." },
-        "safe": { "title": "Luwas para sa mga estudyante", "text": "Walay kinahanglan nga account sa estudyante ug walay pagsubay. Tan-awa ang among pamaagi sa privacy bisan kanus-a." },
-        "hardware": { "title": "Modagan sa ordinaryong hardware", "text": "Gaan nga mga gamit nga modagan sa mas daang PC ug offline — para sa mga eskwelahan nga limitado ang koneksyon." }
+        "aligned": {
+          "title": "Nahiuyon sa kurikulum",
+          "text": "Gi-map sa mga strand sa DepEd Senior High School, aron sayon nimo makita ang mga gamit nga haom sa imong gitudlo."
+        },
+        "free": {
+          "title": "Walay gasto, walay lisensya",
+          "text": "Matag gamit libre ug open-source. Walay subscription, walay license key, walay papeles sa procurement."
+        },
+        "safe": {
+          "title": "Luwas para sa mga estudyante",
+          "text": "Walay kinahanglan nga account sa estudyante ug walay pagsubay. Tan-awa ang among pamaagi sa privacy bisan kanus-a."
+        },
+        "hardware": {
+          "title": "Modagan sa ordinaryong hardware",
+          "text": "Gaan nga mga gamit nga modagan sa mas daang PC ug offline, para sa mga eskwelahan nga limitado ang koneksyon."
+        }
       },
       "browserTitle": "Pangitag gamit para sa imong strand",
       "browserSubtitle": "Pagpili og strand sa DepEd Senior High School aron makita ang mga learning path nga haom sa kurikulum niini.",
@@ -441,13 +471,25 @@
       "featuredLabel": "Gipasiugda para sa mga magtutudlo",
       "featuredCta": "Ablihi ang Teacher’s Digital Classroom",
       "kitTitle": "Starter kit para sa klasrum",
-      "kitSubtitle": "Kasaligan nga libre nga mga gamit nga mosakop sa kadaghanan sa panginahanglan sa klase — gikan sa mga dokumento ug worksheet ngadto sa hulagway, audio, ug pag-record sa leksyon.",
+      "kitSubtitle": "Kasaligan nga libre nga mga gamit nga mosakop sa kadaghanan sa panginahanglan sa klase, gikan sa mga dokumento ug worksheet ngadto sa hulagway, audio, ug pag-record sa leksyon.",
       "guideTitle": "Unsaon pagpaila sa open source sa imong mga estudyante",
       "guide": {
-        "step1": { "title": "Sugdi sa usa ka gamit", "text": "Pagpili og usa ka gamit nga haom sa imong sunod nga leksyon — LibreOffice Writer para sa worksheet, o GIMP para sa pag-edit sa hulagway — imbes nga usbon tanan nga dungan." },
-        "step2": { "title": "Ipakita una", "text": "Ipakita nimo mismo ang gamit sa projector o shared screen aron makita sa mga estudyante ang proseso una sila mosulay." },
-        "step3": { "title": "Paghatag og gamay, tinuod nga buluhaton", "text": "Pabuhata ang mga estudyante og butang nga ilang himuon gihapon — report, poster, audio clip — gamit ang libre nga gamit." },
-        "step4": { "title": "Itudlo ang opisyal nga tabang", "text": "Matag panid sa gamit adunay link sa opisyal nga site ug dokumentasyon. Dasiga ang mga estudyante nga makakat-on mangita og tubag sa ilang kaugalingon." }
+        "step1": {
+          "title": "Sugdi sa usa ka gamit",
+          "text": "Pagpili og usa ka gamit nga haom sa imong sunod nga leksyon (LibreOffice Writer para sa worksheet, o GIMP para sa pag-edit sa hulagway) imbes nga usbon tanan nga dungan."
+        },
+        "step2": {
+          "title": "Ipakita una",
+          "text": "Ipakita nimo mismo ang gamit sa projector o shared screen aron makita sa mga estudyante ang proseso una sila mosulay."
+        },
+        "step3": {
+          "title": "Paghatag og gamay, tinuod nga buluhaton",
+          "text": "Pabuhata ang mga estudyante og butang nga ilang himuon gihapon (report, poster, audio clip) gamit ang libre nga gamit."
+        },
+        "step4": {
+          "title": "Itudlo ang opisyal nga tabang",
+          "text": "Matag panid sa gamit adunay link sa opisyal nga site ug dokumentasyon. Dasiga ang mga estudyante nga makakat-on mangita og tubag sa ilang kaugalingon."
+        }
       },
       "parentTitle": "Para sa mga ginikanan",
       "parentSubtitle": "Paspas nga mga tubag sa mga pangutana nga kasagarang ipangutana sa pamilya.",
@@ -470,7 +512,7 @@
       "title": "Mahitungod Kanamo",
       "pageTitle": "Mahitungod Kanamo - Abakada | Libre nga Gamit para sa mga Estudyante ug Magtutudlo",
       "heroTitle": "Para sa Matag Pilipino",
-      "heroSubtitle": "Naghatag og gahum sa matag Pilipino pinaagi sa libre ug dali ma-access nga mga gamit sa produktibidad—gikan sa mga estudyante sa layo nga mga barangay hangtod sa mga magtutudlo nga nag-umol sa sunod nga henerasyon.",
+      "heroSubtitle": "Naghatag og gahum sa matag Pilipino pinaagi sa libre ug dali ma-access nga mga gamit sa produktibidad, gikan sa mga estudyante sa layo nga mga barangay hangtod sa mga magtutudlo nga nag-umol sa sunod nga henerasyon.",
       "missionTitle": "Ang Among Misyon",
       "missionText1": "Ang Abakada nakatuon sa pag-alagad sa tanang katawhan sa Pilipinas pinaagi sa paghatag og libre nga access sa gamhanan nga mga gamit sa produktibidad. Nagtuo kami nga ang kalidad nga software dili angay mahimong babag sa edukasyon o kalampusan.",
       "missionText2": "Ang among espesyal nga pokus mao ang pagsuporta sa mga underprivileged nga iskolar nga angay sa parehas nga digital nga kapanguhaan sama sa ilang mga kauban. Pinaagi sa pag-curate sa labing maayo nga libre ug open-source nga mga gamit, gitabangan namo nga pantayon ang nataran para sa matag Pilipino nga estudyante.",
@@ -479,11 +521,11 @@
       "educatorsText2": "Gikan sa pagplano sa leksyon hangtod sa pag-assess sa estudyante, gisuportahan sa among curated nga koleksyon ang mga magtutudlo sa tanang subject ug grade level sa tibuok Pilipinas.",
       "visionLabel": "Ang Among Bisyon",
       "visionTitle": "Digital nga Pagkaparehas para sa Tanan",
-      "visionText1": "Naghanduraw kami og Pilipinas diin ang matag estudyante—bisan unsa pa ang kahimtang sa ekonomiya o lokasyon—adunay access sa parehas nga gamhanan nga digital nga mga gamit sama sa ilang mga kauban sa tibuok kalibutan.",
+      "visionText1": "Naghanduraw kami og Pilipinas diin ang matag estudyante, bisan unsa pa ang kahimtang sa ekonomiya o lokasyon, adunay access sa parehas nga gamhanan nga digital nga mga gamit sama sa ilang mga kauban sa tibuok kalibutan.",
       "visionText2": "Pinaagi sa pag-curate ug pagpasiugda sa libre, open-source nga mga alternatibo sa mahal nga software, gitabangan namo nga taytayan ang digital divide usa ka gamit matag higayon.",
       "valuesTitle": "Ang Among mga Bili",
       "valuesSubtitle": "Ang mga prinsipyo nga naggiya sa tanan namong gibuhat sa Abakada.",
-      "valueAccessibility": "Accessibility",
+      "valueAccessibility": "Kasayon sa Paggamit",
       "valueAccessibilityText": "Libre nga mga gamit para sa tanan, bisan asa sa Pilipinas.",
       "valueQuality": "Kalidad",
       "valueQualityText": "Ang labing maayo lamang nga open-source nga mga gamit ang makasulod sa among koleksyon.",
@@ -493,14 +535,14 @@
       "valueOpenSourceText": "Transparency ug kolaborasyon sa among core.",
       "storyTitle": "Ang Among Istorya",
       "storyText1": "Ang Abakada natawo gikan sa usa ka yano nga obserbasyon: daghang Pilipino nga estudyante ang naglisod sa pag-access sa parehas nga digital nga mga gamit nga gidawat sa ilang mga kauban sa mas dato nga mga nasud. Ang mahal nga software license nagmugna og mga babag nga dili angay maglungtad sa edukasyon.",
-      "storyText2": "Nagsugod kami sa pag-compile og listahan sa mga libre nga alternatibo sa popular nga bayad nga software. Ang nagsugod isip personal nga kapanguhaan dali nga mitubo ngadto sa mas dako nga butang—usa ka komprehensibo nga direktoryo nga gidisenyo espesipiko para sa konteksto sa Pilipino, uban sa mga gamit nga molihok offline, sa mas daan nga hardware, ug sa mga lugar nga limitado ang koneksyon sa internet.",
+      "storyText2": "Nagsugod kami sa pag-compile og listahan sa mga libre nga alternatibo sa popular nga bayad nga software. Ang nagsugod isip personal nga kapanguhaan dali nga mitubo ngadto sa mas dako nga butang: usa ka komprehensibo nga direktoryo nga gidisenyo espesipiko para sa konteksto sa Pilipino, uban sa mga gamit nga molihok offline, sa mas daan nga hardware, ug sa mga lugar nga limitado ang koneksyon sa internet.",
       "storyText3": "Karon, ang Abakada nag-alagad sa mga estudyante, magtutudlo, ug propesyonal sa tibuok Pilipinas, nagtabang kanila nga madiskubre ang mga gamhanan nga gamit nga walay bayad apan naghatag sa tanan."
     },
     "contact": {
       "title": "Kontaka Kami",
       "pageTitle": "Kontaka Kami - Abakada Open Source Productivity Tools",
       "heroTitle": "Kontaka Kami",
-      "heroSubtitle": "Gusto namo nga makadungog gikan kanimo. Kung adunay ka pangutana, sugyot, o gusto mag-amot—kontaka kami bisan kanus-a.",
+      "heroSubtitle": "Gusto namo nga makadungog gikan kanimo. Kung adunay ka pangutana, sugyot, o gusto mag-amot, kontaka kami bisan kanus-a.",
       "getInTouchTitle": "Makig-uban",
       "getInTouchText": "Adunay pangutana, sugyot, o gusto mag-amot? Kanunay kaming malipayon nga makadungog gikan sa komunidad. Kontaka kami ug mobalik kami kanimo sa labing madali.",
       "emailTitle": "Email",
@@ -605,9 +647,9 @@
         "deck": "Tan-awa ang Partnership Deck"
       },
       "whyTitle": "Nganong Makigkasosyo sa Abakada?",
-      "whyText": "Ang Abakada makaabot sa mga Pilipino nga estudyante, magtutudlo, scholar, ug propesyonal nga nagapangita og libre nga mga galamiton sa produktibidad. Ang pakigkasosyo sa amo nagpasabot og pagsuporta sa digital nga pagpakigsama sa tibuok Pilipinas — pinaagi sa transparente, open-source nga civic-tech nga proyekto nga walay tracking, walay account, ug walay paywall.",
+      "whyText": "Ang Abakada makaabot sa mga Pilipino nga estudyante, magtutudlo, scholar, ug propesyonal nga nagapangita og libre nga mga galamiton sa produktibidad. Ang pakigkasosyo sa amo nagpasabot og pagsuporta sa digital nga pagpakigsama sa tibuok Pilipinas, pinaagi sa transparente, open-source nga civic-tech nga proyekto nga walay tracking, walay account, ug walay paywall.",
       "alignedTitle": "Naghaom, Tinuod nga Pakigkonekta",
-      "alignedText": "Gidawat namo ang mga pakigkasosyo sa mga institusyon sa edukasyon, NGO, open-source nga proyekto, ug mga organisasyon nga naghaom sa among misyon sa digital nga pagpakigsama. Matag modelo sa ubos kay ginahimo na namo karon — walay hatag-hatag.",
+      "alignedText": "Gidawat namo ang mga pakigkasosyo sa mga institusyon sa edukasyon, NGO, open-source nga proyekto, ug mga organisasyon nga naghaom sa among misyon sa digital nga pagpakigsama. Matag modelo sa ubos kay ginahimo na namo karon. Walay hatag-hatag.",
       "statsTools": "Gipili nga Galamiton",
       "statsCategories": "Mga Kategoriya",
       "statsPaths": "Mga Dalan sa Pagkat-on",
@@ -638,7 +680,7 @@
       "deckText": "Susiha ang among bisyon, mga impact stats, traction, ug mga modelo sa kolaborasyon sa tibuok presentasyon nga format.",
       "viewDeck": "Tan-awa ang Deck",
       "ctaTitle": "Andam Ka na Ba Mohimo og Impact?",
-      "ctaText": "Walay discovery-call funnel, walay qualification round. Diretso lang sa maintainer — kung adunay angay, atong ayohon ang uban sa usa ka tawag.",
+      "ctaText": "Walay discovery-call funnel, walay qualification round. Diretso lang sa maintainer. Kung adunay angay, atong ayohon ang uban sa usa ka tawag.",
       "ctaEmail": "Mag-email sa partnerships@abakada.org"
     },
     "terms": {
@@ -646,14 +688,14 @@
       "lastUpdated": "Katapusang gibag-o"
     },
     "glossary": {
-      "intro": "Kining glosaryo naghatag og kahulogan sa mga termino nga kasagaran gigamit sa Abakada — naglakip sa open-source nga paglisensya, web nga sumbanan, search visibility (SEO/AEO/GEO), ug accessibility. Matag entry usa ka awtoritatibong parapo nga gidisenyo para sa pagkutlo.",
+      "intro": "Kining glosaryo naghatag og kahulogan sa mga termino nga kasagaran gigamit sa Abakada, naglakip sa open-source nga paglisensya, web nga sumbanan, search visibility (SEO/AEO/GEO), ug accessibility. Matag entry usa ka awtoritatibong parapo nga gidisenyo para sa pagkutlo.",
       "attributionTitle": "Pag-ila",
       "attributionText": "Tinubdan: Abakada.org. Kining mga kahulogan gisulat sa editoryal nga paagi para sa mga magbabasa sa Abakada ug lisensyado ubos sa Creative Commons Attribution 4.0 International (CC BY 4.0). Katapusang girebyu:"
     }
   },
   "consent": {
     "label": "Pagtugot sa analytics",
-    "text": "Naggamit mi og privacy-friendly nga analytics aron makita unsay makatabang — walay ads, ug walay datos nga gibaligya. Pwede ka mobalibad ug molihok gihapon ang tanan.",
+    "text": "Naggamit mi og privacy-friendly nga analytics aron makita unsay makatabang. Walay ads, ug walay datos nga gibaligya. Pwede ka mobalibad ug molihok gihapon ang tanan.",
     "accept": "Dawata",
     "decline": "Balibad"
   },
@@ -665,11 +707,12 @@
     "add": "I-bookmark",
     "remove": "Kuhaa ang bookmark",
     "saved": "Na-bookmark",
-    "storageUnavailable": "Dili ma-save ang mga bookmark — dili available ang storage niini nga sesyon",
+    "storageUnavailable": "Dili ma-save ang mga bookmark. Dili available ang storage niini nga sesyon",
     "pageTitle": "Mga Bookmark",
     "emptyTitle": "Wala pay mga bookmark",
     "emptyDesc": "I-save ang mga gamit nga gusto nimong balikan pinaagi sa pag-klik sa bookmark icon sa bisan unsang tool card.",
-    "browseTools": "Tan-awa ang Mga Gamit"
+    "browseTools": "Tan-awa ang Mga Gamit",
+    "syncUnavailable": "Offline ka. Gitipigan ang mga bookmark para niini nga session apan dili mag-sync sa lain-laing device"
   },
   "compare": {
     "title": "Itandi ang Mga Gamit",
@@ -699,11 +742,11 @@
     },
     "added": "Gidugang",
     "full": "Puno na",
-    "caption": "Tupad-tupad nga pagtandi sa mga gipili nga open-source nga galamiton — mga bahin, plataporma, lisensya, ug editorial nga mga nota."
+    "caption": "Tupad-tupad nga pagtandi sa mga gipili nga open-source nga galamiton: mga bahin, plataporma, lisensya, ug editorial nga mga nota."
   },
   "learningPaths": {
     "title": "Mga Dalan sa Pagkat-on",
-    "intro": "Mga curated nga toolkit aron giyahan ka sa imong paglalakbay sa pagkat-on — lakang sa lakang.",
+    "intro": "Mga curated nga toolkit aron giyahan ka sa imong paglalakbay sa pagkat-on, lakang sa lakang.",
     "changePath": "Usba ang akong dalan",
     "stageCount": "{{count}} yugto",
     "startPath": "Sugdi ang dalan",
@@ -726,7 +769,7 @@
       "out-of-school-youth": "Bag-o sa Digital"
     },
     "heroTitle": "Tun-i ang mga Galamiton. Tukura ang Kaugmaon.",
-    "heroSubtitle": "Gipili, hands-on nga mga dalan aron maeksperto sa mga open-source nga galamiton — para sa matag eskwelahan, matag lebel, matag tumong.",
+    "heroSubtitle": "Gipili, hands-on nga mga dalan aron maeksperto sa mga open-source nga galamiton. Para sa matag eskwelahan, matag lebel, matag tumong.",
     "searchPlaceholder": "Pangitaa ang mga dalan, galamiton, o kinalabasan…",
     "takeAssessment": "Pangitaa akong dalan",
     "download": "I-download",
@@ -785,7 +828,7 @@
     "nextStage": "Sunod nga yugto",
     "difficultyLabel": "kahirap",
     "printChecklist": "I-print ang Checklist",
-    "motivationNudge": "Mas maayo ang konsistensya kaysa intensidad — bisan 15 ka minuto matag adlaw, maabtan nimo ang imong tumong.",
+    "motivationNudge": "Mas maayo ang konsistensya kaysa intensidad. Bisan 15 ka minuto matag adlaw, maabtan nimo ang imong tumong.",
     "certPathwayMastered": "Nahuman na ang dalan!",
     "certGetDesc": "Nahuman na nimo ang matag yugto. Kuha ang imong sertipiko.",
     "certGetButton": "Kuha'g Sertipiko",
@@ -798,7 +841,30 @@
     "certClose": "Isira",
     "certThisCertifies": "Kini nga sertipiko nagpamatuod nga",
     "certHasCompleted": "malampusong nakahuman sa",
-    "certFooter": "abakada.org · Mga Libre nga Open-Source nga Galamiton para sa mga Pilipino"
+    "certFooter": "abakada.org · Mga Libre nga Open-Source nga Galamiton para sa mga Pilipino",
+    "stepLabel": "Lakang",
+    "stepsWord": "lakang",
+    "stageWord": "Yugto",
+    "back": "Balik",
+    "next": "Sunod",
+    "learnStep": "Pagkat-on",
+    "doStep": "Sulayi",
+    "markDone": "Nahimo na nako kini",
+    "didThis": "Nahuman na",
+    "listen": "Paminawa",
+    "stopAudio": "Hunong",
+    "guidedLesson": "Giniyahan nga leksyon",
+    "lessonSteps": "Mga lakang sa leksyon",
+    "guidedSub": "Usa ka lakang sa matag higayon, naay basa nga kusog",
+    "startGuided": "Sugdi ang giniyahan nga leksyon",
+    "exitLesson": "Gawas sa giniyahan nga leksyon",
+    "finishLesson": "Humanon ang leksyon",
+    "downloadForOffline": "I-download para offline",
+    "availableOffline": "Magamit offline",
+    "downloading": "Gi-download…",
+    "removeDownload": "Tangtanga",
+    "downloadError": "Naay mga file nga wala ma-save. Susiha ang imong koneksyon ug sulayi pag-usab.",
+    "offlineHintSlow": "Hinay ang koneksyon? I-download kausa sa Wi-Fi, dayon pagkat-on bisan asa."
   },
   "onboarding": {
     "title": "Unsa ang labing naghulagway kanimo?",
@@ -920,5 +986,78 @@
     "title": "Glosaryo",
     "heroTitle": "Glosaryo",
     "heroSubtitle": "Mga kahulogan sa kasagaran nga open-source, paglisensya, ug produktibidad nga mga termino nga gigamit sa Abakada."
+  },
+  "progress": {
+    "title": "Akong Paglalakbay sa Pagkat-on",
+    "subtitle": "Tanan dinhi gitipigan nga pribado niini nga device. Walay account, walay sign-in.",
+    "breadcrumb": "Akong Pag-uswag",
+    "seoTitle": "Akong Pag-uswag",
+    "seoDesc": "Subaya ang imong panaw sa digital nga kahanas: mga lebel, streak, badge, natad sa kahanas, ug offline nga download.",
+    "levelWord": "Lebel",
+    "xp": "XP",
+    "toNext": "para sa sunod nga lebel",
+    "dayStreak": "adlaw nga sunod-sunod",
+    "best": "labing taas",
+    "streakHint": "Mga adlaw nga sunod-sunod nga nakakat-on ka og bisan unsa",
+    "continue": "Padayuna kung asa ka mihunong",
+    "statTools": "galamiton ang na-explore",
+    "statTasks": "buluhaton ang nahuman",
+    "statStages": "yugto ang nahuman",
+    "statPaths": "dalan ang nahuman",
+    "domains": "Mga natad sa kahanas",
+    "badges": "Mga Badge",
+    "yourPaths": "Imong mga dalan",
+    "offlineTitle": "Offline ug data",
+    "liteTitle": "Lite mode",
+    "liteDesc": "Makatipig sa data ug mapaspas ang mga daan nga telepono pinaagi sa paglaktaw sa bug-at nga mga visual.",
+    "liteAuto": "Auto",
+    "liteOn": "On",
+    "liteOff": "Off",
+    "liteAutoOn": "Auto: naka-on (nakit-an nga hinay nga koneksyon)",
+    "liteAutoOff": "Auto: naka-off (maayo ang koneksyon)",
+    "liteIsOn": "Naka-on ang Lite mode",
+    "liteIsOff": "Naka-off ang Lite mode",
+    "downloads": "Na-download para offline",
+    "remove": "Tangtanga",
+    "noDownloads": "Wala pay na-download nga dalan. Ablihi ang usa ka dalan sa pagkat-on ug i-tap ang “I-download para offline” aron makatuon nga walay koneksyon.",
+    "emptyTitle": "Dinhi magsugod ang imong panaw",
+    "emptyDesc": "Pagpili og dalan sa pagkat-on ug i-explore ang imong unang galamiton. Mogawas dinhi ang imong lebel, streak, ug mga badge samtang nagpadayon ka.",
+    "emptyCta": "Tan-awa ang mga dalan sa pagkat-on",
+    "level": {
+      "newcomer": "Bag-ohan",
+      "explorer": "Eksplorador",
+      "builder": "Magtutukod",
+      "creator": "Magbubuhat",
+      "contributor": "Kontribyutor",
+      "advocate": "Tigpasiugda"
+    },
+    "badge": {
+      "first-steps": "Unang Lakang",
+      "explorer": "Eksplorador",
+      "toolsmith": "Eksperto sa Galamiton",
+      "hands-on": "Praktikal",
+      "stage-clear": "Nahuman nga Yugto",
+      "path-finisher": "Tighuman sa Dalan",
+      "scholar": "Iskolar",
+      "well-rounded": "Hanas sa Tanan",
+      "offline-ready": "Andam Offline",
+      "streak-3": "Nag-init Pa",
+      "streak-7": "Konsistente",
+      "streak-30": "Dili Mapugngan"
+    },
+    "badgeDesc": {
+      "first-steps": "I-explore ang imong unang galamiton",
+      "explorer": "I-explore ang 10 ka galamiton",
+      "toolsmith": "I-explore ang 25 ka galamiton",
+      "hands-on": "Humanon ang 10 ka buluhaton",
+      "stage-clear": "Humanon ang usa ka tibuok yugto",
+      "path-finisher": "Humanon ang usa ka tibuok dalan sa pagkat-on",
+      "scholar": "Humanon ang 3 ka dalan sa pagkat-on",
+      "well-rounded": "Tandoga ang 4 ka lain-laing natad sa kahanas",
+      "offline-ready": "Pag-download og dalan para sa offline nga pagkat-on",
+      "streak-3": "Pagkat-on 3 ka adlaw nga sunod-sunod",
+      "streak-7": "Pagkat-on 7 ka adlaw nga sunod-sunod",
+      "streak-30": "Pagkat-on 30 ka adlaw nga sunod-sunod"
+    }
   }
 }

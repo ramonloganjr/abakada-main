@@ -7,7 +7,7 @@
 Abakada (`https://abakada.org`) is an independent, non-commercial educational directory. Every listed tool is verified to be:
 
 - Free (no paywall, no trialware)
-- Open-source (OSI-approved license: MIT, Apache, GPL, AGPL, LGPL, BSD, MPL — or Creative Commons for content)
+- Open-source (OSI-approved license: MIT, Apache, GPL, AGPL, LGPL, BSD, MPL, or Creative Commons for content)
 - Actively maintained
 - Suitable for educational use
 

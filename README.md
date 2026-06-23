@@ -55,17 +55,18 @@
 
 ## Overview
 
-Abakada.org is a static, hand-curated catalog of free and open-source software for Filipino learners. Every tool is manually verified for licensing, safety, and educational value. The site is a fully prerendered React Progressive Web App that ships as a folder of static files — no backend, no database, no user accounts, no telemetry.
+Abakada.org is a static, hand-curated catalog of free and open-source software for Filipino learners. Every tool is manually verified for licensing, safety, and educational value. The site is a fully prerendered React Progressive Web App that ships as a folder of static files. No backend, no database, no user accounts, no telemetry.
 
 | Metric | Value |
 |:---|:---|
 | Tools | 1,288 (manually curated) |
 | Categories | 45+ |
 | Learning paths | 10 |
-| Languages | 4 (English, Tagalog, Ilokano, Bisaya) |
-| Prerendered HTML routes | 1,309 (11 static pages + 10 toolkits + 1,288 tools) |
+| Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 863 keys each, full parity |
+| Prerendered HTML routes | 1,311 (13 static pages + 10 toolkits + 1,288 tools) |
+| Offline | Full PWA + on-demand downloadable learning packs |
 | Backend | None |
-| User accounts | None |
+| User accounts | None (progress, bookmarks, and profile live in `localStorage`) |
 | Tracking | None (Google Analytics is the only signal, anonymized IP) |
 
 ---
@@ -149,13 +150,70 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - 10 curated learning paths organized by role and goal:
   - Digital Foundations · Research Starter · Student Productivity · Teacher's Digital Classroom · Remote Team Collaboration · Workplace Productivity · Self-Directed Learner · Beginner Coding · Designer's Toolkit · Accountant's Essentials
 - Onboarding modal on first visit prompts the user to choose a role (9 personas: Student, Educator, Professional, Self-Directed, New to Digital, Researcher, Developer, Designer, Accountant)
-- Progress tracking persisted in `localStorage` — no account required
+- Progress tracking persisted in `localStorage`, no account required
 - Dedicated detail page per toolkit with stage-based accordion structure
 - Hands-on task checklists per stage, persisted in `localStorage`
 - Curriculum alignment section: DepEd K-12 and CHED framework tags displayed per toolkit
-- `<CompletionCertificate />` component unlocked at 100% progress — printable/PDF-saveable
+- `<CompletionCertificate />` component unlocked at 100% progress, printable/PDF-saveable
 - Full i18n coverage: all UI strings in LearningPaths, LearningPathDetail, CompletionCertificate and the OnboardingModal are wired through `t()` across all four languages
 - JSON-LD `Course` structured data per toolkit
+
+</details>
+
+<details>
+<summary><b>Guided Micro-Lessons</b></summary>
+<br/>
+
+- Each learning-path stage can be studied as a paced, one-step-at-a-time **guided lesson** (`<MicroLesson />`) instead of a static checklist
+- Steps are derived from the stage's existing learning objectives ("Learn") and hands-on tasks ("Try it") — no duplicated content
+- **Read-aloud** via the Web Speech API (`speechSynthesis`), with a Filipino voice fallback (`fil-PH`) for Tagalog, Ilokano, and Bisaya — built for oral-first and low-literacy learners
+- Text-first and low-bandwidth: no media, works offline, respects `prefers-reduced-motion`
+- Task completion inside the lesson stays wired to the same `localStorage` progress as the checklist view
+
+</details>
+
+<details>
+<summary><b>Offline Learning Packs</b></summary>
+<br/>
+
+- "Download for offline" on every learning path caches the entire pathway — its page shell, every recommended tool's detail shell, and the shared catalog/curriculum/translation data — into a **dedicated, durable Cache Storage bucket** (`abakada-packs`)
+- The service worker is taught **never to purge** this bucket on deploy (unlike the versioned app-shell cache), so a downloaded pathway survives new releases
+- Estimated download size shown up front (it matters on 2G); resilient per-asset download (one failed file never fails the pack); live progress; one-tap removal
+- Designed for rural / unreliable-connectivity learners: download once on Wi-Fi, then study with no signal
+- Managed from the Progress dashboard (list, total size, remove)
+
+</details>
+
+<details>
+<summary><b>Learner Profile & Gamification (<code>/progress</code>)</b></summary>
+<br/>
+
+- A unified, **privacy-first** dashboard at `/progress` — no account, all state in `localStorage`
+- **XP and a six-rung level ladder** (Newcomer → Explorer → Builder → Creator → Contributor → Advocate) mirroring the "consumer → creator → contributor" journey
+- **Learning streaks** (current + longest, day-accurate) to reward consistency
+- **Achievement badges** (12: First Steps, Explorer, Toolsmith, Hands-On, Stage Clear, Path Finisher, Scholar, Well-Rounded, Offline Ready, and three streak tiers)
+- **Competency radar**: explored tools rolled up into the seven skill domains, rendered as a dependency-free SVG chart
+- Per-path progress, "continue where you left off," headline stats, and downloaded-pack management
+- Reactive across tabs via a lightweight change-event bus over `localStorage`; `noindex` (personal, not a public page)
+
+</details>
+
+<details>
+<summary><b>Lite Mode (low-data / low-end devices)</b></summary>
+<br/>
+
+- Auto / On / Off data-saver toggle (on the Progress dashboard)
+- **Auto** turns on when the device reports `Save-Data` or a 2G-class connection (`navigator.connection`)
+- When active (`body.data-lite`), drops the featured carousel, decorative backgrounds, backdrop-blur, and large motion — cutting both bytes and render cost on cheap phones
+
+</details>
+
+<details>
+<summary><b>Audience Pages</b></summary>
+<br/>
+
+- **Educators** (`/educators`): DepEd K-12 strand / CHED program browser that surfaces curriculum-aligned learning paths, a classroom starter kit, and a parent FAQ
+- **Students** (`/students`): goal-based tool finder ("I want to…"), student learning paths with a "Start here" badge, free-vs-paid swaps, and a study-tips FAQ
 
 </details>
 
@@ -197,8 +255,8 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Legal Pages</b></summary>
 <br/>
 
-- **Privacy Policy** (`/privacy`) — 9 sections covering data collection, cookies, third-party links, security, and user rights
-- **Terms of Use** (`/terms`) — 17 enterprise-grade sections including:
+- **Privacy Policy** (`/privacy`): 9 sections covering data collection, cookies, third-party links, security, and user rights
+- **Terms of Use** (`/terms`): 17 enterprise-grade sections including:
   - Intellectual Property Rights and Abakada Marks
   - Acceptable Use Policy
   - Brand and Reputation Protection
@@ -213,14 +271,14 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Partnerships</b></summary>
 <br/>
 
-- **Partnerships page** (`/partnerships`) — three equal-weight partnership tiers, fully synced with the deck:
-  - Community Supporter — for NGOs, schools, student organizations
-  - Content & Editorial Partner — for educators, publishers, FOSS projects
-  - Infrastructure Sponsor — for hosting/financial sponsors
-- All three tiers rendered with identical visual weight — no "Recommended" badge or highlight on any tier
+- **Partnerships page** (`/partnerships`): three equal-weight partnership tiers, fully synced with the deck:
+  - Community Supporter: for NGOs, schools, student organizations
+  - Content & Editorial Partner: for educators, publishers, FOSS projects
+  - Infrastructure Sponsor: for hosting/financial sponsors
+- All three tiers rendered with identical visual weight, no "Recommended" badge or highlight on any tier
 - Includes the same impact stats shown in the deck (1,288 tools · 45+ categories · 10 paths · 4 languages)
-- **Partnership Deck** (`/partnership-deck`) — 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page; tier cards are visually equal with no featured/recommended callout
-- **Download Pitch Deck** — dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Pitch-Deck-2026.pdf` from `/assets/doc/`
+- **Partnership Deck** (`/partnership-deck`): 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page; tier cards are visually equal with no featured/recommended callout
+- **Download Pitch Deck**: dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Pitch-Deck-2026.pdf` from `/assets/doc/`
 
 </details>
 
@@ -231,11 +289,13 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - Service Worker with cache-first, network-first, and stale-while-revalidate strategies
 - Full offline support with custom offline fallback page
 - App-shell pre-cache on install
+- **Two cache buckets**: a versioned app-shell cache (rotated each deploy) and a **durable `abakada-packs` bucket** for user-downloaded Offline Learning Packs that is never purged on release
+- `CACHE_NAME` is **auto-versioned at build time** from the content-hashed asset fingerprints (`scripts/version-sw.mjs`), so a deploy can never ship a stale shell — no manual bump required
 - Background sync for bookmark operations via IndexedDB queue
 - Install banner with platform-aware UX:
   - iOS Safari: explicit "Tap Share → Add to Home Screen" instructions
   - Android / Desktop Chrome / Edge: native `beforeinstallprompt` flow
-- SW update notification banner — only on genuine updates, not first install
+- SW update notification banner: only on genuine updates, not first install
 - Web App Manifest with shortcuts, icons, and screenshots
 
 </details>
@@ -248,11 +308,13 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - Language switcher in header
 - URL-prefixed routes per language (`/`, `/tl`, `/ilo`, `/bis`, `/en`)
 - Translation files stored at `public/assets/data/translations/{en,tl,ilo,bis}.json`
-- 620+ translation keys per language with full key parity across all four files
-- Complete Learning Paths module i18n: all UI strings in `LearningPaths.jsx`, `LearningPathDetail.jsx`, `CompletionCertificate.jsx`, and `OnboardingModal.jsx` wired through `t()` — no hardcoded English strings remain in the module
+- **863 translation keys per language with full key parity** across all four files (verified by audit; zero missing keys, zero English leakage)
+- Full coverage of the newest modules — the Progress dashboard, guided micro-lessons, offline-pack UI, and Lite mode — translated natively, not machine-translated
+- Brand/proper nouns and standard PH tech terms (Windows, GitHub, MIT, "API Development", "XP") are deliberately kept in English
+- Complete Learning Paths module i18n: all UI strings in `LearningPaths.jsx`, `LearningPathDetail.jsx`, `CompletionCertificate.jsx`, and `OnboardingModal.jsx` wired through `t()`, no hardcoded English strings remain in the module
 - New `learningPaths.*` keys include: difficulty labels, stats row, filter UI (tracks, levels, curriculum strands), DepEd/CHED authority labels, progress ring, stage body section headings, milestone messages, motivational nudge, certificate strings, and all 9 onboarding role labels
 - `<html lang>` attribute syncs on language change (BIS maps to BCP-47 `ceb`)
-- Native authoring — no machine translation
+- Native authoring: no machine translation
 - Smooth opacity transition on language change
 
 </details>
@@ -273,13 +335,13 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Loading Experience</b></summary>
 <br/>
 
-- Inline boot loader in `index.html` — glowing favicon with halo animation that renders before the JS bundle parses, automatically replaced by React on mount
+- Inline boot loader in `index.html`: glowing favicon with halo animation that renders before the JS bundle parses, automatically replaced by React on mount
 - `<BrandLoader />` component with three variants (`block`, `inline`, `page`) used across:
   - React Suspense fallback for lazy routes
   - Initial `tools.json` fetch
   - Learning Paths and Learning Path Detail loading
 - Theme-aware boot screen (auto-switches to dark background under `prefers-color-scheme: dark`)
-- Respects `prefers-reduced-motion: reduce` — animation disabled, mark stays static
+- Respects `prefers-reduced-motion: reduce`, animation disabled, mark stays static
 - All "Loading…" plain-text fallbacks have been removed in favor of the brand loader
 
 </details>
@@ -303,11 +365,14 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - **Quick Links** column: All Tools · Bookmarks · Comparison Tools · Learning Paths · top categories
 - **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Partnership Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
 - **Abakada** column: About · Official Partners · Partnerships · Contact
-- **Featured In** strip: full-width press/media section below the column grid with theme-aware logo variants for GMA News Online, The Global Filipino Magazine, Walastech, and Bombo Radyo — each an external link (`target="_blank" rel="noopener noreferrer"`)
+- **Featured In** strip: full-width press/media section below the column grid with theme-aware logo variants for GMA News Online, The Global Filipino Magazine, Walastech, and Bombo Radyo, each an external link (`target="_blank" rel="noopener noreferrer"`)
 - All link labels translated across en/tl/ilo/bis
-- Visitor count pill — improved contrast (medium font weight, accent-tinted icon, subtle filled background) showing total visitors and last update from `visitors.json`
+- Visitor count pill: improved contrast (medium font weight, accent-tinted icon, subtle filled background) showing total visitors and last update from `visitors.json`
 - Header language switcher includes BIS, ILO, TL, EN with native and BCP-47 `<html lang>` mapping
+- Header navigation includes a **My Progress** link (`/progress`) alongside Saved, Compare, and Learn
+- **Global header search** (all pages) with a one-click **clear (×) button** that appears while typing, wipes the query, and refocuses the input — colors are theme-token driven for legibility in both Light and Dark modes
 - Learning Paths header icon adopts accent color when the current route is `/learning-paths` or any sub-path, using `useLocation` + `stripLangPrefix` for language-prefix-aware route matching; `aria-current="section"` set for screen readers
+- Theme-consistent iconography: the active-filter **"Clear filters"** control renders its icon in the same accent color as its label across both themes (icon drawn via a CSS `mask` so it inherits `currentColor`, fixing a dark-mode mismatch)
 
 </details>
 
@@ -328,26 +393,29 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 
 ## Pages & Routing
 
-All routes are prerendered at build time and lazy-loaded via `React.lazy`. Each route also serves under language prefixes (`/tl`, `/ilo`, `/bis`, `/en`).
+Public routes are prerendered at build time and lazy-loaded via `React.lazy`. Each route also serves under language prefixes (`/tl`, `/ilo`, `/bis`, `/en`). On desktop, the global sidebar is an **intelligent auto-hide rail**: collapsed by default, it dismisses when you interact with the main content or press `Escape`; on mobile it is an off-canvas drawer with a scrim.
 
 | Route | Description | Sidebar |
 |:---|:---|:---:|
-| `/` | Home — directory with search, filters, featured carousel | Inline filter sidebar |
-| `/tools/:id` | Per-tool detail page with FAQ, related tools, structured data | — |
-| `/learning-paths` | Learning path index | Collapsed |
-| `/learning-paths/:id` | Individual learning path detail | Collapsed |
-| `/bookmarks` | Saved tools | Collapsed |
-| `/compare` | Compare up to 4 tools | Collapsed |
-| `/glossary` | 31-entry glossary in 10 sections | Collapsed |
-| `/about` | About Abakada | Collapsed |
-| `/contact` | Contact page | Collapsed |
-| `/faq` | Frequently Asked Questions | Collapsed |
-| `/privacy` | Privacy Policy | Collapsed |
-| `/terms` | Terms of Use | Collapsed |
-| `/partnerships` | Partnership tiers and stats | Collapsed |
+| `/` | Home: directory with search, filters, featured carousel | Inline filter sidebar |
+| `/tools/:id` | Per-tool detail page with FAQ, related tools, structured data | Auto-hide |
+| `/learning-paths` | Learning path index | Auto-hide |
+| `/learning-paths/:id` | Learning path detail with guided micro-lessons + offline download | Auto-hide |
+| `/educators` | DepEd/CHED curriculum browser, classroom kit, parent FAQ | Auto-hide |
+| `/students` | Goal-based tool finder, student paths, study tips | Auto-hide |
+| `/progress` | Learner profile: level, streak, badges, competency radar, downloads (`noindex`, not prerendered) | Auto-hide |
+| `/bookmarks` | Saved tools | Auto-hide |
+| `/compare` | Compare up to 4 tools | Auto-hide |
+| `/glossary` | 31-entry glossary in 10 sections | Auto-hide |
+| `/about` | About Abakada | Auto-hide |
+| `/contact` | Contact page | Auto-hide |
+| `/faq` | Frequently Asked Questions | Auto-hide |
+| `/privacy` | Privacy Policy | Auto-hide |
+| `/terms` | Terms of Use | Auto-hide |
+| `/partnerships` | Partnership tiers and stats | Auto-hide |
 | `/partnership-deck` | 10-slide presentation | Hidden |
-| `/official-partners` | Official partner logos — BetterGov PH, Vaultera Labs, ElevenLabs | Collapsed |
-| `/sitemap` | HTML sitemap covering all 1,309 routes | Collapsed |
+| `/official-partners` | Official partner logos: BetterGov PH, Vaultera Labs, ElevenLabs | Auto-hide |
+| `/sitemap` | HTML sitemap covering all 1,312 routes | Auto-hide |
 
 > The `<html lang>` attribute, `og:locale`, and `hreflang` alternates update automatically per route and language.
 
@@ -363,10 +431,10 @@ public/assets/data/translations/
 └── bis.json   Bisaya / Cebuano (BCP-47: ceb)
 ```
 
-- **620+ keys per language** with verified parity across all four files
-- Top-level groups: `meta`, `nav`, `hero`, `groups`, `categories`, `tools`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `cta`, `breadcrumb`, `errors`, `glossary`, `deck`, `bookmarks`
-- Dynamic-prefix lookups: `groups.${id}`, `categories.${id}`, `learningPaths.role.${id}`, `learningPaths.${difficulty}`
-- Translations are authored editorially per language — no machine translation
+- **863 keys per language** with verified parity across all four files
+- Top-level groups: `meta`, `nav`, `hero`, `groups`, `categories`, `tools`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `progress`, `cta`, `breadcrumb`, `errors`, `glossary`, `deck`, `bookmarks`
+- Dynamic-prefix lookups: `groups.${id}`, `categories.${id}`, `learningPaths.role.${id}`, `learningPaths.${difficulty}`, `progress.level.${name}`, `progress.badge.${id}`
+- Translations are authored editorially per language: no machine translation
 - Adding a new key requires updating all four files; CI verifies parity at build time
 
 **Language detection priority:**
@@ -379,7 +447,7 @@ public/assets/data/translations/
 
 ## SEO, AEO & GEO
 
-The site is built for traditional search engines (SEO), generative answer engines (GEO — ChatGPT, Perplexity, Bing Copilot, Google AI Overviews), and direct-answer surfaces (AEO — featured snippets, knowledge panels).
+The site is built for traditional search engines (SEO), generative answer engines (GEO: ChatGPT, Perplexity, Bing Copilot, Google AI Overviews), and direct-answer surfaces (AEO: featured snippets, knowledge panels).
 
 **Per-page `<head>` management** via `react-helmet-async` and a centralized `pageMeta` config:
 
@@ -388,7 +456,7 @@ The site is built for traditional search engines (SEO), generative answer engine
 - Canonical URLs and hreflang alternates per language (`en`, `tl`, `ilo`, `ceb`, `x-default`)
 - Robots directives (`index, follow, max-snippet:-1, max-image-preview:large`)
 
-**Structured data (JSON-LD)** — the catalog ships these schema.org types:
+**Structured data (JSON-LD)**: the catalog ships these schema.org types:
 
 | Type | Where |
 |:---|:---|
@@ -408,11 +476,11 @@ The site is built for traditional search engines (SEO), generative answer engine
 **Crawler-aware delivery:**
 
 - `sitemap.xml` regenerated on every build via `scripts/refresh-sitemap.js`
-  - 1,309 URLs total: 11 static + 10 toolkits + 1,288 tools
+  - 1,312 URLs total: 14 static + 10 toolkits + 1,288 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
   - Each URL carries hreflang alternates for all four languages
   - Image sitemap entry on the home route
 - `llms.txt` published at the site root summarizing site purpose and key URLs
-- `robots.txt` with per-bot rules — search retrievers allowed, training crawlers (GPTBot, CCBot, Claude-Web) blocked
+- `robots.txt` with per-bot rules: search retrievers allowed, training crawlers (GPTBot, CCBot, Claude-Web) blocked
 - `scripts/prerender-shells.js` writes a static HTML shell per route after build, so first-byte already contains the correct title, description, canonical, and OG tags before JS executes
 
 ---
@@ -425,11 +493,11 @@ The site is built for traditional search engines (SEO), generative answer engine
 | Vendor chunk | React, React Router, Helmet split into a long-lived cached bundle |
 | Content-hash filenames | `entry-[hash].js`, `chunk-[hash].js`, `asset-[hash].ext` for `Cache-Control: max-age=31536000, immutable` |
 | Inline boot loader | Glowing favicon SVG inside `#root`, renders before JS parses, replaced by React on mount |
-| `tools.json` preload | `<link rel="preload" as="fetch" type="application/json" crossorigin>` so the 1.1 MB catalog downloads in parallel with JS |
+| `tools.json` preload | `<link rel="preload" as="fetch" type="application/json" crossorigin>` so the 1.2 MB catalog downloads in parallel with JS |
 | Font preloads | All 4 Inter weights as `font/woff2` with `crossorigin` |
 | DNS prefetch + preconnect | Google Tag Manager, Google Analytics |
 | Service Worker | App-shell precache + runtime cache strategies |
-| Static prerendering | 1,309 HTML shells written by `scripts/prerender-shells.js` |
+| Static prerendering | 1,311 HTML shells written by `scripts/prerender-shells.js` |
 | Image hints | `loading="lazy"` + `decoding="async"` on below-the-fold images; `fetchpriority="high"` on the header logo |
 | Minification | esbuild, ES2020 target, sourcemaps off in production |
 | Compression | Gzip + Brotli via `.htaccess` and `_headers` |
@@ -440,14 +508,15 @@ The site is built for traditional search engines (SEO), generative answer engine
 
 | Chunk | Size |
 |:---|---:|
-| `vendor` (React + Router + Helmet) | 59.9 KB |
-| CSS (full design system) | 26.0 KB |
-| App entry (`index`) | 16.4 KB |
-| `PartnershipDeck` | 11.1 KB |
-| `LearningPathDetail` | 6.8 KB |
+| `vendor` (React + Router + Helmet) | 59.3 KB |
+| CSS (full design system) | 31.1 KB |
+| App entry (`index`) | 17.8 KB |
+| `PartnershipDeck` | 11.2 KB |
+| `LearningPathDetail` (stages + micro-lessons + offline) | 8.8 KB |
+| `Progress` (learner dashboard) | 5.2 KB |
 | `LearningPaths` | 4.5 KB |
-| Average page chunk | < 4 KB |
-| Total build time | ~2.1 s |
+| Average page chunk | < 5 KB |
+| Total build time | ~1.8 s |
 
 ---
 
@@ -459,10 +528,11 @@ abakada.org/
 │   ├── assets/
 │   │   ├── data/
 │   │   │   ├── tools.json                # All tool data (1,288 entries)
+│   │   │   ├── tools-index.json          # Lightweight search index (prebuild-generated)
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
 │   │   │   ├── curriculum.json           # DepEd K-12 and CHED strand definitions
-│   │   │   ├── visitors.json             # Updated nightly via GitHub Action
-│   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis)
+│   │   │   ├── visitors.json             # Updated hourly via GitHub Action
+│   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis) — 863 keys each
 │   │   ├── doc/                          # Downloadable documents (Pitch Deck PDF)
 │   │   ├── fonts/                        # Self-hosted Inter woff2 files
 │   │   ├── logo/                         # Favicons, OG image, brand logos
@@ -480,8 +550,14 @@ abakada.org/
 │   ├── site.webmanifest                  # PWA manifest
 │   └── sw.js                             # Service Worker
 ├── scripts/
-│   ├── refresh-sitemap.js                # Regenerates sitemap.xml from data
-│   └── prerender-shells.js               # Writes 1,309 static HTML shells
+│   ├── refresh-sitemap.js                # prebuild: regenerates sitemap.xml from data
+│   ├── build-search-index.mjs            # prebuild: writes tools-index.json
+│   ├── security-headers.mjs              # prebuild: generates headers artifacts
+│   ├── prerender-shells.js               # postbuild: writes 1,311 static HTML shells
+│   ├── verify-csp.mjs                    # postbuild: asserts CSP parity across configs
+│   ├── version-sw.mjs                    # postbuild: stamps sw.js CACHE_NAME from hashes
+│   ├── validate-data.mjs                 # JSON-Schema validation of catalog data
+│   └── package-cpanel.mjs                # Bundles dist/ into a ready-to-upload cPanel .zip
 ├── src/
 │   ├── components/
 │   │   ├── BrandLoader.jsx               # Glowing-favicon loading indicator
@@ -492,12 +568,14 @@ abakada.org/
 │   │   ├── Header.jsx                    # Active-state accent on LP icon via useLocation
 │   │   ├── Icon.jsx
 │   │   ├── LearningToolCard.jsx
+│   │   ├── MicroLesson.jsx               # Paced guided lesson with read-aloud (TTS)
+│   │   ├── OfflinePackButton.jsx         # Download/manage a path's offline pack
 │   │   ├── OnboardingModal.jsx
 │   │   ├── Pagination.jsx
 │   │   ├── PWAInstallBanner.jsx
 │   │   ├── SearchInput.jsx
 │   │   ├── SEO.jsx                       # react-helmet-async wrapper
-│   │   ├── Sidebar.jsx
+│   │   ├── Sidebar.jsx                   # Intelligent auto-hide rail / mobile drawer
 │   │   ├── StaticPageLayout.jsx
 │   │   ├── ToolCard.jsx
 │   │   └── ToolModal.jsx
@@ -508,35 +586,47 @@ abakada.org/
 │   │   └── ThemeContext.jsx
 │   ├── hooks/
 │   │   ├── useComparison.js
+│   │   ├── useLiteMode.js                 # Data-saver mode (auto from connection)
 │   │   ├── useLowBandwidth.js
-│   │   ├── useProgress.js
+│   │   ├── useProfile.js                  # Reactive XP/level/streak/badges/competencies
+│   │   ├── useProgress.js                 # Per-toolkit explored tools (feeds the profile)
 │   │   ├── usePWAInstall.js
-│   │   └── useSearch.js
+│   │   ├── useSearch.js
+│   │   └── useVisitorCount.js
 │   ├── lib/
 │   │   ├── canonical.js                  # SITE_ORIGIN, hreflang, language helpers
+│   │   ├── categoryGroups.js             # Category → skill-domain map (sidebar + radar)
 │   │   ├── comparison.js
+│   │   ├── curriculum.js                 # DepEd/CHED strand helpers
 │   │   ├── downloadFile.js
 │   │   ├── icons.js
+│   │   ├── offlinePacks.js               # Build/download/remove durable offline packs
 │   │   ├── pageMeta.js                   # Per-page <head> metadata
+│   │   ├── profile.js                    # Pure XP/level/badge/competency/streak compute
+│   │   ├── progressStore.js              # localStorage keys, activity log, change-event bus
 │   │   ├── reportError.js                # Production error reporter (POST to VITE_ERROR_REPORT_URL)
 │   │   ├── security.js
+│   │   ├── studentGoals.js
 │   │   └── vitals.js                     # Core Web Vitals reporter
 │   ├── pages/
 │   │   ├── About.jsx
 │   │   ├── Bookmarks.jsx
 │   │   ├── Compare.jsx
 │   │   ├── Contact.jsx
+│   │   ├── Educators.jsx                  # DepEd/CHED curriculum browser + classroom kit
 │   │   ├── FAQ.jsx
 │   │   ├── Glossary.jsx
 │   │   ├── Home.jsx
-│   │   ├── LearningPathDetail.jsx
+│   │   ├── LearningPathDetail.jsx         # Stages, guided micro-lessons, offline download
 │   │   ├── LearningPaths.jsx
 │   │   ├── NotFound.jsx
 │   │   ├── OfficialPartners.jsx
 │   │   ├── Partnerships.jsx
 │   │   ├── PartnershipDeck.jsx
 │   │   ├── Privacy.jsx
+│   │   ├── Progress.jsx                   # Learner profile: level, streak, badges, radar, packs
 │   │   ├── Sitemap.jsx
+│   │   ├── Students.jsx                   # Goal-based finder + student paths
 │   │   ├── Terms.jsx
 │   │   └── ToolDetail.jsx
 │   ├── styles/
@@ -550,10 +640,13 @@ abakada.org/
 │   └── main.jsx                          # Entry point + service worker registration
 ├── .github/
 │   └── workflows/
-│       ├── update-visitors.yml           # Nightly visitor count from GA4 Data API
-│       ├── fetch-visitors.yml            # On-demand variant
+│       ├── ci.yml                        # Quality gate: lint, types, data, tests, build, audit
+│       ├── deploy.yml                    # Build & FTPS-deploy dist/ to cPanel + liveness check
+│       ├── fetch-visitors.yml            # Hourly GA4 visitor count → visitors.json → cPanel
 │       ├── lighthouse.yml                # Lighthouse CI on PRs
-│       └── sitemap-refresh.yml           # Scheduled sitemap regeneration
+│       ├── sitemap-refresh.yml           # Scheduled sitemap regeneration
+│       └── uptime.yml                    # Synthetic uptime monitoring
+├── release/                              # Generated cPanel .zip packages (gitignored)
 ├── .lighthouserc.json                    # Lighthouse CI config
 ├── index.html                            # Inline boot loader + SEO meta
 ├── vercel.json                           # SPA rewrites + security headers
@@ -567,7 +660,7 @@ abakada.org/
 
 ### Prerequisites
 
-- Node.js 18 or higher
+- Node.js 20 or higher (CI builds and deploys on Node 20; `package.json` `engines` requires `>=20`)
 - npm 9 or higher
 
 ### Installation
@@ -584,7 +677,7 @@ npm install
 npm run dev
 ```
 
-Opens at `http://localhost:5173`. HMR is enabled — file changes apply instantly.
+Opens at `http://localhost:5173`. HMR is enabled. File changes apply instantly.
 
 ---
 
@@ -592,25 +685,36 @@ Opens at `http://localhost:5173`. HMR is enabled — file changes apply instantl
 
 ### Branching
 
-- `main` — production; auto-deployed
+- `main`: production; auto-deployed
 - Feature branches use the pattern `feat/<short-description>`
 - Bugfix branches use `fix/<short-description>`
 
 ### Common scripts
 
 ```bash
-npm run dev         # Vite dev server with HMR
-npm run sitemap     # Regenerate public/sitemap.xml from data
-npm run build       # Production build (runs prebuild + build + postbuild)
-npm run preview     # Preview the production bundle locally
-npm run lint        # ESLint over src/
+npm run dev            # Vite dev server with HMR (http://localhost:5173)
+npm run lint           # ESLint over src/
+npm run typecheck      # tsc --noEmit (JSDoc/types)
+npm run validate:data  # JSON-Schema validation of tools / learning-paths data
+npm test               # Node unit tests (tests/**/*.test.mjs)
+npm run test:e2e       # Playwright e2e + accessibility (axe) suite
+npm run sitemap        # Regenerate public/sitemap.xml from data
+npm run build          # Production build (runs prebuild + build + postbuild)
+npm run preview        # Preview the production bundle locally (http://localhost:4173)
+npm run package:cpanel # Build + bundle dist/ into a ready-to-upload cPanel .zip
 ```
 
-The `build` lifecycle runs:
+The `build` lifecycle runs three phases:
 
-1. `prebuild` → `node scripts/refresh-sitemap.js` regenerates `public/sitemap.xml`
-2. `build` → `vite build` produces `dist/`
-3. `postbuild` → `node scripts/prerender-shells.js` writes 1,309 static HTML shells
+1. `prebuild` →
+   - `scripts/refresh-sitemap.js` — regenerates `public/sitemap.xml` from the data
+   - `scripts/build-search-index.mjs` — writes the lightweight `tools-index.json`
+   - `scripts/security-headers.mjs` — generates the headers artifacts
+2. `build` → `vite build` produces `dist/` (vendor split, content-hashed assets, ES2020, esbuild minify)
+3. `postbuild` →
+   - `scripts/prerender-shells.js` — writes 1,311 static HTML shells (13 static + 10 toolkits + 1,288 tools)
+   - `scripts/verify-csp.mjs` — fails the build if the CSP is not identical across `index.html`, `.htaccess`, `_headers`, and `vercel.json`
+   - `scripts/version-sw.mjs` — stamps `CACHE_NAME` in `dist/sw.js` from the asset fingerprints
 
 ### Working with translations
 
@@ -643,51 +747,81 @@ npm run build
 
 Produces a fully static `dist/` containing:
 
-- `dist/index.html` — root SPA shell (with inline boot loader)
-- `dist/<route>/index.html` — 1,308 prerendered route shells
-- `dist/assets/*.js` — content-hashed JS chunks
-- `dist/assets/*.css` — content-hashed CSS bundles
-- `dist/assets/data/*` — JSON catalog and translations
-- `dist/assets/fonts/*` — self-hosted Inter
-- `dist/assets/logo/*` — brand assets
+- `dist/index.html`: root SPA shell (with inline boot loader)
+- `dist/<route>/index.html`: 1,311 prerendered route shells (plus the root shell = 1,312 HTML files total)
+- `dist/assets/*.js`: content-hashed JS chunks
+- `dist/assets/*.css`: content-hashed CSS bundles
+- `dist/assets/data/*`: JSON catalog and translations
+- `dist/assets/fonts/*`: self-hosted Inter
+- `dist/assets/logo/*`: brand assets
 - `dist/sitemap.xml`, `dist/robots.txt`, `dist/llms.txt`, `dist/sw.js`, `dist/offline.html`, `dist/site.webmanifest`, `dist/.htaccess`, `dist/_headers`
 
-Deploy the `dist/` folder verbatim — every file in it is intended to be uploaded.
+Deploy the `dist/` folder verbatim. Every file in it is intended to be uploaded.
 
 ---
 
-## Deployment
+The site is a folder of static files. There is no server runtime, no environment variables required at runtime, and no build step on the host — everything is produced locally or in CI and uploaded as-is.
 
-### cPanel / Shared Hosting (Apache)
+### Option A — Automated CI deploy (recommended, default for production)
 
-1. Run `npm run build` locally
-2. Upload the entire contents of `dist/` to your `public_html/` directory
-3. In cPanel File Manager, enable **Show Hidden Files** to confirm `.htaccess` is present
-4. The `.htaccess` handles SPA routing, security headers, gzip, and cache control
+`.github/workflows/deploy.yml` runs on every push to `main` (and on manual dispatch):
 
-The repository ships an hourly GitHub Action that pulls the live GA4 visitor total, commits `visitors.json` (with `[skip ci]`), and FTPS-uploads it directly to cPanel — see `.github/workflows/fetch-visitors.yml`. `visitors.json` is **kept in `dist/`** so the Total Visitors badge is present after every deploy (CI or manual upload); the committed value is refreshed hourly by the workflow, so a build ships a value at most ~1h stale and the live file self-corrects on the next run. (Run `git pull` before a manual build to ship the freshest committed value.)
+1. Quality gate: `npm ci` → `lint` → `typecheck` → `validate:data` → `npm test`
+2. `npm run build`
+3. FTPS sync of `dist/` to the cPanel document root via `SamKirkland/FTP-Deploy-Action` (incremental — only changed files transfer)
+4. Post-deploy liveness check against `https://abakada.org/` (a 404/5xx hard-fails the run; a Cloudflare 403 to the CI runner is treated as a warning)
 
-> **Deploy path note (production):** On the canonical `abakada.org` host the FTP account lands in the account home and the document root is the **`abakada.org/`** folder, so both workflows use `server-dir: abakada.org/…`. It is *not* `public_html/` on this host — repointing the workflows at `public_html/` uploads to an unserved sibling directory and the file 404s. Both workflows now run a post-deploy liveness check that fails the build if the uploaded file is not reachable at its public URL.
+Deploys are serialized via a concurrency group so two FTP syncs never hit the docroot at once.
 
-### Vercel
+Required repository secrets: `CPANEL_FTP_HOST`, `CPANEL_FTP_USER`, `CPANEL_FTP_PASS`.
 
-Push to your connected GitHub repository. `vercel.json` handles SPA rewrites and security headers automatically.
+> **Document-root note (production):** On the canonical host the FTP account lands in the account home and the served document root is the **`abakada.org/`** folder, so `deploy.yml` and `fetch-visitors.yml` use `server-dir: abakada.org/`. It is **not** `public_html/` on this host — repointing at `public_html/` uploads to an unserved sibling directory. On a standard cPanel account the document root **is** `public_html/`; set `server-dir` accordingly.
 
-### Netlify / Cloudflare Pages
+### Option B — Manual one-shot upload (zip package)
 
-`public/_headers` handles security headers. Configure SPA redirects to `/index.html`:
+For a clean, full deployment without CI, build a ready-to-upload archive:
 
+```bash
+npm run package:cpanel
 ```
-/*  /index.html  200
-```
+
+This runs a fresh production build, verifies that `dist/` contains every required file (including `.htaccess`), and writes `release/abakada-cpanel-<timestamp>.zip`. The archive stores `dist/`'s **contents at its root** (not a nested `dist/` folder) using spec-compliant forward-slash paths, so it extracts cleanly on the Linux/Apache host.
+
+Then, in cPanel:
+
+1. **File Manager → `public_html/`** (or your account's document root)
+2. **Upload** the `.zip`, then select it and click **Extract**
+3. Enable **Settings → Show Hidden Files (dotfiles)** and confirm **`.htaccess`** is present at the root
+4. (Full redeploys) delete the previous `assets/` folder before extracting so old content-hashed chunks don't accumulate
+
+No file permission changes are needed: cPanel extraction yields the standard `644` files / `755` directories Apache expects.
+
+### What `.htaccess` provides on cPanel (Apache)
+
+The shipped [`dist/.htaccess`](public/.htaccess) is the entire server configuration — no cPanel UI changes required:
+
+- **SPA fallback** — every non-file route serves `index.html` (so deep links like `/learning-paths/beginner-coding` and `/tl/progress` work on refresh)
+- **HTTPS + non-www** 301 redirects, and legacy `?lang=xx` → `/xx/` redirects
+- **Security headers** — HSTS, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP/CORP; server fingerprint headers stripped
+- **Compression** — gzip (`mod_deflate`) + Brotli (`mod_brotli`) for text assets
+- **Cache control** — `/assets/*` immutable for 1 year (content-hashed), HTML always revalidated, `sw.js` never cached
+- **PDF handling** — forces download (`Content-Disposition: attachment`) and skips compression
+- Blocks dotfiles/sensitive extensions; disables directory listing and `MultiViews`
+
+> If a module is unavailable on a given host, each block is wrapped in `<IfModule>` so Apache silently skips it rather than 500-ing. `mod_rewrite`, `mod_headers`, `mod_deflate`, and `mod_expires` are enabled on virtually all cPanel hosts.
+
+### Visitor count
+
+An hourly GitHub Action (`fetch-visitors.yml`) pulls the live GA4 total, commits `visitors.json` (with `[skip ci]`), and FTPS-uploads it directly. `visitors.json` is **kept in `dist/`** so the Total Visitors badge is present after every deploy; a manual build ships a value at most ~1h stale and the live file self-corrects on the next run. Run `git pull` before a manual build to ship the freshest committed value.
+
+### Other hosts
+
+- **Vercel** — push to the connected repo; `vercel.json` handles SPA rewrites and security headers.
+- **Netlify / Cloudflare Pages** — `public/_headers` provides the headers; add an SPA redirect: `/*  /index.html  200`.
 
 ### Service Worker cache version
 
-Bump the cache identifier in `public/sw.js` before each release so returning users receive fresh assets:
-
-```js
-const CACHE_NAME = 'abakada-vN' // increment per deploy
-```
+No manual action required: `CACHE_NAME` in `dist/sw.js` is stamped automatically from the build's asset fingerprints by `scripts/version-sw.mjs` (postbuild), so returning users always get fresh assets after a deploy. The durable `abakada-packs` bucket (downloaded Offline Learning Packs) is intentionally **not** rotated.
 
 ---
 
@@ -737,16 +871,19 @@ home: {
 
 | Workflow | Trigger | Purpose |
 |:---|:---|:---|
-| `fetch-visitors.yml` | `schedule` (hourly) + manual | Pulls the cumulative `totalUsers` from the GA4 Data API into `public/assets/data/visitors.json`, commits with `[skip ci]`, and deploys the file to cPanel via FTPS. Skips commit/deploy when the value is unchanged. |
+| `ci.yml` | `pull_request`, `push` | Quality gate: `lint` → `typecheck` → `validate:data` → `npm test` → `build` → `npm audit` (high). Red builds never merge. |
+| `deploy.yml` | `push` to `main` + manual | Re-runs the quality gate, builds, FTPS-syncs `dist/` to the cPanel docroot, and verifies the homepage is live. Serialized via a concurrency group. |
+| `fetch-visitors.yml` | `schedule` (hourly) + manual | Pulls the cumulative `totalUsers` from the GA4 Data API into `visitors.json`, commits with `[skip ci]`, and FTPS-uploads it to cPanel. Skips when unchanged. |
 | `lighthouse.yml` | `pull_request` | Runs Lighthouse CI against the preview URL |
 | `sitemap-refresh.yml` | `schedule` | Regenerates `sitemap.xml` against current data |
+| `uptime.yml` | `schedule` | Synthetic uptime / liveness monitoring of the live site |
 
 Required repository secrets:
 
 | Secret | Used by |
 |:---|:---|
-| `GA4_SERVICE_ACCOUNT_KEY` (full JSON key) | `fetch-visitors.yml` — GA4 Data API access |
-| `CPANEL_FTP_HOST`, `CPANEL_FTP_USER`, `CPANEL_FTP_PASS` | `fetch-visitors.yml` — FTPS upload to cPanel |
+| `GA4_SERVICE_ACCOUNT_KEY` (full JSON key) | `fetch-visitors.yml`: GA4 Data API access |
+| `CPANEL_FTP_HOST`, `CPANEL_FTP_USER`, `CPANEL_FTP_PASS` | `deploy.yml` + `fetch-visitors.yml`: FTPS upload to cPanel |
 
 ---
 

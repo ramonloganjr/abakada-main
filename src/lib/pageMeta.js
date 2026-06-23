@@ -1,5 +1,5 @@
 // Centralized page metadata for SEO/AEO/GEO. All page components import from here.
-// Keep titles ≤ 60 chars (after the " — Abakada" suffix), descriptions ≤ 160 chars.
+// Keep titles ≤ 60 chars (after the " | Abakada" suffix), descriptions ≤ 160 chars.
 
 import { SITE_ORIGIN } from './canonical'
 
@@ -40,9 +40,9 @@ export const pageMeta = {
   },
 
   about: {
-    title: 'About Abakada — Mission, Team & Editorial Standards',
+    title: 'About Abakada: Mission, Team & Editorial Standards',
     description:
-      'Learn about Abakada — a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.',
+      'Learn about Abakada, a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.',
     pathname: '/about',
     jsonLd: [
       breadcrumb([
@@ -65,7 +65,7 @@ export const pageMeta = {
   faq: {
     title: 'Frequently Asked Questions',
     description:
-      'Answers to common questions about Abakada — how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.',
+      'Answers to common questions about Abakada: how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.',
     pathname: '/faq',
     jsonLd: breadcrumb([
       { name: 'Home', path: '/' },
@@ -85,9 +85,9 @@ export const pageMeta = {
   },
 
   terms: {
-    title: 'Terms of Use — Abakada.org',
+    title: 'Terms of Use | Abakada.org',
     description:
-      'Terms of Use governing access to Abakada.org — intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law.',
+      'Terms of Use governing access to Abakada.org: intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law.',
     pathname: '/terms',
     jsonLd: breadcrumb([
       { name: 'Home', path: '/' },
@@ -96,7 +96,7 @@ export const pageMeta = {
   },
 
   contact: {
-    title: 'Contact Abakada — Editorial, Partnerships, Support',
+    title: 'Contact Abakada: Editorial, Partnerships, Support',
     description:
       'Reach the Abakada team for editorial corrections, partnership inquiries, or general support. Email hello@abakada.org or use our contact form.',
     pathname: '/contact',
@@ -115,7 +115,7 @@ export const pageMeta = {
   },
 
   partnerships: {
-    title: 'Partnership Opportunities — Schools, NGOs, FOSS Projects',
+    title: 'Partnership Opportunities: Schools, NGOs, FOSS Projects',
     description:
       'Partner with Abakada to bring free open-source tools to Filipino schools, communities, and organizations. Volunteer, donate, or co-publish content.',
     pathname: '/partnerships',
@@ -137,9 +137,9 @@ export const pageMeta = {
   },
 
   learningPaths: {
-    title: 'Learning Paths — Curated FOSS Toolkits for Students',
+    title: 'Learning Paths: Curated FOSS Toolkits for Students',
     description:
-      'Structured learning paths combining free open-source tools — Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, and more.',
+      'Structured learning paths combining free open-source tools: Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, and more.',
     pathname: '/learning-paths',
     jsonLd: breadcrumb([
       { name: 'Home', path: '/' },
@@ -148,9 +148,9 @@ export const pageMeta = {
   },
 
   educators: {
-    title: 'For Educators — Free Curriculum-Aligned Classroom Tools',
+    title: 'For Educators: Free Curriculum-Aligned Classroom Tools',
     description:
-      'Free, open-source tools for Filipino teachers — mapped to DepEd Senior High School strands. No licenses, no student accounts. Plus a classroom starter kit and parent FAQ.',
+      'Free, open-source tools for Filipino teachers, mapped to DepEd Senior High School strands. No licenses, no student accounts. Plus a classroom starter kit and parent FAQ.',
     pathname: '/educators',
     jsonLd: [
       breadcrumb([
@@ -185,9 +185,9 @@ export const pageMeta = {
   },
 
   students: {
-    title: 'For Students — Free Tools for Schoolwork & Study',
+    title: 'For Students: Free Tools for Schoolwork & Study',
     description:
-      'Free, open-source tools for Filipino students — for writing, presentations, photos, video, coding, and study. No cost, no account, works offline.',
+      'Free, open-source tools for Filipino students, for writing, presentations, photos, video, coding, and study. No cost, no account, works offline.',
     pathname: '/students',
     jsonLd: [
       breadcrumb([
@@ -200,7 +200,7 @@ export const pageMeta = {
         name: 'Abakada',
         url: `${SITE_ORIGIN}/students`,
         description:
-          'A volunteer-driven directory of free, open-source tools for Filipino students — organized by what you need to do.',
+          'A volunteer-driven directory of free, open-source tools for Filipino students, organized by what you need to do.',
         audience: { '@type': 'EducationalAudience', educationalRole: 'student' },
         inLanguage: ['en', 'tl', 'ilo', 'ceb'],
       },
@@ -210,8 +210,8 @@ export const pageMeta = {
         mainEntity: [
           ['Do I have to pay for anything?', 'No. Every tool here is free and open-source. There are no trials that expire and no hidden fees.'],
           ['Do I need to make an account?', 'No account is needed to use Abakada, and most tools work without signing up. Some optional cloud features may offer a free account.'],
-          ['Will these work on my phone?', 'Many do, and some are phone-first. Each tool page lists the platforms it supports — look for Android or iOS.'],
-          ['Can I use these for schoolwork?', 'Yes. These tools create standard files — documents, images, video — you can submit anywhere, perfect for reports, projects, and presentations.'],
+          ['Will these work on my phone?', 'Many do, and some are phone-first. Each tool page lists the platforms it supports. Look for Android or iOS.'],
+          ['Can I use these for schoolwork?', 'Yes. These tools create standard files (documents, images, video) you can submit anywhere, perfect for reports, projects, and presentations.'],
         ].map(([q, a]) => ({
           '@type': 'Question',
           name: q,
@@ -223,7 +223,7 @@ export const pageMeta = {
 
   bookmarks: {
     title: 'My Bookmarks',
-    description: 'Your saved tools on Abakada — synced across the device, no account required.',
+    description: 'Your saved tools on Abakada, synced across the device, no account required.',
     pathname: '/bookmarks',
     noindex: true,
   },
@@ -231,7 +231,7 @@ export const pageMeta = {
   compare: {
     title: 'Compare Open-Source Tools',
     description:
-      'Side-by-side comparison of free open-source tools — features, platforms, licenses, and use cases. Pick the right tool for your workflow.',
+      'Side-by-side comparison of free open-source tools: features, platforms, licenses, and use cases. Pick the right tool for your workflow.',
     pathname: '/compare',
     jsonLd: breadcrumb([
       { name: 'Home', path: '/' },
@@ -241,7 +241,7 @@ export const pageMeta = {
 
   sitemap: {
     title: 'HTML Sitemap',
-    description: 'Browse all Abakada pages — tools, learning paths, FAQ, about, partnerships, and more.',
+    description: 'Browse all Abakada pages: tools, learning paths, FAQ, about, partnerships, and more.',
     pathname: '/sitemap',
     jsonLd: breadcrumb([
       { name: 'Home', path: '/' },
@@ -250,9 +250,9 @@ export const pageMeta = {
   },
 
   glossary: {
-    title: 'Glossary — Open-Source, Licensing & Productivity Terms',
+    title: 'Glossary: Open-Source, Licensing & Productivity Terms',
     description:
-      'Definitions of common terms used on Abakada — FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more.',
+      'Definitions of common terms used on Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more.',
     pathname: '/glossary',
     jsonLd: breadcrumb([
       { name: 'Home', path: '/' },
@@ -269,17 +269,17 @@ export const pageMeta = {
 
   partnershipDeck: {
     title: 'Partnership Deck',
-    description: 'Abakada partnership pitch deck — overview, mission, traction, and partnership tiers.',
+    description: 'Abakada partnership pitch deck: overview, mission, traction, and partnership tiers.',
     pathname: '/partnership-deck',
     noindex: true,
   },
 }
 
 export const buildLearningPathMeta = (toolkit) => ({
-  title: `${toolkit.title} — Learning Path`,
+  title: `${toolkit.title}: Learning Path`,
   description:
     toolkit.description ||
-    `${toolkit.title} learning path on Abakada — a structured set of free open-source tools and tasks.`,
+    `${toolkit.title} learning path on Abakada, a structured set of free open-source tools and tasks.`,
   pathname: `/learning-paths/${toolkit.id}`,
   jsonLd: [
     breadcrumb([
@@ -308,7 +308,7 @@ export const buildToolMeta = (tool) => {
     tool.description?.slice(0, 158) ||
     `${name}: ${tagline}. Free, open-source ${tool.category || 'productivity'} tool reviewed by Abakada.`
   return {
-    title: `${name} — ${tagline || 'Free Open-Source Tool'}`,
+    title: `${name}: ${tagline || 'Free Open-Source Tool'}`,
     description,
     pathname: `/tools/${tool.id}`,
     jsonLd: [

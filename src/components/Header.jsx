@@ -18,6 +18,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
   const [langOpen, setLangOpen] = useState(false)
   const [headerQuery, setHeaderQuery] = useState('')
   const langRef = useRef(null)
+  const searchInputRef = useRef(null)
   const { canInstall, triggerInstall } = usePWAInstall()
 
   // Global search — works from any page (review item 10). Submits to the home
@@ -31,6 +32,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
 
   const normalizedPath = stripLangPrefix(location.pathname)
   const isOnLearningPaths = normalizedPath === '/learning-paths' || normalizedPath.startsWith('/learning-paths/')
+  const isOnProgress = normalizedPath === '/progress'
 
   // Close the language dropdown on outside click / Escape, kept in sync with React
   // state so the trigger button always reflects the real open/closed state.
@@ -78,6 +80,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
         <form className="header-search" role="search" onSubmit={handleSearchSubmit}>
           <Icon name="search" collection="ui" size={16} className="header-search__icon" />
           <input
+            ref={searchInputRef}
             type="search"
             className="header-search__input"
             placeholder={t('search.placeholder', 'Search tools...')}
@@ -87,6 +90,16 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             maxLength={100}
             autoComplete="off"
           />
+          {headerQuery && (
+            <button
+              type="button"
+              className="header-search__clear"
+              aria-label={t('search.clear', 'Clear search')}
+              onClick={() => { setHeaderQuery(''); searchInputRef.current?.focus() }}
+            >
+              <Icon name="close" collection="ui" size={14} />
+            </button>
+          )}
         </form>
         <div className="nav__actions">
           {canInstall && (
@@ -133,6 +146,16 @@ export default function Header({ onMenuToggle, navOpen = false }) {
           >
             <Icon name="graduation-cap" collection="category" size={18} />
             <span className="header-nav-btn__label">{t('nav.learningPathsShort', 'Learn')}</span>
+          </Link>
+          <Link
+            to="/progress"
+            className={`header-nav-btn${isOnProgress ? ' header-nav-btn--active' : ''}`}
+            title={t('nav.progress', 'My Progress')}
+            aria-label={t('nav.progress', 'My Progress')}
+            aria-current={isOnProgress ? 'page' : undefined}
+          >
+            <Icon name="trending-up" collection="ui" size={18} />
+            <span className="header-nav-btn__label">{t('nav.progressShort', 'Progress')}</span>
           </Link>
           <div
             className="theme-toggle"

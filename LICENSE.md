@@ -46,7 +46,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 Copyright (c) 2024 **Ramon Logan Jr.**
 
-The non-code content of this project — including but not limited to written text, curated tool data, learning paths, translations, and documentation — is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+The non-code content of this project (including but not limited to written text, curated tool data, learning paths, translations, and documentation) is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 ### You are free to
 

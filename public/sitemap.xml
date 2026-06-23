@@ -5,7 +5,7 @@
 
   <url>
     <loc>https://abakada.org/</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en"/>
@@ -15,13 +15,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/"/>
     <image:image>
       <image:loc>https://abakada.org/assets/logo/og.png</image:loc>
-      <image:title>Abakada — Free Open-Source Tools for Filipino Students &amp; Educators</image:title>
+      <image:title>Abakada: Free Open-Source Tools for Filipino Students &amp; Educators</image:title>
     </image:image>
   </url>
 
   <url>
     <loc>https://abakada.org/about</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/about"/>
@@ -45,7 +45,7 @@
 
   <url>
     <loc>https://abakada.org/educators</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/educators"/>
@@ -57,7 +57,7 @@
 
   <url>
     <loc>https://abakada.org/students</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/students"/>
@@ -69,7 +69,7 @@
 
   <url>
     <loc>https://abakada.org/glossary</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/glossary"/>
@@ -81,7 +81,7 @@
 
   <url>
     <loc>https://abakada.org/partnerships</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/partnerships"/>
@@ -93,7 +93,7 @@
 
   <url>
     <loc>https://abakada.org/official-partners</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/official-partners"/>
@@ -105,7 +105,7 @@
 
   <url>
     <loc>https://abakada.org/faq</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/faq"/>
@@ -117,7 +117,7 @@
 
   <url>
     <loc>https://abakada.org/contact</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/contact"/>
@@ -129,7 +129,7 @@
 
   <url>
     <loc>https://abakada.org/privacy</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/privacy"/>
@@ -141,7 +141,7 @@
 
   <url>
     <loc>https://abakada.org/terms</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/terms"/>
@@ -153,7 +153,7 @@
 
   <url>
     <loc>https://abakada.org/sitemap</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/sitemap"/>
@@ -165,7 +165,7 @@
 
   <url>
     <loc>https://abakada.org/compare</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/compare"/>

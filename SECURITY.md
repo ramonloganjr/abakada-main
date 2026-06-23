@@ -55,7 +55,7 @@ Only the current production release of Abakada.org is actively maintained and re
 
 ### Out of Scope
 
-- Vulnerabilities in third-party tools listed in the directory — report those directly to the respective project
+- Vulnerabilities in third-party tools listed in the directory. Report those directly to the respective project
 - Denial of service attacks against the hosting infrastructure
 - Social engineering attacks targeting the maintainer or contributors
 - Issues requiring physical access to a user's device
@@ -178,7 +178,7 @@ Applied via `.htaccess` (Apache/cPanel), `_headers` (Netlify/Cloudflare), and `v
 
 ## Known Limitations
 
-- Abakada.org is a fully static site. Security controls are limited to what can be enforced at the CDN/hosting layer and in the browser — there is no server-side request validation.
+- Abakada.org is a fully static site. Security controls are limited to what can be enforced at the CDN/hosting layer and in the browser. There is no server-side request validation.
 - `localStorage` data is not encrypted. Users on shared devices should be aware that bookmarks and preferences are accessible to anyone with access to the browser profile.
 - The Service Worker caches application assets locally. Users should clear their browser cache if they suspect a compromised cached version.
 
