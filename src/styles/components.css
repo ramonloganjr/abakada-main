@@ -1000,6 +1000,182 @@
 }
 
 /* ==========================================================================
+   Toolkit spotlight — premium cross-product discovery card in the hero.
+   An elevated surface with a theme-aware accent glow, gradient icon chip and
+   clear hierarchy so it carries real presence, while staying subordinate to the
+   primary .hero__cta path above it. Accent glows use color-mix so they track the
+   teal (light) / cyan (dark) accent automatically.
+   ========================================================================== */
+
+.toolkit-spotlight {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 480px;
+  margin: var(--space-8) auto 0;
+  padding: var(--space-4);
+  text-align: left;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--accent-primary) 11%, var(--bg-secondary)) 0%,
+      var(--bg-secondary) 58%);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 14px 30px -16px color-mix(in srgb, var(--accent-primary) 42%, transparent);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-fast);
+}
+
+/* Ambient radial glow anchored to the icon side. Sits above the gradient base
+   but below the content (pseudo-element paints before the real children). */
+.toolkit-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 220px;
+  height: 220px;
+  transform: translate(-32%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--accent-primary) 30%, transparent) 0%,
+    transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.toolkit-spotlight:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-primary) 55%, var(--border-accent));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 22px 44px -18px color-mix(in srgb, var(--accent-primary) 55%, transparent);
+}
+
+.toolkit-spotlight:hover::before { opacity: 1; }
+
+.toolkit-spotlight__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(140deg, var(--accent-primary), var(--brand-secondary));
+  color: var(--color-on-accent);
+  box-shadow:
+    0 4px 12px -2px color-mix(in srgb, var(--accent-primary) 50%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.toolkit-spotlight__icon svg { color: var(--color-on-accent); }
+
+.toolkit-spotlight:hover .toolkit-spotlight__icon {
+  transform: scale(1.06) rotate(-4deg);
+  box-shadow:
+    0 7px 18px -3px color-mix(in srgb, var(--accent-primary) 62%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.toolkit-spotlight__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.toolkit-spotlight__heading {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-primary);
+  line-height: var(--line-height-snug);
+}
+
+.toolkit-spotlight__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--accent-primary), var(--brand-secondary));
+  color: var(--color-on-accent);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  line-height: 1.4;
+  box-shadow: 0 2px 6px -1px color-mix(in srgb, var(--accent-primary) 50%, transparent);
+}
+
+.toolkit-spotlight__desc {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: var(--line-height-snug);
+}
+
+.toolkit-spotlight__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-primary);
+}
+
+.toolkit-spotlight__cta svg { transition: transform var(--transition-base); }
+
+.toolkit-spotlight:hover .toolkit-spotlight__cta svg { transform: translateX(4px); }
+
+/* Graceful fallback for browsers without color-mix(): keep a solid accent base
+   and a flat teal glow instead of dropping the shadow entirely. */
+@supports not (background: color-mix(in srgb, red, blue)) {
+  .toolkit-spotlight {
+    background: var(--accent-subtle);
+    box-shadow: 0 12px 28px -16px rgba(16, 127, 135, 0.4);
+  }
+  .toolkit-spotlight__icon { background: var(--accent-primary); }
+  .toolkit-spotlight__badge { background: var(--accent-primary); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toolkit-spotlight,
+  .toolkit-spotlight__icon,
+  .toolkit-spotlight::before,
+  .toolkit-spotlight__cta svg { transition: none; }
+  .toolkit-spotlight:hover { transform: none; }
+  .toolkit-spotlight:hover .toolkit-spotlight__icon { transform: none; }
+  .toolkit-spotlight:hover .toolkit-spotlight__cta svg { transform: none; }
+}
+
+@media (max-width: 420px) {
+  .toolkit-spotlight { gap: var(--space-3); padding: var(--space-3); }
+  /* Collapse the textual CTA to its arrow so the row stays single-line on
+     the smallest phones; the whole card remains the tap target. */
+  .toolkit-spotlight__cta { font-size: 0; gap: 0; }
+  .toolkit-spotlight__cta svg { font-size: var(--font-size-sm); }
+}
+
+/* ==========================================================================
    First-visit quick-start strip (review R5.1)
    ========================================================================== */
 
@@ -1197,7 +1373,9 @@
    ========================================================================== */
 
 .beginner-picks {
-  padding: var(--space-12) 0 var(--space-4);
+  /* Generous bottom padding so the light "New to open source?" block has clear
+     breathing room before the dark "Editor's Picks" section that follows. */
+  padding: var(--space-12) 0 var(--space-16);
 }
 
 .beginner-picks__header {

@@ -4,6 +4,7 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import { I18nProvider, useI18n } from './contexts/I18nContext'
 import { BookmarkProvider } from './contexts/BookmarkContext'
 import { ComparisonProvider } from './contexts/ComparisonContext'
+import { SearchProvider } from './contexts/SearchContext'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
@@ -11,7 +12,6 @@ import OnboardingModal from './components/OnboardingModal'
 import RouteAnnouncer from './components/RouteAnnouncer'
 import ConsentBanner from './components/ConsentBanner'
 import ErrorBoundary from './components/ErrorBoundary'
-import PWAInstallBanner from './components/PWAInstallBanner'
 import BrandLoader from './components/BrandLoader'
 import { stripLangPrefix, langPrefix } from './lib/canonical'
 import { getOnboardingRole } from './lib/onboarding'
@@ -383,7 +383,6 @@ function AppContent() {
       {showOnboarding && (
         <OnboardingModal onClose={() => setShowOnboarding(false)} />
       )}
-      <PWAInstallBanner />
       <ConsentBanner />
     </div>
   )
@@ -395,7 +394,9 @@ export default function App() {
       <I18nProvider>
         <BookmarkProvider>
           <ComparisonProvider>
-            <AppContent />
+            <SearchProvider>
+              <AppContent />
+            </SearchProvider>
           </ComparisonProvider>
         </BookmarkProvider>
       </I18nProvider>

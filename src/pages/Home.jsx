@@ -20,6 +20,11 @@ const ITEMS_PER_PAGE = 18
 
 const QUICKSTART_DISMISS_KEY = 'abakada_home_quickstart_dismissed'
 
+// Companion product: the Abakada Toolkit (separate subdomain app). Surfaced as a
+// quiet cross-product spotlight in the hero so it aids discovery without
+// competing with the primary "get started / browse" conversion path.
+const TOOLKIT_URL = 'https://toolkit.abakada.org/'
+
 // Role shortcuts shown in the first-visit quick-start strip. A deliberately tiny
 // subset of the full 9-role onboarding so a beginner isn't asked to scan a long
 // list before they've even started (review R5.3). "See all options" opens the
@@ -190,6 +195,34 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenN
                 {t('hero.ctaBrowse', 'Browse all tools')}
               </button>
             </div>
+
+            {/* Cross-product discovery: a compact spotlight for the companion
+                Abakada Toolkit. Kept visually subordinate to the primary CTAs
+                above so it lifts discovery without distracting from the main path. */}
+            <a
+              className="toolkit-spotlight"
+              href={TOOLKIT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('home.toolkit.aria', 'Abakada Toolkit: free in-browser utilities. Opens in a new tab.')}
+            >
+              <span className="toolkit-spotlight__icon" aria-hidden="true">
+                <Icon name="wrench" collection="ui" size={20} />
+              </span>
+              <span className="toolkit-spotlight__text">
+                <span className="toolkit-spotlight__heading">
+                  <span className="toolkit-spotlight__badge">{t('home.toolkit.badge', 'New')}</span>
+                  {t('home.toolkit.label', 'Abakada Toolkit')}
+                </span>
+                <span className="toolkit-spotlight__desc">
+                  {t('home.toolkit.desc', 'Free in-browser utilities. No installs, no sign-up.')}
+                </span>
+              </span>
+              <span className="toolkit-spotlight__cta">
+                {t('home.toolkit.cta', 'Explore')}
+                <Icon name="arrow-right" collection="ui" size={16} />
+              </span>
+            </a>
           </div>
         </section>
 

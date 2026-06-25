@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useI18n } from '../contexts/I18nContext'
+import { useSearchInput } from '../contexts/SearchContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparison } from '../hooks/useComparison'
 import { usePWAInstall } from '../hooks/usePWAInstall'
@@ -11,21 +12,23 @@ import Icon from './Icon'
 export default function Header({ onMenuToggle, navOpen = false }) {
   const { theme, appliedTheme, setTheme } = useTheme()
   const { lang, setLanguage, supportedLangs, t } = useI18n()
+  const { searchInput, setSearchInput } = useSearchInput()
   const { bookmarks } = useBookmarks()
   const { selectedIds } = useComparison()
   const location = useLocation()
   const navigate = useNavigate()
   const [langOpen, setLangOpen] = useState(false)
-  const [headerQuery, setHeaderQuery] = useState('')
   const langRef = useRef(null)
   const searchInputRef = useRef(null)
   const { canInstall, triggerInstall } = usePWAInstall()
 
-  // Global search — works from any page (review item 10). Submits to the home
-  // grid via ?q=, which Home reads to seed the catalog search.
+  // Global search — works from any page (review item 10). The input value lives
+  // in shared context, so it stays in lockstep with the sidebar search bar in
+  // real time. Submitting just navigates to the home grid (carrying ?q= so the
+  // result is shareable/deep-linkable); the query itself is already in context.
   function handleSearchSubmit(e) {
     e.preventDefault()
-    const q = headerQuery.trim()
+    const q = searchInput.trim()
     const base = langPrefix(lang)
     navigate(q ? `${base}/?q=${encodeURIComponent(q)}` : `${base}/`)
   }
@@ -85,17 +88,17 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             className="header-search__input"
             placeholder={t('search.placeholder', 'Search tools...')}
             aria-label={t('search.placeholder', 'Search tools')}
-            value={headerQuery}
-            onChange={(e) => setHeaderQuery(e.target.value)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
             maxLength={100}
             autoComplete="off"
           />
-          {headerQuery && (
+          {searchInput && (
             <button
               type="button"
               className="header-search__clear"
               aria-label={t('search.clear', 'Clear search')}
-              onClick={() => { setHeaderQuery(''); searchInputRef.current?.focus() }}
+              onClick={() => { setSearchInput(''); searchInputRef.current?.focus() }}
             >
               <Icon name="close" collection="ui" size={14} />
             </button>

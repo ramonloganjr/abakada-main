@@ -41,6 +41,13 @@
     "ctaBrowse": "Browse all tools"
   },
   "home": {
+    "toolkit": {
+      "badge": "New",
+      "label": "Abakada Toolkit",
+      "desc": "Free in-browser utilities. No installs, no sign-up.",
+      "cta": "Explore",
+      "aria": "Abakada Toolkit: free in-browser utilities. Opens in a new tab."
+    },
     "quickStart": {
       "aria": "Personalize your start",
       "prompt": "New here? Tell us what you do and we’ll point you the right way:",
@@ -279,6 +286,9 @@
     "toggle": "Toggle theme"
   },
   "footer": {
+    "toolkit": "Toolkit",
+    "toolkitTagline": "Free in-browser utilities",
+    "toolkitAria": "Open the Abakada Toolkit (opens in a new tab)",
     "description": "A collection of free and open‑source software tools for Filipino students, scholars, educators, and professionals.",
     "quickLinks": "Quick Links",
     "allTools": "All Tools",

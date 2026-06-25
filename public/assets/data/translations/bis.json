@@ -41,6 +41,13 @@
     "ctaBrowse": "Tan-awa tanang gamit"
   },
   "home": {
+    "toolkit": {
+      "badge": "Bag-o",
+      "label": "Abakada Toolkit",
+      "desc": "Libre nga in-browser nga mga gamit. Walay i-install, walay sign-up.",
+      "cta": "Tan-awa",
+      "aria": "Abakada Toolkit: libre nga in-browser nga mga gamit. Mabuksan sa bag-ong tab."
+    },
     "quickStart": {
       "aria": "I-personalize ang imong sinugdanan",
       "prompt": "Bag-o dinhi? Sultihi mi unsay imong gibuhat ug giyahan ka namo:",
@@ -279,6 +286,9 @@
     "toggle": "Usba ang tema"
   },
   "footer": {
+    "toolkit": "Toolkit",
+    "toolkitTagline": "Libre nga in-browser nga mga gamit",
+    "toolkitAria": "Ablihi ang Abakada Toolkit (mabuksan sa bag-ong tab)",
     "description": "Usa ka koleksyon sa mga libre ug open-source nga software tools para sa mga Pilipino nga estudyante, iskolar, magtutudlo, ug propesyonal.",
     "quickLinks": "Mga Paspas nga Link",
     "allTools": "Tanang Gamit",

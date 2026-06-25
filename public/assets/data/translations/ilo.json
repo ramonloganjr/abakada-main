@@ -41,6 +41,13 @@
     "ctaBrowse": "Kitaen amin a ramit"
   },
   "home": {
+    "toolkit": {
+      "badge": "Baro",
+      "label": "Abakada Toolkit",
+      "desc": "Libre nga in-browser nga ramit. Awan ti i-install, awan ti sign-up.",
+      "cta": "Kitaen",
+      "aria": "Abakada Toolkit: libre nga in-browser nga ramit. Aglukat iti baro a tab."
+    },
     "quickStart": {
       "aria": "I-personalize ti panagrugim",
       "prompt": "Baro ditoy? Ibagam no ania ti ar-aramidem ket idalankami:",
@@ -279,6 +286,9 @@
     "toggle": "Sukatan ti tema"
   },
   "footer": {
+    "toolkit": "Toolkit",
+    "toolkitTagline": "Libre nga in-browser nga ramit",
+    "toolkitAria": "Lukatan ti Abakada Toolkit (aglukat iti baro a tab)",
     "description": "Maysa a koleksion dagiti libre ken open-source a software tools para kadagiti Pilipino nga estudiante, iskolar, mannursuro, ken propesional.",
     "quickLinks": "Dagiti Napardas a Link",
     "allTools": "Amin a Ramit",

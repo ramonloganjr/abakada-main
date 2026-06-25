@@ -62,7 +62,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 | Tools | 1,288 (manually curated) |
 | Categories | 45+ |
 | Learning paths | 10 |
-| Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 863 keys each, full parity |
+| Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 871 keys each, full parity |
 | Prerendered HTML routes | 1,311 (13 static pages + 10 toolkits + 1,288 tools) |
 | Offline | Full PWA + on-demand downloadable learning packs |
 | Backend | None |
@@ -136,10 +136,24 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - 1,288 free and open-source tools across 45+ categories
 - Category-based filtering with sidebar navigation
 - Full-text search with debounce and result highlighting
+- **Real-time synchronized search**: the header and sidebar search bars share a single source of truth (`SearchContext`) — typing into or clearing either bar mirrors to the other instantly, with no submit or page reload required
 - Platform filters (Linux, macOS, Windows, Web, Android, iOS, self-hosted)
 - Tag filters (privacy, python, automation, fast, CLI, terminal, rust, …)
 - Per-tool detail page (`/tools/:id`) with FAQ schema, related tools, and JSON-LD `SoftwareApplication`
 - Featured Editor's Picks carousel on the home page
+
+</details>
+
+<details>
+<summary><b>Abakada Toolkit (cross-product discovery)</b></summary>
+<br/>
+
+- A native promotion of the companion **Abakada Toolkit** app at [toolkit.abakada.org](https://toolkit.abakada.org/), surfaced in two places without disrupting the primary conversion path:
+  - **Hero spotlight**: a compact, premium discovery card on the home hero with a theme-aware accent glow (teal in light, cyan in dark, via `color-mix`), a gradient icon chip, a "New" badge, and an "Explore" CTA — visually subordinate to the primary hero CTAs above it
+  - **Footer banner**: a teal **Toolkit** pill in the footer's Abakada column
+- Both links open in a new tab with `rel="noopener noreferrer"` and an accessible "opens in a new tab" label
+- Discoverability: listed in the HTML sitemap's **External Resources** section and as an absolute entry in `sitemap.xml`
+- Fully localized (`home.toolkit.*`, `footer.toolkit*`) across all four languages; respects `prefers-reduced-motion`, with a `@supports` fallback for browsers without `color-mix()`
 
 </details>
 
@@ -292,9 +306,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - **Two cache buckets**: a versioned app-shell cache (rotated each deploy) and a **durable `abakada-packs` bucket** for user-downloaded Offline Learning Packs that is never purged on release
 - `CACHE_NAME` is **auto-versioned at build time** from the content-hashed asset fingerprints (`scripts/version-sw.mjs`), so a deploy can never ship a stale shell — no manual bump required
 - Background sync for bookmark operations via IndexedDB queue
-- Install banner with platform-aware UX:
-  - iOS Safari: explicit "Tap Share → Add to Home Screen" instructions
-  - Android / Desktop Chrome / Edge: native `beforeinstallprompt` flow
+- App install via the header **Install App** button, shown only when the browser reports the app is installable (`usePWAInstall` over the native `beforeinstallprompt`). The earlier auto-popup "Add to Home Screen" banner has been retired in favor of this quieter, user-initiated entry point
 - SW update notification banner: only on genuine updates, not first install
 - Web App Manifest with shortcuts, icons, and screenshots
 
@@ -308,7 +320,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - Language switcher in header
 - URL-prefixed routes per language (`/`, `/tl`, `/ilo`, `/bis`, `/en`)
 - Translation files stored at `public/assets/data/translations/{en,tl,ilo,bis}.json`
-- **863 translation keys per language with full key parity** across all four files (verified by audit; zero missing keys, zero English leakage)
+- **871 translation keys per language with full key parity** across all four files (enforced by the `i18n-parity` unit test; zero missing keys, zero English leakage)
 - Full coverage of the newest modules — the Progress dashboard, guided micro-lessons, offline-pack UI, and Lite mode — translated natively, not machine-translated
 - Brand/proper nouns and standard PH tech terms (Windows, GitHub, MIT, "API Development", "XP") are deliberately kept in English
 - Complete Learning Paths module i18n: all UI strings in `LearningPaths.jsx`, `LearningPathDetail.jsx`, `CompletionCertificate.jsx`, and `OnboardingModal.jsx` wired through `t()`, no hardcoded English strings remain in the module
@@ -364,13 +376,13 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 
 - **Quick Links** column: All Tools · Bookmarks · Comparison Tools · Learning Paths · top categories
 - **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Partnership Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
-- **Abakada** column: About · Official Partners · Partnerships · Contact
+- **Abakada** column: About · Official Partners · Partnerships · Contact, plus a **Toolkit** promo banner (teal pill) linking out to the companion app at [toolkit.abakada.org](https://toolkit.abakada.org/)
 - **Featured In** strip: full-width press/media section below the column grid with theme-aware logo variants for GMA News Online, The Global Filipino Magazine, Walastech, and Bombo Radyo, each an external link (`target="_blank" rel="noopener noreferrer"`)
 - All link labels translated across en/tl/ilo/bis
 - Visitor count pill: improved contrast (medium font weight, accent-tinted icon, subtle filled background) showing total visitors and last update from `visitors.json`
 - Header language switcher includes BIS, ILO, TL, EN with native and BCP-47 `<html lang>` mapping
 - Header navigation includes a **My Progress** link (`/progress`) alongside Saved, Compare, and Learn
-- **Global header search** (all pages) with a one-click **clear (×) button** that appears while typing, wipes the query, and refocuses the input — colors are theme-token driven for legibility in both Light and Dark modes
+- **Global header search** (all pages) with a one-click **clear (×) button** that appears while typing, wipes the query, and refocuses the input — colors are theme-token driven for legibility in both Light and Dark modes. On the home desktop view the header and sidebar search bars are **synchronized in real time** through a shared `SearchContext` (single source of truth): editing or clearing either bar instantly updates the other
 - Learning Paths header icon adopts accent color when the current route is `/learning-paths` or any sub-path, using `useLocation` + `stripLangPrefix` for language-prefix-aware route matching; `aria-current="section"` set for screen readers
 - Theme-consistent iconography: the active-filter **"Clear filters"** control renders its icon in the same accent color as its label across both themes (icon drawn via a CSS `mask` so it inherits `currentColor`, fixing a dark-mode mismatch)
 
@@ -415,7 +427,7 @@ Public routes are prerendered at build time and lazy-loaded via `React.lazy`. Ea
 | `/partnerships` | Partnership tiers and stats | Auto-hide |
 | `/partnership-deck` | 10-slide presentation | Hidden |
 | `/official-partners` | Official partner logos: BetterGov PH, Vaultera Labs, ElevenLabs | Auto-hide |
-| `/sitemap` | HTML sitemap covering all 1,312 routes | Auto-hide |
+| `/sitemap` | HTML sitemap: all pages, features, and categories, plus an **External Resources** section (Abakada Toolkit, GitHub, OSI) | Auto-hide |
 
 > The `<html lang>` attribute, `og:locale`, and `hreflang` alternates update automatically per route and language.
 
@@ -431,9 +443,10 @@ public/assets/data/translations/
 └── bis.json   Bisaya / Cebuano (BCP-47: ceb)
 ```
 
-- **863 keys per language** with verified parity across all four files
-- Top-level groups: `meta`, `nav`, `hero`, `groups`, `categories`, `tools`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `progress`, `cta`, `breadcrumb`, `errors`, `glossary`, `deck`, `bookmarks`
+- **871 keys per language** with verified parity across all four files
+- Top-level groups: `meta`, `languages`, `nav`, `hero`, `home`, `trust`, `beginnerPicks`, `groups`, `categories`, `categoryDescriptions`, `tools`, `install`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `consent`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `cta`, `breadcrumb`, `errors`, `deck`, `bookmarks`, `glossary`, `progress`
 - Dynamic-prefix lookups: `groups.${id}`, `categories.${id}`, `learningPaths.role.${id}`, `learningPaths.${difficulty}`, `progress.level.${name}`, `progress.badge.${id}`
+- The home `Toolkit` spotlight and footer `Toolkit` banner are localized via `home.toolkit.*` and `footer.toolkit*`
 - Translations are authored editorially per language: no machine translation
 - Adding a new key requires updating all four files; CI verifies parity at build time
 
@@ -476,8 +489,8 @@ The site is built for traditional search engines (SEO), generative answer engine
 **Crawler-aware delivery:**
 
 - `sitemap.xml` regenerated on every build via `scripts/refresh-sitemap.js`
-  - 1,312 URLs total: 14 static + 10 toolkits + 1,288 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
-  - Each URL carries hreflang alternates for all four languages
+  - 1,313 URLs total: 14 static + 1 external (the Abakada Toolkit companion app) + 10 toolkits + 1,288 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
+  - Each internal URL carries hreflang alternates for all four languages; the external Toolkit URL is listed as an absolute `<loc>` with no hreflang
   - Image sitemap entry on the home route
 - `llms.txt` published at the site root summarizing site purpose and key URLs
 - `robots.txt` with per-bot rules: search retrievers allowed, training crawlers (GPTBot, CCBot, Claude-Web) blocked
@@ -508,15 +521,16 @@ The site is built for traditional search engines (SEO), generative answer engine
 
 | Chunk | Size |
 |:---|---:|
-| `vendor` (React + Router + Helmet) | 59.3 KB |
-| CSS (full design system) | 31.1 KB |
-| App entry (`index`) | 17.8 KB |
-| `PartnershipDeck` | 11.2 KB |
-| `LearningPathDetail` (stages + micro-lessons + offline) | 8.8 KB |
+| `vendor` (React + Router + Helmet) | 69.6 KB |
+| CSS (full design system) | 32.2 KB |
+| App entry (`index`, shell + contexts + header/footer) | 24.4 KB |
+| `PartnershipDeck` | 11.1 KB |
+| `LearningPathDetail` (stages + micro-lessons + offline) | 8.7 KB |
+| `Home` (directory, hero, filters, Toolkit spotlight) | 6.5 KB |
 | `Progress` (learner dashboard) | 5.2 KB |
 | `LearningPaths` | 4.5 KB |
 | Average page chunk | < 5 KB |
-| Total build time | ~1.8 s |
+| Total build time | ~2.1 s |
 
 ---
 
@@ -532,7 +546,7 @@ abakada.org/
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
 │   │   │   ├── curriculum.json           # DepEd K-12 and CHED strand definitions
 │   │   │   ├── visitors.json             # Updated hourly via GitHub Action
-│   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis) — 863 keys each
+│   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis) — 871 keys each
 │   │   ├── doc/                          # Downloadable documents (Pitch Deck PDF)
 │   │   ├── fonts/                        # Self-hosted Inter woff2 files
 │   │   ├── logo/                         # Favicons, OG image, brand logos
@@ -550,7 +564,7 @@ abakada.org/
 │   ├── site.webmanifest                  # PWA manifest
 │   └── sw.js                             # Service Worker
 ├── scripts/
-│   ├── refresh-sitemap.js                # prebuild: regenerates sitemap.xml from data
+│   ├── refresh-sitemap.js                # prebuild: regenerates sitemap.xml (static + external Toolkit + toolkits + tools)
 │   ├── build-search-index.mjs            # prebuild: writes tools-index.json
 │   ├── security-headers.mjs              # prebuild: generates headers artifacts
 │   ├── prerender-shells.js               # postbuild: writes 1,311 static HTML shells
@@ -564,15 +578,15 @@ abakada.org/
 │   │   ├── CompletionCertificate.jsx     # Printable/PDF certificate, unlocked at 100% LP progress
 │   │   ├── ErrorBoundary.jsx
 │   │   ├── FeaturedCarousel.jsx
-│   │   ├── Footer.jsx                    # Includes "Featured In" press strip + PRESS data
-│   │   ├── Header.jsx                    # Active-state accent on LP icon via useLocation
+│   │   ├── Footer.jsx                    # "Featured In" press strip + PRESS data + Toolkit promo banner
+│   │   ├── Header.jsx                    # Global search (shared SearchContext) + active-state accent on LP icon
 │   │   ├── Icon.jsx
 │   │   ├── LearningToolCard.jsx
 │   │   ├── MicroLesson.jsx               # Paced guided lesson with read-aloud (TTS)
 │   │   ├── OfflinePackButton.jsx         # Download/manage a path's offline pack
 │   │   ├── OnboardingModal.jsx
 │   │   ├── Pagination.jsx
-│   │   ├── PWAInstallBanner.jsx
+│   │   ├── PWAInstallBanner.jsx          # Retired auto-popup install banner (no longer mounted; install lives in Header)
 │   │   ├── SearchInput.jsx
 │   │   ├── SEO.jsx                       # react-helmet-async wrapper
 │   │   ├── Sidebar.jsx                   # Intelligent auto-hide rail / mobile drawer
@@ -583,6 +597,7 @@ abakada.org/
 │   │   ├── BookmarkContext.jsx
 │   │   ├── ComparisonContext.jsx
 │   │   ├── I18nContext.jsx               # Language detection, URL routing, translations
+│   │   ├── SearchContext.jsx             # Shared search state: header ⇄ sidebar single source of truth
 │   │   └── ThemeContext.jsx
 │   ├── hooks/
 │   │   ├── useComparison.js
@@ -591,7 +606,7 @@ abakada.org/
 │   │   ├── useProfile.js                  # Reactive XP/level/streak/badges/competencies
 │   │   ├── useProgress.js                 # Per-toolkit explored tools (feeds the profile)
 │   │   ├── usePWAInstall.js
-│   │   ├── useSearch.js
+│   │   ├── useSearch.js                    # Catalog scoring/filtering; debounces the shared SearchContext input
 │   │   └── useVisitorCount.js
 │   ├── lib/
 │   │   ├── canonical.js                  # SITE_ORIGIN, hreflang, language helpers

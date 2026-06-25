@@ -929,6 +929,63 @@ body.nav-open .sidebar {
   opacity: 1;
 }
 
+/* Toolkit promo banner — the teal "TOOLKIT" pill that sits in the Abakada footer
+   column. Uses the same accent + radius + spacing tokens as the rest of the
+   footer so it reads as a native promotional element. */
+.footer-toolkit {
+  display: inline-flex;
+  align-items: flex-start;
+  margin-top: var(--space-2);
+}
+
+.footer-toolkit__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent-primary);
+  color: var(--color-on-accent);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  box-shadow: 0 1px 3px rgba(16, 127, 135, 0.25);
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.footer-toolkit:hover .footer-toolkit__pill,
+.footer-toolkit:focus-visible .footer-toolkit__pill {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -4px rgba(16, 127, 135, 0.45);
+}
+
+.footer-toolkit:focus-visible {
+  outline: none;
+}
+
+.footer-toolkit:focus-visible .footer-toolkit__pill {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .footer-toolkit {
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-toolkit__pill {
+    transition: none;
+  }
+  .footer-toolkit:hover .footer-toolkit__pill,
+  .footer-toolkit:focus-visible .footer-toolkit__pill {
+    transform: none;
+  }
+}
+
 /* Featured In — press/media strip, full-width below the main columns */
 .footer-press {
   padding-top: var(--space-8);
