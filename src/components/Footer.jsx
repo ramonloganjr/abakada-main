@@ -8,6 +8,7 @@ import { useVisitorCount } from '../hooks/useVisitorCount'
 
 const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
 const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
+const TOOLKIT_URL = 'https://toolkit.abakada.org/'
 
 export default function Footer({ isStatic = false }) {
   const { appliedTheme } = useTheme()
@@ -117,6 +118,19 @@ export default function Footer({ isStatic = false }) {
                 <Link to="/partnerships" className="footer-link">{t('footer.partnerships', 'Partnerships')}</Link>
                 <Link to="/contact" className="footer-link">{t('footer.contact', 'Contact')}</Link>
               </nav>
+
+              {/* Toolkit promo banner — links out to the companion Abakada Toolkit
+                  app. Lives in the Abakada column so it reads as part of the
+                  product family rather than a standalone ad. */}
+              <a
+                href={TOOLKIT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-toolkit"
+                aria-label={t('footer.toolkitAria', 'Open the Abakada Toolkit (opens in a new tab)')}
+              >
+                <span className="footer-toolkit__pill">{t('footer.toolkit', 'Toolkit')}</span>
+              </a>
             </div>
           </div>
 

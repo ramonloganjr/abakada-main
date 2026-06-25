@@ -1,7 +1,7 @@
-import { useState, useCallback, useRef, useMemo } from 'react'
+import { useState, useCallback, useRef, useMemo, useEffect } from 'react'
+import { useSearchInput } from '../contexts/SearchContext'
 
 const DEBOUNCE_MS = 150
-const MAX_QUERY_LENGTH = 100
 const FUZZY_THRESHOLD = 0.72  // higher = stricter fuzzy, fewer false positives
 
 // Levenshtein similarity ratio between two strings
@@ -97,8 +97,13 @@ function scoreMatch(tool, queryWords, index) {
 }
 
 export function useSearch(tools) {
-  const [query, setQueryState] = useState('')
-  const [displayQuery, setDisplayQuery] = useState('')
+  // The raw input text lives in shared context so the header and sidebar search
+  // bars stay in lockstep (single source of truth). `query` below is the
+  // debounced, normalized form derived from it that actually drives scoring.
+  const { searchInput, setSearchInput } = useSearchInput()
+  const [query, setQueryState] = useState(
+    () => searchInput.trim().replace(/\s+/g, ' ').toLowerCase()
+  )
   const [category, setCategoryState] = useState('all')
   const [platforms, setPlatformsState] = useState([])
   const [tags, setTagsState] = useState([])
@@ -106,6 +111,21 @@ export function useSearch(tools) {
 
   // Rebuild index only when tools array reference changes (i.e. on load)
   const index = useMemo(() => buildIndex(tools), [tools])
+
+  // Debounce the shared raw input into the normalized search query. Both search
+  // bars write to `searchInput`, so this is the single place that derives `query`
+  // — keeping scoring off the keystroke path while results still update live.
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    const normalized = searchInput.trim().replace(/\s+/g, ' ').toLowerCase()
+    // Clearing resets results instantly, with no debounce gap.
+    if (!normalized) {
+      setQueryState('')
+      return undefined
+    }
+    debounceRef.current = setTimeout(() => setQueryState(normalized), DEBOUNCE_MS)
+    return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
+  }, [searchInput])
 
   const results = useMemo(() => {
     let filtered = tools
@@ -144,16 +164,11 @@ export function useSearch(tools) {
     return filtered
   }, [tools, query, category, platforms, tags, index])
 
+  // Writing through the shared setter keeps the header bar and sidebar bar in
+  // sync; sanitization and the debounce-into-`query` both happen downstream.
   const setQuery = useCallback((val) => {
-    // Strip control characters from user input before searching.
-    // eslint-disable-next-line no-control-regex
-    const raw = String(val || '').replace(/[\x00-\x1F\x7F]/g, '').slice(0, MAX_QUERY_LENGTH)
-    setDisplayQuery(raw)
-    if (debounceRef.current) clearTimeout(debounceRef.current)
-    debounceRef.current = setTimeout(() => {
-      setQueryState(raw.trim().replace(/\s+/g, ' ').toLowerCase())
-    }, DEBOUNCE_MS)
-  }, [])
+    setSearchInput(val)
+  }, [setSearchInput])
 
   const togglePlatform = useCallback((p) => {
     setPlatformsState(prev => prev.includes(p) ? prev.filter(x => x !== p) : [...prev, p])
@@ -165,21 +180,21 @@ export function useSearch(tools) {
 
   const resetAll = useCallback(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
+    setSearchInput('')
     setQueryState('')
-    setDisplayQuery('')
     setCategoryState('all')
     setPlatformsState([])
     setTagsState([])
-  }, [])
+  }, [setSearchInput])
 
-  // hasQuery uses displayQuery so the featured carousel hides immediately on typing,
-  // not after the debounce delay
-  const hasQuery = displayQuery.trim().length > 0
+  // hasQuery uses the raw input so the featured carousel hides immediately on
+  // typing, not after the debounce delay
+  const hasQuery = searchInput.trim().length > 0
   const hasActiveFilters = hasQuery || platforms.length > 0 || tags.length > 0 || category !== 'all'
 
   return {
     query,
-    displayQuery,
+    displayQuery: searchInput,
     category,
     platforms,
     tags,

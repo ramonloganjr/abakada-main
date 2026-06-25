@@ -41,6 +41,13 @@
     "ctaBrowse": "Tingnan lahat ng tool"
   },
   "home": {
+    "toolkit": {
+      "badge": "Bago",
+      "label": "Abakada Toolkit",
+      "desc": "Mga libreng in-browser na utility. Walang i-install, walang sign-up.",
+      "cta": "Tuklasin",
+      "aria": "Abakada Toolkit: mga libreng in-browser na utility. Bubukas sa bagong tab."
+    },
     "quickStart": {
       "aria": "I-personalize ang iyong simula",
       "prompt": "Bago dito? Sabihin mo kung ano ang ginagawa mo at gagabayan ka namin:",
@@ -279,6 +286,9 @@
     "toggle": "Palitan ang tema"
   },
   "footer": {
+    "toolkit": "Toolkit",
+    "toolkitTagline": "Mga libreng in-browser na utility",
+    "toolkitAria": "Buksan ang Abakada Toolkit (bubukas sa bagong tab)",
     "description": "Isang koleksyon ng mga libre at open-source na software tools para sa mga estudyante, iskolar, guro, at propesyonal na Pilipino.",
     "quickLinks": "Mga Mabilisang Link",
     "allTools": "Lahat ng Kagamitan",

@@ -71,6 +71,52 @@ const FEATURES = [
   },
 ]
 
+// External resources — companion apps and off-site links. Rendered as <a> tags
+// (not router <Link>s) since they leave the SPA. The Abakada Toolkit leads as the
+// primary companion product. Translation keys already exist under pages.sitemap.*
+// and home.toolkit.*, so every entry is fully localized.
+const TOOLKIT_URL = 'https://toolkit.abakada.org/'
+
+const EXTERNAL = [
+  {
+    href: TOOLKIT_URL,
+    titleKey: 'home.toolkit.label',
+    descKey: 'home.toolkit.desc',
+    title: 'Abakada Toolkit',
+    description: 'Free in-browser utilities. No installs, no sign-up.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'https://github.com/Abakada-org',
+    titleKey: 'pages.sitemap.github',
+    descKey: 'pages.sitemap.githubDesc',
+    title: 'GitHub Repository',
+    description: 'Contribute to the project',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'https://opensource.org',
+    titleKey: 'pages.sitemap.osi',
+    descKey: 'pages.sitemap.osiDesc',
+    title: 'Open Source Initiative',
+    description: 'Learn about open source',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    ),
+  },
+]
+
 // Top tool categories — IDs match `public/assets/data/tools.json` so anchors resolve.
 const CATEGORIES = [
   { to: '/#doc-processing', id: 'doc-processing', label: 'Document Processing' },
@@ -205,6 +251,40 @@ export default function Sitemap() {
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                   </svg>
                 </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="sitemap-section">
+            <div className="sitemap-section__header">
+              <div className="sitemap-section__icon sitemap-section__icon--features">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 className="sitemap-section__title">{t('pages.sitemap.externalTitle', 'External Resources')}</h2>
+                <p className="sitemap-section__subtitle">{t('pages.sitemap.externalSubtitle', 'Related links and community resources')}</p>
+              </div>
+            </div>
+            <div className="sitemap-grid sitemap-grid--pages">
+              {EXTERNAL.map(item => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sitemap-card"
+                >
+                  <div className="sitemap-card__icon">{item.icon}</div>
+                  <div className="sitemap-card__content">
+                    <p className="sitemap-card__title">{t(item.titleKey, item.title)}</p>
+                    <p className="sitemap-card__description">{t(item.descKey, item.description)}</p>
+                  </div>
+                  <svg className="sitemap-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
               ))}
             </div>
           </div>

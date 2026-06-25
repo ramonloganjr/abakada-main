@@ -54,7 +54,14 @@ const toolPages = (tools.tools || []).map((t) => ({
   lastmod: toolsMtime,
 }))
 
-const allRoutes = [...STATIC_ROUTES, ...toolkits, ...toolPages]
+// Companion app on a sibling subdomain (we own both hosts). Listed with an
+// absolute loc and no hreflang/image since it is a separate application with its
+// own routing and localization.
+const EXTERNAL_ROUTES = [
+  { loc: 'https://toolkit.abakada.org/', priority: '0.8', changefreq: 'weekly', lastmod: today, external: true },
+]
+
+const allRoutes = [...STATIC_ROUTES, ...EXTERNAL_ROUTES, ...toolkits, ...toolPages]
 
 const xmlEscape = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
@@ -65,6 +72,14 @@ const renderHreflang = (path) =>
   ).join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}${path}"/>`
 
 const renderUrl = (r) => {
+  if (r.external) {
+    return `  <url>
+    <loc>${r.loc}</loc>
+    <lastmod>${r.lastmod}</lastmod>
+    <changefreq>${r.changefreq}</changefreq>
+    <priority>${r.priority}</priority>
+  </url>`
+  }
   const loc = `${DOMAIN}${r.path}`
   const image = r.image
     ? `\n    <image:image>\n      <image:loc>${DOMAIN}/assets/logo/og.png</image:loc>\n      <image:title>${xmlEscape("Abakada: Free Open-Source Tools for Filipino Students & Educators")}</image:title>\n    </image:image>`
@@ -92,4 +107,4 @@ const outPath = resolve(ROOT, 'public/sitemap.xml')
 writeFileSync(outPath, xml, 'utf8')
 
 console.log(`[sitemap] wrote ${allRoutes.length} URLs to ${outPath}`)
-console.log(`  static: ${STATIC_ROUTES.length}, toolkits: ${toolkits.length}, tools: ${toolPages.length}`)
+console.log(`  static: ${STATIC_ROUTES.length}, external: ${EXTERNAL_ROUTES.length}, toolkits: ${toolkits.length}, tools: ${toolPages.length}`)
