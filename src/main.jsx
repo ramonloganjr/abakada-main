@@ -54,6 +54,18 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   }
 }
 
+// Normalize direct hits on prerendered shell URLs (e.g. "/glossary/index.html"
+// produced by static hosts, crawlers, copy-pasted paths, or Lighthouse's static
+// server) to their clean route BEFORE React Router initializes. Otherwise the SPA
+// can't match the trailing "/index.html", falls through to NotFound, and NotFound
+// injects a conflicting /404 canonical + noindex — a real SEO regression on those
+// URLs. Running pre-mount means the router sees the clean path from the first
+// render, with no NotFound flash.
+if (location.pathname.endsWith('/index.html')) {
+  const clean = location.pathname.replace(/\/index\.html$/, '') || '/'
+  window.history.replaceState(window.history.state, '', clean + location.search + location.hash)
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
