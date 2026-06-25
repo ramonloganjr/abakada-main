@@ -219,8 +219,9 @@ export function computeProfile({
   })
 
   // "Continue learning": prefer the most recently touched, still-unfinished path;
-  // otherwise the started path closest to completion.
-  let continuePath = null
+  // otherwise the started path closest to completion. (No initial value: both
+  // branches below assign it before it is read — keeps no-useless-assignment happy.)
+  let continuePath
   const byId = (/** @type {string} */ id) => perPath.find((p) => p.id === id)
   const recent = recentToolkit ? byId(recentToolkit) : null
   if (recent && recent.started && !recent.completed) {
