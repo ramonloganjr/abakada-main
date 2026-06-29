@@ -2219,6 +2219,7 @@
 }
 
 .featured-progress__dot {
+  position: relative;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -2227,6 +2228,20 @@
   padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Enlarge the tap target to meet WCAG 2.5.8 (24px min) on touch without
+   altering the visual dot or its spacing: a transparent overlay extends the
+   clickable area vertically and halfway into each adjacent gap, so neighbouring
+   dots' targets meet but never overlap. Out of flow, so no layout shift. */
+.featured-progress__dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + var(--space-2));
+  height: 24px;
 }
 
 .featured-progress__dot:hover {
