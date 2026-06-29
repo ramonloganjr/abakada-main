@@ -27,4 +27,12 @@ export const PRESS = [
     logoDark:  '/assets/press/bombo-radyo-dark.png',
     url: 'https://tuguegarao.bomboradyo.com/ofw-developer-naglunsad-ng-libreng-software-hub-para-sa-mga-estudyanteng-pilipino/',
   },
+  {
+    // Full-color SVG wordmark (carries its own deep-blue field), so the single
+    // asset reads correctly in both themes — no light/dark variants needed.
+    name: 'DZMM TeleRadyo',
+    logoLight: '/assets/press/dzmm-teleradyo.svg',
+    logoDark:  '/assets/press/dzmm-teleradyo.svg',
+    url: 'https://youtu.be/fQoZbmdiYhc?t=19772',
+  },
 ]
