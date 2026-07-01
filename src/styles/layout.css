@@ -51,8 +51,12 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  min-width: 0;
-  flex: 1;
+  /* Grow to push the search into the middle, but never shrink below the logo:
+     a min-width:0 here let the flexible search collapse .header-left past the
+     brand mark, so the logo overflowed and was painted over by the search box
+     (clipping "Abakada.org" to "Abak"). Default min-width:auto keeps its
+     min-content — the logo — intact at every width. */
+  flex: 1 1 auto;
 }
 
 @media (max-width: 480px) {
@@ -68,6 +72,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   transition: all var(--transition-fast);
@@ -106,6 +111,7 @@ body.nav-open .menu-toggle__icon--close {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  flex-shrink: 0; /* brand mark stays whole; the search absorbs any width squeeze */
   font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   transition: opacity var(--transition-fast);
@@ -115,10 +121,15 @@ body.nav-open .menu-toggle__icon--close {
   opacity: 0.8;
 }
 
+/* Vector wordmark (~5.73:1). Fixed height + width:auto lets the width follow the
+   SVG's real aspect ratio; object-fit:contain guarantees it is never distorted,
+   and the max-width caps its footprint so it can't crowd the header (it scales
+   down to fit, never clips). */
 .nav__logo-img {
+  display: block;
   height: 36px;
   width: auto;
-  max-width: 200px;
+  max-width: 210px;
   object-fit: contain;
 }
 
@@ -589,6 +600,52 @@ body.nav-open .sidebar {
     justify-content: center;
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+/* ==========================================================================
+   Non-home sidebar rail — tablet & desktop (>=768px)
+   --------------------------------------------------------------------------
+   On non-home pages (body.static-page) the category sidebar is an expanded-by-
+   default rail from tablet width up. It overlays the content (static pages keep
+   .site-main margin-left: 0) and is dismissed on outside-click / Escape by the
+   handler in App.jsx, then reopened via the edge tab. Everything here is scoped
+   to .static-page so the homepage keeps its own behavior untouched: a persistent
+   rail at >=1024px and the off-canvas drawer below it. Phones (<768px) fall
+   through to the .nav-open drawer for non-home pages too.
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* Expanded by default */
+  body.static-page .sidebar {
+    transform: translateX(0);
+  }
+
+  /* Collapsed — slide the rail off-canvas */
+  body.static-page.sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* Rail controls replace the mobile hamburger from tablet up */
+  body.static-page .sidebar__collapse-btn {
+    display: flex;
+  }
+
+  body.static-page .sidebar__reopen-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.static-page .menu-toggle {
+    display: none;
+  }
+
+  /* No dimming overlay for the rail; it only matters if the drawer was left
+     open across a resize past 768px. */
+  body.static-page .nav-overlay {
+    display: none;
   }
 }
 

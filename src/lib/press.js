@@ -35,4 +35,10 @@ export const PRESS = [
     logoDark:  '/assets/press/dzmm-teleradyo.svg',
     url: 'https://youtu.be/fQoZbmdiYhc?t=19772',
   },
+  {
+    name: 'TechNode Global',
+    logoLight: '/assets/press/tnglobal-logo-light.png',
+    logoDark:  '/assets/press/tnglobal-logo-dark.png',
+    url: 'https://technode.global/2026/05/20/the-software-gap-in-philippine-education-and-what-open-source-can-do-about-it/',
+  },
 ]

@@ -62,7 +62,10 @@ function AppContent() {
   const [loading, setLoading] = useState(true)
   const [fetchError, setFetchError] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(true)
+  // Non-home pages open with the sidebar rail expanded on tablet/desktop
+  // (>=768px) — see the route-change effect below. On phones (<768px) the
+  // off-canvas drawer (navOpen) governs visibility, so this value is inert there.
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [showOnboarding, setShowOnboarding] = useState(false)
   const [swUpdateReady, setSwUpdateReady] = useState(false)
   const location = useLocation()
@@ -131,8 +134,14 @@ function AppContent() {
     loadTools()
   }, [])
 
-  // Close nav on route change
-  useEffect(() => { setNavOpen(false) }, [location.pathname])
+  // Close the mobile drawer on route change. Clear both the state and the body
+  // class: quick-action links (Bookmarks/Compare/…) navigate without going
+  // through closeNav, so without this the nav-open class could linger and leave
+  // the drawer stuck open after a selection.
+  useEffect(() => {
+    setNavOpen(false)
+    document.body.classList.remove('nav-open')
+  }, [location.pathname])
 
   // Lite mode: a low-data / low-end-device experience. The body class lets CSS
   // drop the featured carousel, decorative backgrounds, blur and large motion.
@@ -197,20 +206,21 @@ function AppContent() {
     return () => document.body.classList.remove('static-page')
   }, [isHome])
 
-  // Intelligent dismissal for the desktop static-page sidebar: once the user
-  // expands it, treat it as a temporary drawer. Clicking/tapping into the main
-  // content area (anywhere outside the sidebar) or pressing Escape collapses it
-  // again — the same click-outside pattern the mobile nav overlay already uses,
-  // so behavior stays consistent across breakpoints. Below 1024px the sidebar is
-  // the off-canvas drawer driven by nav-open, so we gate this to desktop.
+  // Intelligent dismissal for the tablet/desktop static-page sidebar rail: it
+  // opens expanded by default, then behaves as a temporary drawer. Clicking or
+  // tapping into the main content area (anywhere outside the sidebar) or pressing
+  // Escape collapses it — the same dismiss-on-outside pattern the mobile drawer
+  // uses, so behavior stays consistent across breakpoints. Below 768px the
+  // sidebar is the off-canvas drawer driven by nav-open, so we gate this to the
+  // rail viewport (>=768px).
   useEffect(() => {
     if (!isStaticSidebarPage || sidebarCollapsed) return
 
-    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches
-    if (!isDesktop()) return
+    const isRailViewport = () => window.matchMedia('(min-width: 768px)').matches
+    if (!isRailViewport()) return
 
     const handlePointerDown = (e) => {
-      if (!isDesktop()) return
+      if (!isRailViewport()) return
       const sidebar = document.getElementById('sidebar')
       // Ignore interactions inside the sidebar (incl. its collapse control).
       if (sidebar && sidebar.contains(e.target)) return
@@ -228,10 +238,12 @@ function AppContent() {
     }
   }, [isStaticSidebarPage, sidebarCollapsed])
 
-  // Collapse the static-page sidebar drawer whenever the route changes so each
-  // page opens in the clean, distraction-free default state.
+  // Expand the static-page sidebar rail whenever the route changes so each
+  // non-home page opens with navigation visible on tablet/desktop (>=768px).
+  // On phones (<768px) the rail is hidden and the off-canvas drawer governs
+  // visibility, so this expanded default is inert there.
   useEffect(() => {
-    setSidebarCollapsed(true)
+    setSidebarCollapsed(false)
   }, [normalizedPath])
 
   function toggleNav() {

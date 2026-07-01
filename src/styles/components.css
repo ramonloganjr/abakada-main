@@ -1278,6 +1278,24 @@
 @media (max-width: 640px) {
   .quick-start__inner { padding-right: var(--space-5); }
   .quick-start__dismiss { position: static; margin-left: auto; }
+  /* Give the prompt and the choices their own full-width rows so neither gets
+     squeezed onto a shared line as the strip narrows. */
+  .quick-start__prompt,
+  .quick-start__choices { flex-basis: 100%; }
+}
+
+@media (max-width: 440px) {
+  /* Tidy two-up grid: chips share the row evenly, a lone chip fills the row,
+     and "See all options" drops to its own centered row. Keeps a clear visual
+     hierarchy instead of ragged, mismatched chip widths on small phones. */
+  .quick-start__chip {
+    flex: 1 1 calc(50% - var(--space-2));
+    justify-content: center;
+  }
+  .quick-start__more {
+    flex-basis: 100%;
+    text-align: center;
+  }
 }
 
 /* ==========================================================================
