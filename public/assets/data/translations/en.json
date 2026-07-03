@@ -12,6 +12,8 @@
     "bis": "Bisaya"
   },
   "nav": {
+    "guide": "Platform Guide",
+    "guideShort": "Guide",
     "home": "Home",
     "tools": "Tools",
     "about": "About",
@@ -286,6 +288,7 @@
     "toggle": "Toggle theme"
   },
   "footer": {
+    "guide": "Platform Guide",
     "toolkit": "Toolkit",
     "toolkitTagline": "Free in-browser utilities",
     "toolkitAria": "Open the Abakada Toolkit (opens in a new tab)",
@@ -333,6 +336,7 @@
     "error": "An error occurred"
   },
   "common": {
+    "readGuide": "Read the Platform Guide",
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
@@ -575,7 +579,13 @@
       "heroTitle": "Privacy Policy",
       "lastUpdated": "Last updated"
     },
+    "guide": {
+      "heroTitle": "Platform Guide",
+      "heroSubtitle": "Everything you need to understand and use Abakada with confidence, from your first visit to advanced workflows. Plain language, no technical background required.",
+      "searchPlaceholder": "Search the guide..."
+    },
     "faq": {
+      "guideCallout": "New to Abakada? The Platform Guide explains everything step by step, from your first visit to offline classrooms.",
       "title": "FAQ",
       "pageTitle": "FAQ - Abakada | Frequently Asked Questions",
       "heroTitle": "Frequently Asked Questions",
@@ -887,6 +897,7 @@
     "getInTouch": "Get in Touch"
   },
   "breadcrumb": {
+    "guide": "Platform Guide",
     "home": "Home",
     "about": "About Us",
     "contact": "Contact",
@@ -998,6 +1009,7 @@
     "heroSubtitle": "Definitions of common open-source, licensing, and productivity terms used on Abakada."
   },
   "progress": {
+    "guideHint": "New here? The Platform Guide explains every feature in plain language, from learning paths to offline packs.",
     "title": "My Learning Journey",
     "subtitle": "Everything here is stored privately on this device. No account, no sign-in.",
     "breadcrumb": "My Progress",

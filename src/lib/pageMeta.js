@@ -249,6 +249,17 @@ export const pageMeta = {
     ]),
   },
 
+  guide: {
+    title: 'Platform Guide: How to Use Abakada',
+    description:
+      'The complete user guide to Abakada: getting started, learning paths, the Toolkit, offline use, roles, workflows, troubleshooting, and support. Plain language.',
+    pathname: '/guide',
+    jsonLd: breadcrumb([
+      { name: 'Home', path: '/' },
+      { name: 'Platform Guide', path: '/guide' },
+    ]),
+  },
+
   glossary: {
     title: 'Glossary: Open-Source, Licensing & Productivity Terms',
     description:

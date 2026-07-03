@@ -12,6 +12,8 @@
     "bis": "Bisaya"
   },
   "nav": {
+    "guide": "Gabay sa Platform",
+    "guideShort": "Gabay",
     "home": "Tahanan",
     "tools": "Mga Kagamitan",
     "about": "Tungkol Sa",
@@ -286,6 +288,7 @@
     "toggle": "Palitan ang tema"
   },
   "footer": {
+    "guide": "Gabay sa Platform",
     "toolkit": "Toolkit",
     "toolkitTagline": "Mga libreng in-browser na utility",
     "toolkitAria": "Buksan ang Abakada Toolkit (bubukas sa bagong tab)",
@@ -333,6 +336,7 @@
     "error": "May naganap na error"
   },
   "common": {
+    "readGuide": "Basahin ang Gabay sa Platform",
     "loading": "Naglo-load...",
     "error": "Error",
     "success": "Tagumpay",
@@ -575,7 +579,13 @@
       "heroTitle": "Patakaran sa Pagkapribado",
       "lastUpdated": "Huling na-update"
     },
+    "guide": {
+      "heroTitle": "Gabay sa Platform",
+      "heroSubtitle": "Lahat ng kailangan mo para maunawaan at magamit nang may kumpiyansa ang Abakada, mula sa unang pagbisita hanggang sa mas malalim na paggamit. Simpleng wika, hindi kailangan ng teknikal na kaalaman.",
+      "searchPlaceholder": "Maghanap sa gabay..."
+    },
     "faq": {
+      "guideCallout": "Bago ka sa Abakada? Ipinapaliwanag ng Gabay sa Platform ang lahat nang hakbang-hakbang, mula sa unang pagbisita hanggang sa offline na paggamit sa silid-aralan.",
       "title": "Mga Madalas Itanong",
       "pageTitle": "Mga Madalas Itanong - Abakada",
       "heroTitle": "Mga Madalas Itanong",
@@ -887,6 +897,7 @@
     "getInTouch": "Makipag-ugnayan"
   },
   "breadcrumb": {
+    "guide": "Gabay sa Platform",
     "home": "Tahanan",
     "about": "Tungkol Sa Amin",
     "contact": "Makipag-ugnayan",
@@ -998,6 +1009,7 @@
     "heroSubtitle": "Mga kahulugan ng mga karaniwang open-source, lisensya, at produktibidad na termino na ginagamit sa Abakada."
   },
   "progress": {
+    "guideHint": "Bago ka rito? Ipinapaliwanag ng Gabay sa Platform ang bawat feature sa simpleng wika, mula sa learning paths hanggang sa offline packs.",
     "title": "Ang Aking Paglalakbay sa Pag-aaral",
     "subtitle": "Lahat dito ay nakaimbak nang pribado sa device na ito. Walang account, walang sign-in.",
     "breadcrumb": "Aking Progreso",

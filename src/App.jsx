@@ -34,6 +34,7 @@ const LearningPathDetail = lazy(() => import('./pages/LearningPathDetail'))
 const OfficialPartners = lazy(() => import('./pages/OfficialPartners'))
 const ToolDetail = lazy(() => import('./pages/ToolDetail'))
 const Glossary = lazy(() => import('./pages/Glossary'))
+const Guide = lazy(() => import('./pages/Guide'))
 const Educators = lazy(() => import('./pages/Educators'))
 const Students = lazy(() => import('./pages/Students'))
 const Progress = lazy(() => import('./pages/Progress'))
@@ -179,7 +180,7 @@ function AppContent() {
   // collapsed-by-default rail. Tool-detail and learning-path-detail pages are
   // included so the rail stays off-screen by default instead of overlaying their
   // full-width content (which has no sidebar margin on non-home routes).
-  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths', '/educators', '/students', '/progress']
+  const STATIC_SIDEBAR_PATHS = ['/faq', '/privacy', '/terms', '/glossary', '/guide', '/sitemap', '/about', '/official-partners', '/partnerships', '/contact', '/bookmarks', '/compare', '/learning-paths', '/educators', '/students', '/progress']
   const isStaticSidebarPage =
     STATIC_SIDEBAR_PATHS.includes(normalizedPath) ||
     normalizedPath.startsWith('/learning-paths/') ||
@@ -380,6 +381,7 @@ function AppContent() {
                   <Route path="learning-paths/:toolkitId" element={<LearningPathDetail toolsData={toolsData} />} />
                   <Route path="tools/:toolId" element={<ToolDetail toolsData={toolsData} hasToolsData={toolsData.tools.length > 0} />} />
                   <Route path="glossary" element={<Glossary />} />
+                  <Route path="guide" element={<Guide />} />
                   <Route path="educators" element={<Educators toolsData={toolsData} />} />
                   <Route path="students" element={<Students toolsData={toolsData} />} />
                   <Route path="progress" element={<Progress toolsData={toolsData} />} />

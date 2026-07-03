@@ -290,6 +290,17 @@ export default function Progress({ toolsData = { tools: [], categories: [] } }) 
               </div>
             </div>
 
+            {/* Contextual pointer to the documentation center */}
+            <div className="guide-callout">
+              <p className="guide-callout__text">
+                {t('progress.guideHint', 'New here? The Platform Guide explains every feature in plain language, from learning paths to offline packs.')}
+              </p>
+              <Link to="/guide" className="guide-callout__cta">
+                <Icon name="book-open-text" collection="category" size={16} />
+                {t('common.readGuide', 'Read the Platform Guide')}
+              </Link>
+            </div>
+
           </div>
         </section>
       </StaticPageLayout>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useI18n } from '../contexts/I18nContext'
 import StaticPageLayout from '../components/StaticPageLayout'
 import SEO from '../components/SEO'
+import Icon from '../components/Icon'
 import { pageMeta } from '../lib/pageMeta'
 
 const FAQ_ITEMS = [
@@ -55,6 +56,16 @@ export default function FAQ() {
     >
       <section className="content-section">
         <div className="container">
+          {/* Contextual pointer to the full documentation center */}
+          <div className="guide-callout">
+            <p className="guide-callout__text">
+              {t('pages.faq.guideCallout', 'New to Abakada? The Platform Guide explains everything step by step, from your first visit to offline classrooms.')}
+            </p>
+            <Link to="/guide" className="guide-callout__cta">
+              <Icon name="book-open-text" collection="category" size={16} />
+              {t('common.readGuide', 'Read the Platform Guide')}
+            </Link>
+          </div>
           <div className="faq-grid">
             {FAQ_ITEMS.map((item, i) => (
               <div key={i} className="faq-item">

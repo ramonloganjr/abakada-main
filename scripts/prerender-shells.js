@@ -43,6 +43,7 @@ const STATIC_PAGES = [
   { path: '/compare', title: 'Compare Open-Source Tools | Abakada', description: 'Side-by-side comparison of free open-source tools: features, platforms, licenses, and use cases. Pick the right tool for your workflow.' },
   { path: '/sitemap', title: 'HTML Sitemap | Abakada', description: 'Browse all Abakada pages: tools, learning paths, FAQ, about, partnerships, and more.' },
   { path: '/glossary', title: 'Glossary: Open-Source, Licensing & Productivity Terms | Abakada', description: 'Definitions of common terms used on Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more.' },
+  { path: '/guide', title: 'Platform Guide: How to Use Abakada', description: 'The complete user guide to Abakada: getting started, learning paths, the Toolkit, offline use, roles, workflows, troubleshooting, and support. Plain language.' },
   { path: '/terms', title: 'Terms of Use | Abakada.org', description: 'Terms of Use governing access to Abakada.org: intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law.' },
 ]
 

@@ -88,6 +88,7 @@ export default function Footer({ isStatic = false }) {
               <nav className="footer-links">
                 <Link to="/educators" className="footer-link">{t('footer.educators', 'For Educators')}</Link>
                 <Link to="/students" className="footer-link">{t('footer.students', 'For Students')}</Link>
+                <Link to="/guide" className="footer-link">{t('footer.guide', 'Platform Guide')}</Link>
                 <Link to="/faq" className="footer-link">{t('footer.faq', 'Frequently Asked Questions')}</Link>
                 <Link to="/glossary" className="footer-link">{t('footer.glossary', 'Glossary')}</Link>
                 <a href="https://github.com/Abakada-org" target="_blank" rel="noopener" className="footer-link">{t('footer.contribute', 'Contribute on GitHub')}</a>

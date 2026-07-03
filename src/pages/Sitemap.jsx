@@ -13,6 +13,7 @@ const PAGES = [
   { to: '/partnerships', titleKey: 'pages.sitemap.pages.partnerships.title', descKey: 'pages.sitemap.pages.partnerships.desc', title: 'Partnerships', description: 'Partner with Abakada' },
   { to: '/partnership-deck', titleKey: 'pages.sitemap.pages.partnershipDeck.title', descKey: 'pages.sitemap.pages.partnershipDeck.desc', title: 'Partnership Deck', description: 'Full presentation deck for prospective partners' },
   { to: '/contact', titleKey: 'pages.sitemap.pages.contact.title', descKey: 'pages.sitemap.pages.contact.desc', title: 'Contact', description: 'Get in touch with the team' },
+  { to: '/guide', titleKey: 'pages.sitemap.pages.guide.title', descKey: 'pages.sitemap.pages.guide.desc', title: 'Platform Guide', description: 'The complete guide to understanding and using the platform' },
   { to: '/faq', titleKey: 'pages.sitemap.pages.faq.title', descKey: 'pages.sitemap.pages.faq.desc', title: 'FAQ', description: 'Frequently asked questions' },
   { to: '/glossary', titleKey: 'pages.sitemap.pages.glossary.title', descKey: 'pages.sitemap.pages.glossary.desc', title: 'Glossary', description: 'Open-source, licensing, and productivity definitions' },
   { to: '/privacy', titleKey: 'pages.sitemap.pages.privacy.title', descKey: 'pages.sitemap.pages.privacy.desc', title: 'Privacy Policy', description: 'How we handle your data' },

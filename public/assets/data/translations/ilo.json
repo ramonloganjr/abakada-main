@@ -12,6 +12,8 @@
     "bis": "Bisaya"
   },
   "nav": {
+    "guide": "Giya iti Platform",
+    "guideShort": "Giya",
     "home": "Pagtaengan",
     "tools": "Dagiti Ramit",
     "about": "Maipapan",
@@ -286,6 +288,7 @@
     "toggle": "Sukatan ti tema"
   },
   "footer": {
+    "guide": "Giya iti Platform",
     "toolkit": "Toolkit",
     "toolkitTagline": "Libre nga in-browser nga ramit",
     "toolkitAria": "Lukatan ti Abakada Toolkit (aglukat iti baro a tab)",
@@ -333,6 +336,7 @@
     "error": "Adda napasamak a biddut"
   },
   "common": {
+    "readGuide": "Basaen ti Giya iti Platform",
     "loading": "Agkarkarga...",
     "error": "Biddut",
     "success": "Naballigi",
@@ -575,7 +579,13 @@
       "heroTitle": "Pagannurotan ti Pribado",
       "lastUpdated": "Naudi a na-update"
     },
+    "guide": {
+      "heroTitle": "Giya iti Platform",
+      "heroSubtitle": "Amin a masapulmo tapno maawatan ken mausar ti Abakada a sitatalged, manipud iti umuna a panagsarungkarmo agingga kadagiti naun-uneg a wagas ti panagusar. Nalaka a pagsasao, saan a kasapulan ti teknikal a pannakaammo.",
+      "searchPlaceholder": "Agbirok iti giya..."
+    },
     "faq": {
+      "guideCallout": "Baro ka iti Abakada? Ilawlawag ti Giya iti Platform ti amin iti tunggal addang, manipud iti umuna a panagsarungkar agingga iti offline a panagusar iti eskuelaan.",
       "title": "Masansan a Saludsod",
       "pageTitle": "Masansan a Saludsod - Abakada",
       "heroTitle": "Masansan a Saludsod",
@@ -887,6 +897,7 @@
     "getInTouch": "Makiuman Kadakami"
   },
   "breadcrumb": {
+    "guide": "Giya iti Platform",
     "home": "Pagtaengan",
     "about": "Maipapan Kadakami",
     "contact": "Makiuman",
@@ -998,6 +1009,7 @@
     "heroSubtitle": "Dagiti kahulugan ti gagangay nga open-source, panangilisensia, ken produktibidad a sao a maus-usar idiay Abakada."
   },
   "progress": {
+    "guideHint": "Baro ka ditoy? Ilawlawag ti Giya iti Platform ti tunggal feature iti nalaka a pagsasao, manipud kadagiti learning path agingga kadagiti offline pack.",
     "title": "Ti Dalanko iti Panagadal",
     "subtitle": "Amin ditoy ket naidulin a pribado iti daytoy a device. Awan account, awan sign-in.",
     "breadcrumb": "Ti Panagdur-asko",

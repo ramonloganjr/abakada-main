@@ -12,6 +12,8 @@
     "bis": "Bisaya"
   },
   "nav": {
+    "guide": "Giya sa Platform",
+    "guideShort": "Giya",
     "home": "Panimalay",
     "tools": "Mga Gamit",
     "about": "Mahitungod",
@@ -286,6 +288,7 @@
     "toggle": "Usba ang tema"
   },
   "footer": {
+    "guide": "Giya sa Platform",
     "toolkit": "Toolkit",
     "toolkitTagline": "Libre nga in-browser nga mga gamit",
     "toolkitAria": "Ablihi ang Abakada Toolkit (mabuksan sa bag-ong tab)",
@@ -333,6 +336,7 @@
     "error": "Adunay nahitabo nga sayop"
   },
   "common": {
+    "readGuide": "Basaha ang Giya sa Platform",
     "loading": "Nagkarga...",
     "error": "Sayop",
     "success": "Malampuson",
@@ -575,7 +579,13 @@
       "heroTitle": "Palisiya sa Pribado",
       "lastUpdated": "Kataposang gi-update"
     },
+    "guide": {
+      "heroTitle": "Giya sa Platform",
+      "heroSubtitle": "Tanan nga imong gikinahanglan aron masabtan ug magamit ang Abakada nga adunay kompiyansa, gikan sa imong unang pagbisita hangtod sa mas lawom nga paggamit. Yano nga pinulongan, walay gikinahanglan nga teknikal nga kahibalo.",
+      "searchPlaceholder": "Pangitaa sa giya..."
+    },
     "faq": {
+      "guideCallout": "Bag-o ka sa Abakada? Gipasabot sa Giya sa Platform ang tanan sa matag lakang, gikan sa unang pagbisita hangtod sa offline nga paggamit sa klasehanan.",
       "title": "Kanunay Pangutan-on",
       "pageTitle": "Kanunay Pangutan-on - Abakada",
       "heroTitle": "Kanunay Pangutan-on",
@@ -887,6 +897,7 @@
     "getInTouch": "Kontaka Kami"
   },
   "breadcrumb": {
+    "guide": "Giya sa Platform",
     "home": "Panimalay",
     "about": "Mahitungod Kanamo",
     "contact": "Kontaka",
@@ -998,6 +1009,7 @@
     "heroSubtitle": "Mga kahulogan sa kasagaran nga open-source, paglisensya, ug produktibidad nga mga termino nga gigamit sa Abakada."
   },
   "progress": {
+    "guideHint": "Bag-o ka dinhi? Gipasabot sa Giya sa Platform ang matag feature sa yano nga pinulongan, gikan sa mga learning path hangtod sa mga offline pack.",
     "title": "Akong Paglalakbay sa Pagkat-on",
     "subtitle": "Tanan dinhi gitipigan nga pribado niini nga device. Walay account, walay sign-in.",
     "breadcrumb": "Akong Pag-uswag",

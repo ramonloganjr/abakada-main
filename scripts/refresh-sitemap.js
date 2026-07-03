@@ -30,6 +30,7 @@ const STATIC_ROUTES = [
   { path: '/educators', priority: '0.8', changefreq: 'monthly', lastmod: today },
   { path: '/students', priority: '0.8', changefreq: 'monthly', lastmod: today },
   { path: '/glossary', priority: '0.7', changefreq: 'monthly', lastmod: today },
+  { path: '/guide', priority: '0.8', changefreq: 'monthly', lastmod: today },
   { path: '/partnerships', priority: '0.7', changefreq: 'monthly', lastmod: today },
   { path: '/official-partners', priority: '0.7', changefreq: 'monthly', lastmod: today },
   { path: '/faq', priority: '0.7', changefreq: 'monthly', lastmod: today },

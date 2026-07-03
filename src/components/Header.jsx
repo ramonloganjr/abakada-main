@@ -36,6 +36,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
   const normalizedPath = stripLangPrefix(location.pathname)
   const isOnLearningPaths = normalizedPath === '/learning-paths' || normalizedPath.startsWith('/learning-paths/')
   const isOnProgress = normalizedPath === '/progress'
+  const isOnGuide = normalizedPath === '/guide'
 
   // Close the language dropdown on outside click / Escape, kept in sync with React
   // state so the trigger button always reflects the real open/closed state.
@@ -149,6 +150,16 @@ export default function Header({ onMenuToggle, navOpen = false }) {
           >
             <Icon name="graduation-cap" collection="category" size={18} />
             <span className="header-nav-btn__label">{t('nav.learningPathsShort', 'Learn')}</span>
+          </Link>
+          <Link
+            to="/guide"
+            className={`header-nav-btn${isOnGuide ? ' header-nav-btn--active' : ''}`}
+            title={t('nav.guide', 'Platform Guide')}
+            aria-label={t('nav.guide', 'Platform Guide')}
+            aria-current={isOnGuide ? 'page' : undefined}
+          >
+            <Icon name="book-open-text" collection="category" size={18} />
+            <span className="header-nav-btn__label">{t('nav.guideShort', 'Guide')}</span>
           </Link>
           <Link
             to="/progress"
