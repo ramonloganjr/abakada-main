@@ -6860,7 +6860,7 @@ a:focus-visible svg {
 .lpj-stage--open .lpj-stage__chevron { transform: rotate(180deg); }
 
 .lpj-stage__body {
-  padding: 0 var(--space-5) var(--space-5);
+  padding: var(--space-5);
   border-top: 1px solid var(--border-secondary);
   display: flex;
   flex-direction: column;
@@ -6868,9 +6868,6 @@ a:focus-visible svg {
 }
 /* Guard: ensure [hidden] overrides display:flex even if specificity fights */
 .lpj-stage__body[hidden] { display: none !important; }
-.lpj-block {
-  padding-top: var(--space-4);
-}
 .lpj-block__title {
   display: inline-flex;
   align-items: center;
@@ -9587,7 +9584,7 @@ a:focus-visible svg {
    ========================================================================== */
 .lpj-guided-launch {
   display: flex; align-items: center; gap: var(--space-3); width: 100%;
-  padding: var(--space-3) var(--space-4); margin-bottom: var(--space-4);
+  padding: var(--space-3) var(--space-4);
   background: var(--accent-subtle); border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg); cursor: pointer; text-align: left;
   transition: background var(--transition-fast), transform var(--transition-fast);
@@ -9600,7 +9597,7 @@ a:focus-visible svg {
 .lpj-guided-launch__count { flex-shrink: 0; font-size: var(--font-size-xs); color: var(--accent-primary); font-weight: var(--font-weight-semibold); }
 
 .micro-lesson {
-  margin-bottom: var(--space-4); padding: var(--space-4);
+  padding: var(--space-4);
   background: var(--bg-primary); border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
 }

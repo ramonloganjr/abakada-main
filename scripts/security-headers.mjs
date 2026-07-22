@@ -31,7 +31,7 @@ const directives = [
   ['style-src', "'self' 'unsafe-inline'"],
   ['img-src', "'self' data: https:"],
   ['font-src', "'self'"],
-  ['connect-src', "'self' https://www.google-analytics.com https://analytics.google.com"],
+  ['connect-src', "'self' https://www.google-analytics.com https://analytics.google.com https://www.google.com"],
   ['worker-src', "'self'"],
   ['manifest-src', "'self'"],
   ['object-src', "'none'"],

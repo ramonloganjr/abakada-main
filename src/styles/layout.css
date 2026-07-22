@@ -1064,7 +1064,8 @@ body.nav-open .sidebar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-8);
+  justify-content: center;
+  gap: var(--space-3) var(--space-6);
 }
 
 .footer-press__link {
@@ -1082,9 +1083,33 @@ body.nav-open .sidebar {
 }
 
 .footer-press__img {
-  height: 40px;
+  height: 30px;
   width: auto;
   display: block;
+}
+
+/* Desktop — all logos share a single row spanning the full row width, nav-bar
+   style: space-between spreads the leftover space out as even gaps between
+   logos (16px floor via `gap`) instead of leaving it clumped at one end,
+   so the row starts flush with the "Featured In" label and ends flush with
+   the container's right edge regardless of how many logos there are. Logos
+   keep their own natural (aspect-ratio-preserving) width — no forced equal
+   columns — since these logos vary too much in shape for equal-width slots
+   to look balanced. The home-page sidebar (see .site-footer's margin-left
+   above) leaves as little as ~696px for this row right at the 1024px floor,
+   so height is fluid: it sits at the 20px floor until the row has room to
+   grow, then scales up toward 28px as the container widens toward its
+   1200px cap. */
+@media (min-width: 1024px) {
+  .footer-press__logos {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .footer-press__img {
+    height: clamp(1.25rem, 1.8vw, 1.75rem);
+  }
 }
 
 @media (max-width: 640px) {
@@ -1093,12 +1118,11 @@ body.nav-open .sidebar {
   }
 
   .footer-press__logos {
-    justify-content: center;
-    gap: var(--space-4) var(--space-6);
+    gap: var(--space-4) var(--space-5);
   }
 
   .footer-press__img {
-    height: 32px;
+    height: 26px;
   }
 }
 

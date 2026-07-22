@@ -9,6 +9,7 @@ import { useVisitorCount } from '../hooks/useVisitorCount'
 const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
 const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
 const TOOLKIT_URL = 'https://toolkit.abakada.org/'
+const MERCH_URL = 'https://abakada-org-shop.fourthwall.com/'
 
 export default function Footer({ isStatic = false }) {
   const { appliedTheme } = useTheme()
@@ -118,6 +119,7 @@ export default function Footer({ isStatic = false }) {
                 <Link to="/official-partners" className="footer-link">{t('footer.officialPartners', 'Official Partners')}</Link>
                 <Link to="/partnerships" className="footer-link">{t('footer.partnerships', 'Partnerships')}</Link>
                 <Link to="/contact" className="footer-link">{t('footer.contact', 'Contact')}</Link>
+                <a href={MERCH_URL} target="_blank" rel="noopener noreferrer" className="footer-link">{t('footer.merch', 'Merch')}</a>
               </nav>
 
               {/* Toolkit promo banner — links out to the companion Abakada Toolkit

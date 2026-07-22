@@ -41,4 +41,10 @@ export const PRESS = [
     logoDark:  '/assets/press/tnglobal-logo-dark.png',
     url: 'https://technode.global/2026/05/20/the-software-gap-in-philippine-education-and-what-open-source-can-do-about-it/',
   },
+  {
+    name: 'In the Mix Magazine',
+    logoLight: '/assets/press/in-the-mix-magazine-light-background.png',
+    logoDark:  '/assets/press/in-the-mix-magazine-dark-background.png',
+    url: 'https://www.inthemixmagazine.online/post/abakadaorg-free-software-filipino-students',
+  },
 ]
