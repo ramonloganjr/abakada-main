@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Postbuild safety net for the CSP shipped in dist/.htaccess.
+// Postbuild safety net for the CSP Vercel serves, declared in vercel.json.
 //   • If script-src keeps 'unsafe-inline' (current GA-on-static-host mode), all
 //     inline scripts are allowed — we just confirm a CSP is present.
 //   • If 'unsafe-inline' is ever dropped (strict hash mode), every executable
@@ -11,13 +11,27 @@ import { dirname, resolve } from 'node:path'
 import { createHash } from 'node:crypto'
 import { extractExecutableInlineScripts } from './lib-inline-scripts.mjs'
 
-const DIST = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'dist')
-const htaccess = resolve(DIST, '.htaccess')
-const html = resolve(DIST, 'index.html')
-if (!existsSync(htaccess) || !existsSync(html)) { console.warn('[verify-csp] dist artifacts missing; skipping'); process.exit(0) }
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const vercelConfig = resolve(ROOT, 'vercel.json')
+const html = resolve(ROOT, 'dist', 'index.html')
 
-const csp = (readFileSync(htaccess, 'utf8').match(/Content-Security-Policy "([^"]*)"/) || ['', ''])[1]
-if (!csp) { console.error('[verify-csp] FAIL — no Content-Security-Policy in dist/.htaccess'); process.exit(1) }
+// Only the built HTML is optional here (this runs postbuild, but stays callable
+// on its own). vercel.json is committed and is the deployed policy, so a missing
+// or empty CSP there is a hard failure, never a skip — a silent skip is exactly
+// how a security net stops protecting anything.
+if (!existsSync(vercelConfig)) { console.error('[verify-csp] FAIL — vercel.json is missing'); process.exit(1) }
+if (!existsSync(html)) { console.warn('[verify-csp] dist/index.html missing; run a build first — skipping'); process.exit(0) }
+
+const csp = (() => {
+  const cfg = JSON.parse(readFileSync(vercelConfig, 'utf8'))
+  for (const rule of cfg.headers || []) {
+    for (const h of rule.headers || []) {
+      if (String(h.key).toLowerCase() === 'content-security-policy') return h.value
+    }
+  }
+  return ''
+})()
+if (!csp) { console.error('[verify-csp] FAIL — no Content-Security-Policy header in vercel.json'); process.exit(1) }
 
 const scriptSrc = (csp.match(/script-src([^;]*)/) || ['', ''])[1]
 const allowsInline = /'unsafe-inline'/.test(scriptSrc)

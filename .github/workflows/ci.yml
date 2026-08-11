@@ -42,8 +42,10 @@ jobs:
       - name: Production dependency audit (fail on high+)
         run: npm audit --omit=dev --audit-level=high
 
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
+      # Three engines cover all five Playwright projects: the mobile-chrome and
+      # mobile-safari projects reuse the Chromium and WebKit binaries.
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
 
       - name: End-to-end tests
         run: npm run test:e2e

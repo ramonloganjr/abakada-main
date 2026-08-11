@@ -1,0 +1,26 @@
+# Files uploaded to Vercel but never read by the build. Trimming them keeps the
+# deployment upload to what `npm run build` actually needs.
+#
+# Everything the build touches must stay: src/, public/, scripts/, index.html,
+# vite.config.js, tsconfig.json, package*.json and vercel.json itself (the
+# prebuild step patches the CSP into it).
+
+# Test and QA tooling — Vercel never runs these; CI does.
+e2e
+tests
+playwright.config.js
+.lighthouserc.json
+
+# Lint config — the build does not lint; CI does.
+eslint.config.js
+
+# Long-form docs and repo meta.
+docs
+CONTRIBUTING.md
+SECURITY.md
+LICENSE.md
+README.md
+
+# Other deployment targets' artifacts.
+.github
+test-results

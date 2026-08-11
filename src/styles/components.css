@@ -2090,37 +2090,14 @@
   transform: translateX(3px);
 }
 
-/* ── Progress dots ── */
-.featured-progress {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
-  margin-top: var(--space-8);
-}
-
-.featured-progress__dots {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.featured-progress__dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  cursor: pointer;
-  transition: width 0.25s ease, background 0.25s ease, border-radius 0.25s ease;
-  padding: 0;
-}
-
-.featured-progress__dot.active {
-  width: 18px;
-  border-radius: 3px;
-  background: #1bcace;
-}
-
+/* ── Progress dots ──
+   The rule set for .featured-progress / __dots / __dot / __dot.active that used
+   to sit here was dead: an identical, later set of selectors in the "Progress
+   Indicators" block below redeclared every one of their properties, so none of
+   this ever reached the page. Removed rather than left to rot, since having two
+   competing definitions of the same component is how the 8px tap-target bug
+   stayed hidden. Only __counter survives, because it is the one selector whose
+   earlier declaration is not fully redeclared later. */
 .featured-progress__counter {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.3);
@@ -2139,28 +2116,11 @@
   border-radius: var(--radius-sm);
 }
 
-.featured-card--skeleton .skeleton--icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-}
-
-.featured-card--skeleton .skeleton--title {
-  height: 18px;
-  width: 65%;
-  margin-bottom: var(--space-2);
-}
-
-.featured-card--skeleton .skeleton--tagline {
-  height: 13px;
-  width: 45%;
-}
-
-.featured-card--skeleton .skeleton--text {
-  height: 13px;
-  width: 100%;
-  margin-bottom: var(--space-2);
-}
+/* The .skeleton--icon / --title / --tagline / --text sizes that used to sit here
+   were fully redeclared by the identical selectors further down, so the values
+   below (48px icon, 18px title, 13px tagline/text) never applied. Removed; the
+   live sizes are the 52px/20px/14px set in the block after the next media
+   query. */
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
@@ -2233,7 +2193,10 @@
 
 .featured-progress__dots {
   display: flex;
-  gap: var(--space-2);
+  /* 16px gap (not 8px): combined with the 24px-wide ::after target below, this
+     puts adjacent dot centres exactly 24px apart, so neighbouring tap targets
+     meet edge-to-edge without ever overlapping. See SC 2.5.8 note below. */
+  gap: var(--space-4);
 }
 
 .featured-progress__dot {
@@ -2248,17 +2211,22 @@
   transition: all 0.3s ease;
 }
 
-/* Enlarge the tap target to meet WCAG 2.5.8 (24px min) on touch without
-   altering the visual dot or its spacing: a transparent overlay extends the
-   clickable area vertically and halfway into each adjacent gap, so neighbouring
-   dots' targets meet but never overlap. Out of flow, so no layout shift. */
+/* Enlarge the tap target to meet WCAG 2.2 SC 2.5.8 (24x24px min) on touch
+   without altering the visual dot or its spacing: a transparent overlay extends
+   the clickable area vertically and halfway into each adjacent gap, so
+   neighbouring dots' targets meet but never overlap. Out of flow, so no layout
+   shift.
+   The `max(..., 24px)` floor matters: an inactive dot is only 8px wide, so
+   `100% + gap` alone left a 16px-wide target that failed both the 24px minimum
+   and the spacing exception. The active dot (24px wide) grows its own target to
+   40px, which still only just meets its neighbour rather than overlapping. */
 .featured-progress__dot::after {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(100% + var(--space-2));
+  width: max(calc(100% + var(--space-4)), 24px);
   height: 24px;
 }
 
@@ -3322,10 +3290,10 @@
 }
 
 /* Content Sections - Centered */
-.content-section {
-  padding: var(--space-12) 0;
-}
-
+/* NB: .content-section's own `padding` is declared later in this file
+   (`var(--space-8) 0 var(--space-16)`), which overrode the copy that used to
+   live here, so the duplicate was removed. The .container rule below is the
+   only part of this section that was ever live. */
 .content-section .container {
   max-width: 960px;
   margin: 0 auto;
@@ -5293,7 +5261,6 @@ a:focus-visible svg {
   background: var(--bg-tertiary);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-full);
-  text-transform: capitalize;
 }
 
 .platform-badge svg {

@@ -2,6 +2,7 @@
 // Keep titles ≤ 60 chars (after the " | Abakada" suffix), descriptions ≤ 160 chars.
 
 import { SITE_ORIGIN } from './canonical'
+import { catalogToolCount, CATALOG_CATEGORY_COUNT } from './catalog'
 
 const ORG = {
   '@type': 'Organization',
@@ -32,9 +33,9 @@ const breadcrumb = (items) => ({
 
 export const pageMeta = {
   home: {
-    title: '1,288 Free Open-Source Tools for Filipino Students & Educators',
+    title: `${catalogToolCount()} Free Open-Source Tools for Filipino Students & Educators`,
     description:
-      'Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals. Browse 45+ categories.',
+      `Abakada is a free, curated directory of ${catalogToolCount()} open-source productivity tools for Filipino students, educators, and professionals. Browse ${CATALOG_CATEGORY_COUNT}+ categories.`,
     pathname: '/',
     jsonLd: breadcrumb([{ name: 'Home', path: '/' }]),
   },

@@ -1,10 +1,8 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useI18n } from '../contexts/I18nContext'
+import { useNarration } from '../hooks/useNarration'
+import { speechLangFor } from '../lib/speech'
 import Icon from './Icon'
-
-// Browser TTS language hints. Cebuano/Ilokano rarely have dedicated voices, so we
-// fall back to Filipino (fil-PH), which is far closer than English for a reader.
-const TTS_LANG = { en: 'en-US', tl: 'fil-PH', ilo: 'fil-PH', bis: 'fil-PH' }
 
 /**
  * Turns a learning-path stage (objectives + hands-on tasks) into a paced,
@@ -18,8 +16,7 @@ const TTS_LANG = { en: 'en-US', tl: 'fil-PH', ilo: 'fil-PH', bis: 'fil-PH' }
 export default function MicroLesson({ stage, stageIndex, completedTasks, onToggleTask, onExit }) {
   const { t, lang } = useI18n()
   const [step, setStep] = useState(0)
-  const [speaking, setSpeaking] = useState(false)
-  const ttsSupported = typeof window !== 'undefined' && 'speechSynthesis' in window
+  const { supported: ttsSupported, speaking, speak, stop: stopSpeaking } = useNarration(speechLangFor(lang))
   const liveRef = useRef(null)
 
   const steps = useMemo(() => {
@@ -33,28 +30,8 @@ export default function MicroLesson({ stage, stageIndex, completedTasks, onToggl
   const total = steps.length
   const current = steps[Math.min(step, total - 1)]
 
-  const stopSpeaking = useCallback(() => {
-    if (ttsSupported) window.speechSynthesis.cancel()
-    setSpeaking(false)
-  }, [ttsSupported])
-
   // Stop any narration when the step changes or the lesson unmounts.
   useEffect(() => stopSpeaking, [step, stopSpeaking])
-
-  function speak(text) {
-    if (!ttsSupported || !text) return
-    window.speechSynthesis.cancel()
-    const u = new SpeechSynthesisUtterance(text)
-    u.lang = TTS_LANG[lang] || 'en-US'
-    u.rate = 0.95
-    const voices = window.speechSynthesis.getVoices()
-    const match = voices.find((v) => v.lang === u.lang) || voices.find((v) => v.lang?.startsWith(u.lang.slice(0, 2)))
-    if (match) u.voice = match
-    u.onend = () => setSpeaking(false)
-    u.onerror = () => setSpeaking(false)
-    setSpeaking(true)
-    window.speechSynthesis.speak(u)
-  }
 
   function toggleListen() {
     if (speaking) stopSpeaking()

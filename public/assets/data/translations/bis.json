@@ -38,7 +38,7 @@
     "statsTools": "Mga Gamit",
     "statsCategories": "Mga Kategorya",
     "statsOpenSource": "Open Source",
-    "definition": "Ang Abakada usa ka libre, hugot nga giplanohan nga direktoryo sa 1,288 ka mga open-source nga galamiton sa produktibidad para sa mga Pilipino nga estudyante, magtutudlo, ug propesyonal. Gitukod sa mga boluntaryo, walay gikinahanglan nga pag-sign up.",
+    "definition": "Ang Abakada usa ka libre, hugot nga giplanohan nga direktoryo sa {count} ka mga open-source nga galamiton sa produktibidad para sa mga Pilipino nga estudyante, magtutudlo, ug propesyonal. Gitukod sa mga boluntaryo, walay gikinahanglan nga pag-sign up.",
     "ctaGuided": "Tabangi ko sa pagsugod",
     "ctaBrowse": "Tan-awa tanang gamit"
   },
@@ -204,11 +204,15 @@
     "results": "galamiton",
     "category": "Kategoriya",
     "freeAlternativeTo": "Usa ka libre ug open-source nga alternatibo sa",
-    "tryInBrowser": "Sulayi sa browser, walay install"
+    "tryInBrowser": "Sulayi sa browser, walay install",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "freeAlternativeToClosed": "Usa ka libreng alternatibo sa"
   },
   "install": {
     "title": "Unsaon pag-install sa {name}",
     "safetyNote": "Pirme pag-download gikan sa opisyal nga site sa ibabaw. Libre ug open-source nga software lang ang anaa sa Abakada.",
+    "safetyNoteClosed": "Pirme pag-download gikan sa opisyal nga site sa ibabaw. Libreng gamiton nga software lang ang anaa sa Abakada.",
     "web": {
       "title": "Sa imong web browser",
       "steps": "Dili na kinahanglan i-install. Ang {name} modagan sa imong browser.\nGamita ang “Visit official site” sa ibabaw aron ablihan kini.\nUbang web app mohatag og libre nga account aron ma-save ang imong trabaho."

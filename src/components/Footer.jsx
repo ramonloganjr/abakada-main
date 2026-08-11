@@ -50,6 +50,21 @@ export default function Footer({ isStatic = false }) {
                   {totalUsers.toLocaleString()} Total Visitors{visitorDate && <> • Updated {visitorDate}</>}
                 </div>
               )}
+              {/* Direct child of .footer-brand (not wrapped): it inherits that
+                  column's gap and its left-aligned / centred-under-640px
+                  alignment, so it tracks the social row on every breakpoint
+                  without bespoke spacing. Title is left untranslated to match
+                  the neighbouring social links, whose accessible names are
+                  likewise proper nouns. */}
+              <iframe
+                className="footer-vote-embed"
+                src="https://appbuildersph.com/embed/apps/abakada-org"
+                title="Abakada.org votes on App Builders PH"
+                width="320"
+                height="72"
+                loading="lazy"
+                scrolling="no"
+              ></iframe>
               <div className="footer-social">
                 <a href="https://github.com/Abakada-org" target="_blank" rel="noopener noreferrer" className="footer-social__link" aria-label="GitHub">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">

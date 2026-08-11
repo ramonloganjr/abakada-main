@@ -6,7 +6,9 @@ import SEO from '../components/SEO'
 import Icon from '../components/Icon'
 import { buildToolMeta } from '../lib/pageMeta'
 import { isSafeUrl } from '../lib/url'
+import { isFossTool, getAppStoreLinks } from '../lib/catalog'
 import { getInstallBuckets, formatPlatformList } from '../lib/install'
+import { fillTemplate } from '../lib/template'
 
 const TODAY = new Date().toISOString().slice(0, 10)
 
@@ -30,22 +32,27 @@ const INSTALL_STEPS = {
   generic: 'Click “Visit official site” above to open the {name} website.\nFollow the installation instructions there for your platform.',
 }
 
-function fillTemplate(str, vars) {
-  return str.replace(/\{(\w+)\}/g, (_, key) => (vars[key] != null ? vars[key] : `{${key}}`))
-}
-
 function buildFAQ(tool) {
   const name = tool.name
-  const license = tool.license || 'an open-source license'
-  const platforms = (tool.platforms || []).join(', ') || 'multiple platforms'
+  const isFoss = isFossTool(tool)
+  const license = tool.license || 'an open-source license' // only read on the FOSS branch below
+  const platforms = formatPlatformList(tool.platforms) || 'multiple platforms'
+  // Named app-store destinations answer "where do I get this?" directly, which
+  // is what an assistant or answer engine quotes back for a mobile-first tool.
+  const stores = getAppStoreLinks(tool).map((s) => s.label)
+  const storeSentence = stores.length
+    ? ` On mobile, ${name} is available on ${stores.length === 2 ? `${stores[0]} and ${stores[1]}` : stores[0]}.`
+    : ''
   return [
     {
       q: `What is ${name}?`,
-      a: tool.description || `${name} is a free, open-source tool listed in the Abakada directory.`,
+      a: tool.description || `${name} is a free ${isFoss ? 'open-source ' : ''}tool listed in the Abakada directory.`,
     },
     {
       q: `Is ${name} free?`,
-      a: `Yes. ${name} is free and open-source, distributed under ${license}. Abakada only lists tools that are free in both cost and license.`,
+      a: isFoss
+        ? `Yes. ${name} is free and open-source, distributed under ${license}. Abakada only lists tools that are free in both cost and license.`
+        : `Yes. ${name} costs nothing to use. It is closed-source rather than open-source, so its code is not published for inspection. Abakada only lists tools that are free to use.`,
     },
     {
       q: `Which platforms does ${name} support?`,
@@ -53,7 +60,7 @@ function buildFAQ(tool) {
     },
     {
       q: `Where can I download ${name}?`,
-      a: `Visit the official ${name} project site at ${tool.website || 'the link in this page'} for downloads and documentation.`,
+      a: `Visit the official ${name} project site at ${tool.website || 'the link in this page'} for downloads and documentation.${storeSentence}`,
     },
   ]
 }
@@ -117,6 +124,8 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
   }
   const lastReviewed = tool.lastReviewed || TODAY
   const installBuckets = getInstallBuckets(tool)
+  const isFoss = isFossTool(tool)
+  const storeLinks = getAppStoreLinks(tool)
 
   return (
     <>
@@ -126,14 +135,21 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
           <div className="container">
             <article className="tool-detail">
               <header className="tool-detail__header">
+                {/* The license name reads naturally after "distributed under" only
+                    for a real license identifier (MPL-2.0, AGPL-3.0). On the
+                    closed-source records it is a category word ("Proprietary",
+                    "Freeware"), so those say "closed-source" instead and leave the
+                    license itself to the meta list below. */}
                 <p className="tool-detail__definition">
-                  <strong>{tool.name}</strong> is a free, open-source {tool.category || 'productivity'} tool
-                  {tool.license ? ` distributed under ${tool.license}` : ''}. {tool.description || ''}
+                  <strong>{tool.name}</strong> is a free, {isFoss ? 'open-source' : 'closed-source'} {tool.category || 'productivity'} tool
+                  {isFoss && tool.license ? ` distributed under ${tool.license}` : ''}. {tool.description || ''}
                 </p>
                 {tool.alternatives_to?.length > 0 && (
                   <p className="tool-detail__alternative">
                     <Icon name="refresh" collection="ui" size={15} />
-                    {t('tools.freeAlternativeTo', 'A free, open-source alternative to')}{' '}
+                    {isFoss
+                      ? t('tools.freeAlternativeTo', 'A free, open-source alternative to')
+                      : t('tools.freeAlternativeToClosed', 'A free alternative to')}{' '}
                     <strong>{tool.alternatives_to.join(', ')}</strong>
                   </p>
                 )}
@@ -145,7 +161,7 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
 
               <dl className="tool-detail__meta">
                 {tool.license ? (<><dt>{t('tools.license', 'License')}</dt><dd>{tool.license}</dd></>) : null}
-                {tool.platforms?.length ? (<><dt>{t('tools.platforms', 'Platforms')}</dt><dd>{tool.platforms.join(', ')}</dd></>) : null}
+                {tool.platforms?.length ? (<><dt>{t('tools.platforms', 'Platforms')}</dt><dd>{formatPlatformList(tool.platforms)}</dd></>) : null}
                 {tool.category ? (<><dt>{t('tools.category', 'Category')}</dt><dd>{tool.category}</dd></>) : null}
                 {tool.tags?.length ? (<><dt>{t('tools.tags', 'Tags')}</dt><dd>{tool.tags.join(', ')}</dd></>) : null}
               </dl>
@@ -163,6 +179,15 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
                     {t('tools.tryInBrowser', 'Try in browser, no install')}
                   </a>
                 )}
+                {/* Mobile app stores — same secondary button and platform glyph
+                    as everywhere else, so a store listing is just one more way
+                    to get the tool. */}
+                {storeLinks.map((store) => isSafeUrl(store.url) && (
+                  <a key={store.id} className="btn btn--secondary" href={store.url} target="_blank" rel="noopener noreferrer">
+                    <Icon name={store.icon} collection="platform" size={15} />
+                    {t(store.labelKey, store.label)}
+                  </a>
+                ))}
                 {isSafeUrl(tool.repo_url) && (
                   <a className="btn btn--secondary" href={tool.repo_url} target="_blank" rel="noopener noreferrer">
                     <Icon name="github" collection="ui" size={15} />
@@ -194,7 +219,9 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
                     )
                   })}
                   <p className="install-guide__note">
-                    {t('install.safetyNote', 'Always download from the official site linked above. Abakada only lists free, open-source software.')}
+                    {isFoss
+                      ? t('install.safetyNote', 'Always download from the official site linked above. Abakada only lists free, open-source software.')
+                      : t('install.safetyNoteClosed', 'Always download from the official site linked above. Abakada only lists software that is free to use.')}
                   </p>
                 </div>
               </details>

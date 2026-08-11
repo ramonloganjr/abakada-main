@@ -169,37 +169,26 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/assets/data/visitors.json
-          git diff --staged --quiet || git commit -m "chore: update visitor count [skip ci]"
+          # No [skip ci] marker: Vercel treats it (and [ci skip]/[no ci]) as
+          # "do not deploy", which would freeze the live count at whatever the
+          # last full deploy shipped. Pushing this file IS the deploy trigger now.
+          # No GitHub workflow runs on push to main, so nothing else is woken up.
+          git diff --staged --quiet || git commit -m "chore: update visitor count"
           git push
 
-      - name: Deploy visitors.json to cPanel via FTP
+      # Publishing is Vercel's job: the push above triggers a production build
+      # that ships the new visitors.json with the rest of dist/. The wait below
+      # covers that build before the verification step reads the live URL.
+      - name: Wait for the Vercel deployment to go live
         if: steps.fetch.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.CPANEL_FTP_HOST }}
-          username: ${{ secrets.CPANEL_FTP_USER }}
-          password: ${{ secrets.CPANEL_FTP_PASS }}
-          port: 21
-          protocol: ftps
-          security: loose
-          timeout: 60000
-          local-dir: ./public/assets/data/
-          # IMPORTANT: The FTP account lands in the account home and the
-          # document root for abakada.org is the `abakada.org/` folder, NOT
-          # `public_html/` (which is an unserved sibling directory on this host).
-          # Do NOT "correct" this to public_html/ — doing so uploads to a path
-          # that is never served, returning 404 and hiding the visitor badge.
-          # Verified via the live .ftp-deploy-sync-state.json at the web root.
-          server-dir: abakada.org/assets/data/
-          exclude: |
-            **
-            !visitors.json
+        run: sleep 150
 
-      # Confirm the file is reachable at its public URL. The exact bug this
-      # workflow guards against manifests as a 404 (file written to an unserved
-      # directory), so a 404 is a HARD FAIL. A 403 means Cloudflare's bot
-      # protection blocked the CI runner (datacenter IP) — that is not evidence
-      # of a missing file, so we warn and pass rather than false-fail.
+      # Confirm the file is reachable at its public URL. /assets/* is excluded
+      # from the SPA rewrite in vercel.json, so a missing file returns a real 404
+      # rather than the app shell — which makes a 404 a HARD FAIL: it means the
+      # Vercel build did not ship (or has not finished shipping) the new value.
+      # A 403 means Cloudflare's bot protection blocked the CI runner
+      # (datacenter IP) — not evidence of a missing file, so we warn and pass.
       - name: Verify visitors.json is live
         if: steps.fetch.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
         run: |

@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { isSafeUrl } from '../lib/url'
+import { isFossTool, getAppStoreLinks } from '../lib/catalog'
+import { platformLabel } from '../lib/install'
 import Icon from './Icon'
 
 function getProjectHealth(dateString) {
@@ -63,7 +65,8 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
   if (!tool) return null
 
   const health = getProjectHealth(tool.last_update)
-  const isFoss = tool.is_foss === true || (tool.is_foss == null && ['MIT','GPL','LGPL','Apache','BSD','MPL','AGPL','CC0','Unlicense'].some(l => (tool.license || '').toUpperCase().includes(l.toUpperCase())))
+  const isFoss = isFossTool(tool)
+  const storeLinks = getAppStoreLinks(tool)
 
   function formatDate(d) {
     if (!d) return ''
@@ -125,7 +128,7 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
                 {tool.platforms.map(p => (
                   <span key={p} className={`platform-badge platform-badge--${p}`}>
                     <Icon name={p} collection="platform" size={14} />
-                    {p}
+                    {platformLabel(p)}
                   </span>
                 ))}
               </div>
@@ -193,6 +196,16 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
               <Icon name="external-link" collection="ui" size={14} />
             </a>
           )}
+          {/* Mobile app stores — rendered with the same secondary button and the
+              platform glyph already used by the badges above, so an app-store
+              listing reads as one more way to get the tool rather than a
+              bespoke treatment. */}
+          {storeLinks.map(store => isSafeUrl(store.url) && (
+            <a key={store.id} href={store.url} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
+              <Icon name={store.icon} collection="platform" size={14} />
+              {t(store.labelKey, store.label)}
+            </a>
+          ))}
           {tool.repo_url && isSafeUrl(tool.repo_url) && (
             <a href={tool.repo_url} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
               <Icon name="github" collection="ui" size={14} />

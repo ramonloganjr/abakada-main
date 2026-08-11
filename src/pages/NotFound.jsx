@@ -30,7 +30,7 @@ export default function NotFound() {
                   width="240"
                   height="88"
                   decoding="async"
-                  fetchpriority="high"
+                  fetchPriority="high"
                 />
               </div>
               <span className="error-page__label">{t('errors.404.label', 'Error 404')}</span>

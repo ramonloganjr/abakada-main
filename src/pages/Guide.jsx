@@ -5,6 +5,7 @@ import StaticPageLayout from '../components/StaticPageLayout'
 import SEO from '../components/SEO'
 import Icon from '../components/Icon'
 import { pageMeta } from '../lib/pageMeta'
+import { catalogToolCount, CATALOG_CATEGORY_COUNT } from '../lib/catalog'
 
 const TOOLKIT_URL = 'https://toolkit.abakada.org/'
 
@@ -124,8 +125,8 @@ const SECTIONS = [
             <p>Abakada is a free educational platform for Filipino students, educators, scholars, and professionals. It has two connected parts:</p>
             <ul>
               <li>
-                <strong>The Directory (this site)</strong>: a hand-curated catalog of 1,288 free and open-source software
-                tools across 45+ categories, organized into guided <Link to="/learning-paths">Learning Paths</Link>.
+                <strong>The Directory (this site)</strong>: a hand-curated catalog of {catalogToolCount()} free and open-source software
+                tools across {CATALOG_CATEGORY_COUNT}+ categories, organized into guided <Link to="/learning-paths">Learning Paths</Link>.
                 Think of it as a library: it helps you discover, choose, and learn software.
               </li>
               <li>
@@ -196,7 +197,7 @@ const SECTIONS = [
         body: (
           <>
             <p>
-              Because Abakada is a curated directory, not the owner of the software it lists. Each of the 1,288 tools is
+              Because Abakada is a curated directory, not the owner of the software it lists. Each of the {catalogToolCount()} tools is
               built and maintained by its own community (LibreOffice, GIMP, Firefox, and so on), and the safest place to
               get software is always its official home. Linking there guarantees you the authentic, latest version and
               keeps credit with the people who build the tool.

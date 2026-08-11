@@ -820,7 +820,7 @@ export default function PartnershipDeck() {
                   </svg>
                   <div>
                     <div className="deck-stack__name">Hosting</div>
-                    <div className="deck-stack__detail">cPanel-friendly · Vercel · Netlify · Any static host</div>
+                    <div className="deck-stack__detail">Vercel edge network · Static build · Global CDN</div>
                   </div>
                 </div>
                 <div className="deck-stack__layer">

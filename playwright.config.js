@@ -15,8 +15,18 @@ export default defineConfig({
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
   },
+  // Cross-browser matrix. Chromium alone missed engine-specific regressions, so
+  // we also run Gecko (Firefox) and WebKit — the latter doubles as the closest
+  // available proxy for iOS Safari, which every iPhone browser is required to
+  // use. The two mobile projects cover the touch/viewport paths (hamburger nav,
+  // tap targets) that no desktop project exercises.
+  // Locally, `--project=chromium` keeps the fast inner loop.
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: 'mobile-safari', use: { ...devices['iPhone 13'] } },
+    { name: 'mobile-chrome', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
     command: 'npm run dev -- --port 5173 --strictPort',

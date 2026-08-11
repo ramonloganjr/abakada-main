@@ -11,7 +11,7 @@
 //      open the URL in a new tab so the user still gets the file via the
 //      server's Content-Disposition: attachment header.
 //
-// The server is configured (.htaccess / _headers / vercel.json) to send
+// The server is configured (vercel.json headers) to send
 // Content-Disposition: attachment for /assets/doc/*, so even path 3 results
 // in a download rather than an in-page preview.
 export async function downloadFile(url, filename) {

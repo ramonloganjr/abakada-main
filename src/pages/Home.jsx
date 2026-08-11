@@ -13,6 +13,7 @@ import Pagination from '../components/Pagination'
 import Icon from '../components/Icon'
 import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
+import { fillTemplate } from '../lib/template'
 import { langPrefix } from '../lib/canonical'
 import { getOnboardingRole, setOnboardingRole, toolkitForRole } from '../lib/onboarding'
 
@@ -132,6 +133,12 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenN
   const selectedCategory = toolsData.categories.find(c => c.id === (selectedTool?.category))
 
   const stats = toolsData.stats || {}
+  // Formatted once, from live data, and fed to both the hero stat and the
+  // {count} placeholder in `hero.definition`. Pinned to en-US so the figure reads
+  // identically whatever locale the visitor's runtime defaults to, and so the
+  // four translations cannot drift apart from the catalog (they used to hardcode
+  // the number and quietly went stale).
+  const toolCount = (stats.totalTools || toolsData.tools.length).toLocaleString('en-US')
 
   return (
     <>
@@ -163,14 +170,17 @@ export default function Home({ toolsData, onCloseNav, onStartOnboarding, onOpenN
             </h1>
             <p className="hero__subtitle">{t('hero.subtitle', 'Discover powerful, free, and open-source productivity tools organized by category.')}</p>
             <p className="hero__definition" aria-label="About Abakada">
-              {t(
-                'hero.definition',
-                `Abakada is a free, curated directory of ${(stats.totalTools || toolsData.tools.length).toLocaleString()}+ open-source productivity tools for Filipino students, educators, and professionals. Built by volunteers, no signup required.`
+              {fillTemplate(
+                t(
+                  'hero.definition',
+                  'Abakada is a free, curated directory of {count} open-source productivity tools for Filipino students, educators, and professionals. Built by volunteers, no signup required.'
+                ),
+                { count: toolCount }
               )}
             </p>
             <div className="hero__stats">
               <div className="hero__stat">
-                <div className="hero__stat-value">{(stats.totalTools || toolsData.tools.length).toLocaleString()}+</div>
+                <div className="hero__stat-value">{toolCount}+</div>
                 <div className="hero__stat-label">{t('hero.statsTools', 'Tools')}</div>
               </div>
               <div className="hero__stat">

@@ -38,7 +38,7 @@
     "statsTools": "Mga Kagamitan",
     "statsCategories": "Mga Kategorya",
     "statsOpenSource": "Open Source",
-    "definition": "Ang Abakada ay isang libre at maingat na pinili na direktoryo ng 1,288 na open-source na produktibidad na kagamitan para sa mga estudyante, guro, at propesyonal na Pilipino. Itinayo ng mga boluntaryo, walang kailangang pag-sign up.",
+    "definition": "Ang Abakada ay isang libre at maingat na pinili na direktoryo ng {count} na open-source na produktibidad na kagamitan para sa mga estudyante, guro, at propesyonal na Pilipino. Itinayo ng mga boluntaryo, walang kailangang pag-sign up.",
     "ctaGuided": "Tulungan mo akong magsimula",
     "ctaBrowse": "Tingnan lahat ng tool"
   },
@@ -204,11 +204,15 @@
     "results": "kagamitan",
     "category": "Kategorya",
     "freeAlternativeTo": "Isang libre at open-source na alternatibo sa",
-    "tryInBrowser": "Subukan sa browser, walang install"
+    "tryInBrowser": "Subukan sa browser, walang install",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "freeAlternativeToClosed": "Isang libreng alternatibo sa"
   },
   "install": {
     "title": "Paano i-install ang {name}",
     "safetyNote": "Palaging mag-download mula sa opisyal na site sa itaas. Tanging libre at open-source na software lang ang nasa Abakada.",
+    "safetyNoteClosed": "Palaging mag-download mula sa opisyal na site sa itaas. Tanging libreng gamitin na software lang ang nasa Abakada.",
     "web": {
       "title": "Sa iyong web browser",
       "steps": "Hindi na kailangang i-install. Tumatakbo ang {name} sa iyong browser.\nGamitin ang “Visit official site” sa itaas para buksan ito.\nMaaaring mag-alok ang ilang web app ng libreng account para ma-save ang iyong trabaho."

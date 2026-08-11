@@ -14,9 +14,18 @@ export interface Tool {
   alternatives_to?: string[]
   web_try_url?: string
   repo_url?: string
+  download_url?: string
+  /** Google Play listing, for tools shipping an Android app. */
+  android_url?: string
+  /** App Store listing, for tools shipping an iOS app. */
+  ios_url?: string
   last_update?: string
   is_foss?: boolean
   stars?: number
+  maturity?: string
+  license_type?: string
+  /** Index-time bag of words powering catalog search. */
+  searchTerms?: string
 }
 
 export interface Toolkit {

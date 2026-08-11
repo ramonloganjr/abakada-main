@@ -78,7 +78,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             <Icon name="menu" collection="ui" size={20} />
           </button>
           <Link to="/" className="nav__logo">
-            <img id="header-logo" className="nav__logo-img" src={logoSrc} alt="Abakada" width="200" height="35" fetchpriority="high" decoding="async" />
+            <img id="header-logo" className="nav__logo-img" src={logoSrc} alt="Abakada" width="200" height="35" fetchPriority="high" decoding="async" />
           </Link>
         </div>
         <form className="header-search" role="search" onSubmit={handleSearchSubmit}>

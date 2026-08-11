@@ -3,7 +3,7 @@
 
   <h1>Abakada.org</h1>
 
-  <p>A curated, multilingual directory of 1,288 free and open-source productivity tools<br/>for Filipino students, educators, scholars, and professionals.</p>
+  <p>A curated, multilingual directory of 1,291 free and open-source productivity tools<br/>for Filipino students, educators, scholars, and professionals.</p>
 
   <p>
     <a href="https://www.gmanetwork.com/news/pinoyabroad/dispatch/989216/ofw-developersoftware-hub-filipino-students/story/"><img src="https://img.shields.io/badge/Featured%20In-GMA%20News%20Online-107f87?style=flat-square" alt="GMA News Online" /></a>
@@ -59,11 +59,11 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 
 | Metric | Value |
 |:---|:---|
-| Tools | 1,288 (manually curated) |
+| Tools | 1,291 (manually curated) |
 | Categories | 45+ |
 | Learning paths | 10 |
 | Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 871 keys each, full parity |
-| Prerendered HTML routes | 1,311 (13 static pages + 10 toolkits + 1,288 tools) |
+| Prerendered HTML routes | 1,315 (14 static pages + 10 toolkits + 1,291 tools) |
 | Offline | Full PWA + on-demand downloadable learning packs |
 | Backend | None |
 | User accounts | None (progress, bookmarks, and profile live in `localStorage`) |
@@ -101,7 +101,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
     </td>
     <td align="center" width="110">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" width="36" /><br/>
-      <sub><b>Apache / cPanel</b></sub>
+      <sub><b>Vercel</b></sub>
     </td>
     <td align="center" width="110">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="36" /><br/>
@@ -133,7 +133,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Tool Directory</b></summary>
 <br/>
 
-- 1,288 free and open-source tools across 45+ categories
+- 1,291 free and open-source tools across 45+ categories
 - Category-based filtering with sidebar navigation
 - Full-text search with debounce and result highlighting
 - **Real-time synchronized search**: the header and sidebar search bars share a single source of truth (`SearchContext`) — typing into or clearing either bar mirrors to the other instantly, with no submit or page reload required
@@ -290,7 +290,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
   - Content & Editorial Partner: for educators, publishers, FOSS projects
   - Infrastructure Sponsor: for hosting/financial sponsors
 - All three tiers rendered with identical visual weight, no "Recommended" badge or highlight on any tier
-- Includes the same impact stats shown in the deck (1,288 tools · 45+ categories · 10 paths · 4 languages)
+- Includes the same impact stats shown in the deck (1,291 tools · 45+ categories · 10 paths · 4 languages)
 - **Partnership Deck** (`/partnership-deck`): 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page; tier cards are visually equal with no featured/recommended callout
 - **Download Pitch Deck**: dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Pitch-Deck-2026.pdf` from `/assets/doc/`
 
@@ -392,7 +392,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Security</b></summary>
 <br/>
 
-- Strict Content Security Policy across `index.html`, `public/.htaccess`, `public/_headers`, and `vercel.json`
+- Strict Content Security Policy single-sourced into `vercel.json` (the served header) and the `index.html` `<meta>` fallback
 - Security headers: `Strict-Transport-Security`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`
 - Console warning, context-menu disable, and selection disable on tool card content
 - Passive bot signal collection (dev-only logging)
@@ -489,7 +489,7 @@ The site is built for traditional search engines (SEO), generative answer engine
 **Crawler-aware delivery:**
 
 - `sitemap.xml` regenerated on every build via `scripts/refresh-sitemap.js`
-  - 1,313 URLs total: 14 static + 1 external (the Abakada Toolkit companion app) + 10 toolkits + 1,288 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
+  - 1,317 URLs total: 15 static + 1 external (the Abakada Toolkit companion app) + 10 toolkits + 1,291 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
   - Each internal URL carries hreflang alternates for all four languages; the external Toolkit URL is listed as an absolute `<loc>` with no hreflang
   - Image sitemap entry on the home route
 - `llms.txt` published at the site root summarizing site purpose and key URLs
@@ -510,10 +510,10 @@ The site is built for traditional search engines (SEO), generative answer engine
 | Font preloads | All 4 Inter weights as `font/woff2` with `crossorigin` |
 | DNS prefetch + preconnect | Google Tag Manager, Google Analytics |
 | Service Worker | App-shell precache + runtime cache strategies |
-| Static prerendering | 1,311 HTML shells written by `scripts/prerender-shells.js` |
+| Static prerendering | 1,315 HTML shells written by `scripts/prerender-shells.js` |
 | Image hints | `loading="lazy"` + `decoding="async"` on below-the-fold images; `fetchpriority="high"` on the header logo |
 | Minification | esbuild, ES2020 target, sourcemaps off in production |
-| Compression | Gzip + Brotli via `.htaccess` and `_headers` |
+| Compression | Brotli + gzip, automatic on the Vercel edge |
 | Cache headers | `/assets/*` immutable for 1 year; HTML revalidates on every request |
 | Web Vitals | `reportWebVitals()` instruments LCP, CLS, INP for monitoring |
 
@@ -541,7 +541,7 @@ abakada.org/
 ├── public/
 │   ├── assets/
 │   │   ├── data/
-│   │   │   ├── tools.json                # All tool data (1,288 entries)
+│   │   │   ├── tools.json                # All tool data (1,291 entries)
 │   │   │   ├── tools-index.json          # Lightweight search index (prebuild-generated)
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
 │   │   │   ├── curriculum.json           # DepEd K-12 and CHED strand definitions
@@ -555,8 +555,6 @@ abakada.org/
 │   │   └── press/                        # Press / media logos (light + dark variants)
 │   │                                     # GMA News Online · The Global Filipino Magazine
 │   │                                     # Walastech · Bombo Radyo
-│   ├── .htaccess                         # Apache: SPA routing, headers, gzip, cache
-│   ├── _headers                          # Netlify / Cloudflare Pages headers
 │   ├── llms.txt                          # LLM-ingestion summary
 │   ├── offline.html                      # Offline fallback page
 │   ├── robots.txt                        # Per-bot rules incl. AI scraper blocks
@@ -567,11 +565,10 @@ abakada.org/
 │   ├── refresh-sitemap.js                # prebuild: regenerates sitemap.xml (static + external Toolkit + toolkits + tools)
 │   ├── build-search-index.mjs            # prebuild: writes tools-index.json
 │   ├── security-headers.mjs              # prebuild: generates headers artifacts
-│   ├── prerender-shells.js               # postbuild: writes 1,311 static HTML shells
+│   ├── prerender-shells.js               # postbuild: writes 1,315 static HTML shells
 │   ├── verify-csp.mjs                    # postbuild: asserts CSP parity across configs
 │   ├── version-sw.mjs                    # postbuild: stamps sw.js CACHE_NAME from hashes
 │   ├── validate-data.mjs                 # JSON-Schema validation of catalog data
-│   └── package-cpanel.mjs                # Bundles dist/ into a ready-to-upload cPanel .zip
 ├── src/
 │   ├── components/
 │   │   ├── BrandLoader.jsx               # Glowing-favicon loading indicator
@@ -586,8 +583,6 @@ abakada.org/
 │   │   ├── OfflinePackButton.jsx         # Download/manage a path's offline pack
 │   │   ├── OnboardingModal.jsx
 │   │   ├── Pagination.jsx
-│   │   ├── PWAInstallBanner.jsx          # Retired auto-popup install banner (no longer mounted; install lives in Header)
-│   │   ├── SearchInput.jsx
 │   │   ├── SEO.jsx                       # react-helmet-async wrapper
 │   │   ├── Sidebar.jsx                   # Intelligent auto-hide rail / mobile drawer
 │   │   ├── StaticPageLayout.jsx
@@ -656,12 +651,10 @@ abakada.org/
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml                        # Quality gate: lint, types, data, tests, build, audit
-│       ├── deploy.yml                    # Build & FTPS-deploy dist/ to cPanel + liveness check
-│       ├── fetch-visitors.yml            # Hourly GA4 visitor count → visitors.json → cPanel
+│       ├── fetch-visitors.yml            # Hourly GA4 visitor count → visitors.json → commit (triggers Vercel)
 │       ├── lighthouse.yml                # Lighthouse CI on PRs
 │       ├── sitemap-refresh.yml           # Scheduled sitemap regeneration
 │       └── uptime.yml                    # Synthetic uptime monitoring
-├── release/                              # Generated cPanel .zip packages (gitignored)
 ├── .lighthouserc.json                    # Lighthouse CI config
 ├── index.html                            # Inline boot loader + SEO meta
 ├── vercel.json                           # SPA rewrites + security headers
@@ -716,7 +709,6 @@ npm run test:e2e       # Playwright e2e + accessibility (axe) suite
 npm run sitemap        # Regenerate public/sitemap.xml from data
 npm run build          # Production build (runs prebuild + build + postbuild)
 npm run preview        # Preview the production bundle locally (http://localhost:4173)
-npm run package:cpanel # Build + bundle dist/ into a ready-to-upload cPanel .zip
 ```
 
 The `build` lifecycle runs three phases:
@@ -727,8 +719,8 @@ The `build` lifecycle runs three phases:
    - `scripts/security-headers.mjs` — generates the headers artifacts
 2. `build` → `vite build` produces `dist/` (vendor split, content-hashed assets, ES2020, esbuild minify)
 3. `postbuild` →
-   - `scripts/prerender-shells.js` — writes 1,311 static HTML shells (13 static + 10 toolkits + 1,288 tools)
-   - `scripts/verify-csp.mjs` — fails the build if the CSP is not identical across `index.html`, `.htaccess`, `_headers`, and `vercel.json`
+   - `scripts/prerender-shells.js` — writes 1,315 static HTML shells (14 static + 10 toolkits + 1,291 tools)
+   - `scripts/verify-csp.mjs` — fails the build if `vercel.json` carries no CSP, and (in strict hash mode) if any built inline script is not covered by it
    - `scripts/version-sw.mjs` — stamps `CACHE_NAME` in `dist/sw.js` from the asset fingerprints
 
 ### Working with translations
@@ -763,13 +755,13 @@ npm run build
 Produces a fully static `dist/` containing:
 
 - `dist/index.html`: root SPA shell (with inline boot loader)
-- `dist/<route>/index.html`: 1,311 prerendered route shells (plus the root shell = 1,312 HTML files total)
+- `dist/<route>/index.html`: 1,315 prerendered route shells (plus the root shell = 1,316 HTML files total)
 - `dist/assets/*.js`: content-hashed JS chunks
 - `dist/assets/*.css`: content-hashed CSS bundles
 - `dist/assets/data/*`: JSON catalog and translations
 - `dist/assets/fonts/*`: self-hosted Inter
 - `dist/assets/logo/*`: brand assets
-- `dist/sitemap.xml`, `dist/robots.txt`, `dist/llms.txt`, `dist/sw.js`, `dist/offline.html`, `dist/site.webmanifest`, `dist/.htaccess`, `dist/_headers`
+- `dist/sitemap.xml`, `dist/robots.txt`, `dist/llms.txt`, `dist/sw.js`, `dist/offline.html`, `dist/site.webmanifest`
 
 Deploy the `dist/` folder verbatim. Every file in it is intended to be uploaded.
 
@@ -777,62 +769,39 @@ Deploy the `dist/` folder verbatim. Every file in it is intended to be uploaded.
 
 The site is a folder of static files. There is no server runtime, no environment variables required at runtime, and no build step on the host — everything is produced locally or in CI and uploaded as-is.
 
-### Option A — Automated CI deploy (recommended, default for production)
+### Production deploy
 
-`.github/workflows/deploy.yml` runs on every push to `main` (and on manual dispatch):
+Vercel's Git integration **is** the pipeline: every push to `main` builds and promotes to production, and every pull request gets its own preview URL. There is deliberately no deploy workflow in `.github/workflows/` — none is needed, and a second deployer would race Vercel for the same origin.
 
-1. Quality gate: `npm ci` → `lint` → `typecheck` → `validate:data` → `npm test`
-2. `npm run build`
-3. FTPS sync of `dist/` to the cPanel document root via `SamKirkland/FTP-Deploy-Action` (incremental — only changed files transfer)
-4. Post-deploy liveness check against `https://abakada.org/` (a 404/5xx hard-fails the run; a Cloudflare 403 to the CI runner is treated as a warning)
+Build settings are pinned in [`vercel.json`](./vercel.json) rather than left to dashboard state or framework auto-detection:
 
-Deploys are serialized via a concurrency group so two FTP syncs never hit the docroot at once.
+| Setting | Value |
+|:---|:---|
+| `framework` | `vite` |
+| `installCommand` | `npm ci` (lockfile-exact) |
+| `buildCommand` | `npm run build` (runs `prebuild` and `postbuild`) |
+| `outputDirectory` | `dist` |
 
-Required repository secrets: `CPANEL_FTP_HOST`, `CPANEL_FTP_USER`, `CPANEL_FTP_PASS`.
+The Node version comes from `engines.node` in `package.json` (`20.x`), matching `.nvmrc` and every CI workflow. Vercel does **not** read `.nvmrc`, so leaving a range there would build on Vercel's default major instead of the one CI tests.
 
-> **Document-root note (production):** On the canonical host the FTP account lands in the account home and the served document root is the **`abakada.org/`** folder, so `deploy.yml` and `fetch-visitors.yml` use `server-dir: abakada.org/`. It is **not** `public_html/` on this host — repointing at `public_html/` uploads to an unserved sibling directory. On a standard cPanel account the document root **is** `public_html/`; set `server-dir` accordingly.
+`.vercelignore` keeps test, lint and docs files out of the deployment upload; everything `npm run build` reads stays in.
 
-### Option B — Manual one-shot upload (zip package)
+### What `vercel.json` provides
 
-For a clean, full deployment without CI, build a ready-to-upload archive:
+- **SPA fallback** — any route with no prerendered file serves `index.html`, so deep links such as `/learning-paths/beginner-coding` and `/tl/progress` survive a refresh. Real files are excluded from the rewrite: `/assets/*`, `sw.js`, `robots.txt`, `sitemap.xml`, `llms.txt`, `icons.svg`, `site.webmanifest`, `favicon*`, `offline.html`.
+- **Prerendered routes win** — Vercel checks the filesystem before applying rewrites, so each of the 1,315 prerendered shells serves its own `<title>`, meta description, canonical and JSON-LD instead of the generic app shell. This is what keeps the SEO/AEO/GEO layer intact; verify it on a preview with `curl -s <url>/tools/vlc | grep '<title>'`.
+- **Security headers** on every response — HSTS with preload, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP/CORP.
+- **Cache control** — `/assets/*` immutable for a year (content-hashed), `/assets/data/*` one hour plus `stale-while-revalidate`, `sw.js` never cached.
+- **PDF handling** — `/assets/doc/*` forced to download via `Content-Disposition: attachment`.
+- **Clean URLs** — `cleanUrls: true` and `trailingSlash: false`, matching the canonical URLs the prerenderer emits.
 
-```bash
-npm run package:cpanel
-```
-
-This runs a fresh production build, verifies that `dist/` contains every required file (including `.htaccess`), and writes `release/abakada-cpanel-<timestamp>.zip`. The archive stores `dist/`'s **contents at its root** (not a nested `dist/` folder) using spec-compliant forward-slash paths, so it extracts cleanly on the Linux/Apache host.
-
-Then, in cPanel:
-
-1. **File Manager → `public_html/`** (or your account's document root)
-2. **Upload** the `.zip`, then select it and click **Extract**
-3. Enable **Settings → Show Hidden Files (dotfiles)** and confirm **`.htaccess`** is present at the root
-4. (Full redeploys) delete the previous `assets/` folder before extracting so old content-hashed chunks don't accumulate
-
-No file permission changes are needed: cPanel extraction yields the standard `644` files / `755` directories Apache expects.
-
-### What `.htaccess` provides on cPanel (Apache)
-
-The shipped [`dist/.htaccess`](public/.htaccess) is the entire server configuration — no cPanel UI changes required:
-
-- **SPA fallback** — every non-file route serves `index.html` (so deep links like `/learning-paths/beginner-coding` and `/tl/progress` work on refresh)
-- **HTTPS + non-www** 301 redirects, and legacy `?lang=xx` → `/xx/` redirects
-- **Security headers** — HSTS, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP/CORP; server fingerprint headers stripped
-- **Compression** — gzip (`mod_deflate`) + Brotli (`mod_brotli`) for text assets
-- **Cache control** — `/assets/*` immutable for 1 year (content-hashed), HTML always revalidated, `sw.js` never cached
-- **PDF handling** — forces download (`Content-Disposition: attachment`) and skips compression
-- Blocks dotfiles/sensitive extensions; disables directory listing and `MultiViews`
-
-> If a module is unavailable on a given host, each block is wrapped in `<IfModule>` so Apache silently skips it rather than 500-ing. `mod_rewrite`, `mod_headers`, `mod_deflate`, and `mod_expires` are enabled on virtually all cPanel hosts.
+Brotli and gzip compression are automatic on Vercel's edge; there is nothing to configure.
 
 ### Visitor count
 
-An hourly GitHub Action (`fetch-visitors.yml`) pulls the live GA4 total, commits `visitors.json` (with `[skip ci]`), and FTPS-uploads it directly. `visitors.json` is **kept in `dist/`** so the Total Visitors badge is present after every deploy; a manual build ships a value at most ~1h stale and the live file self-corrects on the next run. Run `git pull` before a manual build to ship the freshest committed value.
+An hourly GitHub Action (`fetch-visitors.yml`) pulls the live GA4 total and commits `visitors.json` when it changes. That commit **is** the deploy trigger, so its message deliberately carries no `[skip ci]` marker: Vercel treats `[skip ci]`, `[ci skip]` and `[no ci]` as "do not deploy", which would freeze the live count at whatever the last unrelated deploy happened to ship. No GitHub workflow runs on push to `main`, so dropping the marker wakes nothing else.
 
-### Other hosts
-
-- **Vercel** — push to the connected repo; `vercel.json` handles SPA rewrites and security headers.
-- **Netlify / Cloudflare Pages** — `public/_headers` provides the headers; add an SPA redirect: `/*  /index.html  200`.
+`visitors.json` is **kept in `dist/`** so the Total Visitors badge is present after every deploy; a manual build ships a value at most ~1h stale. Run `git pull` before a manual build to ship the freshest committed value.
 
 ### Service Worker cache version
 
@@ -887,8 +856,7 @@ home: {
 | Workflow | Trigger | Purpose |
 |:---|:---|:---|
 | `ci.yml` | `pull_request`, `push` | Quality gate: `lint` → `typecheck` → `validate:data` → `npm test` → `build` → `npm audit` (high). Red builds never merge. |
-| `deploy.yml` | `push` to `main` + manual | Re-runs the quality gate, builds, FTPS-syncs `dist/` to the cPanel docroot, and verifies the homepage is live. Serialized via a concurrency group. |
-| `fetch-visitors.yml` | `schedule` (hourly) + manual | Pulls the cumulative `totalUsers` from the GA4 Data API into `visitors.json`, commits with `[skip ci]`, and FTPS-uploads it to cPanel. Skips when unchanged. |
+| `fetch-visitors.yml` | `schedule` (hourly) + manual | Pulls the cumulative `totalUsers` from the GA4 Data API into `visitors.json` and commits it, which triggers a Vercel production deploy. Skips when unchanged. |
 | `lighthouse.yml` | `pull_request` | Runs Lighthouse CI against the preview URL |
 | `sitemap-refresh.yml` | `schedule` | Regenerates `sitemap.xml` against current data |
 | `uptime.yml` | `schedule` | Synthetic uptime / liveness monitoring of the live site |
@@ -898,7 +866,6 @@ Required repository secrets:
 | Secret | Used by |
 |:---|:---|
 | `GA4_SERVICE_ACCOUNT_KEY` (full JSON key) | `fetch-visitors.yml`: GA4 Data API access |
-| `CPANEL_FTP_HOST`, `CPANEL_FTP_USER`, `CPANEL_FTP_PASS` | `deploy.yml` + `fetch-visitors.yml`: FTPS upload to cPanel |
 
 ---
 

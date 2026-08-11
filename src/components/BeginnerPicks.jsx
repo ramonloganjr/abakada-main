@@ -6,7 +6,7 @@ import Icon from './Icon'
 
 // "New to open source? Start here" (review R3.5). A short, curated row of the most
 // approachable everyday tools so a first-time visitor has an obvious, low-anxiety
-// entry point instead of facing the full 1,288-tool grid cold. Reuses ToolCard so
+// entry point instead of facing the full catalog grid cold. Reuses ToolCard so
 // the cards stay pixel-identical to the main grid, and resolves the curated IDs
 // against live data — if none resolve, the section renders nothing.
 export default function BeginnerPicks({ tools, categories, onToolClick }) {

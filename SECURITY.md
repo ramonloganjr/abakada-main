@@ -134,7 +134,7 @@ Abakada.org does not operate a bug bounty program. Contributions are recognized 
 
 ### HTTP Security Headers
 
-Applied via `.htaccess` (Apache/cPanel), `_headers` (Netlify/Cloudflare), and `vercel.json`:
+Applied via `vercel.json`, with the CSP additionally mirrored into the `index.html` `<meta>` as an in-document fallback. Both are written from one definition by `scripts/security-headers.mjs` at build time, and `scripts/verify-csp.mjs` fails the build if the policy is missing:
 
 | Header | Purpose |
 |:---|:---|

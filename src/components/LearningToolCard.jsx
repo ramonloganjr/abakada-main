@@ -2,6 +2,7 @@ import { memo } from 'react'
 import { useI18n } from '../contexts/I18nContext'
 import { useBookmarks } from '../contexts/BookmarkContext'
 import { useComparison } from '../hooks/useComparison'
+import { isFossTool } from '../lib/catalog'
 import Icon from './Icon'
 
 function isSafeUrl(url) {
@@ -25,7 +26,7 @@ function LearningToolCardInner({ tool, categoryIcon, onInfoClick, isExplored }) 
   const { isBookmarked, addBookmark, removeBookmark } = useBookmarks()
   const { selectedIds, addTool, removeTool } = useComparison()
   const health = getProjectHealth(tool.last_update)
-  const isFoss = tool.is_foss === true || (tool.is_foss == null && ['MIT','GPL','LGPL','Apache','BSD','MPL','AGPL','CC0','Unlicense'].some(l => (tool.license || '').toUpperCase().includes(l.toUpperCase())))
+  const isFoss = isFossTool(tool)
   const bookmarked = isBookmarked(tool.id)
   const inComparison = selectedIds.includes(tool.id)
   const atMax = selectedIds.length >= 3 && !inComparison

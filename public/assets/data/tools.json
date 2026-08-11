@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-02-04",
+  "lastUpdated": "2026-08-11",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1288,
+    "totalTools": 1291,
     "totalCategories": 45,
-    "fossTools": 1247,
-    "lastGenerated": "2026-02-04T07:41:56.135Z"
+    "fossTools": 1226,
+    "lastGenerated": "2026-08-11T16:39:00.681Z"
   },
   "categories": [
     {
@@ -19422,6 +19422,32 @@
       "searchTerms": "celestia space simulation real-time 3d visualization of space exploration. space 3d simulation astronomy universe sandbox education gpl-2.0 windows macos linux"
     },
     {
+      "id": "lrmds",
+      "category": "education",
+      "name": "DepEd LRMDS",
+      "tagline": "K-12 learning resource portal",
+      "description": "DepEd's Learning Resources Management and Development System, with curriculum-aligned lesson plans and modules for K-12. Free account needed to download.",
+      "website": "https://lrmds.deped.gov.ph",
+      "license": "Proprietary",
+      "platforms": [
+        "web"
+      ],
+      "tags": [
+        "curriculum",
+        "teaching",
+        "education",
+        "filipino"
+      ],
+      "alternatives_to": [
+        "Teachers Pay Teachers"
+      ],
+      "last_update": "2026-08-11",
+      "is_foss": false,
+      "maturity": "mature",
+      "license_type": "Proprietary",
+      "searchTerms": "lrmds deped lrmds learning resources management and development system deped learning portal lr portal self-learning modules alternative learning system als k-12 learning resource portal deped's learning resources management and development system, with curriculum-aligned lesson plans and modules for k-12. free account needed to download. curriculum teaching education filipino teachers pay teachers education proprietary web"
+    },
+    {
       "id": "fritzing",
       "category": "education",
       "name": "Fritzing",
@@ -19775,6 +19801,33 @@
       "last_update": "2026-01-15",
       "repo_url": "https://stellarium.org",
       "searchTerms": "stellarium planetarium open source planetarium for your computer showing a realistic 3d sky. astronomy stars 3d sky safari education gpl-2.0 windows macos linux"
+    },
+    {
+      "id": "sylla",
+      "category": "education",
+      "name": "Sylla",
+      "tagline": "Baybayin script lessons",
+      "description": "Guided lessons, a practice keyboard, and daily challenges for learning Baybayin, the pre-colonial Philippine script.",
+      "website": "https://sylla-app.cliqally.com",
+      "android_url": "https://play.google.com/store/apps/details?id=com.nikzcruzalde.sylla",
+      "ios_url": "https://apps.apple.com/app/sylla-learn-baybayin/id6783130414",
+      "license": "Proprietary",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "tags": [
+        "baybayin",
+        "filipino",
+        "learning",
+        "offline"
+      ],
+      "alternatives_to": [],
+      "last_update": "2026-06-29",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Proprietary",
+      "searchTerms": "sylla sylla app learn baybayin alibata baybayin script lessons guided lessons, a practice keyboard, and daily challenges for learning baybayin, the pre-colonial philippine script. baybayin filipino learning offline education proprietary freeware android ios"
     },
     {
       "id": "modoboa",
@@ -34362,6 +34415,37 @@
       "last_update": "2026-01-15",
       "repo_url": "https://warp.dev",
       "searchTerms": "warp ai-powered terminal the terminal for the 21st century with ai features. terminal ai modern collaborative iterm2 proprietary macos linux"
+    },
+    {
+      "id": "domodomo",
+      "category": "development",
+      "name": "DomoDomo",
+      "tagline": "All-in-one browser toolbox",
+      "description": "Privacy-first toolbox of developer, media, and AI utilities that run entirely in the browser.",
+      "website": "https://domodomo.site",
+      "license": "MIT",
+      "platforms": [
+        "web",
+        "self-hosted"
+      ],
+      "tags": [
+        "browser",
+        "privacy",
+        "utilities",
+        "converter",
+        "ai"
+      ],
+      "alternatives_to": [
+        "IT-Tools",
+        "CyberChef"
+      ],
+      "is_foss": true,
+      "stars": 238,
+      "maturity": "growing",
+      "license_type": "MIT",
+      "last_update": "2026-08-06",
+      "repo_url": "https://github.com/darknecrocities/DomoDomo---All-in-one-Tool",
+      "searchTerms": "domodomo domodomo all-in-one browser toolbox privacy-first toolbox of developer, media, and ai utilities that run entirely in the browser. browser privacy utilities converter ai it-tools cyberchef development mit web self-hosted"
     },
     {
       "id": "jmeter",

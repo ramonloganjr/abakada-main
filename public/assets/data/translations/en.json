@@ -38,7 +38,7 @@
     "statsTools": "Tools",
     "statsCategories": "Categories",
     "statsOpenSource": "Open Source",
-    "definition": "Abakada is a free, curated directory of 1,288 open-source productivity tools for Filipino students, educators, and professionals. Built by volunteers, no signup required.",
+    "definition": "Abakada is a free, curated directory of {count} open-source productivity tools for Filipino students, educators, and professionals. Built by volunteers, no signup required.",
     "ctaGuided": "Help me get started",
     "ctaBrowse": "Browse all tools"
   },
@@ -204,11 +204,15 @@
     "results": "tools",
     "category": "Category",
     "freeAlternativeTo": "A free, open-source alternative to",
-    "tryInBrowser": "Try in browser, no install"
+    "tryInBrowser": "Try in browser, no install",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "freeAlternativeToClosed": "A free alternative to"
   },
   "install": {
     "title": "How to install {name}",
     "safetyNote": "Always download from the official site linked above. Abakada only lists free, open-source software.",
+    "safetyNoteClosed": "Always download from the official site linked above. Abakada only lists software that is free to use.",
     "web": {
       "title": "In your web browser",
       "steps": "No installation needed. {name} runs right in your browser.\nUse the “Visit official site” button above to open it.\nSome web apps offer a free account so you can save your work."

@@ -23,7 +23,15 @@ dist
 dist-ssr
 build
 out
-release
+
+# ============================================================================
+# Sibling repositories cloned inside this one
+# ============================================================================
+# toolkit/ is a separate repo (github.com/Abakada-org/toolkit) that some
+# contributors clone in-tree to work on both side by side. It is not part of
+# this build. Ignoring it keeps `git status` honest; note that the `test` and
+# `lint` scripts are also scoped so its files never leak into our CI runs.
+toolkit/
 
 # ============================================================================
 # Environment files (may contain secrets)
@@ -45,6 +53,9 @@ release
 .eslintcache
 .stylelintcache
 *.tsbuildinfo
+# Lighthouse CI writes collected runs here; the report is uploaded to temporary
+# public storage (see .lighthouserc.json), so the local copy is throwaway.
+.lighthouseci
 
 # ============================================================================
 # Test coverage & Playwright artifacts

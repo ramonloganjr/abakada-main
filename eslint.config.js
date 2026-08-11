@@ -14,7 +14,11 @@ const baseRules = {
 }
 
 export default [
-  { ignores: ['dist', 'node_modules', 'coverage'] },
+  // `toolkit` is a sibling repo some contributors clone in-tree (see .gitignore).
+  // No config block below matches its files, so it was never actually linted —
+  // ignoring it explicitly stops ESLint crawling several thousand files for
+  // nothing, and keeps the intent obvious.
+  { ignores: ['dist', 'node_modules', 'coverage', 'toolkit'] },
 
   // Application source — browser globals + React Hooks / Fast Refresh rules.
   {
@@ -59,14 +63,27 @@ export default [
     rules: baseRules,
   },
 
-  // Tests — Node built-in test runner (unit) and Playwright (e2e). `test`/`expect`
-  // are imported, not globals, so plain node globals are enough here.
+  // Unit tests — Node built-in test runner. `test`/`assert` are imported, not
+  // globals, so plain node globals are enough here.
   {
-    files: ['tests/**/*.{js,mjs}', 'e2e/**/*.{js,mjs}'],
+    files: ['tests/**/*.{js,mjs}'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: globals.node,
+    },
+    rules: baseRules,
+  },
+
+  // E2E — Playwright. The spec bodies are Node, but the callbacks passed to
+  // page.evaluate()/waitForFunction() are serialised and run inside the browser,
+  // so `document`/`window` are legitimately in scope here too.
+  {
+    files: ['e2e/**/*.{js,mjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: { ...globals.node, ...globals.browser },
     },
     rules: baseRules,
   },

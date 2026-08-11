@@ -4,9 +4,10 @@ import StaticPageLayout from '../components/StaticPageLayout'
 import SEO from '../components/SEO'
 import Icon from '../components/Icon'
 import { pageMeta } from '../lib/pageMeta'
+import { catalogToolCount } from '../lib/catalog'
 
 const FAQ_ITEMS = [
-  { q: 'What is Abakada?', a: 'Abakada is a free, curated directory of 1,288 open-source productivity tools designed specifically for Filipino students, scholars, educators, and professionals. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.' },
+  { q: 'What is Abakada?', a: `Abakada is a free, curated directory of ${catalogToolCount()} open-source productivity tools designed specifically for Filipino students, scholars, educators, and professionals. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.` },
   { q: 'Are all the tools really free?', a: 'Yes. Every tool listed on Abakada is free and open-source. We do not list paid software, freemium-only products, or trialware. If a tool ever changes its license to something proprietary or paid-only, we remove it.' },
   { q: 'What does "open source" mean?', a: 'Open-source software has its source code publicly available for anyone to view, modify, and redistribute under a recognized license (e.g., MIT, GPL, Apache, AGPL). This guarantees transparency, security through community review, and freedom from vendor lock-in.' },
   { q: 'How do you select tools for the directory?', a: 'Each tool is reviewed against five criteria: (1) relevance to Filipino learners, (2) project maturity and active maintenance, (3) security posture and license clarity, (4) documentation quality and accessibility, and (5) community adoption. Paid tools, abandoned projects, and AI-generated submissions without human review are rejected.' },
@@ -91,9 +92,8 @@ export default function FAQ() {
             </div>
             <div className="developer-block__content">
               <p><a href="https://ramonloganjr.com" target="_blank" rel="noopener">Ramon Logan Jr.</a> is the developer behind Abakada and <a href="https://bettersolano.org" target="_blank" rel="noopener">BetterSolano.org</a>. He also built <a href="https://hivcareph.org/" target="_blank" rel="noopener">HIV Care Philippines</a>, a community-built digital resource designed to help people locate Department of Health (DOH)-designated HIV treatment hubs and primary care clinics across the Philippines. Based in the United Arab Emirates, he works in IT and practices full-stack development.</p>
-              <p>He also started <a href="https://hellopinas.com" target="_blank" rel="noopener">HelloPinas.com</a> and contributes to <a href="https://bettergov.ph" target="_blank" rel="noopener">BetterGov.ph</a>, a volunteer-driven civic-tech effort focused on improving access to local government information in the Philippines.</p>
-              <p>He is also an individual participant of the <a href="https://openjsf.org" target="_blank" rel="noopener">OpenJS Foundation</a>.</p>
-              <p>Abakada is also dedicated to his wife Alison and daughter Nana.</p>
+              <p>He also started <a href="https://hellopinas.com" target="_blank" rel="noopener">HelloPinas.com</a>, a digital solutions agency, and contributes to <a href="https://bettergov.ph" target="_blank" rel="noopener">BetterGov.ph</a>, a volunteer-driven civic-tech effort focused on improving access to local government information in the Philippines.</p>
+              <p>Abakada is also dedicated to his family, Alison, Nana, and their baby.</p>
               <div className="developer-block__highlight">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                 <p>Ramon has made Abakada open source under <strong>MIT | CC BY 4.0</strong> to empower community-driven development. Contributions are warmly welcomed from everyone.</p>

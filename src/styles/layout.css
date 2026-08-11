@@ -630,6 +630,18 @@ body.nav-open .sidebar {
     display: flex;
   }
 
+  /* Collapsed: the rail slides off-canvas and takes this button with it. Because
+     the button is pinned at right: -14px it ends up straddling the viewport edge,
+     clipped by the rail's own overflow — invisible and unclickable, yet still in
+     the tab order, still carrying the same "Expand sidebar" name as the reopen
+     tab, and still counted by axe as a pointer target (it failed WCAG 2.2
+     SC 2.5.8 at 28x22px, overlapped by that tab). The reopen tab is the
+     affordance for this state, so drop the button entirely: one control, on
+     screen, at full size. */
+  body.sidebar-collapsed .sidebar__collapse-btn {
+    display: none;
+  }
+
   body.static-page .sidebar__reopen-tab {
     display: flex;
     align-items: center;
@@ -927,6 +939,37 @@ body.nav-open .sidebar {
 .footer-social__link svg {
   width: 18px;
   height: 18px;
+}
+
+/* App Builders PH vote embed — sits directly above the social row.
+   `display: block` matters: an iframe is inline by default, which reserves
+   descender space and would add a few stray pixels under the frame.
+   width/max-width keep the vendor's 320px proportions while allowing the frame
+   to shrink inside narrow phone viewports instead of overflowing the page, and
+   the explicit height mirrors the height attribute so the reserved box is
+   correct before the lazy-loaded document arrives (no layout shift).
+
+   The clip-path removes the white box seen in dark mode on Safari/iOS. Cause:
+   the embedded document declares `:root { color-scheme: light }`, so WebKit
+   paints that frame's canvas with the light system colour even though the
+   vendor's own html/body are `background: transparent`. Chromium and Gecko
+   honour the transparent document, which is why this only reproduces on WebKit.
+   A parent background cannot fix it (the canvas paints above it) and
+   `color-scheme` on this element does not override the child's declaration —
+   both were measured.
+   What is left is geometry: the badge is inset by the vendor's
+   `body { padding: 2px }` and carries a 16px radius, so the canvas is only
+   visible as a 2px gutter plus the four corner arcs. Clipping to exactly that
+   shape removes the white with no wrapper, and is a no-op on engines that
+   already render it transparent. It does assume the vendor keeps that 2px/16px
+   geometry; if the badge ever changes, revisit here. */
+.footer-vote-embed {
+  display: block;
+  width: 320px;
+  max-width: 100%;
+  height: 72px;
+  border: 0;
+  clip-path: inset(2px round 16px);
 }
 
 /* Footer Sections */

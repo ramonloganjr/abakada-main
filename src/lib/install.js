@@ -4,7 +4,7 @@
 // tools.json carries a `platforms` array using a mixed vocabulary — operating
 // systems (windows/macos/linux), runtimes (python/nodejs/…), deployment targets
 // (self-hosted/kubernetes/cloud), web, and mobile. Rather than hand-write install
-// steps for 1,288 tools, we classify each tool's platforms into a few buckets and
+// steps for every tool in the catalog, we classify each tool's platforms into a few buckets and
 // the UI renders localized, step-by-step guidance per bucket. This keeps the page
 // genuinely helpful for non-technical visitors while scaling to the whole catalog.
 //

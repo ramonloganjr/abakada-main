@@ -228,6 +228,18 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
+/* Keep scrolled-to content clear of the fixed header.
+   `.site-header` is position:fixed, so anything the browser scrolls to the top
+   of the viewport lands *underneath* it — whether that's an in-page #anchor or
+   an element reached by keyboard Tab. The latter is WCAG 2.2 SC 2.4.11 (Focus
+   Not Obscured): a focused control hidden behind the header is a conformance
+   failure, not just an annoyance.
+   `:where()` keeps specificity at 0, so the per-component overrides further
+   down the cascade (e.g. .guide-section) still win. */
+:where(a, button, input, select, textarea, summary, details, [tabindex], [id]) {
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
 /* Screen Reader Only */
 .sr-only {
   position: absolute;

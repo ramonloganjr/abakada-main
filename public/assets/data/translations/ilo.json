@@ -38,7 +38,7 @@
     "statsTools": "Dagiti Ramit",
     "statsCategories": "Dagiti Kategoria",
     "statsOpenSource": "Open Source",
-    "definition": "Ti Abakada ket libre, naurnos a direktorio ti 1,288 nga open-source a kagamitan ti produktibidad para kadagiti Filipino nga estudiante, mannursuro, ken propesional. Binangon dagiti boluntario, awan ti masapul a panagrehistro.",
+    "definition": "Ti Abakada ket libre, naurnos a direktorio ti {count} nga open-source a kagamitan ti produktibidad para kadagiti Filipino nga estudiante, mannursuro, ken propesional. Binangon dagiti boluntario, awan ti masapul a panagrehistro.",
     "ctaGuided": "Tulongannak a mangrugi",
     "ctaBrowse": "Kitaen amin a ramit"
   },
@@ -204,11 +204,15 @@
     "results": "kagamitan",
     "category": "Kategoria",
     "freeAlternativeTo": "Maysa a libre ken open-source nga alternatibo iti",
-    "tryInBrowser": "Padasen iti browser, awan install"
+    "tryInBrowser": "Padasen iti browser, awan install",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "freeAlternativeToClosed": "Maysa a libre nga alternatibo iti"
   },
   "install": {
     "title": "Kasano nga i-install ti {name}",
     "safetyNote": "Kanayon nga ag-download manipud iti opisial a site iti ngato. Ti laeng libre ken open-source a software ti adda iti Abakada.",
+    "safetyNoteClosed": "Kanayon nga ag-download manipud iti opisial a site iti ngato. Ti laeng libre nga usaren a software ti adda iti Abakada.",
     "web": {
       "title": "Iti web browser mo",
       "steps": "Awan ti masapul nga i-install. Agtaray ti {name} iti browser mo.\nUsaren ti “Visit official site” iti ngato tapno luktan daytoy.\nDadduma a web app ket mangted iti libre nga account tapno maidulin ti trabahom."
