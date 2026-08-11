@@ -18,7 +18,7 @@
     "preview": "vite preview",
     "sitemap": "node scripts/refresh-sitemap.js",
     "prerender": "node scripts/prerender-shells.js",
-    "test": "node --test \"tests/**/*.test.mjs\"",
+    "test": "node --test",
     "test:e2e": "playwright test"
   },
   "dependencies": {
