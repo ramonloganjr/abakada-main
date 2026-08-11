@@ -88,7 +88,7 @@ npm run dev
 Before making any changes, ensure your fork is up to date with the main branch:
 
 ```bash
-git remote add upstream https://github.com/abakada-org/abakada.org.git
+git remote add upstream https://github.com/ramonloganjr/abakada.org.git
 git fetch upstream
 git checkout main
 git merge upstream/main

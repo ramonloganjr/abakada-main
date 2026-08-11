@@ -674,7 +674,7 @@ abakada.org/
 ### Installation
 
 ```bash
-git clone https://github.com/Abakada-org/abakada.org.git
+git clone https://github.com/ramonloganjr/abakada.org.git
 cd abakada.org
 npm install
 ```
