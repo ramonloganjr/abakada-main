@@ -77,7 +77,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
   <tr>
     <td align="center" width="110">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="36" /><br/>
-      <sub><b>React 18</b></sub>
+      <sub><b>React 19</b></sub>
     </td>
     <td align="center" width="110">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" width="36" /><br/>
@@ -100,7 +100,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
       <sub><b>Node.js</b></sub>
     </td>
     <td align="center" width="110">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" width="36" /><br/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" width="36" /><br/>
       <sub><b>Vercel</b></sub>
     </td>
     <td align="center" width="110">
@@ -668,7 +668,7 @@ abakada.org/
 
 ### Prerequisites
 
-- Node.js 20 or higher (CI builds and deploys on Node 20; `package.json` `engines` requires `>=20`)
+- Node.js 24 (CI and Vercel both build on Node 24; `package.json` `engines` pins `24.x`)
 - npm 9 or higher
 
 ### Installation
@@ -782,7 +782,7 @@ Build settings are pinned in [`vercel.json`](./vercel.json) rather than left to 
 | `buildCommand` | `npm run build` (runs `prebuild` and `postbuild`) |
 | `outputDirectory` | `dist` |
 
-The Node version comes from `engines.node` in `package.json` (`20.x`), matching `.nvmrc` and every CI workflow. Vercel does **not** read `.nvmrc`, so leaving a range there would build on Vercel's default major instead of the one CI tests.
+The Node version comes from `engines.node` in `package.json` (`24.x`), matching `.nvmrc` and every CI workflow. Vercel does **not** read `.nvmrc`, so leaving a range there would build on Vercel's default major instead of the one CI tests.
 
 `.vercelignore` keeps test, lint and docs files out of the deployment upload; everything `npm run build` reads stays in.
 
