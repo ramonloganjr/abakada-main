@@ -85,7 +85,7 @@ export default function FeaturedCarousel({ tools, categories, onToolClick }) {
   const pageItems = items.slice(page * perPage, page * perPage + perPage)
 
   return (
-    <section className="section section--featured featured-section" role="region" aria-label="Featured productivity tools">
+    <section className="section section--featured featured-section" role="region" aria-label={t('accessibility.featuredTools', 'Featured productivity tools')}>
       {/* Decorative layers */}
       <div className="featured-orb featured-orb--1" aria-hidden="true" />
       <div className="featured-orb featured-orb--2" aria-hidden="true" />
@@ -105,10 +105,10 @@ export default function FeaturedCarousel({ tools, categories, onToolClick }) {
             <p className="featured-subtitle">{t('featured.subtitle', 'Discover the most loved open-source tools in our collection')}</p>
           </div>
           <div className="featured-nav">
-            <button type="button" className="featured-nav__btn" id="featured-prev" disabled={page <= 0} onClick={prev} aria-label="Previous tools">
+            <button type="button" className="featured-nav__btn" id="featured-prev" disabled={page <= 0} onClick={prev} aria-label={t('accessibility.prevTools', 'Previous tools')}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="15 18 9 12 15 6" /></svg>
             </button>
-            <button type="button" className="featured-nav__btn" id="featured-next" disabled={page >= totalPages - 1} onClick={next} aria-label="Next tools">
+            <button type="button" className="featured-nav__btn" id="featured-next" disabled={page >= totalPages - 1} onClick={next} aria-label={t('accessibility.nextTools', 'Next tools')}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="9 18 15 12 9 6" /></svg>
             </button>
           </div>
@@ -159,7 +159,7 @@ export default function FeaturedCarousel({ tools, categories, onToolClick }) {
       </div>
 
       <div className="featured-progress">
-          <div className="featured-progress__dots" id="featured-dots" role="tablist" aria-label="Featured pages">
+          <div className="featured-progress__dots" id="featured-dots" role="tablist" aria-label={t('accessibility.featuredPages', 'Featured pages')}>
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}

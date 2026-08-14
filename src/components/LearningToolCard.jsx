@@ -114,7 +114,7 @@ function LearningToolCardInner({ tool, categoryIcon, onInfoClick, isExplored }) 
               rel="noopener noreferrer"
               className="learning-tool-card__action-btn learning-tool-card__try-btn"
               aria-label={`Try ${tool.name} in browser`}
-              title="Try in browser, no install needed"
+              title={t('accessibility.tryInBrowser', 'Try in browser, no install needed')}
               onClick={e => e.stopPropagation()}
             >
               <Icon name="play-circle" collection="ui" size={15} />
