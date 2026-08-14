@@ -280,10 +280,13 @@
     "active": "aktibo"
   },
   "pagination": {
-    "prev": "Kaniadto",
+    "prev": "Miaging",
     "next": "Sunod",
     "page": "Panid",
-    "of": "sa"
+    "of": "sa",
+    "label": "Nabigasyon sa mga panid",
+    "prevPage": "Miaging panid",
+    "nextPage": "Sunod nga panid"
   },
   "theme": {
     "light": "Kahayag",
@@ -323,7 +326,7 @@
     "termsOfUse": "Mga Termino sa Paggamit",
     "officialPartners": "Mga Opisyal nga Kasosyo",
     "partnerships": "Pakigkasosyo",
-    "pitchDeck": "Pitch Deck sa Pakigtambayayong",
+    "pitchDeck": "Pitch Deck sa Epekto",
     "glossary": "Glosaryo",
     "educators": "Para sa mga Magtutudlo",
     "students": "Para sa mga Estudyante"
@@ -352,7 +355,7 @@
     "view": "Tan-awa",
     "back": "Balik",
     "next": "Sunod",
-    "previous": "Kaniadto",
+    "previous": "Miaging",
     "yes": "Oo",
     "no": "Dili",
     "or": "o",
@@ -364,7 +367,8 @@
     "less": "Mas gamay",
     "all": "Tanan",
     "none": "Wala",
-    "dismiss": "Isira"
+    "dismiss": "Isira",
+    "backToTop": "Balik sa taas"
   },
   "health": {
     "active": "Aktibo",
@@ -590,6 +594,44 @@
       "searchPlaceholder": "Pangitaa sa giya..."
     },
     "faq": {
+      "items": {
+        "q1": "Unsa ang Abakada?",
+        "a1": "Ang Abakada usa ka libre ug maampingong pinili nga direktoryo sa {count} ka open-source nga himan sa produktibidad, gihimo para sa mga Pilipinong estudyante, iskolar, magtutudlo, ug propesyonal. Gitabangan namo nga matabok ang digital divide pinaagi sa paghatag og akses sa kusgang alternatibong software nga walay bayad.",
+        "q2": "Tinuod ba nga libre ang tanang himan?",
+        "a2": "Oo. Matag himan nga nalista sa Abakada libre ug open-source. Wala kami maglista og bayad nga software, freemium-only nga produkto, o trialware. Kung usbon sa usa ka himan ang lisensya niini ngadto sa proprietary o bayad ra, kuhaon namo kini.",
+        "q3": "Unsay buot pasabot sa \"open source\"?",
+        "a3": "Ang open-source nga software adunay source code nga abli sa publiko aron tan-awon, usbon, ug iapod-apod pag-usab ubos sa giila nga lisensya (pananglitan MIT, GPL, Apache, AGPL). Kini ang nagsiguro sa transparency, seguridad pinaagi sa pagrepaso sa komunidad, ug kagawasan gikan sa vendor lock-in.",
+        "q4": "Giunsa ninyo pagpili ang mga himan para sa direktoryo?",
+        "a4": "Girepaso ang matag himan base sa lima ka sukdanan: (1) kalabotan sa mga Pilipinong nagtuon, (2) kalig-on sa proyekto ug aktibong pagmintinar, (3) seguridad ug katin-aw sa lisensya, (4) kalidad sa dokumentasyon ug accessibility, ug (5) pagdawat sa komunidad. Gisalikway ang bayad nga himan, biniyaang proyekto, ug AI-generated nga gipasa nga walay pagrepaso sa tawo.",
+        "q5": "Magamit ba nako kini nga mga himan nga offline?",
+        "a5": "Daghang himan ang molihok nga hingpit offline human ma-install. Gipakita namo ang platform compatibility (Windows, macOS, Linux, Web, Android, iOS) sa matag himan aron makakita ka og haom sa imong hardware ug koneksyon. Ang Abakada mismo usa ka Progressive Web App ug molihok nga offline kung na-install na.",
+        "q6": "Unsang mga lisensya ang inyong gidawat?",
+        "a6": "Gidawat namo ang halapad nga giila nga OSI-approved nga lisensya (MIT, Apache 2.0, BSD, GPL, LGPL, AGPL, MPL) ug ang mga lisensya sa Creative Commons para sa sulod (CC BY, CC BY-SA). Wala kami maglista og \"source-available\" nga himan nga nagpugong sa komersyal nga paggamit, o \"fair source\" nga adunay non-commercial nga clause.",
+        "q7": "Unsang mga pinulongan ang gisuportahan sa Abakada?",
+        "a7": "Hingpit nga gihubad ang Abakada sa English (en), Filipino/Tagalog (tl), Ilokano (ilo), ug Bisaya/Cebuano (bis). Gihubad ang mga listahan sa himan, nabigasyon, ug mga dalan sa pagkat-on. Malipayon namong gidawat ang mga amot para sa uban pang pinulongan sa Pilipinas.",
+        "q8": "Accessible ba ang Abakada?",
+        "a8": "Gisunod sa Abakada ang mga giya sa WCAG 2.1 AA: nabigasyon pinaagi sa keyboard, semantic landmarks, ARIA labels, igong contrast sa kolor sa hayag ug ngitngit nga tema, ug markup nga sayon basahon sa screen reader. Ireport ang mga isyu sa accessibility sa hello@abakada.org.",
+        "q9": "Giunsa pag-atubang sa Abakada ang mga AI training crawler?",
+        "a9": "Gibabagan sa Abakada ang mga AI training crawler (GPTBot, anthropic-ai, CCBot, Google-Extended, Applebot-Extended, PerplexityBot, Bytespider, ug uban pa) pinaagi sa robots.txt. Gitugotan namo ang real-time nga search retriever (Googlebot, Bingbot, DuckDuckBot, Applebot) aron makit-an gihapon kami pinaagi sa pagpangita ug sa mga AI overview. Ang among sulod gilisensyahan para sa tawhanong magbabasa ug sa downstream nga open-source nga integrasyon, dili para sa dili tin-aw nga LLM training dataset.",
+        "q10": "Naggamit ba ang Abakada og AI sa pagsulat sa sulod?",
+        "a10": "Wala. Ang tanang repaso, deskripsyon, ug sulod sa dalan sa pagkat-on gisulat ug gipamatud-an sa tawhanong kontribyutor. Gisalikway ang AI-generated nga gipasa nga walay klarong pagrepaso ug pagpadayag sa tawo, sumala sa among contributing guidelines.",
+        "q11": "Unsaon nako pag-amot?",
+        "a11": "Pag-abli og issue o pull request sa Abakada GitHub repository (github.com/Abakada-org). Mahimo kang magsugyot og bag-ong himan, mag-ayo sa karaang impormasyon, mopalambo sa mga hubad, magsulat og sulod sa dalan sa pagkat-on, o mo-amot og code. Malipayon usab namong gidawat ang mga amot para sa accessibility, dokumentasyon, ug disenyo.",
+        "q12": "Adunay ba kalabotan ang Abakada sa bisan unsang ahensya sa gobyerno?",
+        "a12": "Wala. Ang Abakada usa ka independenteng proyekto nga gipadagan sa mga boluntaryo. Wala kami kalabotan sa bisan unsang ahensya sa gobyerno, institusyon sa edukasyon, o komersyal nga entidad. Wala kami modawat og bayad nga pagbutang ug wala kami magpadagan og advertising.",
+        "q13": "Giunsa pagpondo ang Abakada?",
+        "a13": "Ang Abakada sa pagkakaron gipondohan mismo sa nagtukod nga si Ramon Logan Jr. ug nagdagan sa oras sa mga boluntaryo. Gidawat namo ang in-kind nga pakigtambayayong (hosting credits, sponsorship sa proyektong FOSS, pakigtambayayong sa edukasyon) apan wala kami modawat og bayad nga editorial placement.",
+        "q14": "Naggamit ba ang Abakada og cookies o gisubay ba ko?",
+        "a14": "Naggamit kami og Google Analytics 4 nga adunay anonymized nga IP address aron masabtan ang kinatibuk-ang paagi sa paggamit. Walay personal nga datos nga gitipigan sa among mga server. Wala kami magpadagan og advertising tracker, third-party pixel, o cross-site tracking. Tan-awa ang among Patakaran sa Pagkapribado para sa tibuok detalye.",
+        "q15": "Unsaon pagpakigtambayayong sa akong eskwelahan o organisasyon sa Abakada?",
+        "a15": "Nakigtambayayong kami sa mga eskwelahan, NGO, ug proyektong FOSS sa upat ka ang-ang: Teknolohiya, Edukasyon, Sulod, ug Komunidad. Pag-email sa partnerships@abakada.org o bisitaha ang among panid sa Pakigkasosyo aron magsugod og panag-istorya.",
+        "q16": "Unsa ka subsob gi-update ang direktoryo sa himan?",
+        "a16": "Girepaso ang datos sa himan matag quarter sa labing menos, ug mas subsob para sa mga kategoryang taas ang trapiko. Ang petsa nga \"Kataposang girepaso\" sa matag panid sa himan nagpakita sa pinakabag-ong beripikasyon. Ireport ang guba o karaang entry pinaagi sa panid sa Pagkontak.",
+        "q17": "Mahimo ba nakong hangyoon nga tangtangon ang usa ka listahan sa himan?",
+        "a17": "Ang mga tigmintinar sa nalistang himan mahimong mohangyo og pagtangtang pinaagi sa pag-email sa hello@abakada.org uban ang pamatuod sa pagpanag-iya. Ang pagtangtang mahitabo sulod sa 7 ka adlaw. Ang mga kabalaka sa trademark, pagpanamastamas, o copyright gitubag ubos sa samang proseso.",
+        "q18": "Asa nako makita ang pagtandi sa mga himan?",
+        "a18": "Gamita ang bahin nga Pagtandi (/compare) aron makita ang tapad-tapad nga pagtandi sa 2-4 ka himan: mga bahin, gisuportahang plataporma, matang sa lisensya, ug mga nota sa editor. Labi kining mapuslanon sa pagpili tali sa managsamang himan (pananglitan LibreOffice vs. ONLYOFFICE)."
+      },
       "guideCallout": "Bag-o ka sa Abakada? Gipasabot sa Giya sa Platform ang tanan sa matag lakang, gikan sa unang pagbisita hangtod sa offline nga paggamit sa klasehanan.",
       "title": "Kanunay Pangutan-on",
       "pageTitle": "Kanunay Pangutan-on - Abakada",

@@ -283,7 +283,10 @@
     "prev": "Previous",
     "next": "Next",
     "page": "Page",
-    "of": "of"
+    "of": "of",
+    "label": "Pagination",
+    "prevPage": "Previous page",
+    "nextPage": "Next page"
   },
   "theme": {
     "light": "Light",
@@ -323,7 +326,7 @@
     "termsOfUse": "Terms of Use",
     "officialPartners": "Official Partners",
     "partnerships": "Partnerships",
-    "pitchDeck": "Partnership Pitch Deck",
+    "pitchDeck": "Impact Pitch Deck",
     "glossary": "Glossary",
     "educators": "For Educators",
     "students": "For Students"
@@ -364,7 +367,8 @@
     "less": "Less",
     "all": "All",
     "none": "None",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "backToTop": "Back to top"
   },
   "health": {
     "active": "Active",
@@ -590,6 +594,44 @@
       "searchPlaceholder": "Search the guide..."
     },
     "faq": {
+      "items": {
+        "q1": "What is Abakada?",
+        "a1": "Abakada is a free, curated directory of {count} open-source productivity tools designed specifically for Filipino students, scholars, educators, and professionals. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.",
+        "q2": "Are all the tools really free?",
+        "a2": "Yes. Every tool listed on Abakada is free and open-source. We do not list paid software, freemium-only products, or trialware. If a tool ever changes its license to something proprietary or paid-only, we remove it.",
+        "q3": "What does \"open source\" mean?",
+        "a3": "Open-source software has its source code publicly available for anyone to view, modify, and redistribute under a recognized license (e.g., MIT, GPL, Apache, AGPL). This guarantees transparency, security through community review, and freedom from vendor lock-in.",
+        "q4": "How do you select tools for the directory?",
+        "a4": "Each tool is reviewed against five criteria: (1) relevance to Filipino learners, (2) project maturity and active maintenance, (3) security posture and license clarity, (4) documentation quality and accessibility, and (5) community adoption. Paid tools, abandoned projects, and AI-generated submissions without human review are rejected.",
+        "q5": "Can I use these tools offline?",
+        "a5": "Many tools work fully offline after installation. We indicate platform compatibility (Windows, macOS, Linux, Web, Android, iOS) for every tool so you can find options that match your hardware and connectivity. Abakada itself is a Progressive Web App and works offline once installed.",
+        "q6": "Which licenses do you accept?",
+        "a6": "We accept widely recognized OSI-approved licenses (MIT, Apache 2.0, BSD, GPL, LGPL, AGPL, MPL) and Creative Commons licenses for content (CC BY, CC BY-SA). We do not list \"source-available\" tools that restrict commercial use or \"fair source\" tools with non-commercial clauses.",
+        "q7": "What languages does Abakada support?",
+        "a7": "Abakada is fully translated into English (en), Filipino/Tagalog (tl), Ilokano (ilo), and Bisaya/Cebuano (bis). Tool listings, navigation, and learning paths are all localized. We welcome contributions for additional Philippine languages.",
+        "q8": "Is Abakada accessible?",
+        "a8": "Abakada follows WCAG 2.1 AA guidelines: keyboard navigation, semantic landmarks, ARIA labels, sufficient color contrast in both light and dark themes, and screen-reader-friendly markup. Report accessibility issues to hello@abakada.org.",
+        "q9": "How does Abakada handle AI training crawlers?",
+        "a9": "Abakada blocks AI training crawlers (GPTBot, anthropic-ai, CCBot, Google-Extended, Applebot-Extended, PerplexityBot, Bytespider, and others) via robots.txt. We allow real-time search retrievers (Googlebot, Bingbot, DuckDuckBot, Applebot) so users can still discover us via search and AI overviews. Our content is licensed for human readers and downstream open-source integrations, not for opaque LLM training datasets.",
+        "q10": "Does Abakada use AI to write content?",
+        "a10": "No. All tool reviews, descriptions, and learning-path content are written and verified by human contributors. AI-generated submissions without explicit human review and disclosure are rejected per our contributing guidelines.",
+        "q11": "How can I contribute?",
+        "a11": "Open an issue or pull request on the Abakada GitHub repository (github.com/Abakada-org). You can suggest new tools, fix outdated information, improve translations, write learning-path content, or contribute code. We also welcome contributions for accessibility, documentation, and design.",
+        "q12": "Is Abakada affiliated with any government agency?",
+        "a12": "No. Abakada is an independent, volunteer-driven project. We are not affiliated with any government agency, educational institution, or commercial entity. We accept no paid placements and do not run advertising.",
+        "q13": "How is Abakada funded?",
+        "a13": "Abakada is currently self-funded by founder Ramon Logan Jr. and runs on volunteer time. We accept in-kind partnerships (hosting credits, FOSS project sponsorships, educational partnerships) but do not accept paid editorial placement.",
+        "q14": "Does Abakada use cookies or track me?",
+        "a14": "We use Google Analytics 4 with anonymized IP addresses to understand aggregate usage patterns. No personal data is stored on our servers. We do not run advertising trackers, third-party pixels, or cross-site tracking. See our Privacy Policy for full details.",
+        "q15": "How can my school or organization partner with Abakada?",
+        "a15": "We partner with schools, NGOs, and FOSS projects in four tiers: Technology, Educational, Content, and Community partners. Email partnerships@abakada.org or visit our Partnerships page to start a conversation.",
+        "q16": "How often is the tool directory updated?",
+        "a16": "Tool data is reviewed quarterly at minimum, with high-traffic categories reviewed more frequently. The \"Last reviewed\" date on each tool page reflects the most recent verification. Report broken or outdated entries via the Contact page.",
+        "q17": "Can I request takedown of a tool listing?",
+        "a17": "Maintainers of listed tools can request takedown by emailing hello@abakada.org with proof of ownership. Removal happens within 7 days. Trademark, defamation, or copyright concerns are addressed under the same process.",
+        "q18": "Where can I see comparisons between tools?",
+        "a18": "Use the Compare feature (/compare) to view side-by-side comparisons of any 2-4 tools: features, supported platforms, license type, and editorial notes. Comparisons are particularly useful for choosing between similar tools (e.g., LibreOffice vs. ONLYOFFICE)."
+      },
       "guideCallout": "New to Abakada? The Platform Guide explains everything step by step, from your first visit to offline classrooms.",
       "title": "FAQ",
       "pageTitle": "FAQ - Abakada | Frequently Asked Questions",

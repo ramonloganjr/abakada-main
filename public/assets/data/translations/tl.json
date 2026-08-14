@@ -283,7 +283,10 @@
     "prev": "Nakaraan",
     "next": "Susunod",
     "page": "Pahina",
-    "of": "sa"
+    "of": "sa",
+    "label": "Nabigasyon ng mga pahina",
+    "prevPage": "Nakaraang pahina",
+    "nextPage": "Susunod na pahina"
   },
   "theme": {
     "light": "Maliwanag",
@@ -323,7 +326,7 @@
     "termsOfUse": "Mga Tuntunin ng Paggamit",
     "officialPartners": "Mga Opisyal na Kasosyo",
     "partnerships": "Pakikipagsosyo",
-    "pitchDeck": "Pitch Deck ng Pakikipagtulungan",
+    "pitchDeck": "Pitch Deck ng Epekto",
     "glossary": "Talahuluganan",
     "educators": "Para sa mga Guro",
     "students": "Para sa mga Mag-aaral"
@@ -364,7 +367,8 @@
     "less": "Mas kaunti",
     "all": "Lahat",
     "none": "Wala",
-    "dismiss": "Isara"
+    "dismiss": "Isara",
+    "backToTop": "Bumalik sa itaas"
   },
   "health": {
     "active": "Aktibo",
@@ -590,6 +594,44 @@
       "searchPlaceholder": "Maghanap sa gabay..."
     },
     "faq": {
+      "items": {
+        "q1": "Ano ang Abakada?",
+        "a1": "Ang Abakada ay isang libre at maingat na piniling direktoryo ng {count} open-source na kagamitan sa produktibidad, ginawa para sa mga Pilipinong mag-aaral, iskolar, guro, at propesyonal. Tinutulay namin ang digital divide sa pamamagitan ng pagbibigay ng akses sa malalakas na alternatibong software nang walang bayad.",
+        "q2": "Talaga bang libre ang lahat ng kagamitan?",
+        "a2": "Oo. Bawat kagamitang nakalista sa Abakada ay libre at open-source. Hindi kami naglilista ng bayad na software, freemium-only na produkto, o trialware. Kapag pinalitan ng isang kagamitan ang lisensya nito tungo sa proprietary o bayad lamang, tinatanggal namin ito.",
+        "q3": "Ano ang ibig sabihin ng \"open source\"?",
+        "a3": "Ang open-source na software ay may source code na bukas sa publiko upang tingnan, baguhin, at muling ipamahagi sa ilalim ng kinikilalang lisensya (hal. MIT, GPL, Apache, AGPL). Tinitiyak nito ang transparency, seguridad sa pamamagitan ng pagsusuri ng komunidad, at kalayaan mula sa vendor lock-in.",
+        "q4": "Paano ninyo pinipili ang mga kagamitan para sa direktoryo?",
+        "a4": "Sinusuri ang bawat kagamitan batay sa limang pamantayan: (1) kaugnayan sa mga Pilipinong nag-aaral, (2) katatagan ng proyekto at aktibong pagpapanatili, (3) seguridad at linaw ng lisensya, (4) kalidad ng dokumentasyon at accessibility, at (5) pagtanggap ng komunidad. Tinatanggihan ang mga bayad na kagamitan, inabandonang proyekto, at AI-generated na sumusong walang pagsusuri ng tao.",
+        "q5": "Magagamit ko ba ang mga kagamitang ito nang offline?",
+        "a5": "Maraming kagamitan ang gumagana nang buong offline pagkatapos i-install. Ipinapakita namin ang platform compatibility (Windows, macOS, Linux, Web, Android, iOS) para sa bawat kagamitan upang makahanap ka ng akma sa iyong hardware at koneksyon. Ang Abakada mismo ay isang Progressive Web App at gumagana nang offline kapag na-install na.",
+        "q6": "Anong mga lisensya ang tinatanggap ninyo?",
+        "a6": "Tinatanggap namin ang malawakang kinikilalang OSI-approved na lisensya (MIT, Apache 2.0, BSD, GPL, LGPL, AGPL, MPL) at mga lisensyang Creative Commons para sa nilalaman (CC BY, CC BY-SA). Hindi kami naglilista ng \"source-available\" na kagamitang naghihigpit sa komersyal na paggamit, o \"fair source\" na may non-commercial na sugnay.",
+        "q7": "Anong mga wika ang sinusuportahan ng Abakada?",
+        "a7": "Ganap na naisalin ang Abakada sa English (en), Filipino/Tagalog (tl), Ilokano (ilo), at Bisaya/Cebuano (bis). Naisalin ang mga listahan ng kagamitan, nabigasyon, at mga landas ng pag-aaral. Malugod naming tinatanggap ang mga ambag para sa iba pang wikang Pilipino.",
+        "q8": "Accessible ba ang Abakada?",
+        "a8": "Sinusunod ng Abakada ang mga patnubay ng WCAG 2.1 AA: nabigasyon gamit ang keyboard, semantic landmarks, ARIA labels, sapat na contrast ng kulay sa maliwanag at madilim na tema, at markup na madaling basahin ng screen reader. Iulat ang mga isyu sa accessibility sa hello@abakada.org.",
+        "q9": "Paano hinaharap ng Abakada ang mga AI training crawler?",
+        "a9": "Hinaharangan ng Abakada ang mga AI training crawler (GPTBot, anthropic-ai, CCBot, Google-Extended, Applebot-Extended, PerplexityBot, Bytespider, at iba pa) sa pamamagitan ng robots.txt. Pinapayagan namin ang mga real-time na search retriever (Googlebot, Bingbot, DuckDuckBot, Applebot) upang matuklasan pa rin kami sa paghahanap at sa mga AI overview. Ang aming nilalaman ay lisensyado para sa mga mambabasang tao at sa downstream na open-source na integrasyon, hindi para sa malabong LLM training dataset.",
+        "q10": "Gumagamit ba ang Abakada ng AI sa pagsulat ng nilalaman?",
+        "a10": "Hindi. Lahat ng pagsusuri, paglalarawan, at nilalaman ng landas ng pag-aaral ay isinulat at bineripika ng mga kontribyutor na tao. Tinatanggihan ang mga AI-generated na sumusong walang tahasang pagsusuri at pagsisiwalat ng tao, ayon sa aming contributing guidelines.",
+        "q11": "Paano ako makakatulong?",
+        "a11": "Magbukas ng issue o pull request sa Abakada GitHub repository (github.com/Abakada-org). Maaari kang magmungkahi ng bagong kagamitan, magtama ng lumang impormasyon, magpabuti ng mga salin, magsulat ng nilalaman para sa landas ng pag-aaral, o mag-ambag ng code. Malugod din naming tinatanggap ang mga ambag para sa accessibility, dokumentasyon, at disenyo.",
+        "q12": "May kaugnayan ba ang Abakada sa anumang ahensya ng gobyerno?",
+        "a12": "Wala. Ang Abakada ay isang malayang proyektong pinapatakbo ng mga boluntaryo. Wala kaming kaugnayan sa anumang ahensya ng gobyerno, institusyong pang-edukasyon, o komersyal na entidad. Hindi kami tumatanggap ng bayad na paglalagay at hindi kami nagpapatakbo ng advertising.",
+        "q13": "Paano pinopondohan ang Abakada?",
+        "a13": "Kasalukuyang pinopondohan ang Abakada mismo ng tagapagtatag na si Ramon Logan Jr. at umaandar ito sa oras ng mga boluntaryo. Tumatanggap kami ng in-kind na pakikipagtulungan (hosting credits, sponsorship ng proyektong FOSS, pakikipagtulungang pang-edukasyon) ngunit hindi kami tumatanggap ng bayad na editorial placement.",
+        "q14": "Gumagamit ba ang Abakada ng cookies o sinusubaybayan ba ako?",
+        "a14": "Gumagamit kami ng Google Analytics 4 na may anonymized na IP address upang maunawaan ang pangkalahatang gawi ng paggamit. Walang personal na datos na iniimbak sa aming mga server. Hindi kami nagpapatakbo ng advertising tracker, third-party pixel, o cross-site tracking. Tingnan ang aming Patakaran sa Pagkapribado para sa buong detalye.",
+        "q15": "Paano makikipagtulungan ang aking paaralan o organisasyon sa Abakada?",
+        "a15": "Nakikipagtulungan kami sa mga paaralan, NGO, at proyektong FOSS sa apat na antas: Teknolohiya, Edukasyon, Nilalaman, at Komunidad. Mag-email sa partnerships@abakada.org o bisitahin ang aming pahina ng Pakikipagsosyo upang magsimula ng usapan.",
+        "q16": "Gaano kadalas ina-update ang direktoryo ng kagamitan?",
+        "a16": "Sinusuri ang datos ng kagamitan nang hindi bababa sa tuwing quarter, at mas madalas para sa mga kategoryang mataas ang trapiko. Ang petsang \"Huling sinuri\" sa bawat pahina ng kagamitan ang nagpapakita ng pinakabagong beripikasyon. Iulat ang sira o lumang entry sa pahina ng Makipag-ugnayan.",
+        "q17": "Maaari ba akong humiling na tanggalin ang isang listahan ng kagamitan?",
+        "a17": "Maaaring humiling ng pagtanggal ang mga tagapagpanatili ng nakalistang kagamitan sa pamamagitan ng pag-email sa hello@abakada.org kalakip ang patunay ng pagmamay-ari. Isinasagawa ang pagtanggal sa loob ng 7 araw. Ang mga alalahanin sa trademark, paninirang-puri, o copyright ay tinutugunan sa ilalim ng parehong proseso.",
+        "q18": "Saan ko makikita ang paghahambing ng mga kagamitan?",
+        "a18": "Gamitin ang tampok na Paghahambing (/compare) upang makita ang magkatabing paghahambing ng 2-4 na kagamitan: mga tampok, sinusuportahang plataporma, uri ng lisensya, at mga tala ng editor. Lalo itong kapaki-pakinabang sa pagpili sa pagitan ng magkatulad na kagamitan (hal. LibreOffice vs. ONLYOFFICE)."
+      },
       "guideCallout": "Bago ka sa Abakada? Ipinapaliwanag ng Gabay sa Platform ang lahat nang hakbang-hakbang, mula sa unang pagbisita hanggang sa offline na paggamit sa silid-aralan.",
       "title": "Mga Madalas Itanong",
       "pageTitle": "Mga Madalas Itanong - Abakada",

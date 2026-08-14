@@ -6,8 +6,8 @@ import { downloadFile } from '../lib/downloadFile'
 import { PRESS } from '../lib/press'
 import { useVisitorCount } from '../hooks/useVisitorCount'
 
-const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
-const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
+const PITCH_DECK_URL = '/assets/doc/Abakada-Impact-Pitch-Deck-2026.pdf'
+const PITCH_DECK_FILENAME = 'Abakada-Impact-Pitch-Deck-2026.pdf'
 const TOOLKIT_URL = 'https://toolkit.abakada.org/'
 const MERCH_URL = 'https://abakada-org-shop.fourthwall.com/'
 
@@ -113,13 +113,13 @@ export default function Footer({ isStatic = false }) {
                   href={PITCH_DECK_URL}
                   download={PITCH_DECK_FILENAME}
                   className="footer-link"
-                  aria-label="Download Abakada Partnership Pitch Deck 2026 PDF"
+                  aria-label="Download Abakada Impact Pitch Deck 2026 PDF"
                   onClick={(e) => {
                     e.preventDefault()
                     downloadFile(PITCH_DECK_URL, PITCH_DECK_FILENAME)
                   }}
                 >
-                  {t('footer.pitchDeck', 'Partnership Pitch Deck')}
+                  {t('footer.pitchDeck', 'Impact Pitch Deck')}
                 </a>
                 <Link to="/privacy" className="footer-link">{t('footer.privacyPolicy', 'Privacy Policy')}</Link>
                 <Link to="/terms" className="footer-link">{t('footer.termsOfUse', 'Terms of Use')}</Link>

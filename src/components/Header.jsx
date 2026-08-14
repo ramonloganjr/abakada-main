@@ -71,7 +71,9 @@ export default function Header({ onMenuToggle, navOpen = false }) {
             type="button"
             className="menu-toggle"
             id="menu-toggle"
-            aria-label="Toggle navigation"
+            aria-label={navOpen
+              ? t('accessibility.menuClose', 'Close menu')
+              : t('accessibility.menuOpen', 'Open menu')}
             aria-expanded={navOpen}
             onClick={onMenuToggle}
           >
@@ -174,7 +176,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
           <div
             className="theme-toggle"
             role="group"
-            aria-label="Color theme"
+            aria-label={t('accessibility.themeToggle', 'Toggle theme')}
             data-active-index={String(['light', 'auto', 'dark'].indexOf(theme))}
           >
             {/* Sliding active-state indicator — GPU-composited, pointer-events none */}
@@ -215,7 +217,7 @@ export default function Header({ onMenuToggle, navOpen = false }) {
               <span>{langCodes[lang] || 'EN'}</span>
               <Icon name="chevron-down" collection="ui" size={12} />
             </button>
-            <div className="lang-selector__dropdown" role="listbox" aria-label="Select language">
+            <div className="lang-selector__dropdown" role="listbox" aria-label={t('accessibility.languageSelect', 'Select language')}>
               {supportedLangs.map(l => (
                 <button
                   key={l}

@@ -292,7 +292,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - All three tiers rendered with identical visual weight, no "Recommended" badge or highlight on any tier
 - Includes the same impact stats shown in the deck (1,291 tools · 45+ categories · 10 paths · 4 languages)
 - **Partnership Deck** (`/partnership-deck`): 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page; tier cards are visually equal with no featured/recommended callout
-- **Download Pitch Deck**: dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Pitch-Deck-2026.pdf` from `/assets/doc/`
+- **Download Pitch Deck**: dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Impact-Pitch-Deck-2026.pdf` from `/assets/doc/`
 
 </details>
 
@@ -375,7 +375,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <br/>
 
 - **Quick Links** column: All Tools · Bookmarks · Comparison Tools · Learning Paths · top categories
-- **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Partnership Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
+- **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Impact Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
 - **Abakada** column: About · Official Partners · Partnerships · Contact, plus a **Toolkit** promo banner (teal pill) linking out to the companion app at [toolkit.abakada.org](https://toolkit.abakada.org/)
 - **Featured In** strip: full-width press/media section below the column grid with theme-aware logo variants for GMA News Online, The Global Filipino Magazine, Walastech, and Bombo Radyo, each an external link (`target="_blank" rel="noopener noreferrer"`)
 - All link labels translated across en/tl/ilo/bis
