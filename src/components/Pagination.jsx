@@ -1,6 +1,9 @@
 import Icon from './Icon'
+import { useI18n } from '../contexts/I18nContext'
 
 export default function Pagination({ page, totalPages, onPage }) {
+  const { t } = useI18n()
+
   if (totalPages <= 1) return null
 
   const pages = []
@@ -13,13 +16,13 @@ export default function Pagination({ page, totalPages, onPage }) {
   }
 
   return (
-    <nav className="pagination" aria-label="Pagination">
+    <nav className="pagination" aria-label={t('pagination.label', 'Pagination')}>
       <button
         type="button"
         className="pagination__btn"
         disabled={page <= 1}
         onClick={() => onPage(page - 1)}
-        aria-label="Previous page"
+        aria-label={t('pagination.prevPage', 'Previous page')}
       >
         <Icon name="chevron-left" collection="ui" size={16} />
       </button>
@@ -43,7 +46,7 @@ export default function Pagination({ page, totalPages, onPage }) {
         className="pagination__btn"
         disabled={page >= totalPages}
         onClick={() => onPage(page + 1)}
-        aria-label="Next page"
+        aria-label={t('pagination.nextPage', 'Next page')}
       >
         <Icon name="chevron-right" collection="ui" size={16} />
       </button>

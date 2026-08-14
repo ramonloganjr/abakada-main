@@ -111,7 +111,7 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
             type="button"
             className="sidebar__search-clear"
             id="search-clear"
-            aria-label="Clear search"
+            aria-label={t('accessibility.searchClear', 'Clear search')}
             style={{ opacity: query ? 1 : 0, visibility: query ? 'visible' : 'hidden' }}
             onClick={() => onQueryChange('')}
           >

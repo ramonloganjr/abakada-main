@@ -5,8 +5,8 @@ import SEO from '../components/SEO'
 import { pageMeta } from '../lib/pageMeta'
 import { downloadFile } from '../lib/downloadFile'
 
-const PITCH_DECK_URL = '/assets/doc/Abakada-Pitch-Deck-2026.pdf'
-const PITCH_DECK_FILENAME = 'Abakada-Pitch-Deck-2026.pdf'
+const PITCH_DECK_URL = '/assets/doc/Abakada-Impact-Pitch-Deck-2026.pdf'
+const PITCH_DECK_FILENAME = 'Abakada-Impact-Pitch-Deck-2026.pdf'
 
 // Partnership deck — scroll-snap, reveal-on-scroll, theme-aware.
 const SLIDES = [
@@ -1123,7 +1123,7 @@ export default function PartnershipDeck() {
                 href={PITCH_DECK_URL}
                 download={PITCH_DECK_FILENAME}
                 className="deck-btn deck-btn--outline"
-                aria-label="Download Abakada Partnership Pitch Deck PDF"
+                aria-label="Download Abakada Impact Pitch Deck PDF"
                 onClick={(e) => {
                   e.preventDefault()
                   downloadFile(PITCH_DECK_URL, PITCH_DECK_FILENAME)

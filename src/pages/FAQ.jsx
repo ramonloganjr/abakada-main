@@ -5,9 +5,10 @@ import SEO from '../components/SEO'
 import Icon from '../components/Icon'
 import { pageMeta } from '../lib/pageMeta'
 import { catalogToolCount } from '../lib/catalog'
+import { fillTemplate } from '../lib/template'
 
 const FAQ_ITEMS = [
-  { q: 'What is Abakada?', a: `Abakada is a free, curated directory of ${catalogToolCount()} open-source productivity tools designed specifically for Filipino students, scholars, educators, and professionals. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.` },
+  { q: 'What is Abakada?', a: 'Abakada is a free, curated directory of {count} open-source productivity tools designed specifically for Filipino students, scholars, educators, and professionals. We help bridge the digital divide by providing access to powerful software alternatives that cost nothing.' },
   { q: 'Are all the tools really free?', a: 'Yes. Every tool listed on Abakada is free and open-source. We do not list paid software, freemium-only products, or trialware. If a tool ever changes its license to something proprietary or paid-only, we remove it.' },
   { q: 'What does "open source" mean?', a: 'Open-source software has its source code publicly available for anyone to view, modify, and redistribute under a recognized license (e.g., MIT, GPL, Apache, AGPL). This guarantees transparency, security through community review, and freedom from vendor lock-in.' },
   { q: 'How do you select tools for the directory?', a: 'Each tool is reviewed against five criteria: (1) relevance to Filipino learners, (2) project maturity and active maintenance, (3) security posture and license clarity, (4) documentation quality and accessibility, and (5) community adoption. Paid tools, abandoned projects, and AI-generated submissions without human review are rejected.' },
@@ -37,10 +38,23 @@ const QuestionIcon = () => (
 
 export default function FAQ() {
   const { t, lang } = useI18n()
+
+  // FAQ_ITEMS stays the English source of truth and doubles as the per-item
+  // fallback, so the page still renders if a bundle fails to load. The catalog
+  // size is interpolated rather than baked in, so the sentence tracks the data
+  // in all four languages instead of being retyped whenever a tool is added.
+  const items = FAQ_ITEMS.map((item, i) => ({
+    q: t(`pages.faq.items.q${i + 1}`, item.q),
+    a: fillTemplate(t(`pages.faq.items.a${i + 1}`, item.a), { count: catalogToolCount() }),
+  }))
+
+  // Structured data follows the active language so search engines index the
+  // localized answers rather than always seeing English.
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQ_ITEMS.map((item) => ({
+    inLanguage: lang === 'bis' ? 'ceb' : lang,
+    mainEntity: items.map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: { '@type': 'Answer', text: item.a },
@@ -68,7 +82,7 @@ export default function FAQ() {
             </Link>
           </div>
           <div className="faq-grid">
-            {FAQ_ITEMS.map((item, i) => (
+            {items.map((item, i) => (
               <div key={i} className="faq-item">
                 <h3 className="faq-item__question"><QuestionIcon />{item.q}</h3>
                 <p className="faq-item__answer">{item.a}</p>

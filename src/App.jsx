@@ -71,7 +71,7 @@ function AppContent() {
   const [swUpdateReady, setSwUpdateReady] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
-  const { lang } = useI18n()
+  const { lang, t } = useI18n()
   const { liteMode } = useLiteMode()
 
   // Normalize pathname so route checks ignore the optional /<lang> prefix
@@ -269,7 +269,7 @@ function AppContent() {
     <div className="app">
       <ScrollToTop />
       <RouteAnnouncer />
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <a href="#main-content" className="skip-link">{t('accessibility.skipToContent', 'Skip to main content')}</a>
 
       {/* PWA update notification */}
       {swUpdateReady && (
