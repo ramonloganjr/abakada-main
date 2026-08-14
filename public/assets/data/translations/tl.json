@@ -1,5 +1,17 @@
 {
   "seo": {
+    "bookmarks": {
+      "title": "Mga Bookmark Ko",
+      "description": "Ang iyong mga na-save na kagamitan sa Abakada, nakaimbak sa iyong device, walang kailangang account."
+    },
+    "notFound": {
+      "title": "Hindi Natagpuan ang Pahina",
+      "description": "Wala sa Abakada ang pahinang hinihingi mo. Tingnan ang aming mga kagamitan, landas ng pag-aaral, o FAQ."
+    },
+    "partnershipDeck": {
+      "title": "Deck ng Pakikipagsosyo",
+      "description": "Pitch deck ng pakikipagsosyo ng Abakada: pangkalahatang-ideya, misyon, traction, at mga antas ng pakikipagsosyo."
+    },
     "home": {
       "title": "{count} Libreng Open-Source na Kagamitan para sa mga Pilipino",
       "description": "Libre at maingat na piniling direktoryo ng {count} open-source na kagamitan para sa mga Pilipinong mag-aaral, guro, at propesyonal. {categories}+ kategorya."

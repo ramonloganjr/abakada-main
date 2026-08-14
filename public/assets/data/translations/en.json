@@ -1,5 +1,17 @@
 {
   "seo": {
+    "bookmarks": {
+      "title": "My Bookmarks",
+      "description": "Your saved tools on Abakada, synced across the device, no account required."
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The page you requested does not exist on Abakada. Browse our tools, learning paths, or FAQ."
+    },
+    "partnershipDeck": {
+      "title": "Partnership Deck",
+      "description": "Abakada partnership pitch deck: overview, mission, traction, and partnership tiers."
+    },
     "home": {
       "title": "{count} Free Open-Source Tools for Filipino Students & Educators",
       "description": "Abakada is a free, curated directory of {count} open-source productivity tools for Filipino students, educators, and professionals. Browse {categories}+ categories."

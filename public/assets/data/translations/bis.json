@@ -1,5 +1,17 @@
 {
   "seo": {
+    "bookmarks": {
+      "title": "Akong mga Bookmark",
+      "description": "Ang imong gitipigan nga himan sa Abakada, gitipigan sa imong device, walay kinahanglan nga account."
+    },
+    "notFound": {
+      "title": "Wala Nakit-i ang Panid",
+      "description": "Wala sa Abakada ang panid nga imong gipangayo. Tan-awa ang among mga himan, dalan sa pagkat-on, o FAQ."
+    },
+    "partnershipDeck": {
+      "title": "Deck sa Pakigkasosyo",
+      "description": "Pitch deck sa pakigkasosyo sa Abakada: kinatibuk-ang panglantaw, misyon, traction, ug mga ang-ang sa pakigkasosyo."
+    },
     "home": {
       "title": "{count} ka Libreng Open-Source nga Himan para sa mga Pilipino",
       "description": "Libreng direktoryo sa {count} ka open-source nga himan para sa mga Pilipinong estudyante, magtutudlo, ug propesyonal. {categories}+ ka kategorya."

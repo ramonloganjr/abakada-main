@@ -65,6 +65,41 @@ function seoFor(lang, key, fallback) {
   return { title: fillVars(entry.title), description: fillVars(entry.description) }
 }
 
+/**
+ * FAQPage structured data for the /faq shells, in the shell's own language.
+ *
+ * This used to live as a static block in index.html, which meant every shell
+ * inherited it: dist/about/ and dist/terms/ each declared FAQPage, and the FAQ
+ * page ended up with two copies. It also carried three hand-written questions
+ * and a "1,000+" tool count that had gone stale. Building it here from the same
+ * `pages.faq.items.*` keys the FAQ page renders keeps the markup scoped to the
+ * route it describes and in sync with what users actually read.
+ */
+function faqJsonLd(lang) {
+  const items = translations[lang]?.pages?.faq?.items
+  if (!items) return null
+
+  const mainEntity = []
+  for (let i = 1; ; i++) {
+    const q = items[`q${i}`]
+    const a = items[`a${i}`]
+    if (!q || !a) break
+    mainEntity.push({
+      '@type': 'Question',
+      name: fillVars(q),
+      acceptedAnswer: { '@type': 'Answer', text: fillVars(a) },
+    })
+  }
+  if (!mainEntity.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: HTML_LANG[lang] || 'en',
+    mainEntity,
+  }
+}
+
 const STATIC_PAGES = [
   { path: '/about', title: 'About Abakada: Mission, Team & Editorial Standards', description: 'Learn about Abakada, a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.' },
   { path: '/faq', title: 'Frequently Asked Questions | Abakada', description: 'Answers to common questions about Abakada: how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.' },
@@ -158,6 +193,13 @@ function rewriteShell(page) {
     `<meta name="twitter:description" content="${xmlEscape(page.description)}" />`,
   )
 
+  // Route-specific structured data, injected just before </head> so it sits
+  // with the other JSON-LD blocks the shell already carries.
+  if (page.jsonLd) {
+    const block = `  <script type="application/ld+json">\n${JSON.stringify(page.jsonLd, null, 2)}\n  </script>\n`
+    html = html.replace('</head>', `${block}</head>`)
+  }
+
   return html
 }
 
@@ -191,6 +233,7 @@ for (const lang of LOCALES) {
       path: lang === 'en' ? page.path : `/${lang}${page.path}`,
       lang,
       ...copy,
+      ...(key === 'faq' ? { jsonLd: faqJsonLd(lang) } : {}),
     })
   }
 }

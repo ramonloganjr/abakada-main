@@ -287,6 +287,22 @@ export const pageMeta = {
   },
 }
 
+// Tie each entry to its `seo.<key>` translation so <SEO> can localize the title
+// and description without every page having to look them up.
+//
+// The titles/descriptions above stay as the English source and the fallback used
+// when a bundle has not loaded yet (translations are fetched, so the first paint
+// of a hard navigation has none). Route keys differ from the bundle's path-style
+// keys in three places, hence the explicit map rather than a derived name.
+const SEO_KEY_OVERRIDES = {
+  officialPartners: 'official-partners',
+  learningPaths: 'learning-paths',
+}
+
+for (const [key, entry] of Object.entries(pageMeta)) {
+  entry.seoKey = SEO_KEY_OVERRIDES[key] || key
+}
+
 export const buildLearningPathMeta = (toolkit) => ({
   title: `${toolkit.title}: Learning Path`,
   description:
