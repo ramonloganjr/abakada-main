@@ -223,7 +223,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
                 const ched = tags.filter(s => s.category === 'ched')
                 if (!tags.length) return null
                 return (
-                  <div className="lpj-curriculum" aria-label="Curriculum alignment">
+                  <div className="lpj-curriculum" aria-label={t('accessibility.curriculumAlignment', 'Curriculum alignment')}>
                     <h2 className="lpj-curriculum__title">
                       <Icon name="graduation-cap" collection="category" size={14} />
                       {t('learningPaths.curriculumAlignment', 'Curriculum Alignment')}
@@ -311,7 +311,7 @@ export default function LearningPathDetail({ toolsData = { tools: [], categories
             </aside>
           </div>
 
-          <ol className="lpj-stages" aria-label="Learning stages">
+          <ol className="lpj-stages" aria-label={t('accessibility.learningStages', 'Learning stages')}>
             {toolkit.stages.map((stage, idx) => {
               const status = stageStatus[stage.id] || { pct: 0, complete: false, started: false }
               const isOpen = openStageId === stage.id

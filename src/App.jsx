@@ -328,7 +328,7 @@ function AppContent() {
                 <button
                   type="button"
                   className="sidebar__reopen-tab"
-                  aria-label="Expand sidebar"
+                  aria-label={t('accessibility.expandSidebar', 'Expand sidebar')}
                   onClick={() => setSidebarCollapsed(false)}
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

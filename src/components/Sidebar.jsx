@@ -34,7 +34,7 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
   const platformIcons = { windows: 'windows', macos: 'macos', linux: 'linux', web: 'web', ios: 'ios', android: 'android', 'self-hosted': 'self-hosted' }
 
   return (
-    <aside className="sidebar" id="sidebar" role="navigation" aria-label="Category navigation">
+    <aside className="sidebar" id="sidebar" role="navigation" aria-label={t('accessibility.categoryNav', 'Category navigation')}>
       {collapsible && (
         <button
           type="button"
@@ -48,7 +48,7 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
           </svg>
         </button>
       )}
-      <div className="sidebar__mobile-actions" aria-label="Quick actions">
+      <div className="sidebar__mobile-actions" aria-label={t('accessibility.quickActions', 'Quick actions')}>
         {canInstall && (
           <button
             type="button"
@@ -181,7 +181,7 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
               type="button"
               className="filters-clear visible"
               id="clear-filters"
-              aria-label="Clear all active filters"
+              aria-label={t('accessibility.clearFilters', 'Clear all active filters')}
               onClick={onReset}
             >
               {t('search.clearFilters', 'Clear all filters')}
@@ -192,7 +192,7 @@ export default function Sidebar({ categories, tools, category, query, onQueryCha
       </>
       )}
 
-      <nav className="sidebar__nav" id="sidebar-nav" aria-label="Tool categories">
+      <nav className="sidebar__nav" id="sidebar-nav" aria-label={t('accessibility.toolCategories', 'Tool categories')}>
         <button
           type="button"
           className={`nav-item nav-item--all${category === 'all' ? ' active' : ''}`}

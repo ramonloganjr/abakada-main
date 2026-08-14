@@ -1,4 +1,78 @@
 {
+  "seo": {
+    "bookmarks": {
+      "title": "Akong mga Bookmark",
+      "description": "Ang imong gitipigan nga himan sa Abakada, gitipigan sa imong device, walay kinahanglan nga account."
+    },
+    "notFound": {
+      "title": "Wala Nakit-i ang Panid",
+      "description": "Wala sa Abakada ang panid nga imong gipangayo. Tan-awa ang among mga himan, dalan sa pagkat-on, o FAQ."
+    },
+    "partnershipDeck": {
+      "title": "Deck sa Pakigkasosyo",
+      "description": "Pitch deck sa pakigkasosyo sa Abakada: kinatibuk-ang panglantaw, misyon, traction, ug mga ang-ang sa pakigkasosyo."
+    },
+    "home": {
+      "title": "{count} ka Libreng Open-Source nga Himan para sa mga Pilipino",
+      "description": "Libreng direktoryo sa {count} ka open-source nga himan para sa mga Pilipinong estudyante, magtutudlo, ug propesyonal. {categories}+ ka kategorya."
+    },
+    "about": {
+      "title": "Mahitungod sa Abakada: Misyon, Grupo ug Editoryal nga Sukdanan",
+      "description": "Hibaloi ang mahitungod sa Abakada, direktoryo sa libreng open-source nga himan para sa mga Pilipino nga gipadagan sa mga boluntaryo."
+    },
+    "faq": {
+      "title": "Kanunay Gipangutana | Abakada",
+      "description": "Mga tubag sa kasagarang pangutana mahitungod sa Abakada: giunsa namo pagpili ang himan, lisensya, offline nga paggamit, palisiya sa AI, ug pakigtambayayong."
+    },
+    "privacy": {
+      "title": "Patakaran sa Pagkapribado | Abakada",
+      "description": "Giunsa pagkolekta, paggamit, ug pagpanalipod sa Abakada ang imong datos. Gamay ra nga analytics, walay personal nga datos sa among server, ug dili gibaligya."
+    },
+    "contact": {
+      "title": "Kontaka ang Abakada: Editoryal, Pakigkasosyo, Suporta",
+      "description": "Abta ang grupo sa Abakada para sa editoryal nga pagtul-id, pangutana sa pakigkasosyo, o kinatibuk-ang suporta. Pag-email sa hello@abakada.org."
+    },
+    "partnerships": {
+      "title": "Mga Oportunidad sa Pakigkasosyo | Abakada",
+      "description": "Pakigkasosyo sa Abakada aron madala ang libreng open-source nga himan sa mga eskwelahan, komunidad, ug organisasyon sa Pilipinas."
+    },
+    "official-partners": {
+      "title": "Mga Opisyal nga Kasosyo sa Abakada",
+      "description": "Mga eskwelahan, organisasyon, ug proyektong FOSS nga opisyal nga kasosyo sa Abakada aron mapalapad ang akses sa libreng open-source nga himan sa Pilipinas."
+    },
+    "learning-paths": {
+      "title": "Mga Dalan sa Pagkat-on: Piniling FOSS Toolkit | Abakada",
+      "description": "Han-ay nga dalan sa pagkat-on nga naghiusa sa libreng open-source nga himan: Digital Foundations, Research Starter, Beginner Coding, ug uban pa."
+    },
+    "educators": {
+      "title": "Para sa mga Magtutudlo: Libreng Himan nga Nahiuyon sa Kurikulum | Abakada",
+      "description": "Libre ug open-source nga himan para sa mga Pilipinong magtutudlo, gimapa sa mga strand sa DepEd Senior High School. Walay lisensya, walay account sa estudyante."
+    },
+    "students": {
+      "title": "Para sa mga Estudyante: Libreng Himan sa Pagtuon | Abakada",
+      "description": "Libre ug open-source nga himan para sa mga Pilipinong estudyante: pagsulat, presentasyon, litrato, video, coding, ug pagtuon. Walay bayad, molihok offline."
+    },
+    "compare": {
+      "title": "Itandi ang mga Open-Source nga Himan | Abakada",
+      "description": "Tapad-tapad nga pagtandi sa libreng open-source nga himan: mga bahin, plataporma, lisensya, ug gamit. Pilia ang husto nga himan para sa imong trabaho."
+    },
+    "sitemap": {
+      "title": "HTML nga Mapa sa Site | Abakada",
+      "description": "Tan-awa ang tanang panid sa Abakada: mga himan, dalan sa pagkat-on, FAQ, mahitungod kanamo, pakigkasosyo, ug uban pa."
+    },
+    "glossary": {
+      "title": "Glosaryo: Open-Source, Lisensya ug Produktibidad | Abakada",
+      "description": "Mga kahulugan sa kasagarang termino nga gigamit sa Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, ug uban pa."
+    },
+    "guide": {
+      "title": "Giya sa Platform: Unsaon Paggamit ang Abakada",
+      "description": "Ang kompletong giya sa Abakada: pagsugod, dalan sa pagkat-on, ang Toolkit, offline nga paggamit, mga papel, dagan sa trabaho, ug suporta. Simpleng pinulongan."
+    },
+    "terms": {
+      "title": "Mga Termino sa Paggamit | Abakada.org",
+      "description": "Mga Termino sa Paggamit nga nagdumala sa akses sa Abakada.org: intelektwal nga kabtangan, husto nga paggamit, panalipod sa brand, ug limitasyon sa responsibilidad."
+    }
+  },
   "meta": {
     "code": "bis",
     "name": "Bisaya",
@@ -332,6 +406,24 @@
     "students": "Para sa mga Estudyante"
   },
   "accessibility": {
+    "categoryNav": "Nabigasyon sa kategorya",
+    "quickActions": "Paspas nga aksyon",
+    "clearFilters": "Papasa ang tanang aktibong filter",
+    "toolCategories": "Mga kategorya sa himan",
+    "expandSidebar": "Palapdi ang sidebar",
+    "featuredTools": "Mga gipasiugdang himan sa produktibidad",
+    "featuredPages": "Mga gipasiugdang panid",
+    "prevTools": "Miaging mga himan",
+    "nextTools": "Sunod nga mga himan",
+    "filterPathways": "I-filter ang mga dalan",
+    "filterTrack": "I-filter pinaagi sa track",
+    "filterDifficulty": "I-filter pinaagi sa kalisod",
+    "filterCurriculum": "I-filter pinaagi sa strand o programa sa kurikulum",
+    "k12Strand": "K-12 nga strand",
+    "chedProgram": "Programa sa CHED",
+    "curriculumAlignment": "Paghiuyon sa kurikulum",
+    "learningStages": "Mga hugna sa pagkat-on",
+    "tryInBrowser": "Sulayi sa browser, dili kinahanglan i-install",
     "skipToContent": "Laktaw ngadto sa nag-unang sulod",
     "menuOpen": "Ablihi ang menu",
     "menuClose": "Isira ang menu",

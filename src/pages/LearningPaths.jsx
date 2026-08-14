@@ -191,7 +191,7 @@ export default function LearningPaths() {
           )}
 
           {/* ── Filter panel ── */}
-          <div className="lp-filters" role="search" aria-label="Filter pathways">
+          <div className="lp-filters" role="search" aria-label={t('accessibility.filterPathways', 'Filter pathways')}>
             <div className="lp-filters__search">
               <Icon name="search" collection="ui" size={16} aria-hidden="true" />
               <input
@@ -204,7 +204,7 @@ export default function LearningPaths() {
               />
             </div>
             <div className="lp-filters__row">
-              <div className="lp-pills" role="group" aria-label="Filter by track">
+              <div className="lp-pills" role="group" aria-label={t('accessibility.filterTrack', 'Filter by track')}>
                 <button type="button" aria-pressed={activeTrack === 'all'}
                   className={`lp-pill${activeTrack === 'all' ? ' lp-pill--active' : ''}`}
                   onClick={() => setActiveTrack('all')}>{t('learningPaths.allTracks', 'All Tracks')}</button>
@@ -217,7 +217,7 @@ export default function LearningPaths() {
                   </button>
                 ))}
               </div>
-              <div className="lp-pills lp-pills--difficulty" role="group" aria-label="Filter by difficulty">
+              <div className="lp-pills lp-pills--difficulty" role="group" aria-label={t('accessibility.filterDifficulty', 'Filter by difficulty')}>
                 {['all', 'beginner', 'intermediate', 'advanced'].map(diff => (
                   <button key={diff} type="button" aria-pressed={activeDifficulty === diff}
                     className={`lp-pill lp-pill--ghost${activeDifficulty === diff ? ' lp-pill--active' : ''}`}
@@ -247,7 +247,7 @@ export default function LearningPaths() {
               </button>
 
               {showCurriculumFilter && (
-                <div className="lp-curriculum__body" role="group" aria-label="Filter by curriculum strand or program">
+                <div className="lp-curriculum__body" role="group" aria-label={t('accessibility.filterCurriculum', 'Filter by curriculum strand or program')}>
                   <p className="lp-curriculum__hint">
                     {t('learningPaths.curriculumFilterHint', 'Filter pathways aligned to a specific DepEd or CHED framework. Select one strand or program to see matching pathways.')}
                   </p>
@@ -257,7 +257,7 @@ export default function LearningPaths() {
                       <span className="lp-curriculum__authority lp-curriculum__authority--deped">{t('learningPaths.depedLabel', 'DepEd')}</span>
                       {t('learningPaths.k12Strands', 'K-12 Senior High School Strands')}
                     </span>
-                    <div className="lp-pills" role="radiogroup" aria-label="K-12 strand">
+                    <div className="lp-pills" role="radiogroup" aria-label={t('accessibility.k12Strand', 'K-12 strand')}>
                       <button type="button" role="radio" aria-checked={activeCurriculum === 'all'}
                         className={`lp-pill lp-pill--ghost${activeCurriculum === 'all' ? ' lp-pill--active' : ''}`}
                         onClick={() => setActiveCurriculum('all')}>{t('learningPaths.allStrands', 'All')}</button>
@@ -277,7 +277,7 @@ export default function LearningPaths() {
                       <span className="lp-curriculum__authority lp-curriculum__authority--ched">{t('learningPaths.chedLabel', 'CHED')}</span>
                       {t('learningPaths.chedPrograms', 'Higher Education Programs')}
                     </span>
-                    <div className="lp-pills" role="radiogroup" aria-label="CHED program">
+                    <div className="lp-pills" role="radiogroup" aria-label={t('accessibility.chedProgram', 'CHED program')}>
                       {chedPrograms.map(s => (
                         <button key={s.id} type="button" role="radio" aria-checked={activeCurriculum === s.id}
                           className={`lp-pill lp-strand-pill lp-strand-pill--teal${activeCurriculum === s.id ? ' lp-pill--active lp-strand-pill--selected' : ''}`}
@@ -449,7 +449,7 @@ function PathCard({ toolkit, tracks, strands = [], activeCurriculum = 'all' }) {
 
       {/* Curriculum alignment tags */}
       {curriculumTags.shown.length > 0 && (
-        <div className="lp-card__curriculum" aria-label="Curriculum alignment">
+        <div className="lp-card__curriculum" aria-label={t('accessibility.curriculumAlignment', 'Curriculum alignment')}>
           {curriculumTags.shown.map(s => (
             <span
               key={s.id}

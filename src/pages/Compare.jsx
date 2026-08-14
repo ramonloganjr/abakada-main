@@ -96,8 +96,17 @@ export default function Compare({ toolsData = { tools: [], categories: [] } }) {
   const hasEnough = effectiveIds.length >= 2
   const matrix = hasEnough ? buildMatrix(effectiveIds, toolsData.tools) : null
 
+  // seoKey is cleared when a comparison is active: the title names the tools
+  // being compared, so <SEO> must not replace it with the static localized
+  // "Compare Open-Source Tools". With no comparison the page falls back to the
+  // generic meta, which should localize.
   const dynamicMeta = matrix
-    ? { ...pageMeta.compare, title: `Compare ${matrix.tools.map((t) => t.name).join(' vs ')}`, rawTitle: false }
+    ? {
+        ...pageMeta.compare,
+        title: `Compare ${matrix.tools.map((t) => t.name).join(' vs ')}`,
+        rawTitle: false,
+        seoKey: null,
+      }
     : pageMeta.compare
 
   return (

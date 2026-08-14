@@ -1,4 +1,78 @@
 {
+  "seo": {
+    "bookmarks": {
+      "title": "My Bookmarks",
+      "description": "Your saved tools on Abakada, synced across the device, no account required."
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The page you requested does not exist on Abakada. Browse our tools, learning paths, or FAQ."
+    },
+    "partnershipDeck": {
+      "title": "Partnership Deck",
+      "description": "Abakada partnership pitch deck: overview, mission, traction, and partnership tiers."
+    },
+    "home": {
+      "title": "{count} Free Open-Source Tools for Filipino Students & Educators",
+      "description": "Abakada is a free, curated directory of {count} open-source productivity tools for Filipino students, educators, and professionals. Browse {categories}+ categories."
+    },
+    "about": {
+      "title": "About Abakada: Mission, Team & Editorial Standards",
+      "description": "Learn about Abakada, a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions | Abakada",
+      "description": "Answers to common questions about Abakada: how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Abakada",
+      "description": "How Abakada collects, uses, and protects your data. We use minimal analytics, store no personal data on our servers, and never sell your information."
+    },
+    "contact": {
+      "title": "Contact Abakada: Editorial, Partnerships, Support",
+      "description": "Reach the Abakada team for editorial corrections, partnership inquiries, or general support. Email hello@abakada.org or use our contact form."
+    },
+    "partnerships": {
+      "title": "Partnership Opportunities | Abakada",
+      "description": "Partner with Abakada to bring free open-source tools to Filipino schools, communities, and organizations. Volunteer, donate, or co-publish content."
+    },
+    "official-partners": {
+      "title": "Official Partners of Abakada",
+      "description": "Schools, organizations, and FOSS projects officially partnered with Abakada to expand access to free open-source productivity tools in the Philippines."
+    },
+    "learning-paths": {
+      "title": "Learning Paths: Curated FOSS Toolkits | Abakada",
+      "description": "Structured learning paths combining free open-source tools: Digital Foundations, Research Starter, Beginner Coding, Designer Toolkit, and more."
+    },
+    "educators": {
+      "title": "For Educators: Free Curriculum-Aligned Classroom Tools | Abakada",
+      "description": "Free, open-source tools for Filipino teachers, mapped to DepEd Senior High School strands. No licenses, no student accounts, plus a classroom starter kit."
+    },
+    "students": {
+      "title": "For Students: Free Tools for Schoolwork & Study | Abakada",
+      "description": "Free, open-source tools for Filipino students, for writing, presentations, photos, video, coding, and study. No cost, no account, works offline."
+    },
+    "compare": {
+      "title": "Compare Open-Source Tools | Abakada",
+      "description": "Side-by-side comparison of free open-source tools: features, platforms, licenses, and use cases. Pick the right tool for your workflow."
+    },
+    "sitemap": {
+      "title": "HTML Sitemap | Abakada",
+      "description": "Browse all Abakada pages: tools, learning paths, FAQ, about, partnerships, and more."
+    },
+    "glossary": {
+      "title": "Glossary: Open-Source, Licensing & Productivity Terms | Abakada",
+      "description": "Definitions of common terms used on Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, and more."
+    },
+    "guide": {
+      "title": "Platform Guide: How to Use Abakada",
+      "description": "The complete user guide to Abakada: getting started, learning paths, the Toolkit, offline use, roles, workflows, troubleshooting, and support. Plain language."
+    },
+    "terms": {
+      "title": "Terms of Use | Abakada.org",
+      "description": "Terms of Use governing access to Abakada.org: intellectual property, acceptable use, brand protection, liability limitations, and dispute resolution under Philippine law."
+    }
+  },
   "meta": {
     "code": "en",
     "name": "English",
@@ -332,6 +406,24 @@
     "students": "For Students"
   },
   "accessibility": {
+    "categoryNav": "Category navigation",
+    "quickActions": "Quick actions",
+    "clearFilters": "Clear all active filters",
+    "toolCategories": "Tool categories",
+    "expandSidebar": "Expand sidebar",
+    "featuredTools": "Featured productivity tools",
+    "featuredPages": "Featured pages",
+    "prevTools": "Previous tools",
+    "nextTools": "Next tools",
+    "filterPathways": "Filter pathways",
+    "filterTrack": "Filter by track",
+    "filterDifficulty": "Filter by difficulty",
+    "filterCurriculum": "Filter by curriculum strand or program",
+    "k12Strand": "K-12 strand",
+    "chedProgram": "CHED program",
+    "curriculumAlignment": "Curriculum alignment",
+    "learningStages": "Learning stages",
+    "tryInBrowser": "Try in browser, no install needed",
     "skipToContent": "Skip to main content",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",

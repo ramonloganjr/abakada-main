@@ -1,4 +1,78 @@
 {
+  "seo": {
+    "bookmarks": {
+      "title": "Mga Bookmark Ko",
+      "description": "Ang iyong mga na-save na kagamitan sa Abakada, nakaimbak sa iyong device, walang kailangang account."
+    },
+    "notFound": {
+      "title": "Hindi Natagpuan ang Pahina",
+      "description": "Wala sa Abakada ang pahinang hinihingi mo. Tingnan ang aming mga kagamitan, landas ng pag-aaral, o FAQ."
+    },
+    "partnershipDeck": {
+      "title": "Deck ng Pakikipagsosyo",
+      "description": "Pitch deck ng pakikipagsosyo ng Abakada: pangkalahatang-ideya, misyon, traction, at mga antas ng pakikipagsosyo."
+    },
+    "home": {
+      "title": "{count} Libreng Open-Source na Kagamitan para sa mga Pilipino",
+      "description": "Libre at maingat na piniling direktoryo ng {count} open-source na kagamitan para sa mga Pilipinong mag-aaral, guro, at propesyonal. {categories}+ kategorya."
+    },
+    "about": {
+      "title": "Tungkol sa Abakada: Misyon, Pangkat at Pamantayang Editoryal",
+      "description": "Alamin ang tungkol sa Abakada, direktoryo ng libreng open-source na kagamitan para sa mga Pilipino, pinapatakbo ng mga boluntaryo."
+    },
+    "faq": {
+      "title": "Mga Madalas Itanong | Abakada",
+      "description": "Mga sagot sa karaniwang tanong tungkol sa Abakada: paano kami pumipili ng kagamitan, lisensya, paggamit nang offline, patakaran sa AI, at pakikipagsosyo."
+    },
+    "privacy": {
+      "title": "Patakaran sa Pagkapribado | Abakada",
+      "description": "Kung paano kinokolekta, ginagamit, at pinoprotektahan ng Abakada ang iyong datos. Kaunting analytics, walang personal na datos sa server, hindi ibinebenta."
+    },
+    "contact": {
+      "title": "Makipag-ugnayan sa Abakada: Editoryal, Pakikipagsosyo, Suporta",
+      "description": "Abutin ang pangkat ng Abakada para sa pagwawasto sa editoryal, katanungan sa pakikipagsosyo, o pangkalahatang suporta. Mag-email sa hello@abakada.org."
+    },
+    "partnerships": {
+      "title": "Mga Oportunidad sa Pakikipagsosyo | Abakada",
+      "description": "Makipagsosyo sa Abakada upang dalhin ang libreng open-source na kagamitan sa mga paaralan, komunidad, at organisasyon sa Pilipinas."
+    },
+    "official-partners": {
+      "title": "Mga Opisyal na Kasosyo ng Abakada",
+      "description": "Mga paaralan, organisasyon, at proyektong FOSS na opisyal na kasosyo ng Abakada upang palawakin ang akses sa libreng open-source na kagamitan sa Pilipinas."
+    },
+    "learning-paths": {
+      "title": "Mga Landas ng Pag-aaral: Piniling FOSS Toolkit | Abakada",
+      "description": "Mga nakaayos na landas ng pag-aaral na pinagsasama ang libreng open-source na kagamitan: Digital Foundations, Research Starter, Beginner Coding, at iba pa."
+    },
+    "educators": {
+      "title": "Para sa mga Guro: Libreng Kagamitan na Nakaayon sa Kurikulum | Abakada",
+      "description": "Libre at open-source na kagamitan para sa mga Pilipinong guro, nakamapa sa mga strand ng DepEd Senior High School. Walang lisensya, walang account ng mag-aaral."
+    },
+    "students": {
+      "title": "Para sa mga Mag-aaral: Libreng Kagamitan sa Pag-aaral | Abakada",
+      "description": "Libre at open-source na kagamitan para sa mga Pilipinong mag-aaral: pagsulat, presentasyon, larawan, video, coding, at pag-aaral. Walang bayad, gumagana offline."
+    },
+    "compare": {
+      "title": "Ihambing ang mga Open-Source na Kagamitan | Abakada",
+      "description": "Magkatabing paghahambing ng libreng open-source na kagamitan: mga tampok, plataporma, lisensya, at gamit. Piliin ang tamang kagamitan para sa iyong trabaho."
+    },
+    "sitemap": {
+      "title": "HTML na Mapa ng Site | Abakada",
+      "description": "Tingnan ang lahat ng pahina ng Abakada: mga kagamitan, landas ng pag-aaral, FAQ, tungkol sa amin, pakikipagsosyo, at iba pa."
+    },
+    "glossary": {
+      "title": "Talahulugan: Open-Source, Lisensya at Produktibidad | Abakada",
+      "description": "Mga kahulugan ng karaniwang terminong ginagamit sa Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, at iba pa."
+    },
+    "guide": {
+      "title": "Gabay sa Platform: Paano Gamitin ang Abakada",
+      "description": "Ang kumpletong gabay sa Abakada: pagsisimula, landas ng pag-aaral, ang Toolkit, paggamit nang offline, mga papel, daloy ng trabaho, at suporta. Simpleng wika."
+    },
+    "terms": {
+      "title": "Mga Tuntunin ng Paggamit | Abakada.org",
+      "description": "Mga Tuntunin ng Paggamit na namamahala sa akses sa Abakada.org: intelektwal na pag-aari, tamang paggamit, proteksyon ng brand, at limitasyon sa pananagutan."
+    }
+  },
   "meta": {
     "code": "tl",
     "name": "Tagalog",
@@ -332,6 +406,24 @@
     "students": "Para sa mga Mag-aaral"
   },
   "accessibility": {
+    "categoryNav": "Nabigasyon ng kategorya",
+    "quickActions": "Mabilisang aksyon",
+    "clearFilters": "Burahin ang lahat ng aktibong filter",
+    "toolCategories": "Mga kategorya ng kagamitan",
+    "expandSidebar": "Palawakin ang sidebar",
+    "featuredTools": "Mga itinatampok na kagamitan sa produktibidad",
+    "featuredPages": "Mga itinatampok na pahina",
+    "prevTools": "Nakaraang mga kagamitan",
+    "nextTools": "Susunod na mga kagamitan",
+    "filterPathways": "I-filter ang mga landas",
+    "filterTrack": "I-filter ayon sa track",
+    "filterDifficulty": "I-filter ayon sa antas ng hirap",
+    "filterCurriculum": "I-filter ayon sa strand o programa ng kurikulum",
+    "k12Strand": "K-12 na strand",
+    "chedProgram": "Programa ng CHED",
+    "curriculumAlignment": "Pagkakahanay sa kurikulum",
+    "learningStages": "Mga yugto ng pag-aaral",
+    "tryInBrowser": "Subukan sa browser, hindi kailangang i-install",
     "skipToContent": "Lumaktaw sa pangunahing nilalaman",
     "menuOpen": "Buksan ang menu",
     "menuClose": "Isara ang menu",
