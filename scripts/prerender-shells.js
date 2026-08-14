@@ -30,6 +30,41 @@ const SHELL = readFileSync(SHELL_PATH, 'utf8')
 const tools = JSON.parse(readFileSync(resolve(ROOT, 'public/assets/data/tools.json'), 'utf8'))
 const learning = JSON.parse(readFileSync(resolve(ROOT, 'public/assets/data/learning-paths.json'), 'utf8'))
 
+// Locales that get their own prerendered shells.
+//
+// sitemap.xml advertises hreflang alternates for /tl, /ilo and /bis, but until
+// these shells existed those URLs fell through the SPA rewrite to the English
+// index.html — so every alternate we declared served English <title>,
+// description and og: tags to crawlers before any JS ran. The titles and
+// descriptions come from the translation bundles (`seo.*`), which keeps them in
+// the same place as the rest of the site copy.
+const LOCALES = ['en', 'tl', 'ilo', 'bis']
+// `bis` is Cebuano; ISO 639 wants `ceb` in markup.
+const HTML_LANG = { en: 'en', tl: 'tl', ilo: 'ilo', bis: 'ceb' }
+const OG_LOCALE = { en: 'en_PH', tl: 'tl_PH', ilo: 'ilo_PH', bis: 'ceb_PH' }
+
+const translations = Object.fromEntries(
+  LOCALES.map((l) => [
+    l,
+    JSON.parse(readFileSync(resolve(ROOT, `public/assets/data/translations/${l}.json`), 'utf8')),
+  ]),
+)
+
+const TOOL_COUNT = (tools.tools || []).length
+const CATEGORY_COUNT = (tools.categories || []).length
+
+const fillVars = (s) =>
+  String(s)
+    .replace(/\{count\}/g, TOOL_COUNT.toLocaleString('en-US'))
+    .replace(/\{categories\}/g, String(CATEGORY_COUNT))
+
+/** Look up localized SEO copy, falling back to the English page definition. */
+function seoFor(lang, key, fallback) {
+  const entry = translations[lang]?.seo?.[key]
+  if (!entry?.title || !entry?.description) return fallback
+  return { title: fillVars(entry.title), description: fillVars(entry.description) }
+}
+
 const STATIC_PAGES = [
   { path: '/about', title: 'About Abakada: Mission, Team & Editorial Standards', description: 'Learn about Abakada, a volunteer-driven directory of free open-source tools for Filipinos. Founded by Ramon Logan Jr. in service of digital equity.' },
   { path: '/faq', title: 'Frequently Asked Questions | Abakada', description: 'Answers to common questions about Abakada: how we select tools, licensing, offline use, AI policy, partnerships, and how to contribute.' },
@@ -71,7 +106,18 @@ const xmlEscape = (s) =>
 
 function rewriteShell(page) {
   const url = `${SITE}${page.path}`
+  const lang = page.lang || 'en'
   let html = SHELL
+
+  // Document language — screen readers and search engines both key off this,
+  // and it was previously "en" on every shell including the localized ones.
+  html = html.replace(/<html lang="[^"]*"/, `<html lang="${HTML_LANG[lang] || 'en'}"`)
+
+  // og:locale must match the document, otherwise the alternates contradict it.
+  html = html.replace(
+    /<meta\s+property="og:locale"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:locale" content="${OG_LOCALE[lang] || 'en_PH'}" />`,
+  )
 
   // Title
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${xmlEscape(page.title)}</title>`)
@@ -121,7 +167,35 @@ function writeShell(page) {
   writeFileSync(resolve(dir, 'index.html'), rewriteShell(page), 'utf8')
 }
 
-const all = [...STATIC_PAGES, ...toolkitPages, ...toolPages]
+// Localized variants of the static pages.
+//
+// English keeps its existing paths (/about, /faq, ...) so nothing already
+// indexed moves. Each other locale gets /<lang>/<path>, plus a /<lang> root
+// carrying the home copy — those are exactly the URLs sitemap.xml already
+// points hreflang alternates at.
+//
+// Tool and toolkit pages are deliberately not localized here: their titles come
+// from tools.json, which is English-only, so emitting 1,291 x 3 shells would
+// triple the build output to serve identical English copy under localized URLs.
+const localizedStatic = []
+for (const lang of LOCALES) {
+  if (lang !== 'en') {
+    const home = seoFor(lang, 'home', null)
+    if (home) localizedStatic.push({ path: `/${lang}`, lang, ...home })
+  }
+
+  for (const page of STATIC_PAGES) {
+    const key = page.path.replace(/^\//, '')
+    const copy = seoFor(lang, key, { title: page.title, description: page.description })
+    localizedStatic.push({
+      path: lang === 'en' ? page.path : `/${lang}${page.path}`,
+      lang,
+      ...copy,
+    })
+  }
+}
+
+const all = [...localizedStatic, ...toolkitPages, ...toolPages]
 let written = 0
 
 for (const page of all) {
@@ -133,7 +207,9 @@ for (const page of all) {
   }
 }
 
-console.log(`[prerender] wrote ${written} HTML shells (${STATIC_PAGES.length} static + ${toolkitPages.length} toolkits + ${toolPages.length} tools)`)
+console.log(
+  `[prerender] wrote ${written} HTML shells (${localizedStatic.length} static across ${LOCALES.length} locales + ${toolkitPages.length} toolkits + ${toolPages.length} tools)`,
+)
 
 // Keep visitors.json in dist so the Total Visitors counter is present after
 // EVERY deploy — CI or manual zip upload. (Previously this file was stripped,

@@ -1,4 +1,66 @@
 {
+  "seo": {
+    "home": {
+      "title": "{count} a Libre nga Open-Source a Ramit para Kadagiti Filipino",
+      "description": "Libre ken naurnos a direktorio ti {count} nga open-source a ramit para kadagiti Filipino nga estudiante, mannursuro, ken propesional. {categories}+ a kategoria."
+    },
+    "about": {
+      "title": "Maipapan iti Abakada: Mision, Grupo ken Pagannurotan nga Editorial",
+      "description": "Ammuen ti maipapan iti Abakada, direktorio dagiti libre nga open-source a ramit para kadagiti Filipino a patpatarayen dagiti boluntario."
+    },
+    "faq": {
+      "title": "Dagiti Masansan a Saludsod | Abakada",
+      "description": "Sungbat kadagiti gagangay a saludsod maipapan iti Abakada: panagpili kadagiti ramit, lisensia, offline a panagusar, ken annuroten iti AI."
+    },
+    "privacy": {
+      "title": "Annuroten iti Kinapribado | Abakada",
+      "description": "No kasano ti panagurnong, panagusar, ken panangsalaknib ti Abakada iti datosmo. Bassit nga analytics, awan ti personal a datos, saan a mailako."
+    },
+    "contact": {
+      "title": "Makikontak iti Abakada: Editorial, Pannakikadua, Suporta",
+      "description": "Danonen ti grupo ti Abakada para iti panagatur nga editorial, saludsod maipapan iti pannakikadua, wenno sapasap a suporta. Ag-email iti hello@abakada.org."
+    },
+    "partnerships": {
+      "title": "Dagiti Gundaway iti Pannakikadua | Abakada",
+      "description": "Makikadua iti Abakada tapno maiyeg dagiti libre nga open-source a ramit kadagiti eskuelaan, komunidad, ken organisasion iti Filipinas."
+    },
+    "official-partners": {
+      "title": "Dagiti Opisial a Kasosio ti Abakada",
+      "description": "Dagiti eskuelaan, organisasion, ken proyekto a FOSS a opisial a kasosio ti Abakada tapno mapalawa ti akses kadagiti libre nga open-source a ramit iti Filipinas."
+    },
+    "learning-paths": {
+      "title": "Dagiti Dalan ti Panagadal: Napili a FOSS Toolkit | Abakada",
+      "description": "Naurnos a dalan ti panagadal a mangtipon kadagiti libre nga open-source a ramit: Digital Foundations, Research Starter, Beginner Coding, ken dadduma pay."
+    },
+    "educators": {
+      "title": "Para Kadagiti Mannursuro: Libre a Ramit a Maitunos iti Kurikulum | Abakada",
+      "description": "Libre nga open-source a ramit para kadagiti Filipino a mannursuro, naimapa kadagiti strand ti DepEd. Awan ti lisensia wenno account ti estudiante."
+    },
+    "students": {
+      "title": "Para Kadagiti Estudiante: Libre a Ramit iti Panagadal | Abakada",
+      "description": "Libre nga open-source a ramit para kadagiti Filipino nga estudiante: panagsurat, presentasion, video, ken coding. Awan bayadna, agtrabaho nga offline."
+    },
+    "compare": {
+      "title": "Idiligmo Dagiti Open-Source a Ramit | Abakada",
+      "description": "Agsinnumbangir a panagdilig dagiti libre nga open-source a ramit: tampok, plataporma, lisensia, ken pakausaran. Pilien ti umiso a ramit para iti trabahom."
+    },
+    "sitemap": {
+      "title": "HTML a Mapa ti Site | Abakada",
+      "description": "Kitaen amin a panid ti Abakada: dagiti ramit, dalan ti panagadal, FAQ, maipapan kadakami, pannakikadua, ken dadduma pay."
+    },
+    "glossary": {
+      "title": "Diksionario: Open-Source, Lisensia ken Produktibidad | Abakada",
+      "description": "Dagiti kaipapanan dagiti gagangay a termino a maus-usar iti Abakada: FOSS, GPL, MIT, AGPL, PWA, OER, Creative Commons, AEO, GEO, ken dadduma pay."
+    },
+    "guide": {
+      "title": "Giya iti Platform: Kasano ti Panagusar iti Abakada",
+      "description": "Ti naan-anay a giya iti Abakada: panangrugi, dalan ti panagadal, ti Toolkit, offline a panagusar, dagiti papel, daloy ti trabaho, ken suporta. Simple a pagsasao."
+    },
+    "terms": {
+      "title": "Pagannurot ti Pannakausar | Abakada.org",
+      "description": "Pagannurot ti Pannakausar a mangituray iti akses iti Abakada.org: intelektual a sanikua, umiso a panagusar, salaknib ti brand, ken limitasion ti pagrebbengan."
+    }
+  },
   "meta": {
     "code": "ilo",
     "name": "Ilokano",
