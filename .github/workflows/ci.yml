@@ -3,12 +3,25 @@ name: CI
 on:
   pull_request:
     branches: [main]
+  # Without this, CI only ever ran against a PR's merge commit and main itself
+  # carried no status of its own — a merged PR kept displaying the red X from
+  # its last PR run, and a merge that broke main was invisible until the next
+  # PR happened to catch it.
+  push:
+    branches: [main]
+    # The hourly fetch-visitors cron commits this counter straight to main. It
+    # is bot-written data with no bearing on the build, so left unfiltered it
+    # would trigger a full ~45-minute matrix around the clock for no signal.
+    paths-ignore:
+      - "public/assets/data/visitors.json"
   workflow_dispatch:
 
-# Cancel superseded runs on the same branch to save minutes.
+# Cancel superseded runs on the same branch to save minutes. Pushes to main are
+# excluded: each main commit needs its own durable status, so a rapid second
+# merge must not cancel the run that establishes the first one's result.
 concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verify:

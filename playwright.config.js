@@ -10,7 +10,12 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  reporter: 'list',
+  // `list` keeps the CI log readable as it streams. The HTML report is what the
+  // workflow's upload-artifact step actually collects, and it bundles the
+  // `on-first-retry` traces as attachments — with `list` alone no
+  // playwright-report/ was ever written, so every red run uploaded nothing and
+  // a failure could only be diagnosed by reproducing it locally.
+  reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
