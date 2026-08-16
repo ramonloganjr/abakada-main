@@ -37665,6 +37665,36 @@
       "maturity": "stable",
       "license_type": "GPL-3.0",
       "searchTerms": "zettlr academic markdown editor markdown editor for the 21st century with zettelkasten support. markdown academic zettelkasten obsidian writing gpl-3.0 windows macos linux"
+    },
+    {
+      "id": "waterfox",
+      "category": "web",
+      "name": "Waterfox",
+      "tagline": "Customizable & privacy-focused browser",
+      "description": "A privacy focused browser built for power users who value customization and control over their online experience",
+      "website": "https://www.waterfox.com",
+      "license": "MPL-2.0",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "tags": [
+        "browser",
+        "privacy"
+      ],
+      "alternatives_to": [
+        "Firefox",
+        "LibreWolf"
+      ],
+      "last_update": "2026-07-21",
+      "repo_url": "https://github.com/BrowserWorks/waterfox",
+      "is_foss": true,
+      "stars": 6100,
+      "maturity": "stable",
+      "license_type": "MPL-2.0",
+      "searchTerms": "waterfox firefox fork privacy customization control browser firefox-fork mpl-2.0 windows macos linux android"
     }
   ]
 }
