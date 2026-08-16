@@ -26,7 +26,7 @@ The site also publishes structured **learning paths** that combine multiple tool
 - **No paid placements.** Abakada accepts no money for listings or rankings.
 - **No AI-generated content without human review.** All tool reviews and learning-path copy are written and verified by human contributors.
 - **Quarterly review cadence.** Each tool's "Last reviewed" date reflects the most recent verification.
-- **Open contribution.** All content is open-source on GitHub at `https://github.com/Abakada-org`.
+- **Open contribution.** All content is open-source on GitHub at `https://github.com/ramonloganjr/abakada-main/`.
 - **Licenses:** code MIT, content CC BY 4.0.
 
 ## AI / crawler policy
@@ -70,6 +70,6 @@ The site also publishes structured **learning paths** that combine multiple tool
 ## Maintainer
 
 - Founder: Ramon Logan Jr. (https://ramonloganjr.com)
-- GitHub: https://github.com/Abakada-org
+- GitHub: https://github.com/ramonloganjr/abakada-main/
 - Contact: hello@abakada.org
 - Affiliations: Independent, volunteer-driven. Not affiliated with any government agency, educational institution, or commercial entity.

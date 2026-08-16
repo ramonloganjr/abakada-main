@@ -708,7 +708,7 @@
         "q10": "Gumagamit ba ang Abakada ng AI sa pagsulat ng nilalaman?",
         "a10": "Hindi. Lahat ng pagsusuri, paglalarawan, at nilalaman ng landas ng pag-aaral ay isinulat at bineripika ng mga kontribyutor na tao. Tinatanggihan ang mga AI-generated na sumusong walang tahasang pagsusuri at pagsisiwalat ng tao, ayon sa aming contributing guidelines.",
         "q11": "Paano ako makakatulong?",
-        "a11": "Magbukas ng issue o pull request sa Abakada GitHub repository (github.com/Abakada-org). Maaari kang magmungkahi ng bagong kagamitan, magtama ng lumang impormasyon, magpabuti ng mga salin, magsulat ng nilalaman para sa landas ng pag-aaral, o mag-ambag ng code. Malugod din naming tinatanggap ang mga ambag para sa accessibility, dokumentasyon, at disenyo.",
+        "a11": "Magbukas ng issue o pull request sa Abakada GitHub repository (github.com/ramonloganjr/abakada-main). Maaari kang magmungkahi ng bagong kagamitan, magtama ng lumang impormasyon, magpabuti ng mga salin, magsulat ng nilalaman para sa landas ng pag-aaral, o mag-ambag ng code. Malugod din naming tinatanggap ang mga ambag para sa accessibility, dokumentasyon, at disenyo.",
         "q12": "May kaugnayan ba ang Abakada sa anumang ahensya ng gobyerno?",
         "a12": "Wala. Ang Abakada ay isang malayang proyektong pinapatakbo ng mga boluntaryo. Wala kaming kaugnayan sa anumang ahensya ng gobyerno, institusyong pang-edukasyon, o komersyal na entidad. Hindi kami tumatanggap ng bayad na paglalagay at hindi kami nagpapatakbo ng advertising.",
         "q13": "Paano pinopondohan ang Abakada?",

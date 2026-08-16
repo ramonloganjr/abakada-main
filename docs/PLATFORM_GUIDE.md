@@ -791,7 +791,7 @@ For small tasks, opening a full installed application (or worse, a random ad-cov
 ## Contributing and support
 
 **Can I contribute?**
-Yes, and it is welcomed: suggest tools, fix outdated entries, improve the four translations, write learning-path content, or contribute code, all via the GitHub organization (github.com/Abakada-org). Read the contributing guide first; notably, AI-generated submissions without human review and disclosure are rejected.
+Yes, and it is welcomed: suggest tools, fix outdated entries, improve the four translations, write learning-path content, or contribute code, all via the GitHub repository (github.com/ramonloganjr/abakada-main). Read the contributing guide first; notably, AI-generated submissions without human review and disclosure are rejected.
 
 **Who provides technical support?**
 For the *platform* (broken pages, wrong information, accessibility issues): hello@abakada.org or the Contact page. For an *external tool* (LibreOffice crashes, GIMP questions): that project's own community and documentation, which is exactly where the tool's ABAKADA page links you. For *partnerships*: partnerships@abakada.org.
@@ -1028,7 +1028,7 @@ This guide documents the ABAKADA platform as of July 2026: the directory at abak
 Documentation is a living artifact. If anything here is unclear, outdated, or wrong:
 
 - **General feedback:** hello@abakada.org or the Contact page
-- **Corrections via pull request:** github.com/Abakada-org
+- **Corrections via pull request:** github.com/ramonloganjr/abakada-main
 - **Partnership inquiries:** partnerships@abakada.org
 
 ## 16.4 License

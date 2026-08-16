@@ -92,7 +92,7 @@ const EXTERNAL = [
     ),
   },
   {
-    href: 'https://github.com/Abakada-org',
+    href: 'https://github.com/ramonloganjr/abakada-main/',
     titleKey: 'pages.sitemap.github',
     descKey: 'pages.sitemap.githubDesc',
     title: 'GitHub Repository',

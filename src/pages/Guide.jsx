@@ -617,7 +617,7 @@ const SECTIONS = [
             <li>Use the Toolkit for sensitive quick tasks; pasting client data into random web tools is a leak, on-device tools are not.</li>
             <li>Check the license field before adopting a tool into commercial work.</li>
             <li>Reusing Abakada&apos;s content? It is CC BY 4.0: adapt freely with a credit to Abakada.org.</li>
-            <li>Spotted a gap or an outdated entry? Contribute on <a href="https://github.com/Abakada-org" target="_blank" rel="noopener noreferrer">GitHub</a>.</li>
+            <li>Spotted a gap or an outdated entry? Contribute on <a href="https://github.com/ramonloganjr/abakada-main/" target="_blank" rel="noopener noreferrer">GitHub</a>.</li>
           </ul>
         ),
       },
@@ -737,7 +737,7 @@ const SECTIONS = [
             <li><strong>Platform issues, corrections, accessibility, takedowns</strong>: <Link to="/contact">Contact page</Link> or hello@abakada.org.</li>
             <li><strong>Questions about an external tool</strong>: that project&apos;s own community, linked from its tool page.</li>
             <li><strong>Partnerships</strong> (schools, NGOs, sponsors): partnerships@abakada.org or the <Link to="/partnerships">Partnerships page</Link>.</li>
-            <li><strong>Security vulnerabilities</strong>: report privately per the security policy on <a href="https://github.com/Abakada-org" target="_blank" rel="noopener noreferrer">GitHub</a>; never via public issues.</li>
+            <li><strong>Security vulnerabilities</strong>: report privately per the security policy on <a href="https://github.com/ramonloganjr/abakada-main/" target="_blank" rel="noopener noreferrer">GitHub</a>; never via public issues.</li>
           </ul>
         ),
       },
@@ -748,7 +748,7 @@ const SECTIONS = [
         body: (
           <p>
             Suggest tools, fix outdated entries, improve the four translations, write learning content, or contribute
-            code, all through <a href="https://github.com/Abakada-org" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            code, all through <a href="https://github.com/ramonloganjr/abakada-main/" target="_blank" rel="noopener noreferrer">GitHub</a>.
             Read the contributing guide first; AI-generated submissions without human review are not accepted. Not a
             developer? Sharing the platform with one classroom is a real contribution too.
           </p>
