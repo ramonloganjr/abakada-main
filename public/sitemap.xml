@@ -33,7 +33,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths"/>
@@ -196,7 +196,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/digital-foundations</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/digital-foundations"/>
@@ -208,7 +208,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/research-starter</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/research-starter"/>
@@ -220,7 +220,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/student-productivity</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/student-productivity"/>
@@ -232,7 +232,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/teacher-digital-classroom</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/teacher-digital-classroom"/>
@@ -244,7 +244,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/remote-collaboration</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/remote-collaboration"/>
@@ -256,7 +256,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/workplace-pro</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/workplace-pro"/>
@@ -268,7 +268,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/self-directed-learner</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/self-directed-learner"/>
@@ -280,7 +280,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/beginner-coding</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/beginner-coding"/>
@@ -292,7 +292,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/designer-toolkit</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/designer-toolkit"/>
@@ -304,7 +304,7 @@
 
   <url>
     <loc>https://abakada.org/learning-paths/accountant-essentials</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/learning-paths/accountant-essentials"/>
@@ -4143,18 +4143,6 @@
   </url>
 
   <url>
-    <loc>https://abakada.org/tools/aseprite</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/tools/aseprite"/>
-    <xhtml:link rel="alternate" hreflang="tl" href="https://abakada.org/tl/tools/aseprite"/>
-    <xhtml:link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo/tools/aseprite"/>
-    <xhtml:link rel="alternate" hreflang="ceb" href="https://abakada.org/bis/tools/aseprite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/tools/aseprite"/>
-  </url>
-
-  <url>
     <loc>https://abakada.org/tools/birdfont</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -4596,18 +4584,6 @@
     <xhtml:link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo/tools/pixelorama"/>
     <xhtml:link rel="alternate" hreflang="ceb" href="https://abakada.org/bis/tools/pixelorama"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/tools/pixelorama"/>
-  </url>
-
-  <url>
-    <loc>https://abakada.org/tools/pixlr</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/tools/pixlr"/>
-    <xhtml:link rel="alternate" hreflang="tl" href="https://abakada.org/tl/tools/pixlr"/>
-    <xhtml:link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo/tools/pixlr"/>
-    <xhtml:link rel="alternate" hreflang="ceb" href="https://abakada.org/bis/tools/pixlr"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/tools/pixlr"/>
   </url>
 
   <url>
@@ -11319,18 +11295,6 @@
   </url>
 
   <url>
-    <loc>https://abakada.org/tools/emby</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/tools/emby"/>
-    <xhtml:link rel="alternate" hreflang="tl" href="https://abakada.org/tl/tools/emby"/>
-    <xhtml:link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo/tools/emby"/>
-    <xhtml:link rel="alternate" hreflang="ceb" href="https://abakada.org/bis/tools/emby"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/tools/emby"/>
-  </url>
-
-  <url>
     <loc>https://abakada.org/tools/maui</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -11676,18 +11640,6 @@
     <xhtml:link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo/tools/sentry"/>
     <xhtml:link rel="alternate" hreflang="ceb" href="https://abakada.org/bis/tools/sentry"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/tools/sentry"/>
-  </url>
-
-  <url>
-    <loc>https://abakada.org/tools/seq</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://abakada.org/en/tools/seq"/>
-    <xhtml:link rel="alternate" hreflang="tl" href="https://abakada.org/tl/tools/seq"/>
-    <xhtml:link rel="alternate" hreflang="ilo" href="https://abakada.org/ilo/tools/seq"/>
-    <xhtml:link rel="alternate" hreflang="ceb" href="https://abakada.org/bis/tools/seq"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://abakada.org/tools/seq"/>
   </url>
 
   <url>

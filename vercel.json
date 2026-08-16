@@ -48,6 +48,17 @@
       ]
     }
   ],
+  "redirects": [
+    { "source": "/tools/aseprite", "destination": "/tools/libresprite", "permanent": true },
+    { "source": "/tools/pixlr", "destination": "/tools/gimp", "permanent": true },
+    { "source": "/tools/emby", "destination": "/tools/jellyfin", "permanent": true },
+    { "source": "/tools/seq", "destination": "/tools/graylog", "permanent": true },
+
+    { "source": "/:lang(en|tl|ilo|bis)/tools/aseprite", "destination": "/:lang/tools/libresprite", "permanent": true },
+    { "source": "/:lang(en|tl|ilo|bis)/tools/pixlr", "destination": "/:lang/tools/gimp", "permanent": true },
+    { "source": "/:lang(en|tl|ilo|bis)/tools/emby", "destination": "/:lang/tools/jellyfin", "permanent": true },
+    { "source": "/:lang(en|tl|ilo|bis)/tools/seq", "destination": "/:lang/tools/graylog", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!assets|sw\\.js|robots\\.txt|sitemap\\.xml|site\\.webmanifest|favicon|icons\\.svg|llms\\.txt|offline\\.html).*)", "destination": "/index.html" }
   ],
