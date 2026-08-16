@@ -38,7 +38,7 @@ export default function Contact() {
                   </div>
                   <div className="contact-method__content">
                     <h3 className="contact-method__title">{t('pages.contact.githubTitle', 'GitHub')}</h3>
-                    <a href="https://github.com/Abakada-org" target="_blank" rel="noopener noreferrer" className="contact-method__link">github.com/Abakada-org</a>
+                    <a href="https://github.com/ramonloganjr/abakada-main/" target="_blank" rel="noopener noreferrer" className="contact-method__link">github.com/ramonloganjr/abakada-main</a>
                     <p className="contact-method__note">{t('pages.contact.githubNote', 'Open issues, submit PRs, or star the project')}</p>
                   </div>
                 </div>

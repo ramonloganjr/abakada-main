@@ -708,7 +708,7 @@
         "q10": "Does Abakada use AI to write content?",
         "a10": "No. All tool reviews, descriptions, and learning-path content are written and verified by human contributors. AI-generated submissions without explicit human review and disclosure are rejected per our contributing guidelines.",
         "q11": "How can I contribute?",
-        "a11": "Open an issue or pull request on the Abakada GitHub repository (github.com/Abakada-org). You can suggest new tools, fix outdated information, improve translations, write learning-path content, or contribute code. We also welcome contributions for accessibility, documentation, and design.",
+        "a11": "Open an issue or pull request on the Abakada GitHub repository (github.com/ramonloganjr/abakada-main). You can suggest new tools, fix outdated information, improve translations, write learning-path content, or contribute code. We also welcome contributions for accessibility, documentation, and design.",
         "q12": "Is Abakada affiliated with any government agency?",
         "a12": "No. Abakada is an independent, volunteer-driven project. We are not affiliated with any government agency, educational institution, or commercial entity. We accept no paid placements and do not run advertising.",
         "q13": "How is Abakada funded?",
