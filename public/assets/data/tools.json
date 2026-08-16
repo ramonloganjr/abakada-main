@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-08-11",
+  "lastUpdated": "2026-08-16",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1291,
+    "totalTools": 1296,
     "totalCategories": 45,
-    "fossTools": 1226,
-    "lastGenerated": "2026-08-11T16:39:00.681Z"
+    "fossTools": 1227,
+    "lastGenerated": "2026-08-16T23:31:47.918Z"
   },
   "categories": [
     {
@@ -19448,6 +19448,61 @@
       "searchTerms": "lrmds deped lrmds learning resources management and development system deped learning portal lr portal self-learning modules alternative learning system als k-12 learning resource portal deped's learning resources management and development system, with curriculum-aligned lesson plans and modules for k-12. free account needed to download. curriculum teaching education filipino teachers pay teachers education proprietary web"
     },
     {
+      "id": "devbrary",
+      "category": "education",
+      "name": "Devbrary",
+      "tagline": "Offline developer reading library",
+      "description": "A reading library for developers, with self-contained topic pages grouped by role (Foundations, Frontend, Backend, DevOps) that stay readable offline.",
+      "website": "https://devbrary.markdino.com",
+      "license": "Freeware",
+      "platforms": [
+        "web"
+      ],
+      "tags": [
+        "education",
+        "learning",
+        "programming",
+        "offline"
+      ],
+      "alternatives_to": [
+        "Educative",
+        "Pluralsight"
+      ],
+      "last_update": "2026-08-15",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Freeware",
+      "searchTerms": "devbrary dev brary developer reading library reading library for developers learn to code programming tutorials upskilling roadmap foundations frontend backend devops pwa installable offline reading no account markdino mark dino pelonia offline developer reading library a reading library for developers, with self-contained topic pages grouped by role (foundations, frontend, backend, devops) that stay readable offline. education learning programming offline educative pluralsight education freeware web"
+    },
+    {
+      "id": "eraya",
+      "category": "education",
+      "name": "eRaya",
+      "tagline": "Kinaray-a language lessons",
+      "description": "A learning platform for Kinaray-a, the language of Antique and parts of Iloilo and Panay Island, with interactive lessons and practice activities.",
+      "website": "https://qbot24.eu.cc/projects/eraya/",
+      "license": "Freeware",
+      "platforms": [
+        "web",
+        "android"
+      ],
+      "tags": [
+        "kinaray-a",
+        "filipino",
+        "learning",
+        "education"
+      ],
+      "alternatives_to": [],
+      "last_update": "2026-05-29",
+      "repo_url": "https://github.com/y23d17/eraya",
+      "is_foss": false,
+      "stars": 0,
+      "maturity": "growing",
+      "license_type": "Freeware",
+      "searchTerms": "eraya eraya app learn kinaray-a karay-a kinaraya antique panay island qbot kinaray-a language lessons a learning platform for kinaray-a, the language of antique and parts of iloilo and panay island, with interactive lessons and practice activities. kinaray-a filipino learning education freeware web android",
+      "web_try_url": "https://eraya.eu.cc"
+    },
+    {
       "id": "fritzing",
       "category": "education",
       "name": "Fritzing",
@@ -19534,6 +19589,33 @@
       "maturity": "stable",
       "license_type": "MIT",
       "searchTerms": "h5p interactive content create, share and reuse interactive html5 content. interactive content html5 education mit web"
+    },
+    {
+      "id": "he-llo",
+      "category": "education",
+      "name": "He-LLO",
+      "tagline": "Grade 10 science learning hub",
+      "description": "Helios e-Learning Link Organizer, a free learning site that gathers DepEd Grade 10 science modules, worksheets, simulations, games, and a discussion board.",
+      "website": "https://www.he-llomobilelearning.org",
+      "license": "Freeware",
+      "platforms": [
+        "web"
+      ],
+      "tags": [
+        "education",
+        "learning",
+        "curriculum",
+        "filipino"
+      ],
+      "alternatives_to": [
+        "Google Classroom",
+        "Quipper"
+      ],
+      "last_update": "2026-08-16",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Freeware",
+      "searchTerms": "he-llo hello he llo helios e-learning link organizer helios elearning link organizer hello mobile learning he-llo mobile learning mobile learning gumacal deped philippines grade 10 science learning hub helios e-learning link organizer, a free learning site that gathers deped grade 10 science modules, worksheets, simulations, games, and a discussion board. education learning curriculum filipino google classroom quipper education freeware web"
     },
     {
       "id": "kicad",
@@ -19709,6 +19791,33 @@
       "maturity": "stable",
       "license_type": "AGPL-3.0",
       "searchTerms": "openedu open edx online learning platform open-source platform for creating and delivering online courses. mooc courses education coursera udemy agpl-3.0 web self-hosted"
+    },
+    {
+      "id": "quiznap",
+      "category": "education",
+      "name": "QuiZnap",
+      "tagline": "Bubble sheet exam scanner",
+      "description": "Grades multiple-choice exams by scanning printable bubble answer sheets with a phone camera, with class and student management for teachers.",
+      "website": "https://play.google.com/store/apps/details?id=com.gineerslife.quiznap",
+      "license": "Proprietary",
+      "platforms": [
+        "android"
+      ],
+      "tags": [
+        "scanning",
+        "grading",
+        "teaching",
+        "offline"
+      ],
+      "alternatives_to": [
+        "ZipGrade",
+        "GradeCam"
+      ],
+      "last_update": "2026-08-09",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Proprietary",
+      "searchTerms": "quiznap quiznap free exam scanner omr bubble sheet answer sheet checker mcq test grader gineerslife bubble sheet exam scanner grades multiple-choice exams by scanning printable bubble answer sheets with a phone camera, with class and student management for teachers. scanning grading teaching offline zipgrade gradecam education proprietary freeware android"
     },
     {
       "id": "scratch",
