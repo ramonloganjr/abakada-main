@@ -51,6 +51,24 @@ test('isFossTool falls back to sniffing the licence when the flag is absent', ()
   assert.equal(isFossTool(null), false)
 })
 
+// Everything in the catalog is free to use, which the tool pages state outright:
+// the generated FAQ answers "Is X free?" with yes, and the SoftwareApplication
+// JSON-LD carries an Offer of price 0. Nothing derives those from the record, so
+// a listing with a paid tier silently ships a false claim in the form an answer
+// engine quotes — which is exactly what Aseprite ($20), Pixlr, Emby, Seq and
+// Cat-ha did until they were removed.
+//
+// These licence identifiers are the tell: each one exists to describe a
+// commercial arrangement. A record arriving under any of them has a price
+// attached and does not belong here.
+test('no record is listed under a licence that implies a paid tier', () => {
+  const COMMERCIAL_LICENSES = ['Freemium', 'Commercial', 'EULA', 'Proprietary-Paid']
+  const offenders = tools
+    .filter((t) => COMMERCIAL_LICENSES.includes(t.license_type))
+    .map((t) => `${t.id} (${t.license_type})`)
+  assert.deepEqual(offenders, [], `these are not free to use: ${offenders.join(', ')}`)
+})
+
 test('getAppStoreLinks returns only the stores a record actually lists', () => {
   assert.deepEqual(getAppStoreLinks({}), [])
   assert.deepEqual(getAppStoreLinks(null), [])

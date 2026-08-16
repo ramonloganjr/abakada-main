@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1296,
+    "totalTools": 1292,
     "totalCategories": 45,
     "fossTools": 1227,
-    "lastGenerated": "2026-08-16T23:31:47.918Z"
+    "lastGenerated": "2026-08-17T01:14:52.310Z"
   },
   "categories": [
     {
@@ -9619,37 +9619,6 @@
       "searchTerms": "zincsearch lightweight search lightweight alternative to elasticsearch written in go. search go lightweight elasticsearch-alternative elasticsearch database apache-2.0 self-hosted"
     },
     {
-      "id": "aseprite",
-      "category": "design",
-      "name": "Aseprite",
-      "tagline": "Pixel art editor",
-      "description": "Animated sprite editor and pixel art tool for game developers.",
-      "website": "https://aseprite.org",
-      "license": "EULA",
-      "platforms": [
-        "windows",
-        "macos",
-        "linux"
-      ],
-      "tags": [
-        "pixel-art",
-        "sprites",
-        "animation",
-        "gamedev"
-      ],
-      "alternatives_to": [
-        "Piskel",
-        "GraphicsGale"
-      ],
-      "is_foss": false,
-      "stars": 0,
-      "maturity": "stable",
-      "license_type": "EULA",
-      "last_update": "2026-01-15",
-      "repo_url": "https://aseprite.org",
-      "searchTerms": "aseprite pixel art editor animated sprite editor and pixel art tool for game developers. pixel-art sprites animation gamedev piskel graphicsgale design eula windows macos linux"
-    },
-    {
       "id": "birdfont",
       "category": "design",
       "name": "BirdFont",
@@ -10716,33 +10685,6 @@
       "last_update": "2026-01-15",
       "repo_url": "https://orama-interactive.itch.io/pixelorama",
       "searchTerms": "pixelorama 2d sprite editor a free and open source pixel art multitool made with godot. pixel-art godot sprites animation aseprite piskel design mit windows macos linux"
-    },
-    {
-      "id": "pixlr",
-      "category": "design",
-      "name": "Pixlr",
-      "tagline": "AI-powered photo editor",
-      "description": "Free online photo editor with AI-powered tools for quick edits and creative effects.",
-      "website": "https://pixlr.com",
-      "license": "Freemium",
-      "platforms": [
-        "web",
-        "ios",
-        "android"
-      ],
-      "tags": [
-        "photo-editing",
-        "ai",
-        "online"
-      ],
-      "alternatives_to": [
-        "Adobe Photoshop"
-      ],
-      "last_update": "2025-12-01",
-      "is_foss": false,
-      "maturity": "stable",
-      "license_type": "Freemium",
-      "searchTerms": "pixlr ai-powered photo editor free online photo editor with ai-powered tools for quick edits and creative effects. photo-editing ai online adobe photoshop design freemium web ios android"
     },
     {
       "id": "plasmic",
@@ -26823,36 +26765,6 @@
       "searchTerms": "dim self-hosted media manager dim, a media manager fueled by dark forces. media streaming rust modern jellyfin media-server agpl-3.0 self-hosted"
     },
     {
-      "id": "emby",
-      "category": "homelab",
-      "name": "Emby",
-      "tagline": "Personal media",
-      "description": "Bring all of your home videos, music, and photos together.",
-      "website": "https://emby.media",
-      "license": "Custom",
-      "platforms": [
-        "windows",
-        "macos",
-        "linux"
-      ],
-      "tags": [
-        "media",
-        "streaming",
-        "server"
-      ],
-      "alternatives_to": [
-        "Plex",
-        "Jellyfin"
-      ],
-      "is_foss": false,
-      "stars": 0,
-      "maturity": "stable",
-      "license_type": "Custom",
-      "last_update": "2026-01-15",
-      "repo_url": "https://emby.media",
-      "searchTerms": "emby personal media bring all of your home videos, music, and photos together. media streaming server plex jellyfin media-server custom windows macos linux"
-    },
-    {
       "id": "maui",
       "category": "mobile",
       "name": ".NET MAUI",
@@ -27686,36 +27598,6 @@
       "last_update": "2026-01-15",
       "repo_url": "https://sentry.io",
       "searchTerms": "sentry error tracking application monitoring platform for error tracking and performance. errors monitoring performance debugging bugsnag rollbar bsl-1.1 self-hosted web"
-    },
-    {
-      "id": "seq",
-      "category": "monitoring",
-      "name": "Seq",
-      "tagline": "Structured logging",
-      "description": "The structured log server for .NET and modern apps.",
-      "website": "https://datalust.co/seq",
-      "license": "Commercial",
-      "platforms": [
-        "windows",
-        "linux",
-        "self-hosted"
-      ],
-      "tags": [
-        "logs",
-        "structured",
-        "dotnet",
-        "search"
-      ],
-      "alternatives_to": [
-        "ELK Stack"
-      ],
-      "is_foss": false,
-      "stars": 0,
-      "maturity": "stable",
-      "license_type": "Commercial",
-      "last_update": "2026-01-15",
-      "repo_url": "https://datalust.co/seq",
-      "searchTerms": "seq structured logging the structured log server for .net and modern apps. logs structured dotnet search elk stack monitoring commercial windows linux self-hosted"
     },
     {
       "id": "signoz",
