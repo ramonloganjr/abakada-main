@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
-import { gotoStaticPage } from './helpers.js'
+import { gotoRendered, gotoStaticPage } from './helpers.js'
 
 // Automated WCAG checks on the key surfaces (review item 6). We gate on
 // serious/critical violations against WCAG 2.0/2.1/2.2 A & AA. `color-contrast`
@@ -13,8 +13,7 @@ const PAGES = ['/', '/educators', '/students', '/learning-paths', '/tools/libreo
 
 for (const path of PAGES) {
   test(`a11y: ${path} has no serious or critical violations`, async ({ page }) => {
-    await page.goto(path)
-    await page.waitForLoadState('networkidle')
+    await gotoRendered(page, path)
 
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa'])
