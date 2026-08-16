@@ -12,6 +12,40 @@ import { expect } from '@playwright/test'
 const RAIL_MIN_WIDTH = 768
 
 /**
+ * Open a page and wait until the app has actually rendered it.
+ *
+ * This replaces `page.waitForLoadState('networkidle')`, which resolved on
+ * ambient traffic rather than on anything the app commits. Analytics and the
+ * footer's third-party embed open connections on their own schedule, so on a
+ * loaded CI runner the required 500ms of silence never arrives and the test dies
+ * at the 30s timeout — a failure that took out whole engines at a time and never
+ * had anything to do with the change under test. Playwright discourages the API
+ * for exactly this reason.
+ *
+ * Both waits are needed, in this order:
+ *
+ * 1. `#main-content` is rendered by App.jsx and is absent from the static shell,
+ *    so its presence is the earliest proof React has mounted. Without it the
+ *    loader check below would pass trivially against an empty `#root` — the
+ *    loader has not been rendered *yet* — and the audit would inspect a blank
+ *    page and report success.
+ * 2. `.brand-loader` is the app's single loading indicator: App.jsx shows it
+ *    while tools.json is in flight and as the Suspense fallback for every lazy
+ *    route, and the pages that fetch their own data (Educators, LearningPaths)
+ *    reuse it. Its absence means data has arrived and the real route markup is
+ *    committed, which is the state the old wait was approximating and the DOM an
+ *    audit has to see.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {string} path
+ */
+export async function gotoRendered(page, path) {
+  await page.goto(path)
+  await expect(page.locator('#main-content')).toBeVisible()
+  await expect(page.locator('.brand-loader')).toHaveCount(0)
+}
+
+/**
  * Open a static (non-home) page with the category sidebar rail dismissed.
  *
  * On `body.static-page` routes the rail is expanded by default from 768px up and
