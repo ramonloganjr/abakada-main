@@ -3,6 +3,10 @@ name: Lighthouse CI
 on:
   pull_request:
     branches: [main]
+    # Skip the hourly visitor-count PRs; auditing a changed integer 24 times a
+    # day tells us nothing. See the same filter in ci.yml.
+    paths-ignore:
+      - "public/assets/data/visitors.json"
   workflow_dispatch:
 
 jobs:

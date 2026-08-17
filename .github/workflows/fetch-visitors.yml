@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      # The counter reaches main through a pull request, not a direct push.
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -163,20 +165,51 @@ jobs:
           echo "All 3 attempts failed"
           exit 1
 
-      - name: Commit and push visitors.json
+      # main is covered by the "Protect main branch" ruleset, which requires
+      # every change to arrive through a pull request — a direct push from the
+      # bot is rejected with GH013. A ruleset bypass is not an option here: the
+      # GitHub Actions app can only be a bypass actor on an organization repo,
+      # and this one is user-owned. So the counter uses the front door. The
+      # ruleset asks for zero approvals and no required status checks, so the
+      # PR is mergeable the moment it exists.
+      #
+      # No [skip ci] marker: Vercel treats it (and [ci skip]/[no ci]) as
+      # "do not deploy", which would freeze the live count at whatever the last
+      # full deploy shipped. The squashed commit on main IS the deploy trigger.
+      # ci.yml and lighthouse.yml both path-ignore visitors.json, so neither the
+      # PR nor the merge wakes a full build.
+      - name: Open and merge a PR with the new visitor count
         if: steps.fetch.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          branch="bot/visitor-count-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
           git add public/assets/data/visitors.json
-          # No [skip ci] marker: Vercel treats it (and [ci skip]/[no ci]) as
-          # "do not deploy", which would freeze the live count at whatever the
-          # last full deploy shipped. Pushing this file IS the deploy trigger now.
-          # No GitHub workflow runs on push to main, so nothing else is woken up.
-          git diff --staged --quiet || git commit -m "chore: update visitor count"
-          git push
+          git commit -m "chore: update visitor count"
+          git push origin "$branch"
 
-      # Publishing is Vercel's job: the push above triggers a production build
+          gh pr create --base main --head "$branch" \
+            --title "chore: update visitor count" \
+            --body "Automated hourly GA4 visitor-count refresh. Merging publishes the new value to production."
+
+          # GitHub computes a PR's mergeable state asynchronously, so a merge
+          # attempted immediately after creation can be refused while that state
+          # is still UNKNOWN. Retry rather than fail the run over a few seconds.
+          for attempt in 1 2 3 4 5; do
+            if gh pr merge "$branch" --squash --delete-branch; then
+              echo "Merged on attempt ${attempt}"
+              exit 0
+            fi
+            echo "Not mergeable yet, retrying in 15s..."
+            sleep 15
+          done
+          echo "Could not merge the visitor-count PR after 5 attempts"
+          exit 1
+
+      # Publishing is Vercel's job: the merge above triggers a production build
       # that ships the new visitors.json with the rest of dist/. The wait below
       # covers that build before the verification step reads the live URL.
       - name: Wait for the Vercel deployment to go live
