@@ -3,15 +3,19 @@ name: CI
 on:
   pull_request:
     branches: [main]
+    # The hourly fetch-visitors cron now opens a PR per refresh (main is
+    # PR-protected and the bot cannot bypass the ruleset), so without this
+    # filter every one of those 24-a-day PRs would drag a full matrix behind
+    # it. The counter is bot-written data with no bearing on the build.
+    paths-ignore:
+      - "public/assets/data/visitors.json"
   # Without this, CI only ever ran against a PR's merge commit and main itself
   # carried no status of its own — a merged PR kept displaying the red X from
   # its last PR run, and a merge that broke main was invisible until the next
   # PR happened to catch it.
   push:
     branches: [main]
-    # The hourly fetch-visitors cron commits this counter straight to main. It
-    # is bot-written data with no bearing on the build, so left unfiltered it
-    # would trigger a full ~45-minute matrix around the clock for no signal.
+    # Same reasoning for the squashed commit each of those PRs lands on main.
     paths-ignore:
       - "public/assets/data/visitors.json"
   workflow_dispatch:
