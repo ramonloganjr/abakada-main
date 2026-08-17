@@ -19,6 +19,8 @@ export interface Tool {
   android_url?: string
   /** App Store listing, for tools shipping an iOS app. */
   ios_url?: string
+  /** Microsoft Store listing, for tools shipping a packaged Windows app. */
+  windows_url?: string
   last_update?: string
   is_foss?: boolean
   stars?: number

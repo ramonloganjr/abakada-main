@@ -196,7 +196,7 @@ export default function ToolModal({ tool, categoryIcon, onClose }) {
               <Icon name="external-link" collection="ui" size={14} />
             </a>
           )}
-          {/* Mobile app stores — rendered with the same secondary button and the
+          {/* App stores — rendered with the same secondary button and the
               platform glyph already used by the badges above, so an app-store
               listing reads as one more way to get the tool rather than a
               bespoke treatment. */}

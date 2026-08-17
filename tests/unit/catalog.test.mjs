@@ -81,10 +81,20 @@ test('getAppStoreLinks returns only the stores a record actually lists', () => {
   const both = getAppStoreLinks({ android_url: 'https://play.example', ios_url: 'https://apps.example' })
   assert.deepEqual(both.map((l) => l.id), ['android', 'ios'])
   assert.deepEqual(both.map((l) => l.label), ['Google Play', 'App Store'])
+
+  const windows = getAppStoreLinks({ windows_url: 'https://apps.microsoft.com/detail/x' })
+  assert.deepEqual(windows.map((l) => l.id), ['windows'])
+  assert.equal(windows[0].label, 'Microsoft Store')
+  assert.equal(windows[0].icon, 'windows')
+
+  // Mobile stores stay ahead of the desktop one whatever order the record
+  // happens to list them in, so the button row never reshuffles per tool.
+  const all = getAppStoreLinks({ windows_url: 'https://ms.example', ios_url: 'https://apps.example', android_url: 'https://play.example' })
+  assert.deepEqual(all.map((l) => l.id), ['android', 'ios', 'windows'])
 })
 
 test('store URLs in the catalog point at the matching store and a listed platform', () => {
-  const withStores = tools.filter((t) => t.android_url || t.ios_url)
+  const withStores = tools.filter((t) => t.android_url || t.ios_url || t.windows_url)
   assert.ok(withStores.length > 0, 'expected at least one record with app-store links')
 
   for (const tool of withStores) {
@@ -95,6 +105,10 @@ test('store URLs in the catalog point at the matching store and a listed platfor
     if (tool.ios_url) {
       assert.match(tool.ios_url, /^https:\/\/apps\.apple\.com\//, `${tool.id} ios_url`)
       assert.ok((tool.platforms || []).includes('ios'), `${tool.id} lists ios_url but not the ios platform`)
+    }
+    if (tool.windows_url) {
+      assert.match(tool.windows_url, /^https:\/\/apps\.microsoft\.com\//, `${tool.id} windows_url`)
+      assert.ok((tool.platforms || []).includes('windows'), `${tool.id} lists windows_url but not the windows platform`)
     }
   }
 })

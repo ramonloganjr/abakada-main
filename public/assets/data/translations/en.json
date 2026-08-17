@@ -281,6 +281,7 @@
     "tryInBrowser": "Try in browser, no install",
     "googlePlay": "Google Play",
     "appStore": "App Store",
+    "microsoftStore": "Microsoft Store",
     "freeAlternativeToClosed": "A free alternative to"
   },
   "install": {

@@ -3,7 +3,7 @@
 
   <h1>Abakada.org</h1>
 
-  <p>A curated, multilingual directory of 1,292 free and open-source productivity tools<br/>for Filipino students, educators, scholars, and professionals.</p>
+  <p>A curated, multilingual directory of 1,293 free and open-source productivity tools<br/>for Filipino students, educators, scholars, and professionals.</p>
 
   <p>
     <a href="https://www.gmanetwork.com/news/pinoyabroad/dispatch/989216/ofw-developersoftware-hub-filipino-students/story/"><img src="https://img.shields.io/badge/Featured%20In-GMA%20News%20Online-107f87?style=flat-square" alt="GMA News Online" /></a>
@@ -59,11 +59,11 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 
 | Metric | Value |
 |:---|:---|
-| Tools | 1,292 (manually curated) |
+| Tools | 1,293 (manually curated) |
 | Categories | 45+ |
 | Learning paths | 10 |
 | Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 871 keys each, full parity |
-| Prerendered HTML routes | 1,361 (59 static pages across 4 locales + 10 toolkits + 1,292 tools) |
+| Prerendered HTML routes | 1,362 (59 static pages across 4 locales + 10 toolkits + 1,293 tools) |
 | Offline | Full PWA + on-demand downloadable learning packs |
 | Backend | None |
 | User accounts | None (progress, bookmarks, and profile live in `localStorage`) |
@@ -133,7 +133,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 <summary><b>Tool Directory</b></summary>
 <br/>
 
-- 1,292 free and open-source tools across 45+ categories
+- 1,293 free and open-source tools across 45+ categories
 - Category-based filtering with sidebar navigation
 - Full-text search with debounce and result highlighting
 - **Real-time synchronized search**: the header and sidebar search bars share a single source of truth (`SearchContext`) — typing into or clearing either bar mirrors to the other instantly, with no submit or page reload required
@@ -290,7 +290,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
   - Content & Editorial Partner: for educators, publishers, FOSS projects
   - Infrastructure Sponsor: for hosting/financial sponsors
 - All three tiers rendered with identical visual weight, no "Recommended" badge or highlight on any tier
-- Includes the same impact stats shown in the deck (1,292 tools · 45+ categories · 10 paths · 4 languages)
+- Includes the same impact stats shown in the deck (1,293 tools · 45+ categories · 10 paths · 4 languages)
 - **Partnership Deck** (`/partnership-deck`): 10-slide scroll-snap presentation with reveal-on-scroll animation, shared visual language and identical email CTA (`partnerships@abakada.org`) with the partnerships page; tier cards are visually equal with no featured/recommended callout
 - **Download Pitch Deck**: dedicated download button on the CTA slide (slide 10) allowing users to directly download `Abakada-Impact-Pitch-Deck-2026.pdf` from `/assets/doc/`
 
@@ -489,7 +489,7 @@ The site is built for traditional search engines (SEO), generative answer engine
 **Crawler-aware delivery:**
 
 - `sitemap.xml` regenerated on every build via `scripts/refresh-sitemap.js`
-  - 1,318 URLs total: 15 static + 1 external (the Abakada Toolkit companion app) + 10 toolkits + 1,292 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
+  - 1,319 URLs total: 15 static + 1 external (the Abakada Toolkit companion app) + 10 toolkits + 1,293 tools (the `noindex` `/progress` and `/bookmarks` are intentionally excluded)
   - Each internal URL carries hreflang alternates for all four languages; the external Toolkit URL is listed as an absolute `<loc>` with no hreflang
   - Image sitemap entry on the home route
 - `llms.txt` published at the site root summarizing site purpose and key URLs
@@ -510,7 +510,7 @@ The site is built for traditional search engines (SEO), generative answer engine
 | Font preloads | All 4 Inter weights as `font/woff2` with `crossorigin` |
 | DNS prefetch + preconnect | Google Tag Manager, Google Analytics |
 | Service Worker | App-shell precache + runtime cache strategies |
-| Static prerendering | 1,361 HTML shells written by `scripts/prerender-shells.js` |
+| Static prerendering | 1,362 HTML shells written by `scripts/prerender-shells.js` |
 | Image hints | `loading="lazy"` + `decoding="async"` on below-the-fold images; `fetchpriority="high"` on the header logo |
 | Minification | esbuild, ES2020 target, sourcemaps off in production |
 | Compression | Brotli + gzip, automatic on the Vercel edge |
@@ -541,7 +541,7 @@ abakada.org/
 ├── public/
 │   ├── assets/
 │   │   ├── data/
-│   │   │   ├── tools.json                # All tool data (1,292 entries)
+│   │   │   ├── tools.json                # All tool data (1,293 entries)
 │   │   │   ├── tools-index.json          # Lightweight search index (prebuild-generated)
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
 │   │   │   ├── curriculum.json           # DepEd K-12 and CHED strand definitions
@@ -565,7 +565,7 @@ abakada.org/
 │   ├── refresh-sitemap.js                # prebuild: regenerates sitemap.xml (static + external Toolkit + toolkits + tools)
 │   ├── build-search-index.mjs            # prebuild: writes tools-index.json
 │   ├── security-headers.mjs              # prebuild: generates headers artifacts
-│   ├── prerender-shells.js               # postbuild: writes 1,361 static HTML shells
+│   ├── prerender-shells.js               # postbuild: writes 1,362 static HTML shells
 │   ├── verify-csp.mjs                    # postbuild: asserts CSP parity across configs
 │   ├── version-sw.mjs                    # postbuild: stamps sw.js CACHE_NAME from hashes
 │   ├── validate-data.mjs                 # JSON-Schema validation of catalog data
@@ -719,7 +719,7 @@ The `build` lifecycle runs three phases:
    - `scripts/security-headers.mjs` — generates the headers artifacts
 2. `build` → `vite build` produces `dist/` (vendor split, content-hashed assets, ES2020, esbuild minify)
 3. `postbuild` →
-   - `scripts/prerender-shells.js` — writes 1,361 static HTML shells (59 static across 4 locales + 10 toolkits + 1,292 tools)
+   - `scripts/prerender-shells.js` — writes 1,362 static HTML shells (59 static across 4 locales + 10 toolkits + 1,293 tools)
    - `scripts/verify-csp.mjs` — fails the build if `vercel.json` carries no CSP, and (in strict hash mode) if any built inline script is not covered by it
    - `scripts/version-sw.mjs` — stamps `CACHE_NAME` in `dist/sw.js` from the asset fingerprints
 
@@ -755,7 +755,7 @@ npm run build
 Produces a fully static `dist/` containing:
 
 - `dist/index.html`: root SPA shell (with inline boot loader)
-- `dist/<route>/index.html`: 1,361 prerendered route shells (plus the root shell = 1,362 HTML files total)
+- `dist/<route>/index.html`: 1,362 prerendered route shells (plus the root shell = 1,363 HTML files total)
 - `dist/assets/*.js`: content-hashed JS chunks
 - `dist/assets/*.css`: content-hashed CSS bundles
 - `dist/assets/data/*`: JSON catalog and translations
@@ -789,7 +789,7 @@ The Node version comes from `engines.node` in `package.json` (`24.x`), matching 
 ### What `vercel.json` provides
 
 - **SPA fallback** — any route with no prerendered file serves `index.html`, so deep links such as `/learning-paths/beginner-coding` and `/tl/progress` survive a refresh. Real files are excluded from the rewrite: `/assets/*`, `sw.js`, `robots.txt`, `sitemap.xml`, `llms.txt`, `icons.svg`, `site.webmanifest`, `favicon*`, `offline.html`.
-- **Prerendered routes win** — Vercel checks the filesystem before applying rewrites, so each of the 1,361 prerendered shells serves its own `<title>`, meta description, canonical and JSON-LD instead of the generic app shell. This is what keeps the SEO/AEO/GEO layer intact; verify it on a preview with `curl -s <url>/tools/vlc | grep '<title>'`.
+- **Prerendered routes win** — Vercel checks the filesystem before applying rewrites, so each of the 1,362 prerendered shells serves its own `<title>`, meta description, canonical and JSON-LD instead of the generic app shell. This is what keeps the SEO/AEO/GEO layer intact; verify it on a preview with `curl -s <url>/tools/vlc | grep '<title>'`.
 - **Security headers** on every response — HSTS with preload, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP/CORP.
 - **Cache control** — `/assets/*` immutable for a year (content-hashed), `/assets/data/*` one hour plus `stale-while-revalidate`, `sw.js` never cached.
 - **PDF handling** — `/assets/doc/*` forced to download via `Content-Disposition: attachment`.
