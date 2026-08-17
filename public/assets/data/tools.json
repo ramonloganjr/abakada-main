@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-08-16",
+  "lastUpdated": "2026-08-17",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1292,
+    "totalTools": 1293,
     "totalCategories": 45,
     "fossTools": 1227,
-    "lastGenerated": "2026-08-17T01:14:52.310Z"
+    "lastGenerated": "2026-08-17T22:00:47.000Z"
   },
   "categories": [
     {
@@ -19822,6 +19822,38 @@
       "last_update": "2026-01-15",
       "repo_url": "https://simulide.com",
       "searchTerms": "simulide circuit simulator simple real-time electronic circuit simulator. electronics simulator circuit arduino proteus ltspice education gpl-3.0 windows macos linux"
+    },
+    {
+      "id": "solar-system-3d",
+      "category": "education",
+      "name": "Solar System 3D",
+      "tagline": "Offline 3D planetarium",
+      "description": "An interactive 3D planetarium for exploring the planets, moons, and NASA missions of the Solar System, with gamified STEM quizzes that work fully offline.",
+      "website": "https://solarsystem3d.space",
+      "android_url": "https://play.google.com/store/apps/details?id=com.vanguardlabs.ss3d",
+      "windows_url": "https://apps.microsoft.com/detail/9ndc0kr8cw14",
+      "license": "Proprietary",
+      "platforms": [
+        "web",
+        "windows",
+        "android"
+      ],
+      "tags": [
+        "astronomy",
+        "planetarium",
+        "space",
+        "3d",
+        "offline"
+      ],
+      "alternatives_to": [
+        "Solar Walk 2",
+        "Star Walk 2"
+      ],
+      "last_update": "2026-07-12",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Proprietary",
+      "searchTerms": "solar-system-3d solar system 3d ss3d astronomy space science planetarium edtech stem solar system planets moons dwarf planets celestial bodies orbits nasa fleet iss hubble voyager jwst telescope night sky simulator offline pwa classroom offline 3d planetarium an interactive 3d planetarium for exploring the planets, moons, and nasa missions of the solar system, with gamified stem quizzes that work fully offline. astronomy planetarium space 3d offline solar walk 2 star walk 2 education proprietary freeware web windows android"
     },
     {
       "id": "stellarium",

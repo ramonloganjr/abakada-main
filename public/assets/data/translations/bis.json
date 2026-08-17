@@ -281,6 +281,7 @@
     "tryInBrowser": "Sulayi sa browser, walay install",
     "googlePlay": "Google Play",
     "appStore": "App Store",
+    "microsoftStore": "Microsoft Store",
     "freeAlternativeToClosed": "Usa ka libreng alternatibo sa"
   },
   "install": {

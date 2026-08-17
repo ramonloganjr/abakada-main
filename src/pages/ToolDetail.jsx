@@ -38,10 +38,13 @@ function buildFAQ(tool) {
   const license = tool.license || 'an open-source license' // only read on the FOSS branch below
   const platforms = formatPlatformList(tool.platforms) || 'multiple platforms'
   // Named app-store destinations answer "where do I get this?" directly, which
-  // is what an assistant or answer engine quotes back for a mobile-first tool.
+  // is what an assistant or answer engine quotes back for a tool that ships
+  // through a store. Kept store-agnostic — a record can list Google Play, the
+  // App Store and the Microsoft Store, so this reads correctly for one, two or
+  // all three rather than assuming a mobile-only pair.
   const stores = getAppStoreLinks(tool).map((s) => s.label)
   const storeSentence = stores.length
-    ? ` On mobile, ${name} is available on ${stores.length === 2 ? `${stores[0]} and ${stores[1]}` : stores[0]}.`
+    ? ` ${name} is also listed on ${stores.slice(0, -1).join(', ')}${stores.length > 1 ? ' and ' : ''}${stores[stores.length - 1]}.`
     : ''
   return [
     {
@@ -179,9 +182,9 @@ export default function ToolDetail({ toolsData = { tools: [], categories: [] }, 
                     {t('tools.tryInBrowser', 'Try in browser, no install')}
                   </a>
                 )}
-                {/* Mobile app stores — same secondary button and platform glyph
-                    as everywhere else, so a store listing is just one more way
-                    to get the tool. */}
+                {/* App stores — same secondary button and platform glyph as
+                    everywhere else, so a store listing is just one more way to
+                    get the tool. */}
                 {storeLinks.map((store) => isSafeUrl(store.url) && (
                   <a key={store.id} className="btn btn--secondary" href={store.url} target="_blank" rel="noopener noreferrer">
                     <Icon name={store.icon} collection="platform" size={15} />

@@ -9,10 +9,10 @@
 // they are used and have to be stated. Stating them once here keeps the copy in
 // one place, and tests/unit/catalog.test.mjs asserts both against tools.json, so
 // adding a tool without updating them fails CI instead of silently drifting.
-export const CATALOG_TOOL_COUNT = 1292
+export const CATALOG_TOOL_COUNT = 1293
 export const CATALOG_CATEGORY_COUNT = 45
 
-// "1,292" — fixed to en-US so the figure is identical in prerendered HTML and in
+// "1,293" — fixed to en-US so the figure is identical in prerendered HTML and in
 // the browser, whatever locale the visitor's runtime defaults to.
 export const catalogToolCount = () => CATALOG_TOOL_COUNT.toLocaleString('en-US')
 
@@ -31,14 +31,16 @@ export function isFossTool(tool) {
   return FOSS_LICENSE_HINTS.some((l) => license.includes(l.toUpperCase()))
 }
 
-// Mobile app-store destinations a record can carry. Ordered Android-first to
-// match the `platforms` vocabulary ordering used elsewhere in the catalog.
-// `icon` reuses the existing platform glyph set, so store links inherit the same
-// iconography as the platform badges rather than introducing new artwork.
+// App-store destinations a record can carry: the two mobile stores first, then
+// the desktop one, matching the `platforms` vocabulary ordering used elsewhere
+// in the catalog. `icon` reuses the existing platform glyph set, so store links
+// inherit the same iconography as the platform badges rather than introducing
+// new artwork.
 /** @type {Array<{ id: string, icon: string, labelKey: string, label: string, read: (t: import('../types').Tool) => string | undefined }>} */
 const APP_STORES = [
   { id: 'android', icon: 'android', labelKey: 'tools.googlePlay', label: 'Google Play', read: (t) => t.android_url },
   { id: 'ios', icon: 'ios', labelKey: 'tools.appStore', label: 'App Store', read: (t) => t.ios_url },
+  { id: 'windows', icon: 'windows', labelKey: 'tools.microsoftStore', label: 'Microsoft Store', read: (t) => t.windows_url },
 ]
 
 /**
