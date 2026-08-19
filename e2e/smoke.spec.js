@@ -55,3 +55,47 @@ test.describe('tool detail — evaluate, try, install', () => {
     await expect(guide.locator('.install-guide__steps li').first()).toBeVisible()
   })
 })
+
+test.describe('footer — sponsorship', () => {
+  // The button is a native anchor rather than GitHub's <iframe> embed, which
+  // means it is bound by our CSP's default-src and needs no frame-src entry.
+  // These assertions are what would break if someone swapped the iframe back
+  // in: the link would become a frame, the accessible name would come from the
+  // vendor's title, and the heart would stop tracking the theme.
+  test('exposes a themed, keyboard-reachable GitHub Sponsors link', async ({ page }) => {
+    await page.goto('/')
+    const sponsor = page.locator('.footer-sponsor')
+    await sponsor.scrollIntoViewIfNeeded()
+
+    await expect(sponsor).toBeVisible()
+    await expect(sponsor).toHaveAttribute('href', 'https://github.com/sponsors/Abakada-org')
+    await expect(sponsor).toHaveAttribute('rel', /noopener/)
+    // Names the destination and warns about the new tab, like .footer-toolkit.
+    await expect(sponsor).toHaveAttribute('aria-label', /GitHub Sponsors.*new tab/i)
+
+    // Directly after the social row in the tab order — it reads as part of that
+    // group, so it must not be reachable only by scrolling past the link lists.
+    await page.locator('.footer-social__link').last().focus()
+    await page.keyboard.press('Tab')
+    await expect(sponsor).toBeFocused()
+  })
+
+  test('sponsor heart takes a distinct colour in each theme', async ({ page }) => {
+    // Polled, not read once: themes.css crossfades colour over 250ms via
+    // html.theme-transitioning, so a single read after the switch samples a
+    // blend of the two pinks and fails on a value that is only ever in flight.
+    const heartColour = () =>
+      expect
+        .poll(() => page.locator('.footer-sponsor__heart').evaluate((n) => getComputedStyle(n).color))
+
+    await page.emulateMedia({ colorScheme: 'light' })
+    await page.goto('/')
+    await page.locator('.footer-sponsor').scrollIntoViewIfNeeded()
+    // Both are GitHub's sponsor pinks; the point is that the token actually
+    // re-resolves rather than the light value bleeding into dark mode.
+    await heartColour().toBe('rgb(191, 57, 137)')
+
+    await page.emulateMedia({ colorScheme: 'dark' })
+    await heartColour().toBe('rgb(219, 97, 162)')
+  })
+})

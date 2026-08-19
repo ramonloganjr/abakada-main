@@ -941,6 +941,90 @@ body.nav-open .sidebar {
   height: 18px;
 }
 
+/* GitHub Sponsors button — sits directly under the social row.
+
+   Surface is --bg-tertiary, matching .footer-social__link above it, because the
+   footer itself is --bg-secondary: a --bg-secondary button would vanish into it
+   in both themes.
+
+   Hover lifts and takes an accent border rather than filling with accent. The
+   social links fill teal on hover and the Toolkit pill is solid teal at rest,
+   so an outlined treatment keeps three distinct weights in one column instead
+   of a third teal block competing with the promo.
+
+   The heart is the only non-teal colour in the footer, and deliberately so:
+   pink is the universal GitHub Sponsors signal, and confining it to the 16px
+   glyph leaves the surface, border and focus ring on the platform's own accent.
+   Both values are GitHub's own sponsor pinks, per theme, so the cue is the one
+   people already recognise. */
+.footer-sponsor {
+  --sponsor-heart: #bf3989;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Both theme signals, so the pink is right under an explicit toggle and under
+   an untouched system preference alike. */
+[data-theme="dark"] .footer-sponsor {
+  --sponsor-heart: #db61a2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .footer-sponsor {
+    --sponsor-heart: #db61a2;
+  }
+}
+
+.footer-sponsor__heart {
+  flex-shrink: 0;
+  color: var(--sponsor-heart);
+  transition: transform var(--transition-fast);
+}
+
+.footer-sponsor:hover,
+.footer-sponsor:focus-visible {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -4px rgba(16, 127, 135, 0.35);
+}
+
+.footer-sponsor:hover .footer-sponsor__heart,
+.footer-sponsor:focus-visible .footer-sponsor__heart {
+  transform: scale(1.15);
+}
+
+.footer-sponsor:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Matches .footer-toolkit and .footer-link, which drop their transforms here. */
+@media (prefers-reduced-motion: reduce) {
+  .footer-sponsor,
+  .footer-sponsor__heart {
+    transition: none;
+  }
+
+  .footer-sponsor:hover,
+  .footer-sponsor:focus-visible,
+  .footer-sponsor:hover .footer-sponsor__heart,
+  .footer-sponsor:focus-visible .footer-sponsor__heart {
+    transform: none;
+  }
+}
+
 /* App Builders PH vote embed — sits directly above the social row.
    `display: block` matters: an iframe is inline by default, which reserves
    descender space and would add a few stray pixels under the frame.
