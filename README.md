@@ -62,7 +62,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 | Tools | 1,294 (manually curated) |
 | Categories | 45+ |
 | Learning paths | 10 |
-| Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 871 keys each, full parity |
+| Languages | 4 (English, Tagalog, Ilokano, Bisaya) — 983 keys each, full parity |
 | Prerendered HTML routes | 1,363 (59 static pages across 4 locales + 10 toolkits + 1,294 tools) |
 | Offline | Full PWA + on-demand downloadable learning packs |
 | Backend | None |
@@ -320,7 +320,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - Language switcher in header
 - URL-prefixed routes per language (`/`, `/tl`, `/ilo`, `/bis`, `/en`)
 - Translation files stored at `public/assets/data/translations/{en,tl,ilo,bis}.json`
-- **871 translation keys per language with full key parity** across all four files (enforced by the `i18n-parity` unit test; zero missing keys, zero English leakage)
+- **983 translation keys per language with full key parity** across all four files (enforced by the `i18n-parity` unit test; zero missing keys, zero English leakage)
 - Full coverage of the newest modules — the Progress dashboard, guided micro-lessons, offline-pack UI, and Lite mode — translated natively, not machine-translated
 - Brand/proper nouns and standard PH tech terms (Windows, GitHub, MIT, "API Development", "XP") are deliberately kept in English
 - Complete Learning Paths module i18n: all UI strings in `LearningPaths.jsx`, `LearningPathDetail.jsx`, `CompletionCertificate.jsx`, and `OnboardingModal.jsx` wired through `t()`, no hardcoded English strings remain in the module
@@ -377,6 +377,7 @@ Abakada.org is a static, hand-curated catalog of free and open-source software f
 - **Quick Links** column: All Tools · Bookmarks · Comparison Tools · Learning Paths · top categories
 - **Resources** column: FAQ · Glossary · Contribute on GitHub · Open Source Initiative · Impact Pitch Deck (direct PDF download) · Privacy Policy · Terms of Use · Sitemap
 - **Abakada** column: About · Official Partners · Partnerships · Contact, plus a **Toolkit** promo banner (teal pill) linking out to the companion app at [toolkit.abakada.org](https://toolkit.abakada.org/)
+- **Brand column**: logo, description, visitor-count pill, App Builders PH vote embed, social links, and a **Sponsor** button linking to [GitHub Sponsors](https://github.com/sponsors/Abakada-org) — a native anchor rather than GitHub's `<iframe>` embed, so it needs no `frame-src` entry in the CSP, makes no third-party request, adapts to both themes (GitHub's sponsor pinks `#bf3989` / `#db61a2`, scoped to the heart glyph), and stays available offline in the PWA
 - **Featured In** strip: full-width press/media section below the column grid with theme-aware logo variants for GMA News Online, The Global Filipino Magazine, Walastech, and Bombo Radyo, each an external link (`target="_blank" rel="noopener noreferrer"`)
 - All link labels translated across en/tl/ilo/bis
 - Visitor count pill: improved contrast (medium font weight, accent-tinted icon, subtle filled background) showing total visitors and last update from `visitors.json`
@@ -443,7 +444,7 @@ public/assets/data/translations/
 └── bis.json   Bisaya / Cebuano (BCP-47: ceb)
 ```
 
-- **871 keys per language** with verified parity across all four files
+- **983 keys per language** with verified parity across all four files
 - Top-level groups: `meta`, `languages`, `nav`, `hero`, `home`, `trust`, `beginnerPicks`, `groups`, `categories`, `categoryDescriptions`, `tools`, `install`, `featured`, `platforms`, `search`, `filters`, `pagination`, `theme`, `footer`, `accessibility`, `common`, `health`, `license`, `time`, `pages`, `consent`, `pwa`, `bookmark`, `compare`, `learningPaths`, `onboarding`, `cta`, `breadcrumb`, `errors`, `deck`, `bookmarks`, `glossary`, `progress`
 - Dynamic-prefix lookups: `groups.${id}`, `categories.${id}`, `learningPaths.role.${id}`, `learningPaths.${difficulty}`, `progress.level.${name}`, `progress.badge.${id}`
 - The home `Toolkit` spotlight and footer `Toolkit` banner are localized via `home.toolkit.*` and `footer.toolkit*`
@@ -546,7 +547,7 @@ abakada.org/
 │   │   │   ├── learning-paths.json       # 10 toolkits with stages
 │   │   │   ├── curriculum.json           # DepEd K-12 and CHED strand definitions
 │   │   │   ├── visitors.json             # Updated hourly via GitHub Action
-│   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis) — 871 keys each
+│   │   │   └── translations/             # i18n JSON files (en, tl, ilo, bis) — 983 keys each
 │   │   ├── doc/                          # Downloadable documents (Pitch Deck PDF)
 │   │   ├── fonts/                        # Self-hosted Inter woff2 files
 │   │   ├── logo/                         # Favicons, OG image, brand logos
@@ -575,7 +576,7 @@ abakada.org/
 │   │   ├── CompletionCertificate.jsx     # Printable/PDF certificate, unlocked at 100% LP progress
 │   │   ├── ErrorBoundary.jsx
 │   │   ├── FeaturedCarousel.jsx
-│   │   ├── Footer.jsx                    # "Featured In" press strip + PRESS data + Toolkit promo banner
+│   │   ├── Footer.jsx                    # "Featured In" press strip + PRESS data + Toolkit promo banner + GitHub Sponsors button
 │   │   ├── Header.jsx                    # Global search (shared SearchContext) + active-state accent on LP icon
 │   │   ├── Icon.jsx
 │   │   ├── LearningToolCard.jsx

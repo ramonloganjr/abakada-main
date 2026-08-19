@@ -10,6 +10,7 @@ const PITCH_DECK_URL = '/assets/doc/Abakada-Impact-Pitch-Deck-2026.pdf'
 const PITCH_DECK_FILENAME = 'Abakada-Impact-Pitch-Deck-2026.pdf'
 const TOOLKIT_URL = 'https://toolkit.abakada.org/'
 const MERCH_URL = 'https://abakada-org-shop.fourthwall.com/'
+const SPONSORS_URL = 'https://github.com/sponsors/Abakada-org'
 
 export default function Footer({ isStatic = false }) {
   const { appliedTheme } = useTheme()
@@ -82,6 +83,28 @@ export default function Footer({ isStatic = false }) {
                   </svg>
                 </a>
               </div>
+
+              {/* GitHub Sponsors — a native anchor, not GitHub's <iframe> button.
+                  That embed is a fixed 114×32 document declaring its own light
+                  colour-scheme, so it would need `frame-src https://github.com`
+                  in the CSP, would render GitHub-grey against our dark surface,
+                  and would go blank offline in the PWA — the same class of
+                  problem the vote embed's clip-path exists to work around. A
+                  plain link inherits every token instead and costs no
+                  third-party request. Sibling of .footer-social so it picks up
+                  .footer-brand's gap and its centred-under-640px alignment. */}
+              <a
+                href={SPONSORS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-sponsor"
+                aria-label={t('footer.sponsorAria', 'Sponsor Abakada on GitHub Sponsors (opens in a new tab)')}
+              >
+                <svg className="footer-sponsor__heart" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002Z"/>
+                </svg>
+                <span className="footer-sponsor__label">{t('footer.sponsor', 'Sponsor')}</span>
+              </a>
             </div>
 
             <div className="footer-section">
