@@ -43,7 +43,7 @@ The platform has two connected products:
 
 | Product | Address | What it does |
 |:---|:---|:---|
-| **ABAKADA Directory** | [abakada.org](https://abakada.org) | A hand-curated catalog of **1,293 free and open-source software tools** across 45+ categories, organized into 10 guided Learning Paths aligned with Philippine DepEd and CHED curricula. |
+| **ABAKADA Directory** | [abakada.org](https://abakada.org) | A hand-curated catalog of **1,294 free and open-source software tools** across 45+ categories, organized into 10 guided Learning Paths aligned with Philippine DepEd and CHED curricula. |
 | **ABAKADA Toolkit** | [toolkit.abakada.org](https://toolkit.abakada.org) | A collection of **90+ ready-to-use utilities** (image, PDF, text, audio, calculators, study aids) that run instantly in your browser. Your files never leave your device. |
 
 Think of it this way: **the Directory helps you discover and learn software. The Toolkit lets you get everyday tasks done right now, with zero installation.**
@@ -69,7 +69,7 @@ You do not need to fit neatly into one box. The categories exist only to recomme
 1. **Close the software cost gap.** Commercial software licenses are a real barrier in Philippine schools and households. Every tool ABAKADA lists is genuinely free and open source, with no hidden trials or locked features on the directory side.
 2. **Close the discovery gap.** Free alternatives to expensive software exist, but most people never hear of them. ABAKADA curates, verifies, and explains them in plain language, in four Philippine languages.
 3. **Close the connectivity gap.** The platform is built for slow and intermittent internet: it works offline once loaded, offers downloadable learning packs, and includes a Lite Mode for low-end phones and 2G-class connections.
-4. **Close the guidance gap.** A list of 1,293 tools is overwhelming on its own. Learning Paths turn the catalog into structured, step-by-step courses matched to Philippine curriculum standards.
+4. **Close the guidance gap.** A list of 1,294 tools is overwhelming on its own. Learning Paths turn the catalog into structured, step-by-step courses matched to Philippine curriculum standards.
 
 ## 1.4 Real-World Use Cases
 
@@ -84,7 +84,7 @@ You do not need to fit neatly into one box. The categories exist only to recomme
 
 **On the Directory (abakada.org):**
 
-- 1,293 manually curated tools across 45+ categories, each verified for licensing, safety, and educational value
+- 1,294 manually curated tools across 45+ categories, each verified for licensing, safety, and educational value
 - Full-text search with platform filters (Windows, macOS, Linux, Web, Android, iOS, self-hosted) and tag filters
 - Per-tool detail pages with descriptions, license information, related tools, and a "last reviewed" date
 - 10 Learning Paths with stage-by-stage objectives, hands-on tasks, and guided micro-lessons with read-aloud audio
@@ -115,7 +115,7 @@ You do not need to understand the technology to use ABAKADA, but knowing the sha
   │       abakada.org             │      │    toolkit.abakada.org      │
   │       "The Library"           │◄────►│    "The Workbench"          │
   │                               │links │                             │
-  │  • Discover 1,293 FOSS tools  │      │  • Use 90+ tools instantly  │
+  │  • Discover 1,294 FOSS tools  │      │  • Use 90+ tools instantly  │
   │  • Follow Learning Paths      │      │  • Files stay on device     │
   │  • DepEd / CHED alignment     │      │  • Works offline            │
   │  • Track progress locally     │      │  • No accounts              │
@@ -124,7 +124,7 @@ You do not need to understand the technology to use ABAKADA, but knowing the sha
                  ▼
   ┌───────────────────────────────────────────────────────────────────┐
   │              THE WIDER OPEN-SOURCE WORLD                          │
-  │   1,293 independent projects (LibreOffice, GIMP, VLC, Firefox,    │
+  │   1,294 independent projects (LibreOffice, GIMP, VLC, Firefox,    │
   │   Zotero, Blender, …), each owned and maintained by its own       │
   │   community, downloaded from its own official website.            │
   └───────────────────────────────────────────────────────────────────┘
@@ -305,7 +305,7 @@ Paths are grouped into five **tracks** (Foundations, Productivity, Collaboration
 
 ## 4.3 Why Learning Paths Exist
 
-A directory of 1,293 tools answers "what exists?" but not "where do I start?" or "in what order?". Learning Paths exist to solve four specific problems:
+A directory of 1,294 tools answers "what exists?" but not "where do I start?" or "in what order?". Learning Paths exist to solve four specific problems:
 
 1. **Choice paralysis.** Beginners faced with 40 note-taking apps choose none. A path chooses a sensible default for you and explains why.
 2. **Missing sequence.** Skills build on each other. It makes little sense to learn cloud file sync before you understand file management, or encrypted email before password hygiene. Stages encode that order.
@@ -390,7 +390,7 @@ Being precise here matters:
 
 Without alignment, a tool directory is generic: useful, but disconnected from what a Filipino classroom actually teaches. With alignment:
 
-- **Teachers save preparation time.** Instead of auditing 1,293 tools, a TVL-ICT teacher opens the Educators page, taps their strand, and sees only the paths mapped to it.
+- **Teachers save preparation time.** Instead of auditing 1,294 tools, a TVL-ICT teacher opens the Educators page, taps their strand, and sees only the paths mapped to it.
 - **Learning transfers to grades.** Students practice with the same category of tool their subjects require, so path work directly supports schoolwork.
 - **Schools can justify adoption.** An ICT coordinator proposing open-source software to a principal can point to explicit curriculum mapping rather than a vague claim that "free tools are educational."
 
@@ -430,7 +430,7 @@ Its defining feature is the privacy model: **every standard tool processes your 
 Users reasonably ask why there are two sites instead of one. There are four reasons:
 
 1. **Different jobs.** The Directory is a library: you browse, read, decide, and leave to install something. The Toolkit is a workbench: you arrive with a file and a task. Merging them would bury instant tools inside a catalog, and clutter a clean catalog with app machinery.
-2. **Different privacy guarantees.** The Toolkit makes an absolute promise: your files never leave your device, enforced by a strict browser-level policy that blocks outside connections. That strict policy is only practical because the Toolkit is its own site; the Directory needs to link to 1,293 external projects and show press logos, which the Toolkit's lockdown would forbid.
+2. **Different privacy guarantees.** The Toolkit makes an absolute promise: your files never leave your device, enforced by a strict browser-level policy that blocks outside connections. That strict policy is only practical because the Toolkit is its own site; the Directory needs to link to 1,294 external projects and show press logos, which the Toolkit's lockdown would forbid.
 3. **Different weight.** The Toolkit ships real processing engines in the browser, including an OCR engine and PDF renderers. Keeping it separate means directory visitors never download that weight, and Toolkit users get an app tuned purely for tool performance.
 4. **Independent evolution.** Each product can release, improve, and even fail independently without taking the other down.
 
@@ -497,7 +497,7 @@ This is the most important design decision on the platform, and it is worth a fu
 
 ## 7.2 The Philosophy Behind Open-Source Software
 
-Open-source software is built by independent communities, companies, and volunteers who publish their program's source code under licenses that guarantee everyone the freedom to use, study, modify, and share it. Each project (LibreOffice, GIMP, Firefox, Blender, VLC, and 1,288 others in the directory) is its own living organism with its own website, release schedule, security process, community, and identity.
+Open-source software is built by independent communities, companies, and volunteers who publish their program's source code under licenses that guarantee everyone the freedom to use, study, modify, and share it. Each project (LibreOffice, GIMP, Firefox, Blender, VLC, and 1,289 others in the directory) is its own living organism with its own website, release schedule, security process, community, and identity.
 
 ABAKADA's role in this world is the **librarian, not the publisher**. A library does not reprint every book on its shelves; it catalogs them, verifies them, recommends them, and tells you exactly where to find the authentic edition. ABAKADA is a curated library of software, and the "redirect" is the library handing you the official edition.
 
@@ -505,9 +505,9 @@ ABAKADA's role in this world is the **librarian, not the publisher**. A library 
 
 **Safety.** The single most dangerous thing in free software is the impostor download site: a lookalike page bundling real software with malware. The strongest protection is always downloading from the project's official source. By linking directly to verified official websites, ABAKADA removes itself as a middleman that could (even accidentally) serve you a stale or tampered copy. You get exactly what the developers published, with their own checksums and signatures.
 
-**Freshness.** Open-source projects release updates constantly, including security fixes. If ABAKADA hosted copies of 1,293 programs, every copy would begin aging the moment it was mirrored. The official site always has the current version.
+**Freshness.** Open-source projects release updates constantly, including security fixes. If ABAKADA hosted copies of 1,294 programs, every copy would begin aging the moment it was mirrored. The official site always has the current version.
 
-**Licensing and intellectual property.** Open-source licenses generally permit redistribution, but hosting binaries responsibly carries real obligations: shipping license texts, offering corresponding source code (for GPL-family licenses), respecting trademarks (a project's *name and logo* are typically trademarked even when its code is free), and keeping attribution intact. Each of the 1,293 projects **owns its own software**. ABAKADA claims ownership of nothing in the catalog; it owns only its own website code (MIT licensed) and its editorial content (CC BY 4.0). Linking to official sources keeps every project's ownership, branding, and license terms exactly where they belong: with the project.
+**Licensing and intellectual property.** Open-source licenses generally permit redistribution, but hosting binaries responsibly carries real obligations: shipping license texts, offering corresponding source code (for GPL-family licenses), respecting trademarks (a project's *name and logo* are typically trademarked even when its code is free), and keeping attribution intact. Each of the 1,294 projects **owns its own software**. ABAKADA claims ownership of nothing in the catalog; it owns only its own website code (MIT licensed) and its editorial content (CC BY 4.0). Linking to official sources keeps every project's ownership, branding, and license terms exactly where they belong: with the project.
 
 **Maintenance responsibility.** Who fixes a bug in LibreOffice? The Document Foundation, not ABAKADA. Who answers Blender support questions? The Blender community. Hosting or embedding tools would blur this line and leave users stranded between two parties. The clean separation means you always know who maintains what: ABAKADA maintains the catalog, reviews, and learning content; each project maintains its software.
 
@@ -527,7 +527,7 @@ A full application like GIMP or Blender cannot honestly be "embedded" in a webpa
 
 ## 7.5 The Bottom Line
 
-**ABAKADA is a curated directory and learning ecosystem. It does not own, host, or maintain the 1,293 external tools it lists, and it does not claim to.** What it owns is the curation: every entry is manually reviewed against five criteria (relevance to Filipino learners, active maintenance, security and license clarity, documentation quality, and community adoption), re-verified on a schedule, and removed if it ever stops being free and open. The redirect to an official website is the product working as designed.
+**ABAKADA is a curated directory and learning ecosystem. It does not own, host, or maintain the 1,294 external tools it lists, and it does not claim to.** What it owns is the curation: every entry is manually reviewed against five criteria (relevance to Filipino learners, active maintenance, security and license clarity, documentation quality, and community adoption), re-verified on a schedule, and removed if it ever stops being free and open. The redirect to an official website is the product working as designed.
 
 ---
 
@@ -958,7 +958,7 @@ Ordered by estimated impact relative to effort, and framed to preserve the platf
 
 1. **Progress portability (highest impact).** LocalStorage-only progress is philosophically sound but practically fragile (shared lab machines, browser resets). A manual, file-based **export/import of progress** (a downloadable JSON the user owns) would preserve the no-server privacy model while eliminating the platform's most painful failure mode: months of streaks and certificates lost to a cleared cache. A printable/QR "progress card" would even work in classrooms without email.
 2. **Cross-site continuity.** The Directory and Toolkit are one brand but two silos: bookmarks, theme, and language do not carry across, and the Toolkit lacks the four-language localization of the main site. Even a lightweight shared preference (language and theme in the URL when following the cross-link) would smooth the seam; Toolkit i18n in TL/ILO/BIS should be on the roadmap given the platform's audience.
-3. **In-catalog guidance density.** With 1,293 tools and 45+ categories, the gap between "guided path" (10 curated routes) and "raw catalog" is wide. Intermediate scaffolding would help: "students commonly pair this with…" suggestions, or short editorial "best for" one-liners surfaced directly on category listing cards rather than only inside detail pages.
+3. **In-catalog guidance density.** With 1,294 tools and 45+ categories, the gap between "guided path" (10 curated routes) and "raw catalog" is wide. Intermediate scaffolding would help: "students commonly pair this with…" suggestions, or short editorial "best for" one-liners surfaced directly on category listing cards rather than only inside detail pages.
 4. **Search across the divide.** A directory search for "merge pdf" should ideally suggest the Toolkit's Merge PDF tool (and vice versa for "office suite" on the Toolkit). A tiny cross-index of the other product's catalog in each search would resolve the most common navigational dead end between the sites.
 5. **Path discovery from tools.** The tool → path relationship is one-directional. A tool detail page could indicate "this tool is taught in Digital Foundations, Stage 3", converting catalog browsers into path learners, the platform's stated conversion goal.
 6. **Certificate verifiability.** Certificates are self-attested prints. A per-certificate ID with an offline-verifiable checksum (no server needed) would raise their credibility for portfolios and teachers at near-zero infrastructure cost.
@@ -977,7 +977,7 @@ None of these alter the mission; all of them compound it.
 
 Both products share one architectural conviction: **static-first, zero-backend**.
 
-- **Directory (abakada.org):** a React 18/19 + Vite SPA, fully prerendered at build time into 1,362+ static HTML shells (one per route, including all 1,293 tool pages and language variants), served from commodity Apache/cPanel hosting behind Cloudflare. All catalog data ships as static JSON (`tools.json`, `learning-paths.json`, `curriculum.json`, four translation files with enforced 871-key parity). No database, no server runtime, no runtime API calls. User state lives entirely in localStorage/Cache Storage; a service worker provides app-shell caching plus a durable, deploy-surviving bucket for offline learning packs.
+- **Directory (abakada.org):** a React 18/19 + Vite SPA, fully prerendered at build time into 1,363+ static HTML shells (one per route, including all 1,294 tool pages and language variants), served from commodity Apache/cPanel hosting behind Cloudflare. All catalog data ships as static JSON (`tools.json`, `learning-paths.json`, `curriculum.json`, four translation files with enforced 871-key parity). No database, no server runtime, no runtime API calls. User state lives entirely in localStorage/Cache Storage; a service worker provides app-shell caching plus a durable, deploy-surviving bucket for offline learning packs.
 - **Toolkit (toolkit.abakada.org):** a React + Vite SPA where the tools themselves execute client-side: Web Crypto for hashing/encryption, hand-written WebAssembly for image filters, vendored Tesseract WASM for OCR, PDF.js and pdf-lib for the PDF suite, all served same-origin so the strict CSP (`connect-src 'self'`) holds. The only server-side components in the entire ecosystem are optional, isolated proxies for Study AI (a Cloudflare Worker or PHP fallback holding the AI API key, with allowlists, size caps, and per-IP rate limits enforced server-side).
 
 ## 15.2 Benefits of the Current Implementation
@@ -989,7 +989,7 @@ Both products share one architectural conviction: **static-first, zero-backend**
 
 ## 15.3 Trade-offs and Risks
 
-- **Curation does not scale automatically.** 1,293 manually reviewed entries with quarterly re-verification is a substantial recurring editorial cost concentrated in a small volunteer team; this is the platform's true scaling constraint (not traffic). Mitigations available: community review workflows via GitHub, link-rot automation (a scheduled checker that flags dead URLs and stale releases would remove the most mechanical share of review labor).
+- **Curation does not scale automatically.** 1,294 manually reviewed entries with quarterly re-verification is a substantial recurring editorial cost concentrated in a small volunteer team; this is the platform's true scaling constraint (not traffic). Mitigations available: community review workflows via GitHub, link-rot automation (a scheduled checker that flags dead URLs and stale releases would remove the most mechanical share of review labor).
 - **Client-side data is fragile** (see UX recommendation 1); the flip side of the privacy model.
 - **The build's combinatorics grow with the catalog.** Prerendering 1,300+ shells and a sitemap per release is fine today (~2s builds) but is linear in catalog size and language count; at, say, 10,000 tools × 4 languages, the strategy would need revisiting (build sharding or on-demand rendering at the CDN edge).
 - **Bus factor.** Architecture, curation, and deployment knowledge concentrate in a single founder. The excellent README/CONTRIBUTING documentation mitigates this meaningfully, but institutionalizing the editorial process (documented review rubric, multiple maintainers with deploy access) is the key organizational risk item.
@@ -1002,7 +1002,7 @@ The data model is clean and appropriately normalized for a static architecture: 
 
 ## 15.5 Integration Posture
 
-External integration is deliberately minimal: outbound links to 1,293 official project sites (the product itself), Google Analytics as the sole third-party runtime dependency on the directory (anonymized, and consent-gated on the Toolkit), GA4 visitor counts imported hourly by CI rather than fetched client-side (keeping the CSP tight), and the optional AI proxy as the only piece of first-party server logic anywhere, correctly isolated to its own deployable with secrets held server-side. The attack surface is about as small as a two-product web platform can have.
+External integration is deliberately minimal: outbound links to 1,294 official project sites (the product itself), Google Analytics as the sole third-party runtime dependency on the directory (anonymized, and consent-gated on the Toolkit), GA4 visitor counts imported hourly by CI rather than fetched client-side (keeping the CSP tight), and the optional AI proxy as the only piece of first-party server logic anywhere, correctly isolated to its own deployable with secrets held server-side. The attack surface is about as small as a two-product web platform can have.
 
 ## 15.6 Overall Engineering Verdict
 
@@ -1014,7 +1014,7 @@ The platform makes a coherent set of hard trade-offs (no accounts, no backend, m
 
 ## 16.1 Scope and Sources
 
-This guide documents the ABAKADA platform as of July 2026: the directory at abakada.org (1,293 tools, 45+ categories, 10 learning paths, 4 languages) and the Toolkit at toolkit.abakada.org (90+ on-device tools across 14 categories). It was produced from direct analysis of both products and their public repositories.
+This guide documents the ABAKADA platform as of July 2026: the directory at abakada.org (1,294 tools, 45+ categories, 10 learning paths, 4 languages) and the Toolkit at toolkit.abakada.org (90+ on-device tools across 14 categories). It was produced from direct analysis of both products and their public repositories.
 
 ## 16.2 Conventions Used
 
