@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-08-19",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1293,
+    "totalTools": 1294,
     "totalCategories": 45,
     "fossTools": 1227,
-    "lastGenerated": "2026-08-17T22:00:47.000Z"
+    "lastGenerated": "2026-08-19T00:00:00.000Z"
   },
   "categories": [
     {
@@ -19646,6 +19646,35 @@
       "last_update": "2026-01-15",
       "repo_url": "https://kstars.kde.org",
       "searchTerms": "kstars astronomy software free, open source, cross-platform astronomy software by kde. astronomy telescope kde planetarium stellarium education gpl-2.0 windows macos linux"
+    },
+    {
+      "id": "magaral",
+      "category": "education",
+      "name": "MAGARAL.XYZ",
+      "tagline": "K-3 MATATAG learning adventure",
+      "description": "A 3D learning adventure for Kinder to Grade 3, with seven subject worlds mapped to the DepEd MATATAG competencies. No account, no ads, no tracking.",
+      "website": "https://www.magaral.xyz",
+      "license": "Freeware",
+      "platforms": [
+        "web"
+      ],
+      "tags": [
+        "kids",
+        "education",
+        "games",
+        "filipino",
+        "offline"
+      ],
+      "alternatives_to": [
+        "ABCmouse",
+        "Prodigy"
+      ],
+      "last_update": "2026-08-19",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Freeware",
+      "searchTerms": "magaral mag-aral magaral.xyz magaralxyz lakbay-aral lakbay aral kinder grade 1 grade 2 grade 3 k-3 k to 3 elementarya matatag deped budget of work kasanayang pampagkatuto competencies storybook forest math academy bukirin ng kuwento snowy story village science research island kindness town kapuluan ng pamayanan pagbasa matematika gmrc makabansa reading math filipino english science values social studies edukasyon laro larong pang-edukasyon educational game learning game kids game pwa k-3 matatag learning adventure a 3d learning adventure for kinder to grade 3, with seven subject worlds mapped to the deped matatag competencies. no account, no ads, no tracking. kids education games filipino offline abcmouse prodigy education freeware web",
+      "web_try_url": "https://www.magaral.xyz/mag-aral"
     },
     {
       "id": "mnemosyne",
