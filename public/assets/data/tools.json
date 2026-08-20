@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-08-19",
+  "lastUpdated": "2026-08-20",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1294,
+    "totalTools": 1295,
     "totalCategories": 45,
     "fossTools": 1227,
-    "lastGenerated": "2026-08-19T00:00:00.000Z"
+    "lastGenerated": "2026-08-20T00:00:00.000Z"
   },
   "categories": [
     {
@@ -19940,6 +19940,34 @@
       "maturity": "growing",
       "license_type": "Proprietary",
       "searchTerms": "sylla sylla app learn baybayin alibata baybayin script lessons guided lessons, a practice keyboard, and daily challenges for learning baybayin, the pre-colonial philippine script. baybayin filipino learning offline education proprietary freeware android ios"
+    },
+    {
+      "id": "wordbubble",
+      "category": "education",
+      "name": "WordBubble",
+      "tagline": "Toddler phonics for English vowels",
+      "description": "A toddler phonics app for the five English vowel sounds. Children hear a sound, then drag bubbly letters onto ghost targets that snap only when correct.",
+      "website": "https://graceandtruthapps.xyz/wordbubbles/",
+      "ios_url": "https://apps.apple.com/app/wordbubble-learn-to-read/id6759326074",
+      "license": "Freeware",
+      "platforms": [
+        "ios"
+      ],
+      "tags": [
+        "kids",
+        "education",
+        "reading",
+        "learning"
+      ],
+      "alternatives_to": [
+        "ABCmouse",
+        "Starfall"
+      ],
+      "last_update": "2026-02-24",
+      "is_foss": false,
+      "maturity": "growing",
+      "license_type": "Freeware",
+      "searchTerms": "wordbubble word bubble word bubbles wordbubbles wordbubble learn to read learn to read phonics phonics app vowel sounds vowels a e i o u letter sounds alphabet abc early literacy pre-reading beginning reading matuto magbasa pagbasa patinig toddler toddlers preschool prek kindergarten nursery early childhood kids app parenting match and snap drag and drop no reading required grace and truth apps iphone ipad ios app store toddler phonics for english vowels a toddler phonics app for the five english vowel sounds. children hear a sound, then drag bubbly letters onto ghost targets that snap only when correct. kids education reading learning abcmouse starfall education freeware ios"
     },
     {
       "id": "modoboa",
