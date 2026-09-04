@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-08-20",
+  "lastUpdated": "2026-09-04",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1295,
+    "totalTools": 1296,
     "totalCategories": 45,
-    "fossTools": 1227,
-    "lastGenerated": "2026-08-20T00:00:00.000Z"
+    "fossTools": 1228,
+    "lastGenerated": "2026-09-04T00:00:00.000Z"
   },
   "categories": [
     {
@@ -22689,6 +22689,34 @@
       "maturity": "stable",
       "license_type": "AAL",
       "searchTerms": "invoice-ninja invoice ninja invoicing & payments free invoicing, quotes, expenses, and time-tracking for freelancers and businesses. invoicing payments freelance freshbooks quickbooks finance aal web ios android self-hosted"
+    },
+    {
+      "id": "kotse",
+      "category": "finance",
+      "name": "Kotse.cc",
+      "tagline": "Car loan finance estimator",
+      "description": "Understand the true cost of vehicle financing, with a Car Buyer workspace and a Dealership workspace for comparing, saving, and exporting estimates.",
+      "website": "https://kotse.cc",
+      "license": "MIT",
+      "platforms": [
+        "web"
+      ],
+      "tags": [
+        "finance",
+        "privacy",
+        "offline"
+      ],
+      "alternatives_to": [
+        "Bankrate Auto Loan Calculator",
+        "Edmunds Auto Loan Calculator"
+      ],
+      "last_update": "2026-08-23",
+      "repo_url": "https://github.com/ramonloganjr/kotse.cc",
+      "is_foss": true,
+      "maturity": "growing",
+      "license_type": "MIT",
+      "searchTerms": "kotse kotse.cc kotsecc car loan finance estimator car loan calculator auto loan calculator vehicle financing calculator car financing amortization schedule flat rate reducing balance down payment balloon payment early settlement extra payment affordability loan-to-value dealership quotation buyer workspace multi-currency php peso aed pdf png print report pwa installable offline no account understand the true cost of vehicle financing, with a car buyer workspace and a dealership workspace for comparing, saving, and exporting estimates. finance privacy offline bankrate auto loan calculator edmunds auto loan calculator mit web",
+      "web_try_url": "https://kotse.cc"
     },
     {
       "id": "ledger",

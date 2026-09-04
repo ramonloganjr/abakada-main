@@ -1,6 +1,6 @@
 # Abakada
 
-> Abakada is a free, volunteer-driven directory of 1,295 open-source productivity tools curated for Filipino students, educators, scholars, and professionals. Available in English, Filipino (Tagalog), Ilokano, and Bisaya/Cebuano.
+> Abakada is a free, volunteer-driven directory of 1,296 open-source productivity tools curated for Filipino students, educators, scholars, and professionals. Available in English, Filipino (Tagalog), Ilokano, and Bisaya/Cebuano.
 
 ## What this site is
 
