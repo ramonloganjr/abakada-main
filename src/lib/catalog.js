@@ -9,7 +9,7 @@
 // they are used and have to be stated. Stating them once here keeps the copy in
 // one place, and tests/unit/catalog.test.mjs asserts both against tools.json, so
 // adding a tool without updating them fails CI instead of silently drifting.
-export const CATALOG_TOOL_COUNT = 1296
+export const CATALOG_TOOL_COUNT = 1297
 export const CATALOG_CATEGORY_COUNT = 45
 
 // "1,296" — fixed to en-US so the figure is identical in prerendered HTML and in
