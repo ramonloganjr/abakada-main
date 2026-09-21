@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-09-04",
+  "lastUpdated": "2026-09-20",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1296,
+    "totalTools": 1297,
     "totalCategories": 45,
-    "fossTools": 1228,
-    "lastGenerated": "2026-09-04T00:00:00.000Z"
+    "fossTools": 1229,
+    "lastGenerated": "2026-09-20T00:00:00.000Z"
   },
   "categories": [
     {
@@ -37803,6 +37803,34 @@
       "maturity": "stable",
       "license_type": "MPL-2.0",
       "searchTerms": "waterfox firefox fork privacy customization control browser firefox-fork mpl-2.0 windows macos linux android"
+    },
+    {
+      "id": "yylo",
+      "category": "development",
+      "name": "YYLO",
+      "tagline": "AI coding-agent orchestration CLI",
+      "description": "A command-line tool that orchestrates AI coding agents through repeatable workflows and records each run as receipt-backed repository changes. It provides typed task, validation, merge, and release-readiness boundaries, and installs from npm with equivalent yylo and yy commands.",
+      "website": "https://github.com/yylo-dev/yylo",
+      "license": "MIT",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "tags": [
+        "cli",
+        "terminal",
+        "ai",
+        "agents",
+        "workflow"
+      ],
+      "last_update": "2026-09-20",
+      "repo_url": "https://github.com/yylo-dev/yylo",
+      "is_foss": true,
+      "stars": 60,
+      "maturity": "growing",
+      "license_type": "MIT",
+      "searchTerms": "yylo why-lo ai coding-agent orchestration cli command line orchestrator coding agents repeatable workflows receipt backed repository changes task validation merge release readiness npm yy terminal ai agents workflow mit windows macos linux"
     }
   ]
 }
