@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "lastUpdated": "2026-09-20",
+  "lastUpdated": "2026-11-17",
   "schema": {
     "version": "2.0",
     "features": [
@@ -12,10 +12,10 @@
     ]
   },
   "stats": {
-    "totalTools": 1297,
+    "totalTools": 1298,
     "totalCategories": 45,
-    "fossTools": 1229,
-    "lastGenerated": "2026-09-20T00:00:00.000Z"
+    "fossTools": 1230,
+    "lastGenerated": "2026-11-17T00:00:00.000Z"
   },
   "categories": [
     {
@@ -463,6 +463,37 @@
       "maturity": "stable",
       "license_type": "MIT",
       "searchTerms": "dust3d 3d modeling for beginners cross-platform 3d modeling software for quick creation. 3d modeling beginner blender mit windows macos linux"
+    },
+    {
+      "id": "freecad-modeler",
+      "category": "3d",
+      "name": "FreeCAD Modeler",
+      "tagline": "Parametric CAD with Philippine support",
+      "description": "Parametric 3D CAD on free, LGPL FreeCAD, set up on your own machines by Philippine provider Comfac-IT, with paid custom workbenches and team training.",
+      "website": "https://www.comfac-it.com/solutions/freecad",
+      "license": "LGPL-2.1",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "tags": [
+        "cad",
+        "3d",
+        "parametric",
+        "engineering"
+      ],
+      "alternatives_to": [
+        "AutoCAD",
+        "SolidWorks",
+        "Fusion 360"
+      ],
+      "last_update": "2026-09-28",
+      "repo_url": "https://github.com/FreeCAD/FreeCAD",
+      "is_foss": true,
+      "maturity": "stable",
+      "license_type": "LGPL-2.1",
+      "searchTerms": "freecad-modeler freecad modeler comfac comfac-it comfac it solutions parametric cad with philippine support freecad philippines cad philippines open source cad philippines parametric 3d cad parametric 3d modeler part design sketcher constraint sketches techdraw 2d technical drawings dimensioned views assembly fem finite element analysis custom workbenches autocad-style ui block and asset importing cad converter spreadsheet importer lumen calculation parametric cabinet product design mechanical engineering architecture freecad deployment freecad training freecad support on-premise mandaluyong metro manila parametric 3d cad on free, lgpl freecad, set up on your own machines by philippine provider comfac-it, with paid custom workbenches and team training. cad 3d parametric engineering autocad solidworks fusion 360 lgpl-2.1 windows macos linux"
     },
     {
       "id": "goxel",
